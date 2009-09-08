@@ -1,0 +1,94 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{21DF8CA8-EEA7-453F-9D1E-9B428CEB2EDF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CapaNegocio</RootNamespace>
+    <AssemblyName>CapaNegocio</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\AvisoClasificado.cs" />
+    <Compile Include="Entities\Banda.cs" />
+    <Compile Include="Entities\CategoriaMusico.cs" />
+    <Compile Include="Entities\EstadoAvisoClasificado.cs" />
+    <Compile Include="Entities\EstadoMensaje.cs" />
+    <Compile Include="Entities\Genero.cs" />
+    <Compile Include="Entities\Instrumento.cs" />
+    <Compile Include="Entities\Localidad.cs" />
+    <Compile Include="Entities\Mensaje.cs" />
+    <Compile Include="Entities\MusicoXBanda.cs" />
+    <Compile Include="Entities\Pais.cs" />
+    <Compile Include="Entities\Provincia.cs" />
+    <Compile Include="Entities\RangoPosteo.cs" />
+    <Compile Include="Entities\Rubro.cs" />
+    <Compile Include="Entities\TipoAviso.cs" />
+    <Compile Include="Entities\TipoInstrumento.cs" />
+    <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="Factories\AvisoClasificadoFactory.cs" />
+    <Compile Include="Factories\BandaFactory.cs" />
+    <Compile Include="Factories\CategoriaMusicoFactory.cs" />
+    <Compile Include="Factories\EstadoAvisoClasificadoFactory.cs" />
+    <Compile Include="Factories\GeneroFactory.cs" />
+    <Compile Include="Factories\InstrumentoFactory.cs" />
+    <Compile Include="Factories\LocalidadFactory.cs" />
+    <Compile Include="Factories\MensajeFactory.cs" />
+    <Compile Include="Factories\MusicoXBandaFactory.cs" />
+    <Compile Include="Factories\PaisFactory.cs" />
+    <Compile Include="Factories\ProvinciaFactory.cs" />
+    <Compile Include="Factories\RangoPosteoFactory.cs" />
+    <Compile Include="Factories\RubroFactory.cs" />
+    <Compile Include="Factories\TipoAvisoFactory.cs" />
+    <Compile Include="Factories\TipoInstrumentoFactory.cs" />
+    <Compile Include="Factories\UsuarioFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{1671FA12-6367-4150-ABA4-00F84D937BB7}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
