@@ -1,0 +1,164 @@
+-----------------------------------------------------------------------------
+Fecha: 31/08/2009 9:39:02
+Mensaje de error:
+Error mientras se establecía la conexión con el servidor. Al conectar con SQL Server 2005, el error se puede producir porque la configuración predeterminada de SQL Server no admite conexiones remotas. (provider: Proveedor de canalizaciones con nombre, error: 40 - No se pudo abrir una conexión con SQL Server)
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(String host, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, Int64 timerStart)
+   en System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en C:\Documents and Settings\Mati\Escritorio\Virpo\CapaDatos\BDUtilidades.cs:línea 41
+-----------------------------------------------------------------------------
+Fecha: 31/08/2009 10:19:15
+Mensaje de error:
+Error en el nivel de transporte al enviar la solicitud al servidor. (provider: Proveedor de canalizaciones con nombre, error: 0 - No hay ningún proceso en el otro extremo de la canalización.)
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning()
+   en System.Data.SqlClient.TdsParserStateObject.WriteSni()
+   en System.Data.SqlClient.TdsParserStateObject.WritePacket(Byte flushMode)
+   en System.Data.SqlClient.TdsParserStateObject.ExecuteFlush()
+   en System.Data.SqlClient.TdsParser.TdsExecuteSQLBatch(String text, Int32 timeout, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en C:\Documents and Settings\Mati\Escritorio\Virpo\CapaDatos\BDUtilidades.cs:línea 45
+-----------------------------------------------------------------------------
+Fecha: 31/08/2009 10:27:12
+Mensaje de error:
+Error en el nivel de transporte al enviar la solicitud al servidor. (provider: Proveedor de canalizaciones con nombre, error: 0 - No hay ningún proceso en el otro extremo de la canalización.)
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning()
+   en System.Data.SqlClient.TdsParserStateObject.WriteSni()
+   en System.Data.SqlClient.TdsParserStateObject.WritePacket(Byte flushMode)
+   en System.Data.SqlClient.TdsParserStateObject.ExecuteFlush()
+   en System.Data.SqlClient.TdsParser.TdsExecuteSQLBatch(String text, Int32 timeout, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en C:\Documents and Settings\Mati\Escritorio\Virpo\CapaDatos\BDUtilidades.cs:línea 45
+-----------------------------------------------------------------------------
+Fecha: 31/08/2009 10:31:49
+Mensaje de error:
+Error en el nivel de transporte al enviar la solicitud al servidor. (provider: Proveedor de canalizaciones con nombre, error: 0 - No hay ningún proceso en el otro extremo de la canalización.)
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning()
+   en System.Data.SqlClient.TdsParserStateObject.WriteSni()
+   en System.Data.SqlClient.TdsParserStateObject.WritePacket(Byte flushMode)
+   en System.Data.SqlClient.TdsParserStateObject.ExecuteFlush()
+   en System.Data.SqlClient.TdsParser.TdsExecuteSQLBatch(String text, Int32 timeout, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en C:\Documents and Settings\Mati\Escritorio\Virpo\CapaDatos\BDUtilidades.cs:línea 45
+-----------------------------------------------------------------------------
+Fecha: 31/08/2009 10:34:55
+Mensaje de error:
+Error en el nivel de transporte al enviar la solicitud al servidor. (provider: Proveedor de canalizaciones con nombre, error: 0 - No hay ningún proceso en el otro extremo de la canalización.)
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning()
+   en System.Data.SqlClient.TdsParserStateObject.WriteSni()
+   en System.Data.SqlClient.TdsParserStateObject.WritePacket(Byte flushMode)
+   en System.Data.SqlClient.TdsParserStateObject.ExecuteFlush()
+   en System.Data.SqlClient.TdsParser.TdsExecuteSQLBatch(String text, Int32 timeout, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en C:\Documents and Settings\Mati\Escritorio\Virpo\CapaDatos\BDUtilidades.cs:línea 45
+-----------------------------------------------------------------------------
+Fecha: 31/08/2009 10:36:19
+Mensaje de error:
+Error en el nivel de transporte al enviar la solicitud al servidor. (provider: Proveedor de canalizaciones con nombre, error: 0 - No hay ningún proceso en el otro extremo de la canalización.)
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning()
+   en System.Data.SqlClient.TdsParserStateObject.WriteSni()
+   en System.Data.SqlClient.TdsParserStateObject.WritePacket(Byte flushMode)
+   en System.Data.SqlClient.TdsParserStateObject.ExecuteFlush()
+   en System.Data.SqlClient.TdsParser.TdsExecuteSQLBatch(String text, Int32 timeout, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en C:\Documents and Settings\Mati\Escritorio\Virpo\CapaDatos\BDUtilidades.cs:línea 45
+-----------------------------------------------------------------------------
+Fecha: 31/08/2009 15:38:19
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en C:\Documents and Settings\Mati\Escritorio\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 31/08/2009 16:29:21
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en C:\Documents and Settings\Mati\Escritorio\Virpo\CapaDatos\BDUtilidades.cs:línea 91

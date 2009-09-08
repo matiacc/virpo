@@ -1,0 +1,9 @@
+C:\Documents and Settings\Mati\Escritorio\Virpo\CapaNegocio\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Mati\Escritorio\Virpo\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Documents and Settings\Mati\Escritorio\Virpo\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Documents and Settings\Mati\Escritorio\Virpo\CapaNegocio\bin\Debug\CapaPresentacion.dll
+C:\Documents and Settings\Mati\Escritorio\Virpo\CapaNegocio\bin\Debug\CapaPresentacion.pdb
+C:\Documents and Settings\Mati\Escritorio\Virpo\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Documents and Settings\Mati\Escritorio\Virpo\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Documents and Settings\Mati\Escritorio\Virpo\CapaNegocio\bin\Debug\VirpoDB.mdf
+C:\Documents and Settings\Mati\Escritorio\Virpo\CapaNegocio\bin\Debug\VirpoDB_log.ldf

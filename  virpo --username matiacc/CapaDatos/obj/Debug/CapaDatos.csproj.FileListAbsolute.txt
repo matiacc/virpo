@@ -1,0 +1,36 @@
+D:\Disco D\Facu\5º Año\Proyecto Final\PortalMusical\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.dll.config
+D:\Disco D\Facu\5º Año\Proyecto Final\PortalMusical\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.dll
+D:\Disco D\Facu\5º Año\Proyecto Final\PortalMusical\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.pdb
+D:\Disco D\Facu\5º Año\Proyecto Final\PortalMusical\Primera Iteracion\Virpo\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
+D:\Disco D\Facu\5º Año\Proyecto Final\PortalMusical\Primera Iteracion\Virpo\CapaDatos\obj\Debug\CapaPresentacion.dll
+D:\Disco D\Facu\5º Año\Proyecto Final\PortalMusical\Primera Iteracion\Virpo\CapaDatos\obj\Debug\CapaPresentacion.pdb
+E:\documentos\Juan\Proyecto Final\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.dll.config
+E:\documentos\Juan\Proyecto Final\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.dll
+E:\documentos\Juan\Proyecto Final\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.pdb
+E:\documentos\Juan\Proyecto Final\Primera Iteracion\Virpo\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
+E:\documentos\Juan\Proyecto Final\Primera Iteracion\Virpo\CapaDatos\obj\Debug\CapaPresentacion.dll
+E:\documentos\Juan\Proyecto Final\Primera Iteracion\Virpo\CapaDatos\obj\Debug\CapaPresentacion.pdb
+C:\Documents and Settings\Administrador\Escritorio\Virpo\CapaDatos\bin\Debug\CapaPresentacion.dll.config
+C:\Documents and Settings\Administrador\Escritorio\Virpo\CapaDatos\bin\Debug\CapaPresentacion.dll
+C:\Documents and Settings\Administrador\Escritorio\Virpo\CapaDatos\bin\Debug\CapaPresentacion.pdb
+C:\Documents and Settings\Administrador\Escritorio\Virpo\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrador\Escritorio\Virpo\CapaDatos\obj\Debug\CapaPresentacion.dll
+C:\Documents and Settings\Administrador\Escritorio\Virpo\CapaDatos\obj\Debug\CapaPresentacion.pdb
+E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.dll.config
+E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.dll
+E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.pdb
+E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
+E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\obj\Debug\CapaPresentacion.dll
+E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\obj\Debug\CapaPresentacion.pdb
+C:\Documents and Settings\Administrador\Escritorio\tesis\PortalMusical\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.dll.config
+C:\Documents and Settings\Administrador\Escritorio\tesis\PortalMusical\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.dll
+C:\Documents and Settings\Administrador\Escritorio\tesis\PortalMusical\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.pdb
+C:\Documents and Settings\Administrador\Escritorio\tesis\PortalMusical\Primera Iteracion\Virpo\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrador\Escritorio\tesis\PortalMusical\Primera Iteracion\Virpo\CapaDatos\obj\Debug\CapaPresentacion.dll
+C:\Documents and Settings\Administrador\Escritorio\tesis\PortalMusical\Primera Iteracion\Virpo\CapaDatos\obj\Debug\CapaPresentacion.pdb
+C:\Documents and Settings\Mati\Escritorio\Proyecto Final\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.dll.config
+C:\Documents and Settings\Mati\Escritorio\Proyecto Final\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.dll
+C:\Documents and Settings\Mati\Escritorio\Proyecto Final\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.pdb
+C:\Documents and Settings\Mati\Escritorio\Proyecto Final\Primera Iteracion\Virpo\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Mati\Escritorio\Proyecto Final\Primera Iteracion\Virpo\CapaDatos\obj\Debug\CapaPresentacion.dll
+C:\Documents and Settings\Mati\Escritorio\Proyecto Final\Primera Iteracion\Virpo\CapaDatos\obj\Debug\CapaPresentacion.pdb

@@ -1,0 +1,101 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Virpo.master.cs" Inherits="musicamania_Virpo" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Virpo - Musica Colaborativa</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="estilomusic.css" type="text/css" charset="utf-8" />
+<script language="javascript" type="text/javascript">
+function abrirPopup(idAviso) {
+winLeft = (screen.width - 700)/2;
+hidden = window.open('popupContactarVendedor.aspx?IdAviso='+idAviso+'', 'NewWindow','top=0,left='+winLeft+', width=500,height=400,status=yes, resizable=no,scrollbars=no');
+
+}
+function mostrarGif(){
+ document.getElementById('loading').style.display = '';
+}
+
+</script>
+    </head>
+<body>
+<div id="outer">
+  <div id="wrapper">
+    
+    <form id="form1" runat="server">
+    <div id="nav">
+      <div id="head"></div>
+      <div id="head-pip"></div>
+      <ul>
+        <li id="m1"><a href="inicio.aspx">Inicio</a></li>
+        <li id="m2"><a href="Clasificados.aspx">Clasificados</a></li>
+        <li id="m3"><a href="Wikimusic.aspx">Wikimusic</a></li>
+        <li id="m4"><a href="Colaboraciones.aspx">Colaboraciones</a></li>
+        <li id="m5"><a href="Bandas.aspx">Bandas</a></li>
+        <li id="m6"><a href="Foro.aspx">Foro</a></li>
+       
+      </ul>
+      <div id="search">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      <asp:Label ID="lblNombreUsuario" runat="server" Text="Bienvenido!"></asp:Label>
+          &nbsp;&nbsp;<asp:HyperLink ID="hlinkIniciarSesion" runat="server" NavigateUrl="~/Login.aspx">Iniciar 
+          Sesion</asp:HyperLink>
+          <br/>
+          <br/>
+          <h2>Buscar Banda</h2>
+          <input type="text" class="text" name="q" value="" id="q" />&nbsp;
+          <asp:Button ID="btnBuscarBanda" runat="server" Height="24px" Text="Buscar »" />
+         </div>
+    </div>
+    <div id="body">
+    
+    <%--<asp:ScriptManager ID="ScriptManager1" runat="server">--%>
+    <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server"/>--%>
+    <%--<ContentTemplate>--%>
+    <div id="col1">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+       <div id="col2">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+       <div id="col3">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    
+    <%--</ContentTemplate>--%>
+    
+    <%--</asp:UpdatePanel>--%>
+    
+      </div>
+    
+    </form>
+    
+    <p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+
+    
+    
+    
+    
+          
+              
+                  
+                      <%--<div class="clear">
+                          &nbsp;<div id="copyright">
+                              <div id="copyright-left">
+                                  Copyright © todos los derechos reservados | diseñado por
+                                  <a href="http://www.virpo.com.ar">virpo</a></div>
+                          </div>
+                      </div>--%>
+                  
+        </div>
+    
+  
+
+</body>
+</html>
