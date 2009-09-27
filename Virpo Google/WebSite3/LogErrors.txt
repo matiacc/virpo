@@ -1,0 +1,1095 @@
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 12:29:24 a.m.
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 12:39:08 a.m.
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 12:05:41 p.m.
+Mensaje de error:
+Error de conversión al convertir una cadena de caracteres a datetime.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   en System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   en System.Data.SqlClient.SqlDataReader.Read()
+   en System.Data.SqlClient.SqlCommand.CompleteExecuteScalar(SqlDataReader ds, Boolean returnSqlValue)
+   en System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 12:05:41 p.m.
+Mensaje de error:
+Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_MusicoXBanda_Banda". El conflicto ha aparecido en la base de datos "VirpoDB", tabla "dbo.Banda", column 'id'.
+Se terminó la instrucción.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en CapaDatos.BDUtilidades.ExecuteStoreProcedure(String storeProcedure, List`1 parametros, SqlTransaction tran) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 165
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 12:41:23 p.m.
+Mensaje de error:
+Error de conversión al convertir una cadena de caracteres a datetime.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   en System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   en System.Data.SqlClient.SqlDataReader.Read()
+   en System.Data.SqlClient.SqlCommand.CompleteExecuteScalar(SqlDataReader ds, Boolean returnSqlValue)
+   en System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 12:41:23 p.m.
+Mensaje de error:
+Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_MusicoXBanda_Banda". El conflicto ha aparecido en la base de datos "VirpoDB", tabla "dbo.Banda", column 'id'.
+Se terminó la instrucción.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en CapaDatos.BDUtilidades.ExecuteStoreProcedure(String storeProcedure, List`1 parametros, SqlTransaction tran) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 165
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 01:13:03 p.m.
+Mensaje de error:
+Error de conversión al convertir una cadena de caracteres a datetime.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   en System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   en System.Data.SqlClient.SqlDataReader.Read()
+   en System.Data.SqlClient.SqlCommand.CompleteExecuteScalar(SqlDataReader ds, Boolean returnSqlValue)
+   en System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 01:13:31 p.m.
+Mensaje de error:
+Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_MusicoXBanda_Banda". El conflicto ha aparecido en la base de datos "VirpoDB", tabla "dbo.Banda", column 'id'.
+Se terminó la instrucción.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en CapaDatos.BDUtilidades.ExecuteStoreProcedure(String storeProcedure, List`1 parametros, SqlTransaction tran) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 165
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 13:19:29
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 13:25:01
+Mensaje de error:
+Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_MusicoXBanda_Banda". El conflicto ha aparecido en la base de datos "VirpoDB", tabla "dbo.Banda", column 'id'.
+Se terminó la instrucción.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en CapaDatos.BDUtilidades.ExecuteStoreProcedure(String storeProcedure, List`1 parametros, SqlTransaction tran) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 165
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 13:29:53
+Mensaje de error:
+Sintaxis incorrecta cerca de 'smalldatetime'.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 13:29:53
+Mensaje de error:
+Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_MusicoXBanda_Banda". El conflicto ha aparecido en la base de datos "VirpoDB", tabla "dbo.Banda", column 'id'.
+Se terminó la instrucción.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en CapaDatos.BDUtilidades.ExecuteStoreProcedure(String storeProcedure, List`1 parametros, SqlTransaction tran) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 165
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 15:52:22
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 15:59:28
+Mensaje de error:
+Infracción de la restricción UNIQUE KEY 'eMail_unico'. No se puede insertar una clave duplicada en el objeto 'dbo.Usuario'.
+Se terminó la instrucción.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en CapaDatos.BDUtilidades.ExecuteStoreProcedure(String storeProcedure, List`1 parametros, SqlTransaction tran) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 165
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 15:59:39
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 15:59:45
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 16:02:30
+Mensaje de error:
+Infracción de la restricción UNIQUE KEY 'eMail_unico'. No se puede insertar una clave duplicada en el objeto 'dbo.Usuario'.
+Se terminó la instrucción.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en CapaDatos.BDUtilidades.ExecuteStoreProcedure(String storeProcedure, List`1 parametros, SqlTransaction tran) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 165
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 16:04:30
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 18:28:57
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 18:29:01
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 18:30:41
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 19:35:44
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 01/09/2009 19:40:18
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 05/09/2009 20:33:11
+Mensaje de error:
+Error mientras se establecía la conexión con el servidor. Al conectar con SQL Server 2005, el error se puede producir porque la configuración predeterminada de SQL Server no admite conexiones remotas. (provider: Proveedor de canalizaciones con nombre, error: 40 - No se pudo abrir una conexión con SQL Server)
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(String host, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, Int64 timerStart)
+   en System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 87
+-----------------------------------------------------------------------------
+Fecha: 05/09/2009 20:33:33
+Mensaje de error:
+Error mientras se establecía la conexión con el servidor. Al conectar con SQL Server 2005, el error se puede producir porque la configuración predeterminada de SQL Server no admite conexiones remotas. (provider: Proveedor de canalizaciones con nombre, error: 40 - No se pudo abrir una conexión con SQL Server)
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(String host, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, Int64 timerStart)
+   en System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en CapaDatos.BDUtilidades.GetReader(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 112
+-----------------------------------------------------------------------------
+Fecha: 05/09/2009 20:34:53
+Mensaje de error:
+Error mientras se establecía la conexión con el servidor. Al conectar con SQL Server 2005, el error se puede producir porque la configuración predeterminada de SQL Server no admite conexiones remotas. (provider: Proveedor de canalizaciones con nombre, error: 40 - No se pudo abrir una conexión con SQL Server)
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(String host, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, Int64 timerStart)
+   en System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en CapaDatos.BDUtilidades.GetReader(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 112
+-----------------------------------------------------------------------------
+Fecha: 05/09/2009 20:38:16
+Mensaje de error:
+Error mientras se establecía la conexión con el servidor. Al conectar con SQL Server 2005, el error se puede producir porque la configuración predeterminada de SQL Server no admite conexiones remotas. (provider: Proveedor de canalizaciones con nombre, error: 40 - No se pudo abrir una conexión con SQL Server)
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(String host, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, Int64 timerStart)
+   en System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en CapaDatos.BDUtilidades.GetReader(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 112
+-----------------------------------------------------------------------------
+Fecha: 05/09/2009 20:39:41
+Mensaje de error:
+Error mientras se establecía la conexión con el servidor. Al conectar con SQL Server 2005, el error se puede producir porque la configuración predeterminada de SQL Server no admite conexiones remotas. (provider: Proveedor de canalizaciones con nombre, error: 40 - No se pudo abrir una conexión con SQL Server)
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(String host, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, Int64 timerStart)
+   en System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en CapaDatos.BDUtilidades.GetReader(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 112
+-----------------------------------------------------------------------------
+Fecha: 05/09/2009 20:42:10
+Mensaje de error:
+Error mientras se establecía la conexión con el servidor. Al conectar con SQL Server 2005, el error se puede producir porque la configuración predeterminada de SQL Server no admite conexiones remotas. (provider: Proveedor de canalizaciones con nombre, error: 40 - No se pudo abrir una conexión con SQL Server)
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(String host, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, Int64 timerStart)
+   en System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 87
+-----------------------------------------------------------------------------
+Fecha: 05/09/2009 20:43:03
+Mensaje de error:
+Error mientras se establecía la conexión con el servidor. Al conectar con SQL Server 2005, el error se puede producir porque la configuración predeterminada de SQL Server no admite conexiones remotas. (provider: Proveedor de canalizaciones con nombre, error: 40 - No se pudo abrir una conexión con SQL Server)
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(String host, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, Int64 timerStart)
+   en System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en E:\PortalMusical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 87
+-----------------------------------------------------------------------------
+Fecha: 05/09/2009 20:49:31
+Mensaje de error:
+Referencia a objeto no establecida como instancia de un objeto.
+Objeto: CapaPresentacion
+Método: EjecutarConsultaEscalar
+Pila de llamadas:
+   en CapaDatos.BDUtilidades.EjecutarConsultaEscalar(String query) en D:\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 91
+-----------------------------------------------------------------------------
+Fecha: 22/09/2009 19:10:42
+Mensaje de error:
+El nombre de columna 'idGnenero' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 45
+-----------------------------------------------------------------------------
+Fecha: 22/09/2009 19:14:42
+Mensaje de error:
+El nombre de columna 'idGnenero' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 45
+-----------------------------------------------------------------------------
+Fecha: 22/09/2009 22:48:18
+Mensaje de error:
+El procedimiento o la función 'BandaActualizar' esperaba el parámetro '@descripcion', que no se ha especificado.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en CapaDatos.BDUtilidades.ExecuteStoreProcedure(String storeProcedure, List`1 parametros, SqlTransaction tran) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 165
+-----------------------------------------------------------------------------
+Fecha: 22/09/2009 22:51:52
+Mensaje de error:
+El procedimiento o la función 'BandaActualizar' esperaba el parámetro '@descripcion', que no se ha especificado.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en CapaDatos.BDUtilidades.ExecuteStoreProcedure(String storeProcedure, List`1 parametros, SqlTransaction tran) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 165
+-----------------------------------------------------------------------------
+Fecha: 22/09/2009 22:55:20
+Mensaje de error:
+El procedimiento o la función 'BandaActualizar' esperaba el parámetro '@imagen', que no se ha especificado.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en CapaDatos.BDUtilidades.ExecuteStoreProcedure(String storeProcedure, List`1 parametros, SqlTransaction tran) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 165
+-----------------------------------------------------------------------------
+Fecha: 22/09/2009 22:56:48
+Mensaje de error:
+El procedimiento o la función 'BandaActualizar' esperaba el parámetro '@imagenThumb', que no se ha especificado.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en CapaDatos.BDUtilidades.ExecuteStoreProcedure(String storeProcedure, List`1 parametros, SqlTransaction tran) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 165
+-----------------------------------------------------------------------------
+Fecha: 22/09/2009 22:58:00
+Mensaje de error:
+La función o el procedimiento BandaActualizar tiene demasiados argumentos.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en CapaDatos.BDUtilidades.ExecuteStoreProcedure(String storeProcedure, List`1 parametros, SqlTransaction tran) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 165
+-----------------------------------------------------------------------------
+Fecha: 22/09/2009 23:01:56
+Mensaje de error:
+La función o el procedimiento BandaActualizar tiene demasiados argumentos.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en CapaDatos.BDUtilidades.ExecuteStoreProcedure(String storeProcedure, List`1 parametros, SqlTransaction tran) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 165
+-----------------------------------------------------------------------------
+Fecha: 26/09/2009 18:37:22
+Mensaje de error:
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'id' no es válido.
+El nombre de columna 'nombre' no es válido.
+El nombre de columna 'apellido' no es válido.
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'password' no es válido.
+El nombre de columna 'imagen' no es válido.
+El nombre de columna 'imagenThumb' no es válido.
+El nombre de columna 'barrio' no es válido.
+El nombre de columna 'eMail' no es válido.
+El nombre de columna 'telFijo' no es válido.
+El nombre de columna 'telMovil' no es válido.
+El nombre de columna 'fecNac' no es válido.
+El nombre de columna 'sexo' no es válido.
+El nombre de columna 'idPermiso' no es válido.
+El nombre de columna 'idLocalidad' no es válido.
+El nombre de columna 'idTipoUsuario' no es válido.
+El nombre de columna 'idRangoPosteo' no es válido.
+El nombre de columna 'cantPostHechos' no es válido.
+El nombre de columna 'idInstrumentoFROM' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 50
+-----------------------------------------------------------------------------
+Fecha: 26/09/2009 18:37:27
+Mensaje de error:
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'id' no es válido.
+El nombre de columna 'nombre' no es válido.
+El nombre de columna 'apellido' no es válido.
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'password' no es válido.
+El nombre de columna 'imagen' no es válido.
+El nombre de columna 'imagenThumb' no es válido.
+El nombre de columna 'barrio' no es válido.
+El nombre de columna 'eMail' no es válido.
+El nombre de columna 'telFijo' no es válido.
+El nombre de columna 'telMovil' no es válido.
+El nombre de columna 'fecNac' no es válido.
+El nombre de columna 'sexo' no es válido.
+El nombre de columna 'idPermiso' no es válido.
+El nombre de columna 'idLocalidad' no es válido.
+El nombre de columna 'idTipoUsuario' no es válido.
+El nombre de columna 'idRangoPosteo' no es válido.
+El nombre de columna 'cantPostHechos' no es válido.
+El nombre de columna 'idInstrumentoFROM' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 50
+-----------------------------------------------------------------------------
+Fecha: 26/09/2009 18:38:07
+Mensaje de error:
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'id' no es válido.
+El nombre de columna 'nombre' no es válido.
+El nombre de columna 'apellido' no es válido.
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'password' no es válido.
+El nombre de columna 'imagen' no es válido.
+El nombre de columna 'imagenThumb' no es válido.
+El nombre de columna 'barrio' no es válido.
+El nombre de columna 'eMail' no es válido.
+El nombre de columna 'telFijo' no es válido.
+El nombre de columna 'telMovil' no es válido.
+El nombre de columna 'fecNac' no es válido.
+El nombre de columna 'sexo' no es válido.
+El nombre de columna 'idPermiso' no es válido.
+El nombre de columna 'idLocalidad' no es válido.
+El nombre de columna 'idTipoUsuario' no es válido.
+El nombre de columna 'idRangoPosteo' no es válido.
+El nombre de columna 'cantPostHechos' no es válido.
+El nombre de columna 'idInstrumentoFROM' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 50
+-----------------------------------------------------------------------------
+Fecha: 26/09/2009 18:38:13
+Mensaje de error:
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'id' no es válido.
+El nombre de columna 'nombre' no es válido.
+El nombre de columna 'apellido' no es válido.
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'password' no es válido.
+El nombre de columna 'imagen' no es válido.
+El nombre de columna 'imagenThumb' no es válido.
+El nombre de columna 'barrio' no es válido.
+El nombre de columna 'eMail' no es válido.
+El nombre de columna 'telFijo' no es válido.
+El nombre de columna 'telMovil' no es válido.
+El nombre de columna 'fecNac' no es válido.
+El nombre de columna 'sexo' no es válido.
+El nombre de columna 'idPermiso' no es válido.
+El nombre de columna 'idLocalidad' no es válido.
+El nombre de columna 'idTipoUsuario' no es válido.
+El nombre de columna 'idRangoPosteo' no es válido.
+El nombre de columna 'cantPostHechos' no es válido.
+El nombre de columna 'idInstrumentoFROM' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 50
+-----------------------------------------------------------------------------
+Fecha: 26/09/2009 18:39:15
+Mensaje de error:
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'id' no es válido.
+El nombre de columna 'nombre' no es válido.
+El nombre de columna 'apellido' no es válido.
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'password' no es válido.
+El nombre de columna 'imagen' no es válido.
+El nombre de columna 'imagenThumb' no es válido.
+El nombre de columna 'barrio' no es válido.
+El nombre de columna 'eMail' no es válido.
+El nombre de columna 'telFijo' no es válido.
+El nombre de columna 'telMovil' no es válido.
+El nombre de columna 'fecNac' no es válido.
+El nombre de columna 'sexo' no es válido.
+El nombre de columna 'idPermiso' no es válido.
+El nombre de columna 'idLocalidad' no es válido.
+El nombre de columna 'idTipoUsuario' no es válido.
+El nombre de columna 'idRangoPosteo' no es válido.
+El nombre de columna 'cantPostHechos' no es válido.
+El nombre de columna 'idInstrumentoFROM' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 50
+-----------------------------------------------------------------------------
+Fecha: 26/09/2009 18:39:48
+Mensaje de error:
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'id' no es válido.
+El nombre de columna 'nombre' no es válido.
+El nombre de columna 'apellido' no es válido.
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'password' no es válido.
+El nombre de columna 'imagen' no es válido.
+El nombre de columna 'imagenThumb' no es válido.
+El nombre de columna 'barrio' no es válido.
+El nombre de columna 'eMail' no es válido.
+El nombre de columna 'telFijo' no es válido.
+El nombre de columna 'telMovil' no es válido.
+El nombre de columna 'fecNac' no es válido.
+El nombre de columna 'sexo' no es válido.
+El nombre de columna 'idPermiso' no es válido.
+El nombre de columna 'idLocalidad' no es válido.
+El nombre de columna 'idTipoUsuario' no es válido.
+El nombre de columna 'idRangoPosteo' no es válido.
+El nombre de columna 'cantPostHechos' no es válido.
+El nombre de columna 'idInstrumentoFROM' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 50
+-----------------------------------------------------------------------------
+Fecha: 26/09/2009 18:40:10
+Mensaje de error:
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'id' no es válido.
+El nombre de columna 'nombre' no es válido.
+El nombre de columna 'apellido' no es válido.
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'password' no es válido.
+El nombre de columna 'imagen' no es válido.
+El nombre de columna 'imagenThumb' no es válido.
+El nombre de columna 'barrio' no es válido.
+El nombre de columna 'eMail' no es válido.
+El nombre de columna 'telFijo' no es válido.
+El nombre de columna 'telMovil' no es válido.
+El nombre de columna 'fecNac' no es válido.
+El nombre de columna 'sexo' no es válido.
+El nombre de columna 'idPermiso' no es válido.
+El nombre de columna 'idLocalidad' no es válido.
+El nombre de columna 'idTipoUsuario' no es válido.
+El nombre de columna 'idRangoPosteo' no es válido.
+El nombre de columna 'cantPostHechos' no es válido.
+El nombre de columna 'idInstrumentoFROM' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 50
+-----------------------------------------------------------------------------
+Fecha: 26/09/2009 18:41:53
+Mensaje de error:
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'id' no es válido.
+El nombre de columna 'nombre' no es válido.
+El nombre de columna 'apellido' no es válido.
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'password' no es válido.
+El nombre de columna 'imagen' no es válido.
+El nombre de columna 'imagenThumb' no es válido.
+El nombre de columna 'barrio' no es válido.
+El nombre de columna 'eMail' no es válido.
+El nombre de columna 'telFijo' no es válido.
+El nombre de columna 'telMovil' no es válido.
+El nombre de columna 'fecNac' no es válido.
+El nombre de columna 'sexo' no es válido.
+El nombre de columna 'idPermiso' no es válido.
+El nombre de columna 'idLocalidad' no es válido.
+El nombre de columna 'idTipoUsuario' no es válido.
+El nombre de columna 'idRangoPosteo' no es válido.
+El nombre de columna 'cantPostHechos' no es válido.
+El nombre de columna 'idInstrumentoFROM' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 50
+-----------------------------------------------------------------------------
+Fecha: 26/09/2009 18:44:15
+Mensaje de error:
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'id' no es válido.
+El nombre de columna 'nombre' no es válido.
+El nombre de columna 'apellido' no es válido.
+El nombre de columna 'idTipoUsuarioFROM' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 50
+-----------------------------------------------------------------------------
+Fecha: 26/09/2009 18:46:39
+Mensaje de error:
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'id' no es válido.
+El nombre de columna 'nombre' no es válido.
+El nombre de columna 'apellido' no es válido.
+El nombre de columna 'idTipoUsuarioFROM' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 50
+-----------------------------------------------------------------------------
+Fecha: 26/09/2009 18:48:27
+Mensaje de error:
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'id' no es válido.
+El nombre de columna 'nombre' no es válido.
+El nombre de columna 'apellido' no es válido.
+El nombre de columna 'idTipoUsuarioFROM' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 50
+-----------------------------------------------------------------------------
+Fecha: 26/09/2009 18:50:02
+Mensaje de error:
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'id' no es válido.
+El nombre de columna 'nombre' no es válido.
+El nombre de columna 'apellido' no es válido.
+El nombre de columna 'idTipoUsuarioFROM' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 50
+-----------------------------------------------------------------------------
+Fecha: 26/09/2009 18:51:14
+Mensaje de error:
+El nombre de columna 'nombreUsuario' no es válido.
+El nombre de columna 'id' no es válido.
+El nombre de columna 'nombre' no es válido.
+El nombre de columna 'apellido' no es válido.
+El nombre de columna 'idTipoUsuarioFROM' no es válido.
+Objeto: .Net SqlClient Data Provider
+Método: OnError
+Pila de llamadas:
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en CapaDatos.BDUtilidades.EjecutarConsulta(String query) en D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\BDUtilidades.cs:línea 50

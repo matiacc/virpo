@@ -1,0 +1,21 @@
+E:\PortalMusical\Primera Iteracion\Virpo\CapaNegocio\bin\Debug\CapaNegocio.dll
+E:\PortalMusical\Primera Iteracion\Virpo\CapaNegocio\bin\Debug\CapaNegocio.pdb
+E:\PortalMusical\Primera Iteracion\Virpo\CapaNegocio\bin\Debug\CapaPresentacion.dll
+E:\PortalMusical\Primera Iteracion\Virpo\CapaNegocio\bin\Debug\CapaPresentacion.pdb
+E:\PortalMusical\Primera Iteracion\Virpo\CapaNegocio\obj\Debug\ResolveAssemblyReference.cache
+E:\PortalMusical\Primera Iteracion\Virpo\CapaNegocio\obj\Debug\CapaNegocio.dll
+E:\PortalMusical\Primera Iteracion\Virpo\CapaNegocio\obj\Debug\CapaNegocio.pdb
+D:\Primera Iteracion\Virpo\CapaNegocio\bin\Debug\CapaNegocio.dll
+D:\Primera Iteracion\Virpo\CapaNegocio\bin\Debug\CapaNegocio.pdb
+D:\Primera Iteracion\Virpo\CapaNegocio\bin\Debug\CapaPresentacion.dll
+D:\Primera Iteracion\Virpo\CapaNegocio\bin\Debug\CapaPresentacion.pdb
+D:\Primera Iteracion\Virpo\CapaNegocio\obj\Debug\ResolveAssemblyReference.cache
+D:\Primera Iteracion\Virpo\CapaNegocio\obj\Debug\CapaNegocio.dll
+D:\Primera Iteracion\Virpo\CapaNegocio\obj\Debug\CapaNegocio.pdb
+D:\Portal Musical\Primera Iteracion\Virpo\CapaNegocio\bin\Debug\CapaNegocio.dll
+D:\Portal Musical\Primera Iteracion\Virpo\CapaNegocio\bin\Debug\CapaNegocio.pdb
+D:\Portal Musical\Primera Iteracion\Virpo\CapaNegocio\bin\Debug\CapaPresentacion.dll
+D:\Portal Musical\Primera Iteracion\Virpo\CapaNegocio\bin\Debug\CapaPresentacion.pdb
+D:\Portal Musical\Primera Iteracion\Virpo\CapaNegocio\obj\Debug\ResolveAssemblyReference.cache
+D:\Portal Musical\Primera Iteracion\Virpo\CapaNegocio\obj\Debug\CapaNegocio.dll
+D:\Portal Musical\Primera Iteracion\Virpo\CapaNegocio\obj\Debug\CapaNegocio.pdb

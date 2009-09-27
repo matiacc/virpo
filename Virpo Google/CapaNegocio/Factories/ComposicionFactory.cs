@@ -1,0 +1,123 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using CapaNegocio.Entities;
+using CapaDatos;
+using System.Text;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace CapaNegocio.Factories
+{
+    public class ComposicionFactory
+    {
+        public static Composicion Devolver(int id)
+        {
+            string query = "SELECT nombre, descripcion, tipo, tempo, idTonalidad, idInstrumento, idUsuario" +
+                        "FROM Composicion " +
+                        "WHERE id=" + id;
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                Composicion comp = new Composicion();
+                comp.Id = id;
+                comp.Nombre = dt.Rows[0]["nombre"].ToString();
+                comp.Descripcion = dt.Rows[0]["descripcion"].ToString();
+                comp.Tempo = dt.Rows[0]["tempo"].ToString();
+                comp.Tonalidad = TonalidadFactory.Devolver(Convert.ToInt32(dt.Rows[0]["idTonalidad"]));
+                comp.Instrumento = InstrumentoFactory.Devolver(Convert.ToInt32(dt.Rows[0]["idInstrumento"]));
+                comp.Usuario = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[0]["idUsuario"]));
+                                
+                return comp;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
+
+        public static List<Composicion> DevolverTodos(string restriccion)
+        {
+            string query = "SELECT nombre, descripcion, tipo, tempo, idTonalidad, idInstrumento, idUsuario" +
+                        "FROM Composicion ";
+
+            if (!string.IsNullOrEmpty(restriccion))
+                query += restriccion;
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                List<Composicion> composiciones = new List<Composicion>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Composicion comp = new Composicion();
+                    comp.Id = (int)dt.Rows[i]["id"];
+                    comp.Nombre = dt.Rows[i]["nombre"].ToString();
+                    comp.Descripcion = dt.Rows[i]["descripcion"].ToString();
+                    comp.Tempo = dt.Rows[i]["tempo"].ToString();
+                    comp.Tonalidad = TonalidadFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idTonalidad"]));
+                    comp.Instrumento = InstrumentoFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idInstrumento"]));
+                    comp.Usuario = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idUsuario"]));
+                    composiciones.Add(comp);
+                }
+                return composiciones;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
+        public static bool Insertar(Composicion composicion)
+        {
+            return Insertar(composicion, (SqlTransaction)null);
+        }
+        /// <summary>
+        /// Alta de un registro con transaccion
+        /// </summary>
+        /// <param name="musico">Objeto AvisoClasificado</param>
+        /// <returns>true si guardó con éxito</returns>
+        public static bool Insertar(Composicion composicion, SqlTransaction tran)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(BDUtilidades.crearParametro("@descripcion", DbType.String, composicion.Descripcion));
+                parametros.Add(BDUtilidades.crearParametro("@nombre", DbType.String, composicion.Nombre));
+                parametros.Add(BDUtilidades.crearParametro("@tipo", DbType.String, composicion.Tipo));
+                parametros.Add(BDUtilidades.crearParametro("@tempo", DbType.String, composicion.Tempo));
+                parametros.Add(BDUtilidades.crearParametro("@idTonalidad", DbType.Int32, composicion.Tonalidad.Id));
+                parametros.Add(BDUtilidades.crearParametro("@idInstrumento", DbType.Int32, composicion.Instrumento.Id));
+                parametros.Add(BDUtilidades.crearParametro("@idMusico", DbType.Int32, composicion.Usuario.Id));
+                parametros.Add(BDUtilidades.crearParametro("@ruta", DbType.String, composicion.Audio));
+
+                bool ok = BDUtilidades.ExecuteStoreProcedure("ComposicionInsertar", parametros, tran);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+
+
+
+    }
+   
+        
+    
+
+
+
+
+
+}
