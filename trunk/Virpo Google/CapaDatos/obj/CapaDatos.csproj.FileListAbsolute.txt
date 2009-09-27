@@ -1,0 +1,8 @@
+C:\Documents and Settings\d16255056\Escritorio\WebSite3\CapaDatos\bin\Debug\Base\Database.mdf
+C:\Documents and Settings\d16255056\Escritorio\WebSite3\CapaDatos\bin\Debug\Base\Database_log.ldf
+C:\Documents and Settings\d16255056\Escritorio\WebSite3\CapaDatos\bin\Debug\CapaPresentacion.dll.config
+C:\Documents and Settings\d16255056\Escritorio\WebSite3\CapaDatos\bin\Debug\CapaPresentacion.dll
+C:\Documents and Settings\d16255056\Escritorio\WebSite3\CapaDatos\bin\Debug\CapaPresentacion.pdb
+C:\Documents and Settings\d16255056\Escritorio\WebSite3\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\d16255056\Escritorio\WebSite3\CapaDatos\obj\Debug\CapaPresentacion.dll
+C:\Documents and Settings\d16255056\Escritorio\WebSite3\CapaDatos\obj\Debug\CapaPresentacion.pdb

@@ -1,0 +1,8 @@
+bin\Debug\CapaPresentacion.dll
+bin\Debug\CapaPresentacion.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\CapaPresentacion.dll
+obj\Debug\CapaPresentacion.pdb
+bin\Debug\CapaPresentacion.dll.config
+bin\Debug\Base\Database.mdf
+bin\Debug\Base\Database_log.ldf

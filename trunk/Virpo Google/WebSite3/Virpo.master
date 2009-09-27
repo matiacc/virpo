@@ -1,0 +1,178 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Virpo.master.cs" Inherits="musicamania_Virpo" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Virpo - Musica Colaborativa</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="css/estilomusic.css" type="text/css" charset="utf-8" />
+<script type="text/javascript" src="js/prototype.js"></script>
+<script type="text/javascript" src="js/scriptaculous.js?load=effects"></script>
+<script type="text/javascript" src="js/lightbox.js"></script>
+<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+
+<script language="javascript" type="text/javascript">
+function abrirPopup(idAviso) {
+winLeft = (screen.width - 700)/2;
+hidden = window.open('popupContactarVendedor.aspx?IdAviso='+idAviso+'', 'NewWindow','top=0,left='+winLeft+', width=500,height=400,status=yes, resizable=no,scrollbars=no');
+
+}
+function mostrarGif(){
+ document.getElementById('loading').style.display = '';
+}
+
+</script>
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+        }
+    </style>
+    
+    <!-- TinyMCE -->
+
+    <script type="text/javascript" src="jscripts/tiny_mce/tiny_mce.js"></script>
+
+    <script type="text/javascript">
+
+	// O2k7 skin (silver)
+	tinyMCE.init({
+		// General options
+		mode : "exact",
+		elements : "ctl00_ContentPlaceHolder2_elm3",
+		theme : "advanced",
+		skin : "o2k7",
+		skin_variant : "silver",
+		plugins : "safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,inlinepopups",
+
+		// Theme options
+		theme_advanced_buttons1 : "newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,formatselect,fontselect,fontsizeselect",
+		theme_advanced_buttons2 : "tablecontrols,|,hr,removeformat,visualaid,|,outdent,indent,|,link,unlink,|,forecolor,backcolor",
+		theme_advanced_buttons3 : "undo,redo,|,sub,sup,|,insertdate,inserttime,|,charmap,emotions,iespell,image,media,|,print,|,search,replace,|,bullist,numlist,|,preview,code,|,fullscreen",
+		theme_advanced_toolbar_location : "top",
+		theme_advanced_toolbar_align : "left",
+		theme_advanced_statusbar_location : "bottom",
+		theme_advanced_resizing :false,
+
+		// Example content CSS (should be your site CSS)
+		content_css : "css/content.css",
+
+		// Drop lists for link/image/media/template dialogs
+		template_external_list_url : "lists/template_list.js",
+		external_link_list_url : "lists/link_list.js",
+		external_image_list_url : "lists/image_list.js",
+		media_external_list_url : "lists/media_list.js",
+
+		// Replace values for the template plugin
+		template_replace_values : {
+			username : "Some User",
+			staffid : "991234"
+		}
+	});
+
+
+    </script>
+
+    <!-- /TinyMCE -->
+    
+    </head>
+<body>
+<div id="outer">
+  <div id="wrapper">
+    
+    <form id="form1" runat="server">
+    <div id="nav">
+      <div id="head"></div>
+      <div id="head-pip"></div>
+      <ul>
+      <li id="m7"><a href="inicio.aspx">Inicio</a></li>
+        <li id="m1"><a href="GruposDeInteres.aspx">Grupos De Interes</a></li>
+        <li id="m2"><a href="Clasificados.aspx">Clasificados</a></li>
+        <li id="m3"><a href="Wikimusic.aspx">Wikimusic</a></li>
+        <li id="m4"><a href="Colaboraciones.aspx">Colaboraciones</a></li>
+        <li id="m5"><a href="Bandas.aspx">Bandas</a></li>
+        <li id="m6"><a href="Foro.aspx">Foro</a></li>
+        
+        
+       
+      </ul>
+      <div id="search">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+      <asp:Label ID="lblNombreUsuario" runat="server" Text="Bienvenido!"></asp:Label>
+          &nbsp;&nbsp;<asp:HyperLink ID="hlinkIniciarSesion" runat="server" NavigateUrl="~/Login.aspx">Iniciar 
+          Sesion</asp:HyperLink>
+          <br/>
+          <br/>
+          <h2>Buscar</h2>
+                    <table class="style1">
+                        <tr>
+                            <td>
+                                <asp:TextBox ID="txtFiltro" runat="server"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddlBuscarPor" runat="server">
+                                    <asp:ListItem Selected="True">Banda</asp:ListItem>
+                                    <asp:ListItem>Clasificado</asp:ListItem>
+                                    <asp:ListItem>Proyecto</asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                            <td>
+          <asp:Button ID="btnBuscar" runat="server" Height="24px" Text="Buscar »" 
+              onclick="btnBuscar_Click" CssClass="botones" />
+                            </td>
+                        </tr>
+                    </table>
+                    &nbsp;
+          </div>
+    </div>
+    <div id="body">
+    
+    <%--<asp:ScriptManager ID="ScriptManager1" runat="server">--%>
+    <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server"/>--%>
+    <%--<ContentTemplate>--%>
+    <div id="col1">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+       <div id="col2">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+       <div id="col3">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    
+    <%--</ContentTemplate>--%>
+    
+    <%--</asp:UpdatePanel>--%>
+    
+      </div>
+    
+    </form>
+    
+   
+
+    
+    
+    
+    
+          
+              
+                  
+                      <%--<div class="clear">
+                          &nbsp;<div id="copyright">
+                              <div id="copyright-left">
+                                  Copyright © todos los derechos reservados | diseñado por
+                                  <a href="http://www.virpo.com.ar">virpo</a></div>
+                          </div>
+                      </div>--%>
+                  
+        </div>
+    
+  
+
+</body>
+</html>
