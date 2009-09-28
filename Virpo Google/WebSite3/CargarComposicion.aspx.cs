@@ -16,6 +16,18 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            if (Session["Usuario"] == null)
+            {
+            
+                Response.Redirect("ErrorAutentificacion.aspx");
+
+            }
+
+            if (Request.QueryString["idProyecto"] != null)
+            {
+                ViewState.Add("idProyecto", Request.QueryString["idProyecto"]);
+            }
+            
             rbtnPista.Checked = true;
             MetodosComunes.cargarTipoInstrumentos(ddlTipoInstru);
             MetodosComunes.cargarTonalidades(ddlTonalidad);
@@ -31,7 +43,7 @@ public partial class _Default : System.Web.UI.Page
         Composicion composicion = new Composicion();
         
         composicion.Nombre = txtNombre.Text;
-        composicion.Descripcion = "";//lbxDescripcion.Text;
+        composicion.Descripcion = lbxDescripcion.Text;
         composicion.Tipo = tipo;
         composicion.Tempo = txtTempo.Text;
         composicion.Usuario = (Usuario)Session["Usuario"];
@@ -46,7 +58,22 @@ public partial class _Default : System.Web.UI.Page
                         
         }
         composicion.Audio = path;
-        ComposicionFactory.Insertar(composicion);
+        bool a = ComposicionFactory.Insertar(composicion);
+        int idProyecto = Convert.ToInt32(ViewState["idProyecto"]);
+        bool b = ProyectoFactory.InsertarComposicionXProyecto(ComposicionFactory.DevolverIdComposicionCreada(composicion.Usuario.Id), idProyecto,DateTime.Now);
+        
+        if (a && b)
+        {
+            
+            Response.Redirect("CargarComposicion.aspx");
+
+        }
+        else
+        {
+
+        }
+        
+
         
     }
     private string CargarAudio()
