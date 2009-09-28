@@ -43,8 +43,8 @@ public partial class Proyecto : System.Web.UI.Page
                 //if(proy.Usuario.Id == ((Usuario)Session["Usuario"]).Id)
                 if (ProyectoFactory.EsIntegrante(((Usuario)Session["Usuario"]).Id, id))
                     btUnirse.Text = "Subir una composicion";
-                
 
+                
                 lblNombre.Text = proy.Nombre;
                 lblDescripcion.Text = proy.Descripcion;
                 lblFecha.Text = proy.FechaCreacion.ToShortDateString();
@@ -53,6 +53,8 @@ public partial class Proyecto : System.Web.UI.Page
                 lblLicencia.Text = proy.Licencia;
                 lblUsuario.Text = proy.Usuario.NombreUsuario;
 
+                //ViewState.Add("mailCreador", proy.Usuario.EMail);
+                //ViewState.Add("nombreCreador", proy.Usuario);
                 //Colaboradores
                 List<Usuario> usuarios = UsuarioFactory.DevolverIntegrantesDeProyecto(id);
                 string html = "<table>";
@@ -92,35 +94,18 @@ public partial class Proyecto : System.Web.UI.Page
 
     }
 
-    //private DataTable DatosColaboradores(int idProyecto)
-    //{
-    //    DataTable dt = new DataTable();
-    //    DataRow row;
-    //    dt.Columns.Add("Imagen");
-    //    dt.Columns.Add("Nombre");
-
-    //    List<Usuario> usuarios = UsuarioFactory.DevolverIntegrantesDeProyecto(idProyecto);
-    //    if (usuarios != null)
-    //    {
-    //        foreach (Usuario usuario in usuarios)
-    //        {
-    //            row = dt.NewRow();
-    //            row["Imagen"] = ResolveUrl(usuario.Imagen);
-    //            row["Nombre"] = usuario.NombreUsuario;
-    //            dt.Rows.Add(row);
-    //        }
-    //        return dt;
-    //    }
-    //    else
-    //        return null;
-        
-        
-
-    //}
     protected void btUnirse_Click(object sender, EventArgs e)
     {
         if (btUnirse.Text.Contains("Subir"))
+        {
+            string asunto = "Virpo: Un Músico se ha unido a tu proyecto!!!";
+            //string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/inicio.aspx";
+            string url = "http://127.0.0.1:50753/WebSite3/inicio.aspx";
+            //DEVOLVER NOMBRE Y EMAIL DEL CREADOR
+            string mensaje = "Hola " + ViewState["nombreCreador"].ToString() + "amigo/a, un Músico se ha unido a tu proyecto Virpo <b>" + lblNombre.Text + " y pronto comenzará a colaborar.<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
+            //EnviarMail.Mande("Virpo", ViewState["mailCreador"].ToString(), asunto, mensaje);
             Response.Redirect("CargarComposicion.aspx?idProyecto=" + ViewState["idProyecto"]);
+        }
         else if (ProyectoFactory.InsertarUsuarioXProyecto(((Usuario)Session["Usuario"]).Id, (int)ViewState["idProyecto"], DateTime.Now))
             btUnirse.Text = "Subir una composicion";
     }
