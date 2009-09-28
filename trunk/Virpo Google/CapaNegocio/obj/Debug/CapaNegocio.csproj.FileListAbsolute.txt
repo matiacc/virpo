@@ -19,3 +19,10 @@ D:\Portal Musical\Primera Iteracion\Virpo\CapaNegocio\bin\Debug\CapaPresentacion
 D:\Portal Musical\Primera Iteracion\Virpo\CapaNegocio\obj\Debug\ResolveAssemblyReference.cache
 D:\Portal Musical\Primera Iteracion\Virpo\CapaNegocio\obj\Debug\CapaNegocio.dll
 D:\Portal Musical\Primera Iteracion\Virpo\CapaNegocio\obj\Debug\CapaNegocio.pdb
+D:\Virpo Google\CapaNegocio\bin\Debug\CapaNegocio.dll
+D:\Virpo Google\CapaNegocio\bin\Debug\CapaNegocio.pdb
+D:\Virpo Google\CapaNegocio\bin\Debug\CapaPresentacion.dll
+D:\Virpo Google\CapaNegocio\bin\Debug\CapaPresentacion.pdb
+D:\Virpo Google\CapaNegocio\obj\Debug\ResolveAssemblyReference.cache
+D:\Virpo Google\CapaNegocio\obj\Debug\CapaNegocio.dll
+D:\Virpo Google\CapaNegocio\obj\Debug\CapaNegocio.pdb
