@@ -78,11 +78,13 @@ public partial class _Default : System.Web.UI.Page
         {
             string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
             Usuario usu = (Usuario)Session["Usuario"];
+ 
 
-            if (ApuntesWikiFactory.Eliminar(usu.Id,int.Parse(id.ToString())))
-                Response.Redirect("WikiMusic.aspx?Z=1");
-            else Response.Redirect("WikiMusic.aspx?Z=0");
-            
+            if (ApuntesWikiFactory.Eliminar(usu.Id, int.Parse(id.ToString())))
+                Response.Redirect("FavoritosWiki.aspx?Z=1");
+            else
+                Response.Redirect("FavoritosWiki.aspx?Z=0");
+
         }
 
     }
