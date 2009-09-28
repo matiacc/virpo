@@ -25,7 +25,8 @@ public partial class Proyecto : System.Web.UI.Page
         mp3_seleccionado = "";
         mp3_seleccionado_titulo = "";
         reproducir = "no";
-         
+        if (!btUnirse.Text.Contains("Subir"))
+            btUnirse.OnClientClick = "mostrargif();";
 
         if (!Page.IsPostBack)
         {
@@ -53,8 +54,8 @@ public partial class Proyecto : System.Web.UI.Page
                 lblLicencia.Text = proy.Licencia;
                 lblUsuario.Text = proy.Usuario.NombreUsuario;
 
-                //ViewState.Add("mailCreador", proy.Usuario.EMail);
-                //ViewState.Add("nombreCreador", proy.Usuario);
+                ViewState.Add("mailCreador", proy.Usuario.EMail);
+                ViewState.Add("nombreCreador", proy.Usuario.Nombre);
                 //Colaboradores
                 List<Usuario> usuarios = UsuarioFactory.DevolverIntegrantesDeProyecto(id);
                 string html = "<table>";
@@ -78,16 +79,12 @@ public partial class Proyecto : System.Web.UI.Page
 
                 //Composiciones
                 DataTable dt = this.DatosComposiciones(id);
+                if (dt.Rows.Count == 0)
+                    lblComposiciones.Visible = true;
+
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
-                
-                //string html2 = "<table>";
-                //for (int i = 0; i < composiciones.Count; i++)
-                //{
-                //    html2 += "<tr>";
-                //    html2 += "<td>";
-                //    html2 += 
-                //}
+               
             }
             
         }
@@ -98,16 +95,19 @@ public partial class Proyecto : System.Web.UI.Page
     {
         if (btUnirse.Text.Contains("Subir"))
         {
-            string asunto = "Virpo: Un Músico se ha unido a tu proyecto!!!";
-            //string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/inicio.aspx";
-            string url = "http://127.0.0.1:50753/WebSite3/inicio.aspx";
-            //DEVOLVER NOMBRE Y EMAIL DEL CREADOR
-            string mensaje = "Hola " + ViewState["nombreCreador"].ToString() + "amigo/a, un Músico se ha unido a tu proyecto Virpo <b>" + lblNombre.Text + " y pronto comenzará a colaborar.<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
-            //EnviarMail.Mande("Virpo", ViewState["mailCreador"].ToString(), asunto, mensaje);
+
             Response.Redirect("CargarComposicion.aspx?idProyecto=" + ViewState["idProyecto"]);
         }
         else if (ProyectoFactory.InsertarUsuarioXProyecto(((Usuario)Session["Usuario"]).Id, (int)ViewState["idProyecto"], DateTime.Now))
+        {
+            string asunto = "Virpo: Un Músico se ha unido a tu proyecto!!!";
+            string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/inicio.aspx";
+            //string url = "http://127.0.0.1:50753/WebSite3/inicio.aspx";
+            //DEVOLVER NOMBRE Y EMAIL DEL CREADOR
+            string mensaje = "Hola <b>" + ViewState["nombreCreador"].ToString() + "</b>, un Músico se ha unido a tu proyecto Virpo <b>" + lblNombre.Text + "</b> y pronto comenzará a colaborar.<br /><br />Ingresa al sitio para mas informacion:<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
+            EnviarMail.Mande("Virpo", ViewState["mailCreador"].ToString(), asunto, mensaje);
             btUnirse.Text = "Subir una composicion";
+        }
     }
 
     public void AlertJS(string message)
@@ -149,10 +149,15 @@ public partial class Proyecto : System.Web.UI.Page
                 row["Ruta"] = composicion.Audio;
                 row["Ruta2"] =  composicion.Audio;
                 row["Nombre"] = composicion.Nombre;
-                if(composicion.Instrumento != null)
+                if (composicion.Instrumento != null)
                     row["Instrumento"] = composicion.Instrumento.Nombre;
+                else
+                    row["Instrumento"] = "No definido";
                 row["Usuario"] = composicion.Usuario.NombreUsuario;
-                row["Tipo"] = composicion.Tipo;
+                if (composicion.Tipo != null)
+                    row["Tipo"] = composicion.Tipo;
+                else
+                    row["Tipo"] = "No definido";
                 dt.Rows.Add(row);
             }
             return dt;
