@@ -70,9 +70,21 @@ public partial class _Default : System.Web.UI.Page
     {
         if (e.CommandName == "C")
         {
-            string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text;
+            string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
             Response.Redirect("ConsultarArticuloWiki.aspx?C=" + id);
         }
+
+        if (e.CommandName == "E")
+        {
+            string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
+            Usuario usu = (Usuario)Session["Usuario"];
+
+            if (ApuntesWikiFactory.Eliminar(usu.Id,int.Parse(id.ToString())))
+                Response.Redirect("WikiMusic.aspx?Z=1");
+            else Response.Redirect("WikiMusic.aspx?Z=0");
+            
+        }
+
     }
 
 }

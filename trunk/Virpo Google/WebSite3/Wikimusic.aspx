@@ -6,7 +6,8 @@
              <li><a href="NuevoArticuloWiki.aspx" title="Nuevo Articulo">Nuevo Articulo</a></li>
             <li><a href="FavoritosWiki.aspx" title="Articulos Favoritos">Articulos Favoritos</a></li>
              <li><a href="MisArticulosWiki.aspx" title="Mis Articulos">Mis Articulos</a></li>
-             <li><a href="ConsultarArticuloWiki.aspx" title="Articulo Aleatorio">Articulo Aleatorio</a></li>
+             <li><a href="ConsultarArticuloWiki.aspx" title="Articulo Aleatorio">Articulo 
+                 Aleatorio</a></li>
         </ul>
     </div>
 </asp:Content>
@@ -30,7 +31,13 @@
         </tr>
         <tr>
             <td style="text-align: center">
-                &nbsp;</td>
+                <asp:Label ID="lblOk" runat="server" style="color: #009900" 
+                    Text="La Transacción se realizó con exito" Visible="False"></asp:Label>
+                <br />
+                <asp:Label ID="lblMal" runat="server" style="color: #CC3300" 
+                    Text="La Transacción no se realizó" Visible="False"></asp:Label>
+                <br />
+            </td>
         </tr>
         <tr>
             <td style="text-align: center">
