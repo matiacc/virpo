@@ -13,9 +13,9 @@ namespace CapaNegocio.Factories
     {
         public static Composicion Devolver(int id)
         {
-            string query = "SELECT nombre, descripcion, tipo, tempo, idTonalidad, idInstrumento, idUsuario" +
-                        "FROM Composicion " +
-                        "WHERE id=" + id;
+            string query = "SELECT Composicion.* " +
+            "FROM Composicion INNER JOIN ComposicionXProyecto ON (Composicion.id = ComposicionXProyecto.idComposicion) " +
+            "WHERE ComposicionXProyecto.idProyecto = " + id;
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
@@ -28,7 +28,7 @@ namespace CapaNegocio.Factories
                 comp.Tonalidad = TonalidadFactory.Devolver(Convert.ToInt32(dt.Rows[0]["idTonalidad"]));
                 comp.Instrumento = InstrumentoFactory.Devolver(Convert.ToInt32(dt.Rows[0]["idInstrumento"]));
                 comp.Usuario = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[0]["idUsuario"]));
-                                
+
                 return comp;
             }
             else
@@ -38,6 +38,38 @@ namespace CapaNegocio.Factories
 
         }
 
+        public static List<Composicion> DevolverXProyecto(int idPoyecto)
+        {
+            string query = "SELECT Composicion.* " +
+                       "FROM Composicion INNER JOIN ComposicionXProyecto ON (Composicion.id = ComposicionXProyecto.idComposicion) " +
+                       "WHERE ComposicionXProyecto.idProyecto = " + idPoyecto;
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                List<Composicion> composiciones = new List<Composicion>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Composicion comp = new Composicion();
+                    comp.Audio = dt.Rows[i]["ruta"].ToString();
+                    comp.Id = (int)dt.Rows[i]["id"];
+                    comp.Nombre = dt.Rows[i]["nombre"].ToString();
+                    comp.Descripcion = dt.Rows[i]["descripcion"].ToString();
+                    comp.Tempo = dt.Rows[i]["tempo"].ToString();
+                    if(dt.Rows[i]["idTonalidad"] != DBNull.Value)
+                        comp.Tonalidad = TonalidadFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idTonalidad"]));
+                    if (dt.Rows[i]["idInstrumento"] != DBNull.Value)
+                        comp.Instrumento = InstrumentoFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idInstrumento"]));
+                    comp.Usuario = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idUsuario"]));
+                    composiciones.Add(comp);
+                }
+                return composiciones;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         public static List<Composicion> DevolverTodos(string restriccion)
         {
@@ -108,7 +140,13 @@ namespace CapaNegocio.Factories
             }
         }
 
+        public static int DevolverIdComposicionCreada(int idMusico)
+        {
+            string query = "SELECT MAX(ID) FROM Composicion WHERE idUsuario = " + idMusico;
 
+            return BDUtilidades.EjecutarConsultaEscalar(query);
+
+        }
 
 
     }

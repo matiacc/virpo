@@ -42,12 +42,15 @@ namespace CapaNegocio.Factories
             usu.NombreUsuario = nomUsuario;
             usu.Password = dt.Rows[0]["password"].ToString();
             usu.Imagen = dt.Rows[0]["imagen"].ToString();
-            usu.ImagenThumb = dt.Rows[0]["imagenThumb"].ToString();
+            usu.ImagenThum = dt.Rows[0]["imagenThumb"].ToString();
             usu.Barrio = dt.Rows[0]["barrio"].ToString();
             usu.EMail = dt.Rows[0]["eMail"].ToString();
             usu.TelFijo = dt.Rows[0]["telFijo"].ToString();
             usu.TelMovil = dt.Rows[0]["telMovil"].ToString();
-            usu.FecNac = DateTime.Parse(dt.Rows[0]["fecNac"].ToString());
+            if (dt.Rows[0]["fecNac"] != DBNull.Value)
+                usu.FecNac = Convert.ToDateTime(dt.Rows[0]["fecNac"]);
+            else
+                usu.FecNac = DateTime.Now;
             usu.Sexo = dt.Rows[0]["sexo"].ToString();
             //usu.IdPermiso = int.Parse(dt.Rows[0]["idPermiso"].ToString());
             usu.IdLocalidad = int.Parse(dt.Rows[0]["idLocalidad"].ToString());
@@ -120,7 +123,7 @@ namespace CapaNegocio.Factories
         public static List<Usuario> DevolverIntegrantesDeProyecto(int idProyecto)
         {
 
-            string query = "SELECT id,nombreUsuario,imagen " +
+            string query = "SELECT Usuario.id,nombreUsuario,imagen " +
                          "FROM UsuarioXProyecto inner join Usuario on UsuarioXProyecto.idUsuario = Usuario.id " +
                          "WHERE idProyecto = " + idProyecto;
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
@@ -175,7 +178,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@apellido", DbType.String, usuario.Apellido));
                 parametros.Add(BDUtilidades.crearParametro("@nombreUsuario", DbType.String, usuario.NombreUsuario));
                 parametros.Add(BDUtilidades.crearParametro("@password", DbType.String, usuario.Password));
-                parametros.Add(BDUtilidades.crearParametro("@imagenThumb", DbType.String, usuario.ImagenThumb));
+                parametros.Add(BDUtilidades.crearParametro("@imagenThumb", DbType.String, usuario.ImagenThum));
                 parametros.Add(BDUtilidades.crearParametro("@imagen", DbType.String, usuario.Imagen));
                 parametros.Add(BDUtilidades.crearParametro("@barrio", DbType.String, usuario.Barrio));
                 parametros.Add(BDUtilidades.crearParametro("@eMail", DbType.String, usuario.EMail));
@@ -202,54 +205,6 @@ namespace CapaNegocio.Factories
                 return false;
             }
         }
-
-        #region Modificar
-        /// <summary>
-        /// Modificación de un registro sin transaccion
-        /// </summary>
-        /// <param name="musico">objeto Usuario</param>
-        /// <returns>true si modificó con éxito</returns>
-        public static bool Modificar(Usuario usr)
-        {
-            return Modificar(usr, (SqlTransaction)null);
-        }
-        /// <summary>
-        /// Modificación de un TipoInstrumento con transaccion
-        /// </summary>
-        /// <param name="musico">objeto Banda</param>
-        /// <returns>true si modificó con éxito</returns>
-        public static bool Modificar(Usuario usr, SqlTransaction tran)
-        {
-            try
-            {
-                List<SqlParameter> parametros = new List<SqlParameter>();
-
-                parametros.Add(BDUtilidades.crearParametro("@id", DbType.Int32, usr.Id));
-                parametros.Add(BDUtilidades.crearParametro("@nombre", DbType.String, usr.Nombre));
-                parametros.Add(BDUtilidades.crearParametro("@apellido", DbType.String, usr.Apellido));
-                parametros.Add(BDUtilidades.crearParametro("@imagen", DbType.String, usr.Imagen));
-                parametros.Add(BDUtilidades.crearParametro("@imagenThumb", DbType.String, usr.ImagenThumb));
-                parametros.Add(BDUtilidades.crearParametro("@barrio", DbType.String, usr.Barrio));
-                parametros.Add(BDUtilidades.crearParametro("@eMail", DbType.String, usr.EMail));
-                parametros.Add(BDUtilidades.crearParametro("@telFijo", DbType.String, usr.TelFijo));
-                parametros.Add(BDUtilidades.crearParametro("@telMovil", DbType.String, usr.TelMovil));
-                parametros.Add(BDUtilidades.crearParametro("@fecNac", DbType.DateTime, usr.FecNac));
-                parametros.Add(BDUtilidades.crearParametro("@sexo", DbType.String, usr.Sexo));
-                parametros.Add(BDUtilidades.crearParametro("@idLocalidad", DbType.Int32, usr.IdLocalidad));
-                parametros.Add(BDUtilidades.crearParametro("@idInstrumento", DbType.Int32, usr.IdInstrumento));
-                bool ok = BDUtilidades.ExecuteStoreProcedure("UsuarioActualizar", parametros, tran);
-                if (ok)
-                    return true;
-                else
-                    return false;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-
-        }
-        #endregion
 
     }
 }
