@@ -7,7 +7,7 @@
             <li><a href="NuevoArticuloWiki.aspx" title="Nuevo Articulo">Nuevo Articulo</a></li>
             <li><a href="FavoritosWiki.aspx" title="Articulos Favoritos">Articulos Favoritos</a></li>
             <li><a href="MisArticulosWiki.aspx" title="Mis Articulos">Mis Articulos</a></li>
-            <li><a href="ConsultarArticuloWiki.aspx" title="Articulo Aleatorio">Articulo Aleatorio</a></li>
+            <li><a href="ConsultarArticuloWiki.aspx?A=1" title="Articulo Aleatorio">Articulo Aleatorio</a></li>
         </ul>
     </div>
 </asp:Content>
