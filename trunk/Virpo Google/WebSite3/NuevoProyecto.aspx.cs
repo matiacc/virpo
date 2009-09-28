@@ -23,7 +23,7 @@ public partial class NuevoProyecto : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
-            
+
         }
     }
     protected void btCrear_Click(object sender, EventArgs e)
@@ -42,9 +42,8 @@ public partial class NuevoProyecto : System.Web.UI.Page
                 string extension = Path.GetExtension(FileUpload1.PostedFile.FileName).ToLower();
                 if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
                     throw new Exception("El archivo ingresado no es una imagen");
-                string ruta = Server.MapPath(@"./ImagenesProyectos/") + filename + extension;
-                FileUpload1.PostedFile.SaveAs(ruta);
-                proyecto.Imagen = ruta;
+                FileUpload1.PostedFile.SaveAs(Server.MapPath(@"./ImagenesProyectos/") + filename + extension);
+                proyecto.Imagen = @"./ImagenesProyectos/" + filename + extension;
             }
             else
                 proyecto.Imagen = "./ImagenesSite/ProyectoNull.jpg";
@@ -68,7 +67,12 @@ public partial class NuevoProyecto : System.Web.UI.Page
             proyecto.Tipo = Convert.ToInt32(ddlTipo.SelectedValue);//0 Publico 1 Privado
             proyecto.Usuario = (Usuario)Session["Usuario"];
             if (ProyectoFactory.Insertar(proyecto))
-                Response.Redirect("./Proyecto.aspx?Id=" + ProyectoFactory.DevolverIdProyectoCreado(proyecto.FechaCreacion));
+            {
+                int idProyecto = ProyectoFactory.DevolverIdProyectoCreado(proyecto.FechaCreacion);
+                ProyectoFactory.InsertarUsuarioXProyecto(proyecto.Usuario.Id, idProyecto, DateTime.Now);
+                Context.Server.Transfer("Proyecto.aspx?Id=" + idProyecto,true);
+
+            }
             else
                 AlertJS("Hubo un error al intentar crear el Proyecto");
 
