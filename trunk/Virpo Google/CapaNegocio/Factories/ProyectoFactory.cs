@@ -13,9 +13,11 @@ namespace CapaNegocio.Factories
     {
         public static Proyecto Devolver(int id)
         {
-            string query = "SELECT nombre,descripcion,imagen,licencia, genero, tags, tipo, idUsuario,fechaCreacion " +
-                         "FROM Proyecto " +
-                         "WHERE id=" + id;
+            string query = "SELECT P.nombre,P.descripcion,P.imagen,P.licencia, P.genero, P.tags, P.tipo,P.fechaCreacion,UP.idUsuario " +
+                         "FROM UsuarioXProyecto UP, Proyecto P " +
+                         "WHERE UP.idProyecto = P.id " +
+                         "AND P.id=" + id +
+                         " order by UP.fecha";
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
             {
@@ -40,8 +42,13 @@ namespace CapaNegocio.Factories
 
         public static List<Proyecto> DevolverTodos(string restriccion)
         {
-            string query = "SELECT nombre,descripcion,imagen,licencia, genero, tags, tipo, idUsuario,fechaCreacion " +
+            //string query = "SELECT P.id, P.nombre,P.descripcion,P.imagen,P.licencia, P.genero, P.tags, P.tipo,P.fechaCreacion,UP.idUsuario " +
+            //             "FROM UsuarioXProyecto UP, Proyecto P " +
+            //             "WHERE UP.idProyecto = P.id ";
+
+            string query = "SELECT id,nombre,descripcion,imagen,licencia,genero,tags,tipo,fechaCreacion " +
                          "FROM Proyecto ";
+
             if (!string.IsNullOrEmpty(restriccion))
                 query += restriccion;
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
@@ -59,8 +66,8 @@ namespace CapaNegocio.Factories
                     proyecto.Genero = dt.Rows[i]["genero"].ToString();
                     proyecto.Tags = dt.Rows[i]["tags"].ToString();
                     proyecto.Tipo = (int)dt.Rows[i]["tipo"];
-                    proyecto.Usuario = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idUsuario"]));
                     proyecto.FechaCreacion = Convert.ToDateTime(dt.Rows[i]["fechaCreacion"]);
+                    //proyecto.Usuario = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[0]["idUsuario"]));
                     proyectos.Add(proyecto);
                 }
                 return proyectos;
@@ -94,8 +101,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@tags", DbType.String, proyecto.Tags));
                 parametros.Add(BDUtilidades.crearParametro("@tipo", DbType.Int32, proyecto.Tipo));
                 parametros.Add(BDUtilidades.crearParametro("@fechaCreacion", DbType.DateTime, proyecto.FechaCreacion));
-                parametros.Add(BDUtilidades.crearParametro("@idUsuario", DbType.Int32, proyecto.Usuario.Id));
-
+                
                 bool ok = BDUtilidades.ExecuteStoreProcedure("ProyectoInsertar", parametros);
                 if (ok)
                     return true;
@@ -108,6 +114,61 @@ namespace CapaNegocio.Factories
             }
         }
         #endregion
+
+        public static bool EsIntegrante(int idUsuario, int idProyecto)
+        {
+            string query = "select count(*) from UsuarioXProyecto " +
+                         "where idUsuario=" + idUsuario +
+                         " and idProyecto=" + idProyecto;
+            int res = BDUtilidades.EjecutarConsultaEscalar(query);
+            if (res > 0)
+                return true;
+            else
+                return false;
+        }
+        public static bool InsertarUsuarioXProyecto(int idUsuario, int idProyecto, DateTime fechaIncorporacion)
+        {
+             try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(BDUtilidades.crearParametro("@idUsuario", DbType.Int32, idUsuario));
+                parametros.Add(BDUtilidades.crearParametro("@fecha", DbType.DateTime, fechaIncorporacion));
+                parametros.Add(BDUtilidades.crearParametro("@idProyecto", DbType.Int32, idProyecto));
+
+                bool ok = BDUtilidades.ExecuteStoreProcedure("UsuarioXProyectoInsertar", parametros);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+             catch (Exception ex)
+             {
+                 return false;
+             }
+        }
+
+        public static bool InsertarComposicionXProyecto(int idComposicion, int idProyecto, DateTime fechaIncorporacion)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(BDUtilidades.crearParametro("@idComposicion", DbType.Int32, idComposicion));
+                parametros.Add(BDUtilidades.crearParametro("@fecha", DbType.DateTime, fechaIncorporacion));
+                parametros.Add(BDUtilidades.crearParametro("@idProyecto", DbType.Int32, idProyecto));
+
+                bool ok = BDUtilidades.ExecuteStoreProcedure("ComposicionXProyectoInsertar", parametros);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
 
         #region Modificar
         public static bool Modificar(Proyecto proyecto)
