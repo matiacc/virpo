@@ -46,3 +46,9 @@ D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\bin\Debug\CapaPresentacion.p
 D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
 D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\obj\Debug\CapaPresentacion.dll
 D:\Portal Musical\Primera Iteracion\Virpo\CapaDatos\obj\Debug\CapaPresentacion.pdb
+D:\Virpo Google\CapaDatos\bin\Debug\CapaPresentacion.dll.config
+D:\Virpo Google\CapaDatos\bin\Debug\CapaPresentacion.dll
+D:\Virpo Google\CapaDatos\bin\Debug\CapaPresentacion.pdb
+D:\Virpo Google\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
+D:\Virpo Google\CapaDatos\obj\Debug\CapaPresentacion.dll
+D:\Virpo Google\CapaDatos\obj\Debug\CapaPresentacion.pdb
