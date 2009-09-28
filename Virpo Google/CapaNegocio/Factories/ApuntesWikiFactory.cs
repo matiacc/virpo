@@ -108,11 +108,10 @@ namespace CapaNegocio.Factories
 
         #region Eliminar
 
-       
-        //public static bool Eliminar(int id)
-        //{
-        //    return Eliminar(id, (SqlTransaction)null);
-        //}
+        public static bool Eliminar(int idM, int idA)
+        {
+            return Eliminar(idM, idA, (SqlTransaction)null);
+        }
         
         public static bool Eliminar(int idMusico, int idArticulo, SqlTransaction tran)
         {
@@ -123,7 +122,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@idMusico", DbType.Int32, idMusico));
                 parametros.Add(BDUtilidades.crearParametro("@idArticulo", DbType.Int32, idArticulo));
 
-                bool ok = BDUtilidades.ExecuteStoreProcedure("ApuntesBorrar", parametros, tran);
+                bool ok = BDUtilidades.ExecuteStoreProcedure("ApuntesWikiBorrar", parametros, tran);
                 if (ok)
                     return true;
                 else
