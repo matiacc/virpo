@@ -92,7 +92,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@idArticulo", DbType.Int32, apunte.IdArticulo));
                 parametros.Add(BDUtilidades.crearParametro("@fechaAlta", DbType.DateTime, apunte.FechaAlta));
                 
-                bool ok = BDUtilidades.ExecuteStoreProcedure("ApunteWikiInsertar", parametros, tran);
+                bool ok = BDUtilidades.ExecuteStoreProcedure("ApuntesWikiInsertar", parametros, tran);
                 if (ok)
                     return true;
                 else
