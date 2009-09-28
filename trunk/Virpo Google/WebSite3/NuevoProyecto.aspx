@@ -2,6 +2,12 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<div id="menu8">
+        <ul>
+            <li><a href="AltaMusico.aspx" title="Registrar Musico">Registrar Musico</a></li>
+            
+        </ul>
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <table class="style1">

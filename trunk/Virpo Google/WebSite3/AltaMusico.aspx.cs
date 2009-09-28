@@ -102,6 +102,8 @@ public partial class _Default : System.Web.UI.Page
     {
         try
         {
+            if (uploadImagen.HasFile)
+            {
             string filename = DateTime.Now.Millisecond.ToString();
             //TODO: ponerle un nombre unico
             string serverPath = Server.MapPath(@"./ImagenesUsuario/");
@@ -143,6 +145,12 @@ public partial class _Default : System.Web.UI.Page
             my_stream = null;
 
             return nombreCompleto;
+            }
+            else
+            {
+                thumb = "./ImagenesSite/user_no_avatar.gif";
+                return "./ImagenesSite/user_no_avatar.gif";
+            }
         }
         catch (Exception ex)
         {

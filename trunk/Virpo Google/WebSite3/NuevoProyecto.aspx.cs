@@ -71,7 +71,6 @@ public partial class NuevoProyecto : System.Web.UI.Page
                 int idProyecto = ProyectoFactory.DevolverIdProyectoCreado(proyecto.FechaCreacion);
                 ProyectoFactory.InsertarUsuarioXProyecto(proyecto.Usuario.Id, idProyecto, DateTime.Now);
                 Context.Server.Transfer("Proyecto.aspx?Id=" + idProyecto,true);
-
             }
             else
                 AlertJS("Hubo un error al intentar crear el Proyecto");
