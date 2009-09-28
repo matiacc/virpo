@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="NuevoArticuloWiki.aspx.cs"
+﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="NuevoArticuloWiki.aspx.cs"
     Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -7,8 +7,7 @@
             <li><a href="NuevoArticuloWiki.aspx" title="Nuevo Articulo">Nuevo Articulo</a></li>
             <li><a href="FavoritosWiki.aspx" title="Articulos Favoritos">Articulos Favoritos</a></li>
             <li><a href="MisArticulosWiki.aspx" title="Mis Articulos">Mis Articulos</a></li>
-            <li><a href="ConsultarArticuloWiki.aspx" title="Articulo Aleatorio">Articulo 
-                Aleatorio</a></li>
+            <li><a href="ConsultarArticuloWiki.aspx" title="Articulo Aleatorio">Articulo Aleatorio</a></li>
         </ul>
     </div>
 </asp:Content>
@@ -26,26 +25,12 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="text-align: left; width: 161px">
+            <td style="text-align: right; width: 137px">
                 <asp:Label ID="lblTitulo" runat="server" style="text-align: right" 
-                    Text="Titulo" CssClass="estiloLabelCabecera2"></asp:Label>
-            </td>
-            <td style="text-align: right">
-                <asp:TextBox ID="txtTitulo" runat="server" Width="370px"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: left; width: 161px">
-            
-                <asp:Label ID="lblCategoria" runat="server" Text="Categoria" 
-                    CssClass="estiloLabelCabecera2"></asp:Label>
+                    Text="Titulo:"></asp:Label>
             </td>
             <td style="text-align: left">
-            
-                <asp:DropDownList ID="ddlCategoria" runat="server" Height="20px" 
-                    style="margin-left: 3px" Width="165px">
-                </asp:DropDownList>
-            
+                <asp:TextBox ID="txtTitulo" runat="server" Width="298px"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -62,11 +47,15 @@
     <tr>
             <td colspan="2" style="text-align: right" >
             
-    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" 
-    onclick="btnCancelar_Click" Width="87px" />
+                <asp:Label ID="lblCategoria" runat="server" Text="Categoria:"></asp:Label>
+                <asp:DropDownList ID="ddlCategoria" runat="server" Height="20px" 
+                    style="margin-left: 3px" Width="165px">
+                </asp:DropDownList>
             
     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
         onclick="btnGuardar_Click" Width="90px" />
+    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" 
+    onclick="btnCancelar_Click" Width="87px" />
             
             </td>
         </tr>

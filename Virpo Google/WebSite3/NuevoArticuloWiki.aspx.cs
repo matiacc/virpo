@@ -53,12 +53,13 @@ public partial class _Default : System.Web.UI.Page
         articulo.CantVisitas = 0;
         articulo.Descripcion = "Version Inicial";
 
-        if (ArticuloWikiFactory.Insertar(articulo))
-            //AlertJS("El Articulo se guardó");
-        //else
-            //AlertJS("El Articulo no se guardó");
 
-            Response.Redirect("Wikimusic.aspx");
+        if (ArticuloWikiFactory.Insertar(articulo))
+        Response.Redirect("Wikimusic.aspx?Z=1");
+        else
+        Response.Redirect("Wikimusic.aspx?Z=0");
+
+           
     }
 
 }

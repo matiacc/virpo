@@ -7,8 +7,7 @@
             <li><a href="NuevoArticuloWiki.aspx" title="Nuevo Articulo">Nuevo Articulo</a></li>
             <li><a href="FavoritosWiki.aspx" title="Articulos Favoritos">Articulos Favoritos</a></li>
             <li><a href="MisArticulosWiki.aspx" title="Mis Articulos">Mis Articulos</a></li>
-            <li><a href="ConsultarArticuloWiki.aspx" title="Articulo Aleatorio">Articulo 
-                Aleatorio</a></li>
+            <li><a href="ConsultarArticuloWiki.aspx" title="Articulo Aleatorio">Articulo Aleatorio</a></li>
         </ul>
     </div>
 </asp:Content>
@@ -32,8 +31,7 @@
             <td>
                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
                     AutoGenerateColumns="False" CssClass="GridViewStyle" GridLines="None" OnRowCommand="GridView1_RowCommand"
-                    Width="527px" 
-                    PageSize="5" >
+                    Width="527px" PageSize="5">
                     <Columns>
                         <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False">
                             <HeaderStyle Font-Size="Small" />
@@ -44,6 +42,8 @@
                         <asp:BoundField DataField="Creado" HeaderText="Creado" SortExpression="Creado" />
                         <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/lupa3.png"
                             Text="Consultar" />
+                        <asp:ButtonField ButtonType="Image" CommandName="E" ImageUrl="~/ImagenesSite/eliminar.png"
+                            Text="Eliminar" />
                     </Columns>
                     <RowStyle CssClass="RowStyle" />
                     <EmptyDataRowStyle CssClass="EmptyRowStyle" />
