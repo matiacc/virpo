@@ -20,6 +20,7 @@
             <td>
                 <asp:Button ID="btUnirse" runat="server" CssClass="botones" 
                     Text="Unirse al Proyecto" onclick="btUnirse_Click" />
+          <img alt="" src="ImagenesSite/cargando.gif" id="loading" style="display:none"/>        
             </td>
             <td rowspan="2">
                 
@@ -89,7 +90,8 @@
         </tr>
         <tr>
             <td colspan="3" align="center">
-                <asp:Label ID="lblComposiciones" runat="server"></asp:Label>
+                <asp:Label ID="lblComposiciones" runat="server" ForeColor="#990000" 
+                    Visible="False">No se ha cargado ninguna composicion</asp:Label>
             </td>
             <td align="center">
                 &nbsp;</td>
@@ -99,7 +101,8 @@
                 
                         
                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-                            onrowcommand="GridView1_RowCommand">
+                            onrowcommand="GridView1_RowCommand" GridLines="Horizontal" 
+                            ShowHeader="False">
                             <Columns>
                                 <asp:ButtonField ButtonType="Image" CommandName="P" DataTextField="Ruta" 
                                     ImageUrl="~/ImagenesSite/play.png" Text="Play" />
