@@ -221,6 +221,7 @@ namespace CapaNegocio.Factories
                 List<SqlParameter> parametros = new List<SqlParameter>();
 
                 parametros.Add(BDUtilidades.crearParametro("@id", DbType.Int32, id));
+                
 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("ArticuloWikiBorrar", parametros, tran);
                 if (ok)
