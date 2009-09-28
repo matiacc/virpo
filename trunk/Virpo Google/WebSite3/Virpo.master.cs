@@ -14,6 +14,10 @@ using CapaNegocio.Entities;
 
 public partial class musicamania_Virpo : System.Web.UI.MasterPage
 {
+    //public string mp3_seleccionado = "";
+    //public string mp3_seleccionado_titulo = "";
+    //public string reproducir = "";
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["Usuario"] != null)
