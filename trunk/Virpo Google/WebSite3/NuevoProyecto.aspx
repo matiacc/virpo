@@ -23,8 +23,9 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 92px; height: 20px;">
-                Nombre<br />
+            <td style="width: 129px; height: 20px;">
+                <asp:Label ID="Label1" runat="server" Text="Nombre:" CssClass="estiloLabel"></asp:Label>
+                <br />
                 <br />
             </td>
             <td style="width: 291px; height: 20px;">
@@ -34,31 +35,30 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                     ControlToValidate="txtNombre" ErrorMessage="*"></asp:RequiredFieldValidator>
             </td>
-            <td style="height: 20px">
-                </td>
         </tr>
         <tr>
-            <td style="width: 92px">
-                Descripcion</td>
+            <td style="width: 129px">
+                <asp:Label ID="Label2" runat="server" CssClass="estiloLabel" 
+                    Text="Descripcion:"></asp:Label>
+            </td>
             <td style="width: 291px">
                 <asp:TextBox ID="txtDescripcion" runat="server" Height="79px" 
                     TextMode="MultiLine" Width="286px"></asp:TextBox>
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 92px">
-                Imagen</td>
+            <td style="width: 129px">
+                <asp:Label ID="Label3" runat="server" CssClass="estiloLabel" 
+                    Text="Subi una imagen:"></asp:Label>
+            </td>
             <td style="width: 291px">
                 <asp:FileUpload ID="FileUpload1" runat="server" Width="286px" />
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 92px">
-                Genero<br />
+            <td style="width: 129px">
+                <asp:Label ID="Label4" runat="server" CssClass="estiloLabel" Text="Genero:"></asp:Label>
+                <br />
                 <br />
             </td>
             <td style="width: 291px">
@@ -68,24 +68,26 @@
                 
                 <br />
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 92px">
-                Tipo</td>
+            <td style="width: 129px">
+                <asp:Label ID="Label5" runat="server" CssClass="estiloLabel" Text="Tipo:"></asp:Label>
+            </td>
             <td style="width: 291px">
                 <asp:DropDownList ID="ddlTipo" runat="server" Width="143px">
                     <asp:ListItem Value="0">Publico</asp:ListItem>
                     <asp:ListItem Value="1">Privado</asp:ListItem>
                 </asp:DropDownList>
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 92px">
-                Licencia</td>
+            <td style="width: 129px">
+                <asp:Label ID="Label6" runat="server" CssClass="estiloLabel" Text="Liciencia:"></asp:Label>
+                <br />
+                <br />
+                <br />
+                <br />
+            </td>
                                 <td style="width: 291px">
                                     
                                     <asp:RadioButton ID="RadioButton1" runat="server" Text="Atribución 2.5" 
@@ -136,37 +138,30 @@
                                     licencia.</span><br />
                                     <br />
             </td>
-                                <td>
-                                    &nbsp;</td>
                             </tr>
                             <tr>
-                                <td style="width: 92px">
-                                    Tags<br />
+                                <td style="width: 129px">
+                                    <asp:Label ID="Label7" runat="server" CssClass="estiloLabel" Text="Tags:"></asp:Label>
+                                    <br />
                                     <br />
                                 </td>
             <td style="width: 291px">
                 <div class="loginboxdiv">   <asp:TextBox ID="txtTags" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>   </div>
             &nbsp;<span style="font-size: xx-small; color: #808080">(separados por comas)</span></td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 92px">
+            <td style="width: 129px">
                 &nbsp;</td>
             <td style="width: 291px">
                 &nbsp;</td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 92px">
+            <td style="width: 129px">
                 &nbsp;</td>
             <td style="width: 291px">
                 <asp:Button ID="btCrear" runat="server" Text="Crear!" onclick="btCrear_Click" 
                     CssClass="botones" Width="75px" />
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
     </table>
 </asp:Content>
