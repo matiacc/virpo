@@ -22,10 +22,10 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if (!Page.IsPostBack)
-        //{
-        //    if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
-        //}
+        if (!Page.IsPostBack)
+        {
+            if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
+        }
         MetodosComunes.cargarCategoriaWiki(ddlCategoria);
         
     }
