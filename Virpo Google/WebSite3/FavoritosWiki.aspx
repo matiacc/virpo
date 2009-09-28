@@ -43,6 +43,8 @@
                         <asp:BoundField DataField="Creado" HeaderText="Creado" SortExpression="Creado" />
                         <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/lupa3.png"
                             Text="Consultar" />
+                        <asp:ButtonField ButtonType="Image" CommandName="E" ImageUrl="~/ImagenesSite/eliminar.png"
+                            Text="Eliminar" />
                     </Columns>
                     <RowStyle CssClass="RowStyle" />
                     <EmptyDataRowStyle CssClass="EmptyRowStyle" />
