@@ -64,9 +64,8 @@ public partial class _Default : System.Web.UI.Page
         
         if (a && b)
         {
-
-            AlertJS("La composicion se registro con exito");
-            //Response.Redirect("./Proyecto.aspx?Id=" + idProyecto);
+                        
+            Response.Redirect("./Proyecto.aspx?Id=" + idProyecto);
 
         }
         else
