@@ -32,10 +32,11 @@
         <tr>
             <td style="text-align: center">
                 <asp:Label ID="lblOk" runat="server" style="color: #009900" 
-                    Text="El Articulo se agrego con exito" Visible="False"></asp:Label>
+                    Text="La Transacción se realizó con exito" Visible="False"></asp:Label>
                 <br />
                 <asp:Label ID="lblMal" runat="server" style="color: #CC3300" 
-                    Text="El Articulo no se agrego" Visible="False"></asp:Label>
+                    Text="La Transacción no se realizó" Visible="False"></asp:Label>
+                <br />
             </td>
         </tr>
         <tr>
