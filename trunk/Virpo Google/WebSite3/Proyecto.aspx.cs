@@ -16,20 +16,20 @@ using System.Collections.Generic;
 
 public partial class Proyecto : System.Web.UI.Page
 {
-    public string mp3_seleccionado = "";
-    public string mp3_seleccionado_titulo = "";
-    public string reproducir = "";
+    protected string mp3_seleccionado = "";
+    protected string mp3_seleccionado_titulo = "";
+    protected string reproducir = "no";
         
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        mp3_seleccionado = "";
+        mp3_seleccionado_titulo = "";
+        reproducir = "no";
          
 
         if (!Page.IsPostBack)
         {
-            mp3_seleccionado = "";
-            mp3_seleccionado_titulo = "";
-            reproducir = "no";
+            
 
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
@@ -134,16 +134,15 @@ public partial class Proyecto : System.Web.UI.Page
     }
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-        if (e.CommandName == "P")
-        {
+        
             this.mp3_seleccionado = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text;
             this.mp3_seleccionado_titulo = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[1].Text;
 
-            string value = "Reproductor/mini_player_mp3.swf?my_mp3=Reproductor/" + mp3_seleccionado + "&amp;my_text='" + mp3_seleccionado_titulo + "'&amp;autoplay=yes";
-            ClientScript.RegisterExpandoAttribute("reproductor", "value", value);
+            //string value = "Reproductor/mini_player_mp3.swf?my_mp3=Composiciones/" + mp3_seleccionado + "&amp;my_text=" + mp3_seleccionado_titulo + "&amp;autoplay=yes";
+            //ClientScript.RegisterExpandoAttribute("movie", "value", value);
             this.reproducir = "yes";
-    //        Page.DataBind();
-        }
+            this.Page.DataBind();
+        
     }
     private DataTable DatosComposiciones(int id)
     {
