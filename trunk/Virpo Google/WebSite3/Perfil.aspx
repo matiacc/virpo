@@ -14,10 +14,14 @@
             <td colspan="4">
                 <center style="width: 528px; background-color: #333333"><tituloSubVentana>Bienvenido
                 <asp:Label ID="lblLogin" runat="server"></asp:Label>
-                    a tu perfil</tituloSubVentana></center>&nbsp; &nbsp; &nbsp; &nbsp; </td>
+                    a tu perfil</tituloSubVentana></center>&nbsp; &nbsp; &nbsp; &nbsp;
+                <asp:Label ID="Label9" runat="server" Text="Barrio:" CssClass="estiloLabel" 
+                    Visible="False"></asp:Label>
+            &nbsp;<asp:Label ID="lblBarrio" runat="server" Visible="False"></asp:Label>
+            </td>
         </tr>
         <tr>
-            <td rowspan="12" style="width: 250px; ">
+            <td rowspan="11" style="width: 250px; ">
                 <asp:Image ID="ImgPerfil" runat="server" Height="253px" Width="247px" />
             </td>
             <td style="width: 11px; ">
@@ -107,17 +111,7 @@
             <td style="width: 11px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
-                <asp:Label ID="Label9" runat="server" Text="Barrio:" CssClass="estiloLabel"></asp:Label>
-            </td>
-            <td style="width: 105px; ">
-                <asp:Label ID="lblBarrio" runat="server"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 11px; ">
-                &nbsp;</td>
-            <td style="width: 171px; ">
-                <asp:Label ID="Label10" runat="server" Text="Localidad:" CssClass="estiloLabel"></asp:Label>
+                <asp:Label ID="Label10" runat="server" Text="Ciudad:" CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="width: 105px; ">
                 <asp:Label ID="lblLocalidad" runat="server"></asp:Label>
@@ -127,7 +121,7 @@
             <td style="width: 11px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
-                <asp:Label ID="Label11" runat="server" Text="Provincia:" CssClass="estiloLabel"></asp:Label>
+                <asp:Label ID="Label11" runat="server" Text="Estado o Provincia" CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="width: 105px; ">
                 <asp:Label ID="lblProvincia" runat="server"></asp:Label>
