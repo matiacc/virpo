@@ -25,7 +25,7 @@ public partial class Proyectos : System.Web.UI.Page
             {
                 string filtro = Request.QueryString["filtro"];
                 ViewState.Add("Filtro", filtro);
-                restriccion = "WHERE nombre like '%" + filtro + "%'";
+                restriccion = "AND nombre like '%" + filtro + "%'";
             }
             DataTable dt = this.DatosProyectos(restriccion);
             GridView1.DataSource = dt;
@@ -66,7 +66,7 @@ public partial class Proyectos : System.Web.UI.Page
         dt.Columns.Add("Creado");
 
         List<Proyecto> proyectos = new List<Proyecto>();
-        proyectos = ProyectoFactory.DevolverTodos(restriccion);
+        proyectos = (List<CapaNegocio.Entities.Proyecto>) ProyectoFactory.DevolverTodos(restriccion);
         if (proyectos != null)
         {
             foreach (Proyecto proyecto in proyectos)
