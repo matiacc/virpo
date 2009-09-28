@@ -95,7 +95,7 @@ function mostrarGif(){
 <%--<param name="bgcolor" value="#FFFFFF" />
 <embed src="Reproductor/mini_player_mp3.swf?my_mp3=Reproductor/<%# this.mp3_seleccionado %>&amp;my_text=<%# this.mp3_seleccionado_titulo %>&amp;autoplay=<%# this.reproducir %>" quality="high"  bgcolor=#FFFFFF width="331" height="25" name="mini_player_mp3" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 </object>--%>
- --%>                     </td>
+                    </td>
               </tr>
           </table>
         </div>

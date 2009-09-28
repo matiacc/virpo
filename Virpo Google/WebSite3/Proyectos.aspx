@@ -14,7 +14,7 @@
             <td>
                 <center style="width: 529px; background-color: #333333">
                     <tituloSubVentana>
-                    Crear Proyecto</tituloSubVentana></center></td>
+                    Ultimos Proyectos</tituloSubVentana></center></td>
         </tr>
         <tr>
             <td>
@@ -30,7 +30,7 @@
     </table>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
     AutoGenerateColumns="False" CssClass="GridViewStyle" GridLines="None" 
-                    onrowcommand="GridView1_RowCommand" Width="500px" 
+                    onrowcommand="GridView1_RowCommand" Width="527px" 
                     onpageindexchanging="GridView1_PageIndexChanging" onsorting="GridView1_Sorting" 
                     PageSize="5">
         <Columns>
