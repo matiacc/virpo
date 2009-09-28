@@ -32,8 +32,10 @@ public partial class ModificarPerfil : System.Web.UI.Page
             txtApellido.Text = usr.Apellido;
             ddlInstrumento.SelectedValue = usr.IdInstrumento.ToString();
             txtFecNac.Text = usr.FecNac.ToShortDateString();
-            if (usr.Sexo.ToString() == "M") txtSexo.Text = "Masculino";
-            else txtSexo.Text = "Femenino";
+            ddlSexo.Items.Add(new ListItem("Seleccione una opción"));
+            ddlSexo.Items.Add(new ListItem("Femenino", "F"));
+            ddlSexo.Items.Add(new ListItem("Masculino", "M"));
+            ddlSexo.SelectedValue = usr.Sexo;
             txtEmail.Text = usr.EMail;
             txtTelFijo.Text = usr.TelFijo;
             txtTelMovil.Text = usr.TelMovil;
@@ -103,7 +105,7 @@ public partial class ModificarPerfil : System.Web.UI.Page
         usrModificado.Apellido = txtApellido.Text;
         usrModificado.IdInstrumento=int.Parse(ddlInstrumento.SelectedValue.ToString());
         usrModificado.FecNac = DateTime.Parse(txtFecNac.Text);
-        usrModificado.Sexo = txtSexo.Text;
+        usrModificado.Sexo = ddlSexo.SelectedValue.ToString();
         usrModificado.EMail = txtEmail.Text;
         usrModificado.TelFijo = txtTelFijo.Text;
         usrModificado.TelMovil = txtTelMovil.Text;
