@@ -13,18 +13,34 @@ namespace CapaNegocio.Factories
     {
         public static Usuario Devolver(int id)
         {
-            string query = "SELECT nombre, apellido, idTipoUsuario, nombreUsuario, eMail " + 
+            string query = "SELECT id, nombre, apellido, nombreUsuario, password, imagen, imagenThumb, barrio, eMail, telFijo, telMovil, fecNac, sexo, idPermiso, idLocalidad, idTipoUsuario, idRangoPosteo, cantPostHechos, idInstrumento " + 
                            "FROM Usuario " +
                           "WHERE id=" + id;
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             Usuario usu = new Usuario();
-            usu.Apellido = dt.Rows[0]["apellido"].ToString();
-            usu.Nombre = dt.Rows[0]["nombre"].ToString();
-            usu.NombreUsuario = dt.Rows[0]["nombreUsuario"].ToString();
             usu.Id = id;
+            usu.Nombre = dt.Rows[0]["nombre"].ToString();
+            usu.Apellido = dt.Rows[0]["apellido"].ToString();
+            usu.NombreUsuario = dt.Rows[0]["nombreUsuario"].ToString();
+            usu.Password = dt.Rows[0]["password"].ToString();
+            usu.Imagen = dt.Rows[0]["imagen"].ToString();
+            usu.ImagenThumb = dt.Rows[0]["imagenThumb"].ToString();
+            usu.Barrio = dt.Rows[0]["barrio"].ToString();
             usu.EMail = dt.Rows[0]["eMail"].ToString();
+            usu.TelFijo = dt.Rows[0]["telFijo"].ToString();
+            usu.TelMovil = dt.Rows[0]["telMovil"].ToString();
+            if (dt.Rows[0]["fecNac"] != DBNull.Value)
+                usu.FecNac = Convert.ToDateTime(dt.Rows[0]["fecNac"]);
+            else
+                usu.FecNac = DateTime.Now;
+            usu.Sexo = dt.Rows[0]["sexo"].ToString();
+            //usu.IdPermiso = int.Parse(dt.Rows[0]["idPermiso"].ToString());
+            usu.IdLocalidad = int.Parse(dt.Rows[0]["idLocalidad"].ToString());
             usu.IdTipoUsuario = int.Parse(dt.Rows[0]["idTipoUsuario"].ToString());
+            //usu.IdRangoPosteo = int.Parse(dt.Rows[0]["idRangoPosteo"].ToString());
+            //usu.CantPostHechos = int.Parse(dt.Rows[0]["cantPostHechos"].ToString());
+            usu.IdInstrumento = int.Parse(dt.Rows[0]["idInstrumento"].ToString());
             return usu;
         }
 
