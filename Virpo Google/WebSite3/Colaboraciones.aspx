@@ -32,7 +32,7 @@
               
                        <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="331" height="25" id="Object1" >
 <param name="allowScriptAccess" value="sameDomain" />
-<param name="movie" value="Reproductor/mini_player_mp3.swf?my_mp3=Reproductor/<%# this.mp3_seleccionado %>&amp;my_text=<%# this.mp3_seleccionado_titulo %>&amp;autoplay=no" />
+<param name="movie" value="Reproductor/mini_player_mp3.swf?my_mp3=Reproductor/<%# this.mp3_seleccionado %>&amp;my_text=<%# this.mp3_seleccionado_titulo %>&amp;autoplay=<%# this.reproducir %>" />
 <param name="quality" value="high" />
 <%--<param name="wmode" value="transparent">--%>
 <param name="bgcolor" value="#FFFFFF">

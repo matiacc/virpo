@@ -25,16 +25,44 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="text-align: right; width: 137px">
+            <td style="text-align: left; width: 137px">
                 <asp:Label ID="lblTitulo" runat="server" style="text-align: right" 
-                    Text="Titulo:"></asp:Label>
+                    Text="Titulo" CssClass="estiloLabelCabecera2"></asp:Label>
             </td>
             <td style="text-align: left">
-                <asp:TextBox ID="txtTitulo" runat="server" Width="298px"></asp:TextBox>
+            <div class="loginboxdiv">
+                <asp:TextBox ID="txtTitulo" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td style="text-align: left; width: 137px">
+                &nbsp;</td>
+            <td style="text-align: left">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+            
+                <asp:Label ID="lblCategoria" runat="server" Text="Categoria" 
+                    CssClass="estiloLabelCabecera2"></asp:Label>
+                </td>
+            <td>
+                <asp:DropDownList ID="ddlCategoria" runat="server" Height="20px" 
+                    style="margin-left: 3px" Width="165px">
+                </asp:DropDownList>
+            
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+            <td>
                 &nbsp;</td>
         </tr>
     </table>
@@ -47,15 +75,11 @@
     <tr>
             <td colspan="2" style="text-align: right" >
             
-                <asp:Label ID="lblCategoria" runat="server" Text="Categoria:"></asp:Label>
-                <asp:DropDownList ID="ddlCategoria" runat="server" Height="20px" 
-                    style="margin-left: 3px" Width="165px">
-                </asp:DropDownList>
+    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" 
+    onclick="btnCancelar_Click" Width="87px" CssClass="botones" />
             
     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
-        onclick="btnGuardar_Click" Width="90px" />
-    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" 
-    onclick="btnCancelar_Click" Width="87px" />
+        onclick="btnGuardar_Click" Width="90px" CssClass="botones" />
             
             </td>
         </tr>
