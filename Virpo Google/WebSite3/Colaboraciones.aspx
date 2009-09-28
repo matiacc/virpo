@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div id="menu8">
         <ul>
-            <li><a href="Proyectos.aspx" title="Proyectos">Proyectos</a></li>
+            
             <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
         </ul>
     </div>
