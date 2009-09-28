@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div id="menu8">
         <ul>
-            <li><a href="AltaMusico.aspx" title="Registrar Musico">Registrar Musico</a></li>
+            <li><a href="AltaMusico.aspx" title="Registrar Musico">Nuevo Proyecto</a></li>
             
         </ul>
     </div>

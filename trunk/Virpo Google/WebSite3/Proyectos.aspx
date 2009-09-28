@@ -3,18 +3,34 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div id="menu8">
         <ul>
-            <li><a href="AltaMusico.aspx" title="Registrar Musico">Registrar Musico</a></li>
+            <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
             
         </ul>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+    <table class="style1">
+        <tr>
+            <td>
+                <center style="width: 529px; background-color: #333333">
+                    <tituloSubVentana>
+                    Crear Proyecto</tituloSubVentana></center></td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
 <asp:Label ID="lblResultados" runat="server" 
                     Text="No se han encontrado resultados para la búsqueda solicitada." 
                     Visible="False"></asp:Label>
+            </td>
+        </tr>
+    </table>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
     AutoGenerateColumns="False" CssClass="GridViewStyle" GridLines="None" 
-                    onrowcommand="GridView1_RowCommand" Width="527px" 
+                    onrowcommand="GridView1_RowCommand" Width="500px" 
                     onpageindexchanging="GridView1_PageIndexChanging" onsorting="GridView1_Sorting" 
                     PageSize="5">
         <Columns>

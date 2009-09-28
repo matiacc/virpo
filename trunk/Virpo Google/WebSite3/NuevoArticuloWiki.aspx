@@ -75,11 +75,11 @@
     <tr>
             <td colspan="2" style="text-align: right" >
             
-    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" 
-    onclick="btnCancelar_Click" Width="87px" CssClass="botones" />
-            
     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
         onclick="btnGuardar_Click" Width="90px" CssClass="botones" />
+            
+    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" 
+    onclick="btnCancelar_Click" Width="87px" CssClass="botones" />
             
             </td>
         </tr>
