@@ -125,7 +125,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@tempo", DbType.String, composicion.Tempo));
                 parametros.Add(BDUtilidades.crearParametro("@idTonalidad", DbType.Int32, composicion.Tonalidad.Id));
                 parametros.Add(BDUtilidades.crearParametro("@idInstrumento", DbType.Int32, composicion.Instrumento.Id));
-                parametros.Add(BDUtilidades.crearParametro("@idMusico", DbType.Int32, composicion.Usuario.Id));
+                parametros.Add(BDUtilidades.crearParametro("@idUsuario", DbType.Int32, composicion.Usuario.Id));
                 parametros.Add(BDUtilidades.crearParametro("@ruta", DbType.String, composicion.Audio));
 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("ComposicionInsertar", parametros, tran);

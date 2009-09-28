@@ -64,18 +64,29 @@ public partial class _Default : System.Web.UI.Page
         
         if (a && b)
         {
-            
-            Response.Redirect("CargarComposicion.aspx");
+
+            AlertJS("La composicion se registro con exito");
+            //Response.Redirect("./Proyecto.aspx?Id=" + idProyecto);
 
         }
         else
         {
-
+            AlertJS("Error al cargar la composición");
         }
         
 
         
     }
+
+    public void AlertJS(string message)
+    {
+        string jscript = @"<SCRIPT language='javascript'>alert('" +
+                         message +
+                        "')</SCRIPT>";
+        ClientScript.RegisterStartupScript(this.GetType(), "buscar", jscript);
+    }
+
+
     private string CargarAudio()
     {
         try
