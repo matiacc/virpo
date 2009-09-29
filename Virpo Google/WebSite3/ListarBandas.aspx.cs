@@ -78,7 +78,7 @@ public partial class ListarBandas : System.Web.UI.Page
             {
                 row = dt.NewRow();
                 row["Id"] = banda.Id;
-                row["Imagen"] = ResolveUrl("~/Imagenes/") + banda.ImagenThumb;
+                row["Imagen"] = ResolveUrl("~/ImagenesBandas/") + banda.Imagen;
                 row["Nombre"] = banda.Nombre;
                 row["Genero"] = banda.Genero.Nombre;
                 row["Fecha Inicio"] = banda.FechaInicio.ToShortDateString();
