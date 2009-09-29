@@ -5,6 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <table class="style1">
         <tr>
+            <td rowspan="11">
+                <asp:Image ID="ImgBanda" runat="server" Height="250px" Width="250px" />
+            </td>
             <td>
                 Modificar Banda</td>
             <td>
