@@ -26,7 +26,7 @@ public partial class ConsultarBanda : System.Web.UI.Page
             lblPaginaWeb.Text = banda.PaginaWeb;
             lblFecInicio.Text = banda.FechaInicio.ToShortDateString();
             lblLocalidad.Text = banda.Localidad.Nombre;
-            Image1.ImageUrl = ResolveUrl("./Imagenes/") + banda.Imagen;
+            Image1.ImageUrl = ResolveUrl("./ImagenesBandas/") + banda.Imagen;
             Image1.ToolTip = banda.Nombre;
         }
     }
