@@ -1,22 +1,33 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="ConsultarBanda.aspx.cs" Inherits="ConsultarBanda" Title="Página sin título" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<div id="menu8">
+        <ul>
+             <li><a href="NuevaBanda.aspx" title="Nueva Banda">Nueva Banda</a></li>
+            <li><a href="ListarUsuarios.aspx" title="Agregar Integrante">Agregar Integrante</a></li>
+             <li><a href="MostrarIntegrantesBanda.aspx" title="Agregar Integrante">Bandas e Integrantes</a></li>
+             <li><a href="ListarBandas.aspx" title="Agregar Integrante">Listar Bandas</a></li>
+        </ul>
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <table style="width: 100%">
+    <table style="width: 100%" class="tabla">
         <tr>
-            <td colspan="5">
-                <asp:Label ID="Label9" runat="server" Text="Datos de la Banda"></asp:Label>
+            <td colspan="4">
+                <center style="background-color: #333333; width: 523px;">
+                    <tituloSubVentana>Perfil de la Banda
+                <asp:Label ID="lblNombre" runat="server"  
+                                style="text-align: right"></asp:Label>
+                        </tituloSubVentana>
+                </center>
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="3">
                 <asp:Image ID="Image1" runat="server" BorderStyle="Solid" Height="250px" 
                     ImageAlign="Left" Width="250px" />
             </td>
-            <td colspan="3">
+            <td>
                 <table style="width: 100%; height: 249px">
                     <tr>
                         <td colspan="2" style="text-align: right">
@@ -24,9 +35,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                <asp:Label ID="lblNombre" runat="server" Font-Bold="True" CssClass="estiloLabelCabecera" 
-                                style="text-align: right"></asp:Label>
-                        </td>
+                            &nbsp;</td>
                     </tr>
                     <tr>
                         <td>
@@ -70,71 +79,37 @@
                     </tr>
                 </table>
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 366px" rowspan="2">
-                
-                &nbsp;</td>
-            <td colspan="2" rowspan="2">
+            <td colspan="2">
                 
                 <asp:Button ID="btnModificarBanda" runat="server" 
-                    onclick="btnModificarBanda_Click" Text="Modificar" />
+                    onclick="btnModificarBanda_Click" Text="Modificar" CssClass="botones" />
+                </td>
+            <td style="text-align: right;" colspan="2">
+                
                 <asp:Button ID="btnCancelar" runat="server" onclick="btnCancelar_Click" 
-                    Text="Cancelar" />
+                    Text="Cancelar" CssClass="botones" />
             </td>
-            <td style="text-align: right">
-                &nbsp;</td>
-            <td style="text-align: right">
-                &nbsp;</td>
-            <td style="text-align: right">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="text-align: right">
-                &nbsp;</td>
-            <td style="text-align: right">
-                &nbsp;</td>
-            <td style="text-align: right">
-                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 366px">
                 &nbsp;</td>
-            <td colspan="2">
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
+            <td colspan="3">
                 &nbsp;</td>
         </tr>
          <tr>
             <td style="width: 366px">
                 &nbsp;</td>
-            <td style="width: 366px">
+            <td style="width: 366px" colspan="2">
                 &nbsp;</td>
             <td style="text-align: left; width: 198px;">
                 &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
         </tr>
          <tr>
-            <td colspan="2">
+            <td colspan="3">
                 &nbsp;</td>
             <td style="width: 198px">
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
                 &nbsp;</td>
         </tr>
     </table>
