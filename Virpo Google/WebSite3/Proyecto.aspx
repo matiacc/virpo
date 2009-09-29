@@ -9,92 +9,115 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <table class="style1">
+    <table class="tabla">
         <tr>
-            <td>
-                <asp:Image ID="Image1" runat="server" Height="168px" Width="185px" />
-            </td>
-            <td>
+            <td colspan="3">
+                <center style="width: 529px; background-color: #333333">
+                    <tituloSubVentana>
+                    Estas en el Proyecto 
                 <asp:Label ID="lblNombre" runat="server"></asp:Label>
-            </td>
-            <td valign="top">
-                <asp:Button ID="btUnirse" runat="server" CssClass="botones" 
-                    Text="Unirse al Proyecto" onclick="btUnirse_Click" />
-          <img alt="" src="ImagenesSite/cargando.gif" id="loading" style="display:none"/>        
-            </td>
-            <td rowspan="2">
-                
-                </td>
+                    </tituloSubVentana></center></td>
         </tr>
         <tr>
-            <td>
-                &nbsp;</td>
-            <td>
+            <td style="width: 141px;" rowspan="11">
+                <asp:Image ID="Image1" runat="server" Height="300px" Width="300px" />
+                <br />
+                <asp:Button ID="btUnirse" runat="server" CssClass="botones" 
+                    Text="Unirse al Proyecto" onclick="btUnirse_Click" Width="300px" />
+                </td>
+            <td style="height: 20px">
+                <asp:Label ID="Label1" runat="server" Text="Descripcion:" 
+                    CssClass="estiloLabel"></asp:Label>
+            </td>
+            <td valign="top" style="height: 20px">
                 <asp:Label ID="lblDescripcion" runat="server"></asp:Label>
             </td>
-            <td>
-            
-                Colaboradores</td>
         </tr>
         <tr>
-            <td colspan="2">
-                Usuario Creador:                 <asp:Label ID="lblUsuario" runat="server"></asp:Label>
-            </td>
             <td>
-            
-                <asp:Label ID="lblColaboradores" runat="server"></asp:Label>
+                <asp:Label ID="Label3" runat="server" Text="Creado Por:" CssClass="estiloLabel"></asp:Label>
+                                </td>
+            <td valign="top">
+          <img alt="" src="ImagenesSite/cargando.gif" id="loading" style="display:none"/>        
+                <asp:Label ID="lblUsuario" runat="server"></asp:Label>
             </td>
-            <td>
-            
-                &nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2">
-                Genero :
+            <td>
+                <asp:Label ID="Label4" runat="server" Text="Genero:" CssClass="estiloLabel"></asp:Label>
+                                </td>
+            <td valign="top">
                 <asp:Label ID="lblGenero" runat="server"></asp:Label>
             </td>
+        </tr>
+        <tr>
             <td>
-                
-                                &nbsp;</td>
+                <asp:Label ID="Label5" runat="server" Text="Creado el:" CssClass="estiloLabel"></asp:Label>
+                                </td>
+            <td valign="top">
+                <asp:Label ID="lblFecha" runat="server"></asp:Label>
+            </td>
+        </tr>
+        <tr>
             <td>
-                
-                                &nbsp;</td>
+                <asp:Label ID="Label6" runat="server" Text="Licencia:" CssClass="estiloLabel"></asp:Label>
+                                </td>
+            <td valign="top">
+                <asp:Label ID="lblLicencia" runat="server" CssClass="estiloLabelpeque"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td valign="top">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td valign="top">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+            
+                <asp:Label ID="Label2" runat="server" Text="Colaboradores:" 
+                    CssClass="estiloLabel"></asp:Label>
+                                </td>
+            <td valign="top">
+                &nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">
-                Creado el :&nbsp;                 <asp:Label ID="lblFecha" runat="server"></asp:Label>
-            </td>
+            
+                <asp:Label ID="lblColaboradores" runat="server"></asp:Label>
+                                <br />
+                <br />
+                                </td>
+        </tr>
+        <tr>
             <td>
-                &nbsp;</td>
-            <td>
+            
                 &nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2">
-                Licencia :                 <asp:Label ID="lblLicencia" runat="server"></asp:Label>
-            </td>
             <td>
             
-                
-            </td>
-            <td>
-            
-                
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center" style="height: 20px">
                 &nbsp;</td>
         </tr>
         <tr>
             <td colspan="3" align="center" style="height: 20px">
                 Composiciones</td>
-            <td align="center" style="height: 20px">
-                </td>
         </tr>
         <tr>
             <td colspan="3" align="center">
                 <asp:Label ID="lblComposiciones" runat="server" ForeColor="#990000" 
                     Visible="False">No se ha cargado ninguna composicion</asp:Label>
             </td>
-            <td align="center">
-                &nbsp;</td>
         </tr>
         <tr>
             <td colspan="3" align="center">
@@ -119,13 +142,9 @@
                         
                    
             </td>
-            <td align="center">
-                &nbsp;</td>
         </tr>
         <tr>
             <td colspan="3" align="center">
-                &nbsp;</td>
-            <td align="center">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -146,8 +165,6 @@
                     </object>
                 </asp:Panel>
             </td>
-            <td align="center">
-                &nbsp;</td>
         </tr>
     </table>
 </asp:Content>
