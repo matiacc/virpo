@@ -49,8 +49,9 @@ public partial class NuevaComposicion : System.Web.UI.Page
         composicion.Tonalidad = TonalidadFactory.Devolver(Convert.ToInt32(ddlTonalidad.SelectedValue));
         composicion.Instrumento = InstrumentoFactory.Devolver(Convert.ToInt32(ddlInstrumento.SelectedValue));
 
-        string path = "";
-        path = this.CargarAudio();
+        string path = FileUpload1.PostedFile.FileName;
+        if(!this.CargarAudio(path))
+            AlertJS("Error al cargar la composición");
         
         composicion.Audio = path;
         bool a = ComposicionFactory.Insertar(composicion);
@@ -71,23 +72,20 @@ public partial class NuevaComposicion : System.Web.UI.Page
     }
 
 
-    private string CargarAudio()
+    private bool CargarAudio(string filename)
     {
         try
         {
-            string filename = (new Random()).Next(999999).ToString();
             //TODO: ponerle un nombre unico
             string serverPath = Server.MapPath(@"./Composiciones/");
-            string extension = Path.GetExtension(FileUpload1.PostedFile.FileName).ToLower();
-            string rutaCompleta = serverPath + filename + extension;
-            string nombreCompleto = filename + extension;
+            string rutaCompleta = serverPath + filename;
             FileUpload1.PostedFile.SaveAs(rutaCompleta);
 
-            return nombreCompleto;
+            return true;
         }
         catch (Exception ex)
         {
-            return ex.Message;
+            return false;
         }
 
     }
