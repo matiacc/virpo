@@ -83,10 +83,10 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td colspan="3" align="center">
+            <td colspan="3" align="center" style="height: 20px">
                 Composiciones</td>
-            <td align="center">
-                &nbsp;</td>
+            <td align="center" style="height: 20px">
+                </td>
         </tr>
         <tr>
             <td colspan="3" align="center">
@@ -124,14 +124,28 @@
         </tr>
         <tr>
             <td colspan="3" align="center">
-                <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="331" height="25" id="Object1" >
-<param name="allowScriptAccess" value="sameDomain" />
-<param name="movie" value="Reproductor/mini_player_mp3.swf?my_mp3=Composiciones/<%# this.mp3_seleccionado %>&amp;my_text=<%# this.mp3_seleccionado_titulo %>&amp;autoplay=<%# this.reproducir %>" />
-<param name="quality" value="high" />
-<param name="wmode" value="transparent">
-<%--<param name="bgcolor" value="#FFFFFF" />--%>
-<embed src="Reproductor/mini_player_mp3.swf?my_mp3=Composiciones/<%# this.mp3_seleccionado %>&amp;my_text=<%# this.mp3_seleccionado_titulo %>&amp;autoplay=<%# this.reproducir %>" quality="high"  bgcolor=#FFFFFF width="331" height="25" name="mini_player_mp3" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
-</object></td>
+                &nbsp;</td>
+            <td align="center">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center">
+                <asp:Panel ID="pnlReproductor" runat="server" Height="42px" Visible="False" 
+                    Width="506px">
+                    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+    codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" 
+    width="331" height="25" id="Object1" >
+                        <param name="allowScriptAccess" value="sameDomain" />
+                        <param name="movie" 
+                        
+                            value="Reproductor/mini_player_mp3.swf?my_mp3=Composiciones/<%# this.mp3_seleccionado %>&amp;my_text=<%# this.mp3_seleccionado_titulo %>&amp;autoplay=<%# this.reproducir %>" />
+                        <param name="quality" value="high" />
+                        <param name="wmode" value="transparent">
+                        <%--<param name="bgcolor" value="#FFFFFF" />--%>
+                        <embed src="Reproductor/mini_player_mp3.swf?my_mp3=Composiciones/<%# this.mp3_seleccionado %>&amp;my_text=<%# this.mp3_seleccionado_titulo %>&amp;autoplay=<%# this.reproducir %>" quality="high"  bgcolor=#FFFFFF width="331" height="25" name="mini_player_mp3" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+                    </object>
+                </asp:Panel>
+            </td>
             <td align="center">
                 &nbsp;</td>
         </tr>
