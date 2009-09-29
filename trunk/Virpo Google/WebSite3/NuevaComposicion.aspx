@@ -34,7 +34,7 @@
                 <asp:RadioButton ID="RadioButton2" runat="server" Text="Cancion No Terminada" 
                     GroupName="Tipo" />&nbsp;
                 <asp:RadioButton ID="RadioButton3" runat="server" Text="Cancion Finalizada" 
-                     />
+                    GroupName="Tipo"/>
             </td>
         </tr>
         <tr>

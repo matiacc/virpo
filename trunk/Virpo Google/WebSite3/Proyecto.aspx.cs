@@ -30,8 +30,6 @@ public partial class Proyecto : System.Web.UI.Page
 
         if (!Page.IsPostBack)
         {
-            
-
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
             if (Request.QueryString["Id"] != null)
@@ -45,7 +43,6 @@ public partial class Proyecto : System.Web.UI.Page
                 if (ProyectoFactory.EsIntegrante(((Usuario)Session["Usuario"]).Id, id))
                     btUnirse.Text = "Subir una composicion";
 
-                
                 lblNombre.Text = proy.Nombre;
                 lblDescripcion.Text = proy.Descripcion;
                 lblFecha.Text = proy.FechaCreacion.ToShortDateString();
@@ -57,25 +54,7 @@ public partial class Proyecto : System.Web.UI.Page
                 ViewState.Add("mailCreador", proy.Usuario.EMail);
                 ViewState.Add("nombreCreador", proy.Usuario.Nombre);
                 //Colaboradores
-                List<Usuario> usuarios = UsuarioFactory.DevolverIntegrantesDeProyecto(id);
-                string html = "<table>";
-        
-                for (int i = 0; i < usuarios.Count; i++)
-                {
-                    if (i == 6)
-                        break;
-                    if(i%2 == 0)
-                        html += "<tr>";
-                    html += "<td>";
-                    html += "<a href='PerfilPublico.aspx?Id=" + usuarios[i].Id + "' title='" + usuarios[i].NombreUsuario + "'>" +
-                        "<img src='" + usuarios[i].Imagen + "' width='100' border='0' height='70'></a>";
-                    html += "</td>";
-                    if (i % 2 != 0)
-                        html += "</tr>";
-                }
-                if (usuarios.Count % 2 == 0) html += "</tr>";
-                html += "</table>";
-                lblColaboradores.Text = html;
+                this.CargarColaboradores(id);
 
                 //Composiciones
                 DataTable dt = this.DatosComposiciones(id);
@@ -89,13 +68,32 @@ public partial class Proyecto : System.Web.UI.Page
                 }
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
-               
             }
-            
         }
-
     }
 
+    private void CargarColaboradores(int idProyecto)
+    {
+        List<Usuario> usuarios = UsuarioFactory.DevolverIntegrantesDeProyecto(idProyecto);
+        string html = "<table>";
+
+        for (int i = 0; i < usuarios.Count; i++)
+        {
+            if (i == 6)
+                break;
+            if (i % 2 == 0)
+                html += "<tr>";
+            html += "<td>";
+            html += "<a href='PerfilPublico.aspx?Id=" + usuarios[i].Id + "' title='" + usuarios[i].NombreUsuario + "'>" +
+                "<img src='./ImagenesUsuario/" + usuarios[i].Imagen + "' width='100' border='0' height='70'></a>";
+            html += "</td>";
+            if (i % 2 != 0)
+                html += "</tr>";
+        }
+        if (usuarios.Count % 2 == 0 || usuarios.Count == 1) html += "</tr>";
+        html += "</table>";
+        lblColaboradores.Text = html;
+    }
     protected void btUnirse_Click(object sender, EventArgs e)
     {
         if (btUnirse.Text.Contains("Subir"))
@@ -112,6 +110,7 @@ public partial class Proyecto : System.Web.UI.Page
             string mensaje = "Hola <b>" + ViewState["nombreCreador"].ToString() + "</b>, un Músico se ha unido a tu proyecto Virpo <b>" + lblNombre.Text + "</b> y pronto comenzará a colaborar.<br /><br />Ingresa al sitio para mas informacion:<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
             EnviarMail.Mande("Virpo", ViewState["mailCreador"].ToString(), asunto, mensaje);
             btUnirse.Text = "Subir una composicion";
+            this.CargarColaboradores((int)ViewState["idProyecto"]);
         }
     }
 
