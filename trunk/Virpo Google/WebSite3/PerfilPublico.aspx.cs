@@ -22,8 +22,8 @@ public partial class PerfilPublico : System.Web.UI.Page
         {
             Usuario usr = new Usuario();
             usr = UsuarioFactory.Devolver(int.Parse(Request.QueryString["Id"].ToString()));
-            ImgPerfil.ImageUrl = usr.Imagen;
-            lblLogin.Text = usr.NombreUsuario;
+            ImgPerfil.ImageUrl = "./ImagenesUsuario/" + usr.Imagen;
+            lblLogin.Text = usr.Nombre;
             lblNombre.Text = usr.Nombre;
             lblApellido.Text = usr.Apellido;
             lblInstrumento.Text = (InstrumentoFactory.Devolver(int.Parse(usr.IdInstrumento.ToString()))).Nombre;
