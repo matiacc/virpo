@@ -1,29 +1,43 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="NuevaComposicion.aspx.cs" Inherits="NuevaComposicion" Title="Página sin título" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+ <div id="menu8">
+        <ul>
+            <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
+            
+        </ul>
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <table class="style1">
+    <table class="tabla">
         <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
+            <td colspan="2">
+                <center style="width: 529px; background-color: #333333">
+                    <tituloSubVentana>
+                    Subir Composicion</tituloSubVentana></center></td>
         </tr>
         <tr>
             <td colspan="2">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                Tipo de Conposicion:</td>
+            <td>
                 <asp:RadioButton ID="RadioButton1" runat="server" Text="Pista" 
                     GroupName="Tipo" Checked="True" />&nbsp;
                 <asp:RadioButton ID="RadioButton2" runat="server" Text="Cancion No Terminada" 
                     GroupName="Tipo" />&nbsp;
-                <asp:RadioButton ID="RadioButton3" runat="server" Text="Cancion Finalizada" />
+                <asp:RadioButton ID="RadioButton3" runat="server" Text="Cancion Finalizada" 
+                     />
             </td>
         </tr>
         <tr>
             <td>
-                Nombre
-                <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
-            </td>
+                Nombre</td>
+            <td>
+                &nbsp;<asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                </td>
         </tr>
         <tr>
             <td>
