@@ -94,4 +94,8 @@ public partial class NuevaComposicion : System.Web.UI.Page
         ddlInstrumento.Items.Clear();
         MetodosComunes.cargarInstrumentos(ddlInstrumento, ddlTipo.SelectedValue);
     }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("NuevaComposicion.aspx");
+    }
 }
