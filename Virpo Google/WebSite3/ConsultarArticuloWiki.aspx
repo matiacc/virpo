@@ -26,7 +26,7 @@
                 <tr>
                     <td style="text-align: center" abbr="btn">
                         <asp:Button ID="btnApuntar" runat="server" onclick="btnApuntar_Click" 
-                            Text="Apuntar" />
+                            Text="Apuntar" CssClass="botones" />
                     </td>
                 </tr>
                 <tr>
@@ -42,7 +42,7 @@
                         <asp:Label ID="lblCat" runat="server" Font-Italic="True"></asp:Label>
                         <asp:Label ID="lblOk" runat="server" Style="color: #009933" Text="Articulo Apuntado"
                             Visible="False"></asp:Label>
-                        <asp:Label ID="lblMal" runat="server" Style="color: #CC3300" Text="Articulo No Apuntado"
+                        <asp:Label ID="lblMal" runat="server" Style="color: #CC3300" Text="Articulo Ya Apuntado"
                             Visible="False"></asp:Label>
                         <asp:Label ID="lblId" runat="server" Visible="False"></asp:Label>
                     </td>
