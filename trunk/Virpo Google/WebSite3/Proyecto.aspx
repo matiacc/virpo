@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="Proyecto.aspx.cs" Inherits="Proyecto" Title="Página sin título" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- <div id="menu8">
+    <div id="menu8">
         <ul>
             <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
             
@@ -12,12 +12,12 @@
     <table class="style1">
         <tr>
             <td>
-                <asp:Image ID="Image1" runat="server" />
+                <asp:Image ID="Image1" runat="server" Height="168px" Width="185px" />
             </td>
             <td>
                 <asp:Label ID="lblNombre" runat="server"></asp:Label>
             </td>
-            <td>
+            <td valign="top">
                 <asp:Button ID="btUnirse" runat="server" CssClass="botones" 
                     Text="Unirse al Proyecto" onclick="btUnirse_Click" />
           <img alt="" src="ImagenesSite/cargando.gif" id="loading" style="display:none"/>        
