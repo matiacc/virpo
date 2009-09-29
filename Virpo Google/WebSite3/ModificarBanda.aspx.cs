@@ -21,6 +21,7 @@ public partial class ModificarBanda : System.Web.UI.Page
         {
             Banda banda = new Banda();
             banda = (Banda)Session["DatosBanda"];
+            ImgBanda.ImageUrl = ResolveUrl("./Imagenes/") + banda.Imagen;
             txtNombre.Text = banda.Nombre;
             MetodosComunes.cargarGeneros(ddlGenero);
             ddlGenero.SelectedValue = banda.Genero.Id.ToString();

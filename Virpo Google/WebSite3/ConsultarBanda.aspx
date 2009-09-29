@@ -13,7 +13,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <asp:Image ID="Image1" runat="server" BorderStyle="Solid" Height="219px" 
+                <asp:Image ID="Image1" runat="server" BorderStyle="Solid" Height="250px" 
                     ImageAlign="Left" Width="250px" />
             </td>
             <td colspan="3">
