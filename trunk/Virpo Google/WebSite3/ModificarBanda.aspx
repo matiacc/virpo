@@ -3,34 +3,35 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<div id="menu8">
+        <ul>
+             <li><a href="NuevaBanda.aspx" title="Nueva Banda">Nueva Banda</a></li>
+            <li><a href="ListarUsuarios.aspx" title="Agregar Integrante">Agregar Integrante</a></li>
+             <li><a href="MostrarIntegrantesBanda.aspx" title="Agregar Integrante">Bandas e Integrantes</a></li>
+             <li><a href="ListarBandas.aspx" title="Agregar Integrante">Listar Bandas</a></li>
+        </ul>
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-    <table class="style1">
+    <table class="tabla">
         <tr>
-            <td rowspan="11">
+            <td rowspan="12">
+                &nbsp;</td>
+            <td colspan="3">
+                <center style="background-color: #333333; width: 523px;"><tituloSubVentana>Modificar Banda</tituloSubVentana></center></td>
+        </tr>
+        <tr>
+            <td rowspan="9">
                 <asp:Image ID="ImgBanda" runat="server" Height="250px" Width="250px" />
             </td>
             <td>
-                Modificar Banda
-            </td>
+                &nbsp;</td>
             <td>
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
             </td>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                &nbsp;
-            </td>
         </tr>
         <tr>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                &nbsp;
-            </td>
             <td>
                 &nbsp;
             </td>
@@ -43,13 +44,9 @@
                 <asp:Label ID="lblNombre" runat="server" Text="Nombre:"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtNombre" runat="server" Width="175px"></asp:TextBox>
-            </td>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                &nbsp;
+             <div class="loginboxdiv">
+                <asp:TextBox ID="txtNombre" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
         </tr>
         <tr>
@@ -57,14 +54,8 @@
                 <asp:Label ID="lblGenero" runat="server" Text="Genero:"></asp:Label>
             </td>
             <td>
-                <asp:DropDownList ID="ddlGenero" runat="server" Width="175px">
+                <asp:DropDownList ID="ddlGenero" runat="server" Width="145px">
                 </asp:DropDownList>
-            </td>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                &nbsp;
             </td>
         </tr>
         <tr>
@@ -72,13 +63,9 @@
                 <asp:Label ID="Label1" runat="server" Text="Página Web:"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtPaginaWeb" runat="server" Width="175px"></asp:TextBox>
-            </td>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                &nbsp;
+             <div class="loginboxdiv">
+                <asp:TextBox ID="txtPaginaWeb" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
         </tr>
         <tr>
@@ -86,13 +73,11 @@
                 <asp:Label ID="Label2" runat="server" Text="Inicio de la Banda:"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtFecInicio" runat="server" Width="175px"></asp:TextBox>
+             <div class="loginboxdiv">
+                <asp:TextBox ID="txtFecInicio" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                &nbsp;
+                </div>
             </td>
         </tr>
         <tr>
@@ -103,40 +88,33 @@
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
                         <asp:DropDownList ID="ddlPais" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlPais_SelectedIndexChanged"
-                            Width="175px">
+                            Width="145px">
                         </asp:DropDownList>
                         <br>
                         <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged"
-                            Width="175px">
+                            Width="145px">
                         </asp:DropDownList>
                         <br>
-                        <asp:DropDownList ID="ddlLocalidad" runat="server" AutoPostBack="True" Width="175px">
+                        <asp:DropDownList ID="ddlLocalidad" runat="server" AutoPostBack="True" 
+                            Width="145px">
                         </asp:DropDownList>
                     </ContentTemplate>
                 </asp:UpdatePanel>
-            </td>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                &nbsp;
             </td>
         </tr>
         <tr>
             <td>
                 <asp:Label ID="Label5" runat="server" Text="Provincia:"></asp:Label>
             </td>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                &nbsp;
-            </td>
         </tr>
         <tr>
             <td>
                 <asp:Label ID="Label3" runat="server" Text="Localidad:"></asp:Label>
             </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
             <td>
                 &nbsp;
             </td>
@@ -146,31 +124,15 @@
         </tr>
         <tr>
             <td>
-                &nbsp;
-            </td>
+                <asp:Button ID="btnGuardar" runat="server" OnClick="btnGuardar_Click" 
+                    Text="Guardar" CssClass="botones" />
+                </td>
             <td>
                 &nbsp;
             </td>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                <asp:Button ID="btnGuardar" runat="server" OnClick="btnGuardar_Click" Text="Guardar" />
-                <asp:Button ID="btnCancelar" runat="server" OnClick="btnCancelar_Click" Text="Cancelar" />
-            </td>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                &nbsp;
+            <td style="text-align: right">
+                <asp:Button ID="btnCancelar" runat="server" OnClick="btnCancelar_Click" 
+                    Text="Cancelar" CssClass="botones" />
             </td>
         </tr>
     </table>
