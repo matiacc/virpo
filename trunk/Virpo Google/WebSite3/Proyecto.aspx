@@ -139,6 +139,8 @@
                                 <asp:BoundField DataField="Usuario" HeaderText="Usuario" 
                                     SortExpression="Usuario" />
                                 <asp:BoundField DataField="Ruta2" HeaderText="Ruta" />
+                                <asp:HyperLinkField DataNavigateUrlFields="Ruta3" HeaderText="Ruta3" 
+                                    Text="Descargar" />
                             </Columns>
                         </asp:GridView>
                         
