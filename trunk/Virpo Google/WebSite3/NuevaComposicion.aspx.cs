@@ -50,27 +50,17 @@ public partial class NuevaComposicion : System.Web.UI.Page
         composicion.Instrumento = InstrumentoFactory.Devolver(Convert.ToInt32(ddlInstrumento.SelectedValue));
 
         string path = "";
-
-        if (!string.IsNullOrEmpty(FileUpload1.PostedFile.FileName))
-        {
-            path = this.CargarAudio();
-
-        }
+        path = this.CargarAudio();
+        
         composicion.Audio = path;
         bool a = ComposicionFactory.Insertar(composicion);
         int idProyecto = Convert.ToInt32(ViewState["idProyecto"]);
         bool b = ProyectoFactory.InsertarComposicionXProyecto(ComposicionFactory.DevolverIdComposicionCreada(composicion.Usuario.Id), idProyecto, DateTime.Now);
 
         if (a && b)
-        {
-
             Response.Redirect("./Proyecto.aspx?Id=" + idProyecto);
-
-        }
         else
-        {
             AlertJS("Error al cargar la composición");
-        }
     }
     public void AlertJS(string message)
     {
@@ -85,7 +75,6 @@ public partial class NuevaComposicion : System.Web.UI.Page
     {
         try
         {
-
             string filename = (new Random()).Next(999999).ToString();
             //TODO: ponerle un nombre unico
             string serverPath = Server.MapPath(@"./Composiciones/");
@@ -95,7 +84,6 @@ public partial class NuevaComposicion : System.Web.UI.Page
             FileUpload1.PostedFile.SaveAs(rutaCompleta);
 
             return nombreCompleto;
-
         }
         catch (Exception ex)
         {

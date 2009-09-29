@@ -42,8 +42,8 @@ public partial class musicamania_Virpo : System.Web.UI.MasterPage
             case "Clasificado":
                 Response.Redirect("Clasificados.aspx?filtro=" + filtro);
                 break;
-            case "Composicion":
-                Response.Redirect("BuscarComposicion.aspx?filtro=" + filtro);
+            case "Proyecto":
+                Response.Redirect("Proyectos.aspx?filtro=" + filtro);
                 break;
             default:
                 break;
