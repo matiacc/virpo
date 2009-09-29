@@ -22,9 +22,7 @@ public partial class musicamania_Virpo : System.Web.UI.MasterPage
     {
         if (Session["Usuario"] != null)
         {
-            //lblNombreUsuario.Text = ((Usuario)Session["Usuario"]).Nombre;
             hlNombreUsuario.Text = ((Usuario)Session["Usuario"]).Nombre;
-            //lblNombreUsuario.ForeColor = System.Drawing.Color.DarkOrange;
             hlNombreUsuario.ForeColor = System.Drawing.Color.DarkOrange;
             hlNombreUsuario.NavigateUrl = "Perfil.aspx";
             hlinkIniciarSesion.Text = "(Cerrar Sesion)";

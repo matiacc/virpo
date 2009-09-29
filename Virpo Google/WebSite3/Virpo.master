@@ -11,6 +11,7 @@
 <script type="text/javascript" src="js/scriptaculous.js?load=effects"></script>
 <script type="text/javascript" src="js/lightbox.js"></script>
 <link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/modalPopUp.css" type="text/css" media="screen" />
 
 <script language="javascript" type="text/javascript">
 function abrirPopup(idAviso) {

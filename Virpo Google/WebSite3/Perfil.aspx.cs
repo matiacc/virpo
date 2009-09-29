@@ -22,7 +22,7 @@ public partial class Perfil : System.Web.UI.Page
         {
             Usuario usr = new Usuario();
             usr = (Usuario)Session["Usuario"];
-            ImgPerfil.ImageUrl = usr.Imagen;
+            ImgPerfil.ImageUrl = "./ImagenesUsuario/" + usr.Imagen;
             lblLogin.Text = usr.NombreUsuario;
             lblNombre.Text = usr.Nombre;
             lblApellido.Text = usr.Apellido;
