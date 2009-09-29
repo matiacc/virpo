@@ -22,7 +22,7 @@ public partial class ModificarPerfil : System.Web.UI.Page
         {
             Usuario usr = new Usuario();
             usr = (Usuario)Session["Usuario"];
-            ImgPerfil.ImageUrl = usr.Imagen;
+            ImgPerfil.ImageUrl = "./ImagenesUsuario/" + usr.Imagen;
             MetodosComunes.cargarLocalidades(ddlLocalidad);
             MetodosComunes.cargarProvincias(ddlProvincia);
             MetodosComunes.cargarPaises(ddlPais);
@@ -111,10 +111,88 @@ public partial class ModificarPerfil : System.Web.UI.Page
         usrModificado.TelMovil = txtTelMovil.Text;
         usrModificado.IdLocalidad = int.Parse(ddlLocalidad.SelectedValue.ToString());
         usrModificado.Barrio = txtBarrio.Text;
-        usrModificado.Imagen = ImgPerfil.ImageUrl.ToString();
-        usrModificado.ImagenThumb = usr.ImagenThumb;
+        //usrModificado.Imagen = ImgPerfil.ImageUrl.ToString();
+        //usrModificado.ImagenThumb = usr.ImagenThumb;
+        string thumb = "";
+        string path = this.GuardarImagen(out thumb);
+        if (path != "1")
+        {
+            usrModificado.Imagen = path;
+            usrModificado.ImagenThumb = thumb;
+        }
+        else 
+        {
+            usrModificado.Imagen = usr.Imagen;
+            usrModificado.ImagenThumb = usr.ImagenThumb;
+        }
         UsuarioFactory.Modificar(usrModificado);
         Session["Usuario"] = usrModificado;
+        Panel1_ModalPopupExtender.Show();
+        //Response.Redirect("Perfil.aspx");
+    }
+    private string GuardarImagen(out string thumb)
+    {
+        try
+        {
+            if (uploadImagen.HasFile)
+            {
+                string filename = DateTime.Now.Millisecond.ToString();
+                //TODO: ponerle un nombre unico
+                string serverPath = Server.MapPath(@"./ImagenesUsuario/");
+                string extension = Path.GetExtension(uploadImagen.PostedFile.FileName).ToLower();
+                string rutaCompleta = serverPath + filename + extension;
+                string nombreCompleto = filename + extension;
+                thumb = filename + "_Thumb" + extension;
+                string imgThum;
+
+                if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
+                    throw new Exception("El archivo ingresado no es una imagen");
+
+                uploadImagen.PostedFile.SaveAs(rutaCompleta);
+                //TODO: Redimensionar la imagen a un tamaño fijo para que no suban giladas
+
+                //Ahora guardo el Thumbnail
+                System.Drawing.Image objImage;
+                System.Drawing.Image objThumbnail;
+                int shtWidth;
+                int shtHeight;
+                Stream my_stream = null;
+
+                my_stream = File.OpenRead(rutaCompleta);
+                objImage = System.Drawing.Image.FromStream(my_stream);
+                shtWidth = 100;
+                shtHeight = objImage.Height / (objImage.Width / shtWidth);
+                Response.Clear();
+                objThumbnail = objImage.GetThumbnailImage(shtWidth, +
+                shtHeight, null, System.IntPtr.Zero);
+
+                imgThum = filename + "_Thumb";
+                objThumbnail.Save(serverPath + imgThum + extension);
+
+                objImage.Dispose();
+                objImage = null;
+                objThumbnail.Dispose();
+                objThumbnail = null;
+                my_stream.Dispose();
+                my_stream = null;
+
+                return nombreCompleto;
+            }
+            else
+            {
+                thumb = "./ImagenesSite/user_no_avatar.gif";
+                return "1";
+            }
+        }
+        catch (Exception ex)
+        {
+            thumb = "";
+            return ex.Message;
+        }
+
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
         Response.Redirect("Perfil.aspx");
     }
 }
