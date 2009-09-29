@@ -27,7 +27,7 @@ public partial class ModificarPerfil : System.Web.UI.Page
             MetodosComunes.cargarProvincias(ddlProvincia);
             MetodosComunes.cargarPaises(ddlPais);
             MetodosComunes.cargarInstrumentos(ddlInstrumento);
-            lblLogin.Text = usr.NombreUsuario;
+            lblLogin.Text = usr.Nombre;
             txtNombre.Text = usr.Nombre;
             txtApellido.Text = usr.Apellido;
             ddlInstrumento.SelectedValue = usr.IdInstrumento.ToString();

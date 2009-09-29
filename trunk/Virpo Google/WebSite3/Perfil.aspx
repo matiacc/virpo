@@ -14,7 +14,7 @@
             <td colspan="4">
                 <center style="width: 528px; background-color: #333333"><tituloSubVentana>Bienvenido
                 <asp:Label ID="lblLogin" runat="server"></asp:Label>
-                    a tu perfil</tituloSubVentana></center>&nbsp; &nbsp; &nbsp; &nbsp;
+                    a tu Perfil</tituloSubVentana></center>&nbsp; &nbsp; &nbsp; &nbsp;
                 <asp:Label ID="Label9" runat="server" Text="Barrio:" CssClass="estiloLabel" 
                     Visible="False"></asp:Label>
             &nbsp;<asp:Label ID="lblBarrio" runat="server" Visible="False"></asp:Label>
