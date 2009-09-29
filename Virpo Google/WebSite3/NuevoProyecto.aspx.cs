@@ -30,7 +30,7 @@ public partial class NuevoProyecto : System.Web.UI.Page
     {
         try
         {
-            Proyecto proyecto = new Proyecto();
+            CapaNegocio.Entities.Proyecto proyecto = new CapaNegocio.Entities.Proyecto();
             proyecto.Descripcion = txtDescripcion.Text.Trim();
             proyecto.FechaCreacion = DateTime.Now;
             proyecto.Genero = txtGenero.Text.Trim();
