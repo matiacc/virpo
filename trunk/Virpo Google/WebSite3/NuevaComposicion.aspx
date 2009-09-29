@@ -14,13 +14,13 @@
     
     <table class="tabla">
         <tr>
-            <td colspan="2">
+            <td colspan="3">
                 <center style="width: 529px; background-color: #333333">
                     <tituloSubVentana>
                     Subir Composicion</tituloSubVentana></center></td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="3">
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
             </td>
@@ -28,7 +28,7 @@
         <tr>
             <td>
                 Tipo de Conposicion:</td>
-            <td>
+            <td colspan="2">
                 <asp:RadioButton ID="RadioButton1" runat="server" Text="Pista" 
                     GroupName="Tipo" Checked="True" />&nbsp;
                 <asp:RadioButton ID="RadioButton2" runat="server" Text="Cancion No Terminada" 
@@ -39,9 +39,18 @@
         </tr>
         <tr>
             <td>
-                Nombre</td>
+                &nbsp;</td>
+            <td colspan="2">
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td>
-                &nbsp;<asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                Nombre<br />
+            </td>
+            <td colspan="2">
+            <div class="loginboxdiv">
+                <asp:TextBox ID="txtNombre" runat="server" CssClass="loginbox" Width="127px"></asp:TextBox>
+                </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                     ControlToValidate="txtNombre" ErrorMessage="*"></asp:RequiredFieldValidator>
                 </td>
@@ -49,37 +58,61 @@
         <tr>
             <td>
                 Tempo</td>
-            <td>
-                <asp:TextBox ID="txtTempo" runat="server"></asp:TextBox>
+            <td colspan="2">
+            <div class="loginboxdiv">
+                <asp:TextBox ID="txtTempo" runat="server" CssClass="loginbox" Width="127px"></asp:TextBox>
+                 </div>
             </td>
         </tr>
         <tr>
             <td>
-                Tonalidad</td>
+                &nbsp;</td>
+            <td colspan="2">
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td>
-                <asp:DropDownList ID="ddlTonalidad" runat="server">
+                Tonalidad</td>
+            <td colspan="2">
+                <asp:DropDownList ID="ddlTonalidad" runat="server" Width="145px">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td>
-                Genero</td>
+                &nbsp;</td>
+            <td colspan="2">
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td>
-                <asp:TextBox ID="txtGenero" runat="server"></asp:TextBox>
+                Genero</td>
+            <td colspan="2">
+            <div class="loginboxdiv">
+                <asp:TextBox ID="txtGenero" runat="server" CssClass="loginbox" Width="127px"></asp:TextBox>
+                 </div>
             </td>
         </tr>
         <tr>
             <td>
+                &nbsp;</td>
+            <td colspan="2">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
                 Tipo Instrumento</td>
-            <td rowspan="2">
+            <td rowspan="2" colspan="2">
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
                                 <asp:DropDownList ID="ddlTipo" runat="server" 
-    onselectedindexchanged="ddlTipo_SelectedIndexChanged" AutoPostBack="True">
+    onselectedindexchanged="ddlTipo_SelectedIndexChanged" AutoPostBack="True" Width="145px">
                                 </asp:DropDownList>
-                                </br>
+                                <br>
+                                <br></br>
                                 <asp:DropDownList ID="ddlInstrumento" runat="server">
                                 </asp:DropDownList>
+                                </br>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                                 </td>
@@ -90,17 +123,30 @@
         </tr>
         <tr>
             <td>
-                Descripcion</td>
+                &nbsp;</td>
+            <td colspan="2">
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td>
-                <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine"></asp:TextBox>
+                Descripcion</td>
+            <td colspan="2">
+                <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" 
+                    Width="145px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>
-                Archivo de Audio</td>
+                &nbsp;</td>
+            <td colspan="2">
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td>
+                Archivo de Audio</td>
+            <td colspan="2">
                 <%--<asp:FileUpload ID="FileUpload1" runat="server"/>--%>
-                <asp:FileUpload ID="FileUpload1" runat="server" />
+                <asp:FileUpload ID="FileUpload1" runat="server" Width="145px" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                     ControlToValidate="FileUpload1" ErrorMessage="*"></asp:RequiredFieldValidator>
             </td>
@@ -108,15 +154,19 @@
         <tr>
             <td>
                 &nbsp;</td>
-            <td>
+            <td colspan="2">
                 &nbsp;</td>
         </tr>
         <tr>
             <td>
                 &nbsp;</td>
-            <td>
+            <td style="text-align: left">
                 <asp:Button ID="btGuardar" runat="server" onclick="btGuardar_Click" 
-                    Text="Aceptar" />
+                    Text="Aceptar" CssClass="botones" />
+            </td>
+            <td style="text-align: right">
+                <asp:Button ID="Button1" runat="server" CssClass="botones" Text="Cancelar" 
+                    onclick="Button1_Click" />
             </td>
         </tr>
     </table>
