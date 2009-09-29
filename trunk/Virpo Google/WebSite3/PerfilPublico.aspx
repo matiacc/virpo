@@ -1,333 +1,118 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="PerfilPublico.aspx.cs" Inherits="PerfilPublico" Title="Página sin título" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+  <div id="menu8">
+        <ul>
+            <li><a href="Perfil.aspx" title="Mi Perfil">Mi Perfil</a></li>
+            
+        </ul>
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <table class="style1" style="width: 225%">
+    <table class="tabla" style="width: 130%">
     <tr>
-        <td>
-            <asp:Label ID="Label1" runat="server" Style="text-align: center" Text="Mi Perfil"></asp:Label>
-        </td>
-        <td style="width: 160px">
-            &nbsp;
-        </td>
-        <td style="width: 105px">
-            &nbsp;
-        </td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
-    <tr>
-        <td style="width: 310px">
-            &nbsp;
-        </td>
-        <td style="width: 160px">
-            &nbsp;
-        </td>
-        <td style="width: 105px">
-            &nbsp;
-        </td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
-    <tr>
-        <td style="width: 310px">
+        <td colspan="4">
+            <center style="width: 529px; background-color: #333333">
+                    <tituloSubVentana>
+                    Perfil De
             <asp:Label ID="lblLogin" runat="server"></asp:Label>
-        </td>
-        <td style="width: 160px">
-            &nbsp;
-        </td>
-        <td style="width: 105px">
-            &nbsp;
-        </td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
+                    </tituloSubVentana></center>
         </td>
     </tr>
     <tr>
-        <td rowspan="12" style="width: 310px">
+        <td rowspan="9">
             <asp:Image ID="ImgPerfil" runat="server" Height="300px" Width="300px" />
         </td>
-        <td style="width: 160px">
+        <td>
+            &nbsp;</td>
+        <td>
             <asp:Label ID="Label2" runat="server" Text="Nombre:"></asp:Label>
         </td>
-        <td style="width: 105px">
+        <td>
             <asp:Label ID="lblNombre" runat="server"></asp:Label>
         </td>
-        <td style="width: 118px">
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
     </tr>
     <tr>
-        <td style="width: 160px">
+        <td>
+            &nbsp;</td>
+        <td>
             <asp:Label ID="Label3" runat="server" Text="Apellido:"></asp:Label>
         </td>
-        <td style="width: 105px">
+        <td>
             <asp:Label ID="lblApellido" runat="server"></asp:Label>
         </td>
-        <td style="width: 118px">
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
     </tr>
     <tr>
-        <td style="width: 160px">
+        <td>
+            &nbsp;</td>
+        <td>
             <asp:Label ID="Label13" runat="server" Text="Instrumento:"></asp:Label>
         </td>
         <td>
             <asp:Label ID="lblInstrumento" runat="server"></asp:Label>
         </td>
-        <td>
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
     </tr>
     <tr>
-        <td style="width: 160px">
+        <td>
+            &nbsp;</td>
+        <td>
             <asp:Label ID="Label7" runat="server" Text="Fecha de Nacimiento:"></asp:Label>
         </td>
-        <td style="width: 105px">
+        <td>
             <asp:Label ID="lblFecNac" runat="server"></asp:Label>
         </td>
-        <td style="width: 118px">
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
     </tr>
     <tr>
-        <td style="width: 160px">
+        <td>
+            &nbsp;</td>
+        <td>
             <asp:Label ID="Label8" runat="server" Text="Sexo:"></asp:Label>
         </td>
-        <td style="width: 105px">
+        <td>
             <asp:Label ID="lblSexo" runat="server"></asp:Label>
         </td>
-        <td style="width: 118px">
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
     </tr>
     <tr>
-        <td style="width: 160px">
+        <td>
+            &nbsp;</td>
+        <td>
             <asp:Label ID="Label4" runat="server" Text="E-mail:"></asp:Label>
         </td>
-        <td style="width: 105px">
+        <td>
             <asp:Label ID="lbleMail" runat="server"></asp:Label>
         </td>
-        <td style="width: 118px">
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
     </tr>
     <tr>
-        <td style="width: 160px">
+        <td>
+            &nbsp;</td>
+        <td>
             <asp:Label ID="Label10" runat="server" Text="Localidad:"></asp:Label>
         </td>
-        <td style="width: 105px">
+        <td>
             <asp:Label ID="lblLocalidad" runat="server"></asp:Label>
         </td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
     </tr>
     <tr>
-        <td style="width: 160px">
+        <td>
+            &nbsp;</td>
+        <td>
             <asp:Label ID="Label11" runat="server" Text="Provincia:"></asp:Label>
         </td>
-        <td style="width: 105px">
+        <td>
             <asp:Label ID="lblProvincia" runat="server"></asp:Label>
         </td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
     </tr>
     <tr>
-        <td style="width: 160px">
+        <td>
+            &nbsp;</td>
+        <td>
             <asp:Label ID="Label12" runat="server" Text="País:"></asp:Label>
         </td>
-        <td style="width: 105px">
+        <td>
             <asp:Label ID="lblPais" runat="server"></asp:Label>
         </td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
     </tr>
-    <tr>
-        <td style="width: 160px">
-            &nbsp;</td>
-        <td style="width: 105px">
-            &nbsp;</td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
-    <tr>
-        <td style="width: 160px">
-            &nbsp;</td>
-        <td style="width: 105px">
-            &nbsp;</td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
-    <tr>
-        <td style="width: 160px">
-            &nbsp;</td>
-        <td style="width: 105px">
-            &nbsp;</td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
-    <tr>
-        <td style="width: 310px">
-            &nbsp;
-        </td>
-        <td style="width: 160px">
-            &nbsp;
-        </td>
-        <td style="width: 105px">
-            &nbsp;
-        </td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
-    <tr>
-        <td style="width: 310px">
-            &nbsp;
-        </td>
-        <td style="width: 160px">
-            &nbsp;
-        </td>
-        <td style="width: 105px">
-            &nbsp;
-        </td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
-    <tr>
-        <td style="width: 310px">
-            &nbsp;
-        </td>
-        <td style="width: 160px">
-            &nbsp;
-        </td>
-        <td style="width: 105px">
-            &nbsp;
-        </td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
-    <tr>
-        <td style="width: 310px">
-            &nbsp;
-        </td>
-        <td style="width: 160px">
-            &nbsp;
-        </td>
-        <td style="width: 105px">
-            &nbsp;
-        </td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
-    <tr>
-        <td style="width: 310px">
-            &nbsp;
-        </td>
-        <td style="width: 160px">
-            &nbsp;
-        </td>
-        <td style="width: 105px">
-            &nbsp;
-        </td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
-    <tr>
-        <td style="width: 310px">
-            &nbsp;
-        </td>
-        <td style="width: 160px">
-            &nbsp;
-        </td>
-        <td style="width: 105px">
-            &nbsp;
-        </td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
-    <tr>
-        <td style="width: 310px">
-            &nbsp;
-        </td>
-        <td style="width: 160px">
-            &nbsp;
-        </td>
-        <td style="width: 105px">
-            &nbsp;
-        </td>
-        <td style="width: 118px">
-            &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
-</table>
+    </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
 </asp:Content>
