@@ -57,19 +57,21 @@ public partial class Proyecto : System.Web.UI.Page
                 this.CargarColaboradores(id);
 
                 //Composiciones
-                DataTable dt = this.DatosComposiciones(id);
-                if (dt.Rows.Count == 0)
-                {
-                    lblComposiciones.Visible = true;
-                }
-                else
-                {
-                    pnlReproductor.Visible = true;
-                }
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
+                this.CargarComposiciones((int)ViewState["idProyecto"]);
+                
             }
         }
+    }
+    private void CargarComposiciones(int idProyecto)
+    {
+        DataTable dt = this.DatosComposiciones(idProyecto);
+        if (dt.Rows.Count == 0)
+            lblComposiciones.Visible = true;
+        else
+            pnlReproductor.Visible = true;
+
+        GridView1.DataSource = dt;
+        GridView1.DataBind();
     }
 
     private void CargarColaboradores(int idProyecto)
@@ -126,12 +128,12 @@ public partial class Proyecto : System.Web.UI.Page
         
             this.mp3_seleccionado = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text;
             this.mp3_seleccionado_titulo = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[1].Text;
-
+            
             //string value = "Reproductor/mini_player_mp3.swf?my_mp3=Composiciones/" + mp3_seleccionado + "&amp;my_text=" + mp3_seleccionado_titulo + "&amp;autoplay=yes";
             //ClientScript.RegisterExpandoAttribute("movie", "value", value);
             this.reproducir = "yes";
             this.Page.DataBind();
-        
+            this.CargarComposiciones((int)ViewState["idProyecto"]);
     }
     private DataTable DatosComposiciones(int id)
     {
@@ -151,7 +153,7 @@ public partial class Proyecto : System.Web.UI.Page
             {
                 row = dt.NewRow();
                 row["Ruta"] = composicion.Audio;
-                row["Ruta2"] =  composicion.Audio;
+                row["Ruta2"] = composicion.Audio;
                 row["Nombre"] = composicion.Nombre;
                 if (composicion.Instrumento != null)
                     row["Instrumento"] = composicion.Instrumento.Nombre;
