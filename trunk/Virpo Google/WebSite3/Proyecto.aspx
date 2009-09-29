@@ -126,7 +126,7 @@
                 
                         
                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-                            onrowcommand="GridView1_RowCommand" GridLines="Horizontal" 
+                            onrowcommand="GridView1_RowCommand" GridLines="Vertical" 
                             ShowHeader="False">
                             <Columns>
                                 <asp:ButtonField ButtonType="Image" CommandName="P" DataTextField="Ruta" 
