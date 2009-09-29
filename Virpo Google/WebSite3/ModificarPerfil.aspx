@@ -279,13 +279,12 @@
     <asp:Button ID="Button2" runat="server" Text="False" Style="display: none" />
     <asp:Button ID="Button3" runat="server" Text="False2" Style="display: none" />
     <asp:Panel ID="Panel1" runat="server" Style="display: none;" CssClass="modalPopup">
-        Tus datos fueron modificados
+        <center>Tus datos fueron modificados con exito</center>
         <br />
         <br />
-        <br />
-        <br />
-        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
-    </asp:Panel>
+        
+        <center><asp:Button ID="Button1" runat="server" Text="Aceptar" OnClick="Button1_Click" CssClass="botones" />
+    </asp:Panel></center>
     <cc1:ModalPopupExtender ID="Panel1_ModalPopupExtender" BackgroundCssClass="modalBackground"
         runat="server" DynamicServicePath="" Enabled="True" TargetControlID="Button2"
         PopupControlID="Panel1" OkControlID="Button3">
