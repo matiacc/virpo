@@ -80,8 +80,13 @@ public partial class Proyecto : System.Web.UI.Page
                 //Composiciones
                 DataTable dt = this.DatosComposiciones(id);
                 if (dt.Rows.Count == 0)
+                {
                     lblComposiciones.Visible = true;
-
+                }
+                else
+                {
+                    pnlReproductor.Visible = true;
+                }
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
                
