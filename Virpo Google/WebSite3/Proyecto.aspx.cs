@@ -101,7 +101,7 @@ public partial class Proyecto : System.Web.UI.Page
         if (btUnirse.Text.Contains("Subir"))
         {
 
-            Response.Redirect("NuevaComposicion.aspx?idProyecto=" + ViewState["idProyecto"]);
+            Response.Redirect("NuevaComposicion.aspx?idProyecto=" + ViewState["idProyecto"],false);
         }
         else if (ProyectoFactory.InsertarUsuarioXProyecto(((Usuario)Session["Usuario"]).Id, (int)ViewState["idProyecto"], DateTime.Now))
         {
