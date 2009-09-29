@@ -100,7 +100,6 @@ public partial class Proyecto : System.Web.UI.Page
     {
         if (btUnirse.Text.Contains("Subir"))
         {
-
             Response.Redirect("NuevaComposicion.aspx?idProyecto=" + ViewState["idProyecto"],false);
         }
         else if (ProyectoFactory.InsertarUsuarioXProyecto(((Usuario)Session["Usuario"]).Id, (int)ViewState["idProyecto"], DateTime.Now))
@@ -125,7 +124,7 @@ public partial class Proyecto : System.Web.UI.Page
     }
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-        
+            
             this.mp3_seleccionado = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text;
             this.mp3_seleccionado_titulo = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[1].Text;
             
@@ -145,6 +144,7 @@ public partial class Proyecto : System.Web.UI.Page
         dt.Columns.Add("Usuario");
         dt.Columns.Add("Tipo");
         dt.Columns.Add("Ruta2");
+        dt.Columns.Add("Ruta3");
         List<Composicion> composiciones = ComposicionFactory.DevolverXProyecto(id);
 
         if (composiciones != null)
@@ -154,16 +154,17 @@ public partial class Proyecto : System.Web.UI.Page
                 row = dt.NewRow();
                 row["Ruta"] = composicion.Audio;
                 row["Ruta2"] = composicion.Audio;
+                row["Ruta3"] = "./Composiciones/" + composicion.Audio;
                 row["Nombre"] = composicion.Nombre;
                 if (composicion.Instrumento != null)
                     row["Instrumento"] = composicion.Instrumento.Nombre;
                 else
-                    row["Instrumento"] = "No definido";
+                    row["Instrumento"] = "Instrumento No definido";
                 row["Usuario"] = composicion.Usuario.NombreUsuario;
                 if (composicion.Tipo != null)
                     row["Tipo"] = composicion.Tipo;
                 else
-                    row["Tipo"] = "No definido";
+                    row["Tipo"] = "Tipo No definido";
                 dt.Rows.Add(row);
             }
             return dt;
