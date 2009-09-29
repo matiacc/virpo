@@ -5,16 +5,19 @@
         <ul>
              <li><a href="NuevaBanda.aspx" title="Nueva Banda">Nueva Banda</a></li>
             <li><a href="ListarUsuarios.aspx" title="Agregar Integrante">Agregar Integrante</a></li>
-             <li><a href="MostrarIntegrantesBanda.aspx" title="Agregar Integrante">Bandas e Integrantes</a></li>
+             <li><a href="MostrarIntegrantesBanda.aspx" title="Agregar Integrante">Bandas e 
+                 Integrantes</a></li>
              <li><a href="ListarBandas.aspx" title="Agregar Integrante">Listar Bandas</a></li>
         </ul>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <table class="style1">
+    <table class="style1" style="width: 151%">
         <tr>
             <td>
-                &nbsp;</td>
+                <center style="width: 529px; background-color: #333333">
+                    <tituloSubVentana>
+                    Listar Bandas</tituloSubVentana></center></td>
         </tr>
         <tr>
             <td>
@@ -64,10 +67,12 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td>
+            <td style="text-align: left">
                 <asp:Button ID="btnCancelar" runat="server" onclick="btnCancelar_Click" 
-                    style="height: 26px" Text="Cancelar" />
+                    style="height: 26px" Text="Volver" CssClass="botones" />
             </td>
+            <td style="text-align: right">
+                &nbsp;</td>
         </tr>
         <tr>
             <td>
