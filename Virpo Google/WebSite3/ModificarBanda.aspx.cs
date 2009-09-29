@@ -95,9 +95,9 @@ public partial class ModificarBanda : System.Web.UI.Page
         bandaModificada.PaginaWeb = txtPaginaWeb.Text;
         bandaModificada.FechaInicio = DateTime.Parse(txtFecInicio.Text);
         bandaModificada.Localidad = LocalidadFactory.Devolver(int.Parse(ddlLocalidad.SelectedValue.ToString()));
-        bandaModificada.Descripcion = "";
-        bandaModificada.Imagen = "";
-        bandaModificada.ImagenThumb = "";
+        bandaModificada.Descripcion = banda.Descripcion;
+        bandaModificada.Imagen = banda.Imagen;
+        bandaModificada.ImagenThumb = banda.ImagenThumb;
         BandaFactory.Modificar(bandaModificada);
         Response.Redirect("ConsultarBanda.aspx?C=" + bandaModificada.Id.ToString());
     }
