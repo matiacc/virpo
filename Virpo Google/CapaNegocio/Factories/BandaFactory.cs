@@ -13,7 +13,7 @@ namespace CapaNegocio.Factories
     {
         public static Banda Devolver(int id)
         {
-            string query = "SELECT nombre, paginaWeb, imagen, fechaInicio, idGenero, idLocalidad " +
+            string query = "SELECT nombre, descripcion, paginaWeb, imagen, imagenThumb, fechaInicio, idGenero, idLocalidad " +
                         "FROM Banda " +
                         "WHERE id=" + id;
 
@@ -22,8 +22,10 @@ namespace CapaNegocio.Factories
             {
                 Banda banda = new Banda();
                 banda.Nombre = dt.Rows[0]["nombre"].ToString();
+                banda.Descripcion = dt.Rows[0]["descripcion"].ToString();
                 banda.PaginaWeb = dt.Rows[0]["paginaWeb"].ToString();
                 banda.Imagen = dt.Rows[0]["imagen"].ToString();
+                banda.ImagenThumb = dt.Rows[0]["imagenThumb"].ToString();
                 banda.FechaInicio = Convert.ToDateTime(dt.Rows[0]["fechaInicio"].ToString());
                 banda.Genero = GeneroFactory.Devolver(int.Parse(dt.Rows[0]["idGenero"].ToString()));
                 banda.Localidad = LocalidadFactory.Devolver(int.Parse(dt.Rows[0]["idLocalidad"].ToString()));
@@ -48,7 +50,7 @@ namespace CapaNegocio.Factories
                 {
                     Banda banda = new Banda();
                     banda.Id = (int)dt.Rows[i]["id"];
-                    banda.Nombre = dt.Rows[i]["nombre"].ToString(); 
+                    banda.Nombre = dt.Rows[i]["nombre"].ToString();
                     banda.PaginaWeb = dt.Rows[i]["paginaWeb"].ToString();
                     banda.Imagen = dt.Rows[i]["imagen"].ToString();
                     banda.FechaInicio = Convert.ToDateTime(dt.Rows[i]["fechaInicio"].ToString());
@@ -66,7 +68,7 @@ namespace CapaNegocio.Factories
         public static List<Banda> DevolverTodos(string restriccion)
         {
             string query = "SELECT id, nombre, paginaWeb, imagen, fechaInicio, idGenero, idLocalidad " +
-                           "FROM Banda ";
+                           "FROM Banda";
 
             if (!string.IsNullOrEmpty(restriccion))
                 query += restriccion;
