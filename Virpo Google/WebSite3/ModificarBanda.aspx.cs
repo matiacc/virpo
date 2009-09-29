@@ -101,7 +101,6 @@ public partial class ModificarBanda : System.Web.UI.Page
         bandaModificada.ImagenThumb = banda.ImagenThumb;
         BandaFactory.Modificar(bandaModificada);
         ViewState.Add("C", bandaModificada.Id);
-        //Response.Redirect("ConsultarBanda.aspx?C=" + bandaModificada.Id.ToString());
         Panel1_ModalPopupExtender.Show();
     }
     protected void Button1_Click(object sender, EventArgs e)

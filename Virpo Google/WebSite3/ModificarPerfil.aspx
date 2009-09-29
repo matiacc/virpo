@@ -15,9 +15,9 @@
     <table class="tabla" style="width: 125%">
         <tr>
             <td colspan="5">
-                <center style="width: 528px; background-color: #333333"><tituloSubVentana>Hola! - 
+                <center style="width: 528px; background-color: #333333"><tituloSubVentana>Hola  
                 <asp:Label ID="lblLogin" runat="server"></asp:Label>
-                     - Modificar Perfil</tituloSubVentana></center>
+                       ! - Modifica tu Perfil</tituloSubVentana></center>
                 &nbsp; &nbsp; &nbsp; &nbsp;
             </td>
             <td>
@@ -279,7 +279,7 @@
     <asp:Button ID="Button2" runat="server" Text="False" Style="display: none" />
     <asp:Button ID="Button3" runat="server" Text="False2" Style="display: none" />
     <asp:Panel ID="Panel1" runat="server" Style="display: none;" CssClass="modalPopup">
-        <center>Tus datos fueron modificados con exito</center>
+        <center>Tus datos fueron modificados con éxito</center>
         <br />
         <br />
         
