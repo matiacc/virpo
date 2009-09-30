@@ -19,7 +19,7 @@ public partial class Proyecto : System.Web.UI.Page
     protected string mp3_seleccionado = "";
     protected string mp3_seleccionado_titulo = "";
     protected string reproducir = "no";
-        
+
     protected void Page_Load(object sender, EventArgs e)
     {
         mp3_seleccionado = "";
@@ -58,7 +58,7 @@ public partial class Proyecto : System.Web.UI.Page
 
                 //Composiciones
                 this.CargarComposiciones((int)ViewState["idProyecto"]);
-                
+
             }
         }
     }
@@ -100,7 +100,7 @@ public partial class Proyecto : System.Web.UI.Page
     {
         if (btUnirse.Text.Contains("Subir"))
         {
-            Response.Redirect("NuevaComposicion.aspx?idProyecto=" + ViewState["idProyecto"],false);
+            Response.Redirect("NuevaComposicion.aspx?idProyecto=" + ViewState["idProyecto"], false);
         }
         else if (ProyectoFactory.InsertarUsuarioXProyecto(((Usuario)Session["Usuario"]).Id, (int)ViewState["idProyecto"], DateTime.Now))
         {
@@ -112,6 +112,7 @@ public partial class Proyecto : System.Web.UI.Page
             EnviarMail.Mande("Virpo", ViewState["mailCreador"].ToString(), asunto, mensaje);
             btUnirse.Text = "Subir una composicion";
             this.CargarColaboradores((int)ViewState["idProyecto"]);
+            Panel1_ModalPopupExtender.Show();
         }
     }
 
@@ -124,15 +125,15 @@ public partial class Proyecto : System.Web.UI.Page
     }
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-            
-            this.mp3_seleccionado = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text;
-            this.mp3_seleccionado_titulo = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[1].Text;
-            
-            //string value = "Reproductor/mini_player_mp3.swf?my_mp3=Composiciones/" + mp3_seleccionado + "&amp;my_text=" + mp3_seleccionado_titulo + "&amp;autoplay=yes";
-            //ClientScript.RegisterExpandoAttribute("movie", "value", value);
-            this.reproducir = "yes";
-            this.Page.DataBind();
-            this.CargarComposiciones((int)ViewState["idProyecto"]);
+
+        this.mp3_seleccionado = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text;
+        this.mp3_seleccionado_titulo = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[1].Text;
+
+        //string value = "Reproductor/mini_player_mp3.swf?my_mp3=Composiciones/" + mp3_seleccionado + "&amp;my_text=" + mp3_seleccionado_titulo + "&amp;autoplay=yes";
+        //ClientScript.RegisterExpandoAttribute("movie", "value", value);
+        this.reproducir = "yes";
+        this.Page.DataBind();
+        this.CargarComposiciones((int)ViewState["idProyecto"]);
     }
     private DataTable DatosComposiciones(int id)
     {
@@ -170,5 +171,8 @@ public partial class Proyecto : System.Web.UI.Page
             return dt;
         }
         return null;
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
     }
 }
