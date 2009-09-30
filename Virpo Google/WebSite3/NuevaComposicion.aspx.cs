@@ -60,6 +60,7 @@ public partial class NuevaComposicion : System.Web.UI.Page
 
         if (a && b)
             Response.Redirect("./Proyecto.aspx?Id=" + idProyecto);
+            //Panel1_ModalPopupExtender.Show();
         else
             AlertJS("Error al cargar la composición");
     }
@@ -94,8 +95,8 @@ public partial class NuevaComposicion : System.Web.UI.Page
         ddlInstrumento.Items.Clear();
         MetodosComunes.cargarInstrumentos(ddlInstrumento, ddlTipo.SelectedValue);
     }
-    protected void Button1_Click(object sender, EventArgs e)
+     protected void btnCancelar_Click(object sender, EventArgs e)
     {
-        Response.Redirect("NuevaComposicion.aspx");
+        Response.Redirect("Proyecto.aspx?Id=" + ViewState["idProyecto"].ToString());
     }
 }
