@@ -64,8 +64,8 @@
 //
 //	Configuration
 //
-var fileLoadingImage = "images/loading.gif";		
-var fileBottomNavCloseImage = "images/closelabel.gif";
+var fileLoadingImage = "ImagenesSite/loading.gif";		
+var fileBottomNavCloseImage = "ImagenesSite/closelabel.gif";
 
 var animate = true;	// toggles resizing animations
 var resizeSpeed = 7;	// controls the speed of the image resizing animations (1=slowest and 10=fastest)
@@ -286,6 +286,7 @@ Lightbox.prototype = {
 	
 		var objLightboxImage = document.createElement("img");
 		objLightboxImage.setAttribute('id','lightboxImage');
+		objLightboxImage.setAttribute('style','width: 100%; height: 100%;');
 		objImageContainer.appendChild(objLightboxImage);
 	
 		var objHoverNav = document.createElement("div");
@@ -314,6 +315,7 @@ Lightbox.prototype = {
 	
 		var objLoadingImage = document.createElement("img");
 		objLoadingImage.setAttribute('src', fileLoadingImage);
+		objLoadingImage.setAttribute('style','width: 100%; height: 100%;');
 		objLoadingLink.appendChild(objLoadingImage);
 
 		var objImageDataContainer = document.createElement("div");
@@ -349,6 +351,7 @@ Lightbox.prototype = {
 	
 		var objBottomNavCloseImage = document.createElement("img");
 		objBottomNavCloseImage.setAttribute('src', fileBottomNavCloseImage);
+		objBottomNavCloseImage.setAttribute('style','width: 100%; height: 100%;');
 		objBottomNavCloseLink.appendChild(objBottomNavCloseImage);
 	},
 	
