@@ -21,8 +21,6 @@ public partial class ConsultarClasificado : System.Web.UI.Page
         
         if (!Page.IsPostBack)
         {
-            
-
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
             int id = Convert.ToInt32(Request.QueryString["C"]);
@@ -34,9 +32,8 @@ public partial class ConsultarClasificado : System.Web.UI.Page
             lblFin.Text = aviso.FechaFin.ToShortDateString();
             lblInicio.Text = aviso.FechaInicio.ToShortDateString();
             lblPrecio.Text = "$ " + aviso.Precio.ToString();
-            ClientScript.RegisterExpandoAttribute("link", "href", ResolveUrl("~/Imagenes/") + aviso.Imagen);
             lblImagen.Text = "<a href='./Imagenes/" + aviso.Imagen + "' rel='lightbox' title='" + aviso.Titulo + "'>" +
-                            "<img src='./Imagenes/"+ aviso.Imagen + "' border='0' alt='' height='200' width='200' /></a>"; 
+                            "<img src='./Imagenes/" + aviso.Imagen + "' border='0' alt='' style='width: 200px; height: 200px;'/></a>"; 
             lblRubro.Text = aviso.Rubro.Nombre;
             lblTitulo.Text = aviso.Titulo;
             lblUbicacion.Text = aviso.Ubicacion;

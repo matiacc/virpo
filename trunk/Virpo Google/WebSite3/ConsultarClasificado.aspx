@@ -4,7 +4,7 @@
     <div id="menu8">
         <ul>
             
-            <li><a href="AltaClasificado.aspx" title="Nuevo Clasificado">taNuevo Clasificado</a></li>
+            <li><a href="AltaClasificado.aspx" title="Nuevo Clasificado">Nuevo Clasificado</a></li>
             <li><a href="MisAvisosClasificados.aspx" title="Mis Avisos Clasificados">Mis Avisos 
                 Clasificados</a></li>
         </ul>
