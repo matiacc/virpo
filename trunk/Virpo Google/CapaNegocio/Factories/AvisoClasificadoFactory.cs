@@ -45,7 +45,8 @@ namespace CapaNegocio.Factories
         public static List<AvisoClasificado> DevolverTodos(string restriccion)
         {
             string query = "SELECT id, descripcion, titulo, fechaInicio, fechaFin, imagen, imagenThumb, precio, idMusicoDueño, idEstado, idRubro, ubicacion, moneda " +
-                           "FROM AvisoClasificado ";
+                           "FROM AvisoClasificado " +
+                           "WHERE idEstado = 1"; //Solo los activos
             
             if (!string.IsNullOrEmpty(restriccion))
                 query += restriccion;        
@@ -151,6 +152,17 @@ namespace CapaNegocio.Factories
             }
         }
 
+        public static bool CambiarEstado(int idAviso, int nuevoEstado)
+        {
+            string query = "UPDATE AvisoClasificado " +
+                         "SET idEstado = " + nuevoEstado +
+                         " WHERE id = " + idAviso;
+            int aux = BDUtilidades.EjecutarNonQuery(query);
+            if (aux > 0)
+                return true;
+            else
+                return false;
+        }
         
         #region Insertar
         /// <summary>
