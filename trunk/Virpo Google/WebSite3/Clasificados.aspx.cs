@@ -74,16 +74,24 @@ public partial class _Default : System.Web.UI.Page
         {
             foreach (AvisoClasificado aviso in avisos)
             {
-                row = dt.NewRow();
-                row["Imagen"] = ResolveUrl("~/Imagenes/") + aviso.ImagenThumb;
-                row["Precio"] = "$ " + aviso.Precio;
-                row["Titulo"] = aviso.Titulo;
-                row["Id"] = aviso.Id;
-                if (aviso.Dueño != null)
-                    row["Vendedor"] = aviso.Dueño.NombreUsuario;
-                row["Ubicacion"] = aviso.Ubicacion;
-                row["Fecha Fin"] = aviso.FechaFin.ToShortDateString();
-                dt.Rows.Add(row);
+                //Si ya paso la fecha fin seteo el estado del aviso en 3 - Finalizado -
+                if (aviso.FechaFin < DateTime.Now)
+                {
+                    AvisoClasificadoFactory.CambiarEstado(aviso.Id, 3);
+                }
+                else
+                {
+                    row = dt.NewRow();
+                    row["Imagen"] = ResolveUrl("~/Imagenes/") + aviso.ImagenThumb;
+                    row["Precio"] = "$ " + aviso.Precio;
+                    row["Titulo"] = aviso.Titulo;
+                    row["Id"] = aviso.Id;
+                    if (aviso.Dueño != null)
+                        row["Vendedor"] = aviso.Dueño.NombreUsuario;
+                    row["Ubicacion"] = aviso.Ubicacion;
+                    row["Fecha Fin"] = aviso.FechaFin.ToShortDateString();
+                    dt.Rows.Add(row);
+                }
             }
             return dt;
         }

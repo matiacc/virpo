@@ -24,8 +24,7 @@ public partial class ConsultarClasificado : System.Web.UI.Page
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
             int id = Convert.ToInt32(Request.QueryString["C"]);
-            LinkButton1.Attributes.Add("onclick", "javascript:abrirPopup(" + id + ");");
-
+            lblContactar.Text = "<a href='javascript:abrirPopup(" + id + ")' class='estiloLabelCabeceraPeque'>Contactar con el vendedor</a>";
             AvisoClasificado aviso = AvisoClasificadoFactory.Devolver(id);
             Session["Aviso"] = aviso;
             lblDescripcion.Text = aviso.Descripcion;
@@ -44,7 +43,7 @@ public partial class ConsultarClasificado : System.Web.UI.Page
         //No se muestra contactar con el vendedor si el aviso consultado es publicado por el que se logueo
         if (Session["Aviso"] != null) 
             if (((AvisoClasificado)Session["Aviso"]).Dueño.Id == ((Usuario)Session["Usuario"]).Id)
-                LinkButton1.Visible = false;
+                lblContactar.Visible = false;
         
     }
     

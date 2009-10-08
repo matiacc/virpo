@@ -20,6 +20,7 @@ public partial class MisClasificados : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
             Usuario usuario = new Usuario();
             usuario = (Usuario)Session["Usuario"];
@@ -73,10 +74,15 @@ public partial class MisClasificados : System.Web.UI.Page
             string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text;
             Response.Redirect("ConsultarClasificado.aspx?C=" + id);
         }
-        else if (e.CommandName == "E")
+        else if (e.CommandName == "M")
         {
             string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text;
             Response.Redirect("AltaClasificado.aspx?E=" + id);
+        }
+        else if (e.CommandName == "E")
+        {
+            string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text;
+            AvisoClasificadoFactory.Eliminar(Convert.ToInt32(id));
         }
     }
 
@@ -154,8 +160,9 @@ public partial class MisClasificados : System.Web.UI.Page
                         "')</SCRIPT>";
         ClientScript.RegisterClientScriptBlock(this.GetType(), "buscar", jscript);
     }
+    
     protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
+    { 
         if (e.CommandName == "C")
         {
             int id = Convert.ToInt32(GridView2.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text);
@@ -169,5 +176,6 @@ public partial class MisClasificados : System.Web.UI.Page
             Panel2.Focus();
         }
     }
+
     
 }

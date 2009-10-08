@@ -22,8 +22,7 @@
                 <table style="width: 100%; height: 249px">
                     <tr>
                         <td colspan="2" style="text-align: right">
-                            <asp:LinkButton ID="LinkButton1" runat="server" 
-                                CssClass="estiloLabelCabeceraPeque" Width="195px">Contactar con el vendedor</asp:LinkButton>
+                            <asp:Label ID="lblContactar" runat="server" CssClass="estiloLabelCabeceraPeque"></asp:Label>
                         </td>
                     </tr>
                     <tr>
