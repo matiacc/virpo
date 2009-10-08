@@ -39,8 +39,14 @@
             <asp:BoundField DataField="Estado" HeaderText="Estado" />
             <asp:ButtonField ButtonType="Image" CommandName="C" 
                 ImageUrl="~/ImagenesSite/lupa3.png" Text="Consultar" />
-            <asp:ButtonField ButtonType="Image" CommandName="E" 
-                ImageUrl="~/ImagenesSite/eliminar.png" Text="Consultar" />
+            <asp:ButtonField ButtonType="Image" CommandName="M" 
+                ImageUrl="~/ImagenesSite/eliminar.png" Text="Modificar" />
+            <asp:TemplateField ShowHeader="False">
+                <ItemTemplate>
+                    <asp:ImageButton ID="ImageButton1" runat="server"  
+                        CommandName="E" ImageUrl="~/ImagenesSite/delete.png" Text="Eliminar" OnClientClick="return confirm('Seguro de borrar?')"/>
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
         <RowStyle CssClass="RowStyle" />
     <EmptyDataRowStyle CssClass="EmptyRowStyle" />
