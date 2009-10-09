@@ -20,7 +20,6 @@ public partial class MisClasificados : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
             Usuario usuario = new Usuario();
             usuario = (Usuario)Session["Usuario"];
@@ -38,7 +37,6 @@ public partial class MisClasificados : System.Web.UI.Page
                 lnkPreguntasPendientes.Text = "No tiene mensajes nuevos";
                 lnkPreguntasPendientes.ForeColor = System.Drawing.Color.Black;
             }
-
             DataTable dt = new DataTable();
             DataRow row;
             dt.Columns.Add("Id");
@@ -78,11 +76,6 @@ public partial class MisClasificados : System.Web.UI.Page
         {
             string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text;
             Response.Redirect("AltaClasificado.aspx?E=" + id);
-        }
-        else if (e.CommandName == "E")
-        {
-            string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text;
-            AvisoClasificadoFactory.Eliminar(Convert.ToInt32(id));
         }
     }
 
@@ -177,5 +170,11 @@ public partial class MisClasificados : System.Web.UI.Page
         }
     }
 
-    
+
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        string id = GridView1.Rows[e.RowIndex].Cells[0].Text;
+        AvisoClasificadoFactory.Eliminar(Convert.ToInt32(id));
+        Response.Redirect("MisAvisosClasificados.aspx");
+    }
 }

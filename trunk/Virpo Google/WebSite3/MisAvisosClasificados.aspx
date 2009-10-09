@@ -27,7 +27,8 @@
             <td style="width: 527px">
     <asp:GridView ID="GridView1" runat="server"
     AutoGenerateColumns="False" CssClass="GridViewStyle" GridLines="None" 
-                    onrowcommand="GridView1_RowCommand" Width="531px">
+                    onrowcommand="GridView1_RowCommand" Width="531px" 
+                    onrowdeleting="GridView1_RowDeleting">
         <Columns>
             <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False" />
             <asp:ImageField DataImageUrlField="Imagen" HeaderText="Imagen" ItemStyle-Height="100%">
@@ -43,8 +44,8 @@
                 ImageUrl="~/ImagenesSite/eliminar.png" Text="Modificar" />
             <asp:TemplateField ShowHeader="False">
                 <ItemTemplate>
-                    <asp:ImageButton ID="ImageButton1" runat="server"  
-                        CommandName="E" ImageUrl="~/ImagenesSite/delete.png" Text="Eliminar" OnClientClick="return confirm('Seguro de borrar?')"/>
+                    <asp:ImageButton ID="ImageButton2" runat="server" CausesValidation="False" 
+                        CommandName="Delete" ImageUrl="~/ImagenesSite/delete.png" Text="Eliminar" OnClientClick="return confirm('Seguro de borrar?')" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
