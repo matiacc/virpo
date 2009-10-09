@@ -169,6 +169,7 @@
             <td style="text-align: right; width: 73px;">
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
                     onclick="btGuardar_Click" CssClass="botones" />
+                <input id="btVolver" type="button" value="Volver" class="botones" onclick="history.back()"/>
             </td>
         </tr>
     </table>

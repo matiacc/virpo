@@ -113,6 +113,12 @@ public partial class AltaClasificado : System.Web.UI.Page
             if (rb30dias.Checked)
                 aviso.FechaFin = ((DateTime)ViewState["FechaF"]).AddDays(30);
 
+            if(aviso.FechaFin < DateTime.Now)
+            {
+                EstadoAvisoClasificado estado=new EstadoAvisoClasificado();
+                estado.Id = 3; //Finalizado
+                aviso.Estado = estado;
+            }
             if (ViewState["Rubro"] != null)
             {
                 int rubro = (int)ViewState["Rubro"];
