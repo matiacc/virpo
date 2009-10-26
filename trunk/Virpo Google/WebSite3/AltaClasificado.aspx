@@ -42,14 +42,61 @@
         </tr>
         <tr>
             <td style="width: 2747px">
-                <asp:Label ID="Label2" runat="server" Text="Imagen" CssClass="estiloLabel"></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="Imágenes" CssClass="estiloLabel"></asp:Label>
             </td>
-            <td style="text-align: left; width: 1225px;">
-                <asp:Image ID="Image1" runat="server" Visible="False" />
-            </td>
-            <td align="left" valign="middle">&nbsp;
+            <td style="text-align: left; " colspan="2">
+                <br/>
+                <table class="style1">
+                    <tr>
+                        <td>
+                <asp:Image ID="Image1" runat="server" />
+                        </td>
+                        <td>
+                            <asp:CheckBox ID="chkBorrar1" runat="server" Text="Borrar" />
+                        </td>
+                        <td>
                 <asp:FileUpload ID="uploadImagen" runat="server" Width="260px" />
-            </td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                <asp:Image ID="Image2" runat="server" Visible="False" />
+                        </td>
+                        <td>
+                            <asp:CheckBox ID="chkBorrar2" runat="server" Text="Borrar" Visible="False" />
+                        </td>
+                        <td>
+                <asp:FileUpload ID="uploadImagen0" runat="server" Width="260px" Visible="False" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                <asp:Image ID="Image3" runat="server" Visible="False" />
+                        </td>
+                        <td>
+                            <asp:CheckBox ID="chkBorrar3" runat="server" Text="Borrar" Visible="False" />
+                        </td>
+                        <td>
+                <asp:FileUpload ID="uploadImagen1" runat="server" Width="260px" Visible="False" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                <asp:Image ID="Image4" runat="server" Visible="False" />
+                        </td>
+                        <td>
+                            <asp:CheckBox ID="chkBorrar4" runat="server" Text="Borrar" Visible="False" />
+                        </td>
+                        <td>
+                <asp:FileUpload ID="uploadImagen2" runat="server" Width="260px" Visible="False" />
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+                <br/>
+                <br/>
+                &nbsp;
+                </td>
         </tr>
         <%--
         <tr>
@@ -76,6 +123,30 @@
                 <asp:FileUpload ID="FileUpload4" runat="server" />
             </td>
         </tr>--%>
+        <tr>
+            <td style="width: 2747px">
+                &nbsp;</td>
+            <td style="text-align: left; width: 1225px;">
+                &nbsp;</td>
+            <td align="left" valign="middle">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 2747px">
+                &nbsp;</td>
+            <td style="text-align: left; width: 1225px;">
+                &nbsp;</td>
+            <td align="left" valign="middle">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 2747px">
+                &nbsp;</td>
+            <td style="text-align: left; width: 1225px;">
+                &nbsp;</td>
+            <td align="left" valign="middle">
+                &nbsp;</td>
+        </tr>
         <tr>
             <td style="width: 2747px">
                 <asp:Label ID="Label3" runat="server" Text="Descripción" CssClass="estiloLabel"></asp:Label>

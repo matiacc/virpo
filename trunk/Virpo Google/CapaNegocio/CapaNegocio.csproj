@@ -76,6 +76,7 @@
     <Compile Include="Factories\EstadoAvisoClasificadoFactory.cs" />
     <Compile Include="Factories\GeneroFactory.cs" />
     <Compile Include="Factories\HistorialWikiFactory.cs" />
+    <Compile Include="Factories\ImagenClasificadoFactory.cs" />
     <Compile Include="Factories\InstrumentoFactory.cs" />
     <Compile Include="Factories\LocalidadFactory.cs" />
     <Compile Include="Factories\MensajeFactory.cs" />

@@ -82,7 +82,7 @@ public partial class _Default : System.Web.UI.Page
                 else
                 {
                     row = dt.NewRow();
-                    row["Imagen"] = ResolveUrl("~/Imagenes/") + aviso.ImagenThumb;
+                    row["Imagen"] = aviso.Imagen[0];
                     row["Precio"] = "$ " + aviso.Precio;
                     row["Titulo"] = aviso.Titulo;
                     row["Id"] = aviso.Id;

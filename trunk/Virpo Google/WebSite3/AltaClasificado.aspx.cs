@@ -43,10 +43,32 @@ public partial class AltaClasificado : System.Web.UI.Page
                 ViewState["FechaI"] = aviso.FechaInicio;
                 txtUbicacion.Text = aviso.Ubicacion;
                 //ddlRubro.SelectedValue = aviso.Rubro.Id.ToString();
-                ViewState["Imagen"] = aviso.Imagen;
-                ViewState["ImagenThumb"] = aviso.ImagenThumb;
-                Image1.Visible = true;
-                Image1.ImageUrl = "./Imagenes/" + aviso.ImagenThumb;
+                ViewState["cantImagenes"] = aviso.Imagen.Count;
+                Image1.ImageUrl = aviso.Imagen[0];
+                for (int i = 1; i < aviso.Imagen.Count; i++)
+                {
+                    if (i == 1)
+                    {
+                        Image2.Visible = true;
+                        chkBorrar2.Visible = true;
+                        uploadImagen0.Visible = true;
+                        Image2.ImageUrl = aviso.Imagen[i];
+                    }
+                    else if (i == 2)
+                    {
+                        Image3.Visible = true;
+                        chkBorrar3.Visible = true;
+                        uploadImagen1.Visible = true;
+                        Image3.ImageUrl = aviso.Imagen[i];
+                    }
+                    else if (i == 3)
+                    {
+                        Image4.Visible = true; 
+                        chkBorrar4.Visible = true;
+                        uploadImagen2.Visible = true;
+                        Image4.ImageUrl = aviso.Imagen[i];
+                    }
+                }
                 List<Rubro> padres = RubroFactory.DevolverPadres(aviso.Rubro.Id);
                 
                 if (padres != null)
@@ -87,21 +109,69 @@ public partial class AltaClasificado : System.Web.UI.Page
             aviso.Precio = 0;
         else
             aviso.Precio = Convert.ToDouble(txtPrecio.Text);
-        if (rb0dias.Visible)
+        if (rb0dias.Visible) //Modifica aviso
         {
-            if (!string.IsNullOrEmpty(uploadImagen.PostedFile.FileName))
+            #region Guardar Imagenes
+
+            bool tieneImagen = Image1.ImageUrl.Contains("Null") ? false : true;
+
+            int proxId = ImagenClasificadoFactory.DevolverMaxId() + 1;
+            if (uploadImagen.HasFile)
             {
-                //TODO: Permitir guardar hasta 4 imagenes, como dice el CU
-                string thumb = "";
-                string path = this.GuardarImagen(out thumb);
-                aviso.Imagen = path;
-                aviso.ImagenThumb = thumb;
+                string extension = Path.GetExtension(uploadImagen.PostedFile.FileName).ToLower();
+                if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
+                {
+                    AlertJS("El archivo seleccionado no es una imagen");
+                    return;
+                }
+                uploadImagen.PostedFile.SaveAs(Server.MapPath(@"./ImagenesProyectos/") + proxId.ToString() + extension);
+                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                tieneImagen = true;
+                proxId++;
             }
-            else
+            if (uploadImagen0.HasFile)
             {
-                aviso.Imagen = (string)ViewState["Imagen"];
-                aviso.ImagenThumb = (string)ViewState["ImagenThumb"];
+                string extension = Path.GetExtension(uploadImagen0.PostedFile.FileName).ToLower();
+                if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
+                {
+                    AlertJS("El archivo seleccionado no es una imagen");
+                    return;
+                }
+                uploadImagen0.PostedFile.SaveAs(Server.MapPath(@"./Imagenes/") + proxId.ToString() + extension);
+
+                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                tieneImagen = true;
+                proxId++;
             }
+            if (uploadImagen1.HasFile)
+            {
+                string extension = Path.GetExtension(uploadImagen1.PostedFile.FileName).ToLower();
+                if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
+                {
+                    AlertJS("El archivo seleccionado no es una imagen");
+                    return;
+                }
+                uploadImagen1.PostedFile.SaveAs(Server.MapPath(@"./Imagenes/") + proxId.ToString() + extension);
+                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                tieneImagen = true;
+                proxId++;
+            }
+            if (uploadImagen2.HasFile)
+            {
+                string extension = Path.GetExtension(uploadImagen2.PostedFile.FileName).ToLower();
+                if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
+                {
+                    AlertJS("El archivo seleccionado no es una imagen");
+                    return;
+                }
+                uploadImagen2.PostedFile.SaveAs(Server.MapPath(@"./ImagenesProyectos/") + proxId.ToString() + extension);
+                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                tieneImagen = true;
+            }
+            if (!tieneImagen)
+                aviso.Imagen.Add("./ImagenesSite/ProyectoNull.jpg");
+            #endregion
+
             aviso.Id = Convert.ToInt32(ViewState["Id"]);
             aviso.FechaInicio = (DateTime)ViewState["FechaI"];
             if (rb0dias.Checked)
@@ -125,13 +195,75 @@ public partial class AltaClasificado : System.Web.UI.Page
 
             }
         }
-        else
+        else //Nuevo Aviso
         {
             //TODO: Permitir guardar hasta 4 imagenes, como dice el CU
-            string thumb = "";
-            string path = this.GuardarImagen(out thumb);
-            aviso.Imagen = path;
-            aviso.ImagenThumb = thumb;
+            //string path = this.GuardarImagen();
+            //aviso.Imagen = path;
+            //aviso.ImagenThumb = thumb;
+
+            //Guardar imagenes
+
+            #region Guardar Imagenes
+
+            bool tieneImagen = false;
+
+            int proxId =ImagenClasificadoFactory.DevolverMaxId() + 1;
+            if (uploadImagen.HasFile)
+            {
+                string extension = Path.GetExtension(uploadImagen.PostedFile.FileName).ToLower();
+                if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
+                {
+                    AlertJS("El archivo seleccionado no es una imagen");
+                    return;
+                }
+                uploadImagen.PostedFile.SaveAs(Server.MapPath(@"./ImagenesProyectos/") + proxId.ToString() + extension);
+                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                tieneImagen = true;
+                proxId++;
+            }
+            if (uploadImagen0.HasFile)
+            {
+                string extension = Path.GetExtension(uploadImagen0.PostedFile.FileName).ToLower();
+                if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
+                {
+                    AlertJS("El archivo seleccionado no es una imagen");
+                    return;
+                }
+                uploadImagen0.PostedFile.SaveAs(Server.MapPath(@"./Imagenes/") + proxId.ToString() + extension);
+                
+                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                tieneImagen = true;
+                proxId++;
+            }
+            if (uploadImagen1.HasFile)
+            {
+                string extension = Path.GetExtension(uploadImagen1.PostedFile.FileName).ToLower();
+                if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
+                {
+                    AlertJS("El archivo seleccionado no es una imagen");
+                    return;
+                }
+                uploadImagen1.PostedFile.SaveAs(Server.MapPath(@"./Imagenes/") + proxId.ToString() + extension);
+                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                tieneImagen = true;
+                proxId++;
+            }
+            if (uploadImagen2.HasFile)
+            {
+                string extension = Path.GetExtension(uploadImagen2.PostedFile.FileName).ToLower();
+                if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
+                {
+                    AlertJS("El archivo seleccionado no es una imagen");
+                    return;
+                }
+                uploadImagen2.PostedFile.SaveAs(Server.MapPath(@"./ImagenesProyectos/") + proxId.ToString() + extension);
+                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                tieneImagen = true;
+            }
+            if(!tieneImagen)
+                aviso.Imagen.Add("./ImagenesSite/ProyectoNull.jpg");
+            #endregion
 
             aviso.FechaInicio = DateTime.Now;
             if (rb10dias.Checked)
@@ -233,6 +365,7 @@ public partial class AltaClasificado : System.Web.UI.Page
     }
 
     
+
     protected void ddlSubrubro1_SelectedIndexChanged(object sender, EventArgs e)
     {
         ddlSubrubro2.Items.Clear();

@@ -24,7 +24,7 @@ namespace CapaDatos
         //Cadena de conexion Pela
         //private static string cadena = @"Data Source=COLOSO\SQLEXPRESS;Initial Catalog=VirpoDB;Integrated Security=True";
         //Cadena de conexión Lucho
-        private static string cadena = @"Data Source=STOPNEGRO\STOPNEGRO;Initial Catalog=VirpoDB;User ID=sa;Password=-+0342590+-";
+        private static string cadena = @"Data Source=.\SQLEXPRESS;AttachDbFilename='C:\Documents and Settings\Mati\Escritorio\Virpo Google\CapaDatos\VirpoDB.mdf';Integrated Security=True;User Instance=True";
         //private static string cadena = @"Data Source=STOPNEGRO\STOPNEGRO;Initial Catalog=VirpoDB;Persist Security Info=True;User ID=sa;Password=-+0342590+-";
      
         public static string Cadena
@@ -179,6 +179,39 @@ namespace CapaDatos
                 return false;
             }
         }
+        public static int ExecuteStoreProcedureWithOutParameter(string storeProcedure, List<SqlParameter> parametros, SqlTransaction tran)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(cadena);
+                con.Open();
+                SqlCommand com = new SqlCommand(storeProcedure, con, (SqlTransaction)tran);
 
+                com.CommandType = CommandType.StoredProcedure;
+                foreach (SqlParameter parametro in parametros)
+                {
+                    com.Parameters.Add(parametro);
+                }
+                
+                // Añadimos un parámetro que recogerá el valor de retorno
+                SqlParameter retValue = new SqlParameter("@RETURN_VALUE", SqlDbType.Int);
+                retValue.Direction = ParameterDirection.ReturnValue;
+                com.Parameters.Add(retValue);
+                int id = 0;
+                using (SqlDataReader dr = com.ExecuteReader())
+                {
+                    id = Convert.ToInt32(retValue.Value);
+                }
+                if (id > 0)
+                    return id;
+                else
+                    return 0;
+            }
+            catch (Exception e)
+            {
+                LogError.Write(e);
+                return 0;
+            }
+        }
     }
 }

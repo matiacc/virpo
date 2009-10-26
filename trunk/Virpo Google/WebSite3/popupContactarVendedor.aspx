@@ -76,7 +76,7 @@
         <tr>
             <td class="style2">
                 &nbsp;</td>
-            <td style="text-align: right"><img alt="" src="ImagenesSite/cargando.gif" id="loading" style="display:none"/>&nbsp;&nbsp;
+            <td style="text-align: right"><img alt="" src="ImagenesSite/cargando.gif" id="loading" style="display: none;"/>&nbsp;&nbsp;
                 <asp:Button ID="btEnviar" runat="server" onclick="btEnviar_Click" OnClientClick="mostrarGif()"
                     Text="Enviar" />
             </td>
