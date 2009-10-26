@@ -31,8 +31,16 @@ public partial class ConsultarClasificado : System.Web.UI.Page
             lblFin.Text = aviso.FechaFin.ToShortDateString();
             lblInicio.Text = aviso.FechaInicio.ToShortDateString();
             lblPrecio.Text = "$ " + aviso.Precio.ToString();
-            lblImagen.Text = "<a href='./Imagenes/" + aviso.Imagen + "' rel='lightbox' title='" + aviso.Titulo + "'>" +
-                            "<img src='./Imagenes/" + aviso.Imagen + "' border='0' alt='' style='width: 200px; height: 200px;'/></a>"; 
+            for (int i = 0; i < aviso.Imagen.Count; i++)
+            {
+                if(i > 0)
+                    lblImagen.Text += "<a href='" + aviso.Imagen[i] + "' rel='lightbox[aviso]' title='" + aviso.Titulo + "' style='display:none;'>" +
+                                "<img src='" + aviso.Imagen[i] + "' border='0' alt='' style='width: 200px; height: 200px;'/></a>";     
+                else
+                    lblImagen.Text += "<a href='" + aviso.Imagen[i] + "' rel='lightbox[aviso]' title='" + aviso.Titulo + "'>" +
+                                "<img src='" + aviso.Imagen[i] + "' border='0' alt='' style='width: 200px; height: 200px;'/></a>";     
+            }
+            
             lblRubro.Text = aviso.Rubro.Nombre;
             lblTitulo.Text = aviso.Titulo;
             lblUbicacion.Text = aviso.Ubicacion;

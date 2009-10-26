@@ -37,34 +37,40 @@ public partial class MisClasificados : System.Web.UI.Page
                 lnkPreguntasPendientes.Text = "No tiene mensajes nuevos";
                 lnkPreguntasPendientes.ForeColor = System.Drawing.Color.Black;
             }
-            DataTable dt = new DataTable();
-            DataRow row;
-            dt.Columns.Add("Id");
-            dt.Columns.Add("Imagen");
-            dt.Columns.Add("Precio");
-            dt.Columns.Add("Titulo");
-            dt.Columns.Add("Fecha Fin");
-            dt.Columns.Add("Estado");
 
-            List<AvisoClasificado> avisos = new List<AvisoClasificado>();
-            avisos = AvisoClasificadoFactory.DevolverTodosPorIdUsuario(usuario.Id);
-            foreach (AvisoClasificado aviso in avisos)
-            {
-                row = dt.NewRow();
-                row["Imagen"] = ResolveUrl("~/Imagenes/") + aviso.ImagenThumb;
-                row["Precio"] = "$ " + aviso.Precio;
-                row["Titulo"] = aviso.Titulo;
-                row["Id"] = aviso.Id;
-                row["Fecha Fin"] = aviso.FechaFin.ToShortDateString();
-                row["Estado"] = aviso.Estado.Nombre;
-                dt.Rows.Add(row);
-
-            }
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
+            this.CargarGrillaAvisos(usuario.Id);
         }
     }
-        
+
+    private void CargarGrillaAvisos(int idUsuario)
+    {
+        DataTable dt = new DataTable();
+        DataRow row;
+        dt.Columns.Add("Id");
+        dt.Columns.Add("Imagen");
+        dt.Columns.Add("Precio");
+        dt.Columns.Add("Titulo");
+        dt.Columns.Add("Fecha Fin");
+        dt.Columns.Add("Estado");
+
+        List<AvisoClasificado> avisos = new List<AvisoClasificado>();
+        avisos = AvisoClasificadoFactory.DevolverTodosPorIdUsuario(idUsuario);
+        foreach (AvisoClasificado aviso in avisos)
+        {
+            row = dt.NewRow();
+            row["Imagen"] = aviso.Imagen[0];
+            row["Precio"] = "$ " + aviso.Precio;
+            row["Titulo"] = aviso.Titulo;
+            row["Id"] = aviso.Id;
+            row["Fecha Fin"] = aviso.FechaFin.ToShortDateString();
+            row["Estado"] = aviso.Estado.Nombre;
+            dt.Rows.Add(row);
+
+        }
+        GridView1.DataSource = dt;
+        GridView1.DataBind();
+    }
+
     protected void  GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "C")

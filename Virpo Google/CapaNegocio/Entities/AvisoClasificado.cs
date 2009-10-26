@@ -11,7 +11,7 @@ namespace CapaNegocio.Entities
         private string descripcion;
         private DateTime fechaInicio;
         private DateTime fechaFin;
-        private string imagen;
+        private List<string> imagen;
         private double precio;
         private Usuario dueño;
         private EstadoAvisoClasificado estado;
@@ -21,7 +21,10 @@ namespace CapaNegocio.Entities
         private string ubicacion;
         private string moneda;
 
-        
+        public AvisoClasificado()
+        {
+            imagen = new List<string>();
+        }
         
         #region Propiedades
         public string Moneda
@@ -75,8 +78,8 @@ namespace CapaNegocio.Entities
             get { return fechaFin; }
             set { fechaFin = value; }
         }
-        
-        public string Imagen
+
+        public List<string> Imagen
         {
             get { return imagen; }
             set { imagen = value; }

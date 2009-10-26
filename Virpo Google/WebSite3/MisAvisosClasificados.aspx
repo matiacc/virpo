@@ -156,8 +156,8 @@
                                                             <tr>
                                                                 <td align="right">
                                                                     &nbsp;</td>
-                                                                <td style="text-align: right"><img alt="" src="ImagenesSite/cargando.gif" id="loading" style="display:none"/>&nbsp;&nbsp;
-                                                                    <asp:Button ID="btResponder" runat="server" onclick="btResponder_Click" OnClientClick="mostrarGif()"
+                                                                <td style="text-align: right"><img alt="" src="./ImagenesSite/cargando.gif" id="loading" style="display:none"/>&nbsp;&nbsp;
+                                                                    <asp:Button ID="btResponder" runat="server" onclick="btResponder_Click" OnClientClick="mostrarGif();"
                                                                         Text="Responder" />
                                                                 </td>
                                                             </tr>
