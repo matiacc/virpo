@@ -63,8 +63,7 @@ namespace CapaNegocio.Factories
                 return null;
             }
 
-        }
-        
+        }      
 
         public static List<ArticuloWiki> DevolverTodos()
         {
@@ -184,8 +183,8 @@ namespace CapaNegocio.Factories
                 List<SqlParameter> parametros = new List<SqlParameter>();
 
                 parametros.Add(BDUtilidades.crearParametro("@id", DbType.Int32, articulo.Id));
-                parametros.Add(BDUtilidades.crearParametro("@idCat", DbType.Int32, articulo.IdCat));
-                parametros.Add(BDUtilidades.crearParametro("@idAutor", DbType.Int32, articulo.IdAutor));
+                parametros.Add(BDUtilidades.crearParametro("@idCat", DbType.Int32, articulo.IdCat.Id));
+                parametros.Add(BDUtilidades.crearParametro("@idAutor", DbType.Int32, articulo.IdAutor.Id));
                 parametros.Add(BDUtilidades.crearParametro("@fecCreacion", DbType.DateTime, articulo.FecCreacion));
                 parametros.Add(BDUtilidades.crearParametro("@titulo", DbType.String, articulo.Titulo));
                 parametros.Add(BDUtilidades.crearParametro("@cuerpo", DbType.String, articulo.Cuerpo));
