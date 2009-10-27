@@ -34,7 +34,7 @@ public partial class _Default : System.Web.UI.Page
 
             lblTitulo.Text = art.Titulo;
 
-            lblCat.Text = art.IdCat.Nombre;
+            lblCategoria.Text = art.IdCat.Nombre;
             
             elm3.Text=art.Cuerpo;
 
@@ -61,7 +61,7 @@ public partial class _Default : System.Web.UI.Page
         articuloNuevo.Cuerpo = elm3.Text;
         articuloNuevo.Version = articuloViejo.Version + 1;
         articuloNuevo.CantVisitas = articuloViejo.CantVisitas;
-        articuloNuevo.Descripcion = lblDescripcion.Text;
+        articuloNuevo.Descripcion = txtDescripcion.Text;
 
         //el otro lo tengo que guardar en HISTORIALWIKI para mantener el versionado
         HistorialWiki versionAnterior = new HistorialWiki();
@@ -74,7 +74,7 @@ public partial class _Default : System.Web.UI.Page
         versionAnterior.Cuerpo=articuloViejo.Cuerpo;
         versionAnterior.Descripcion=articuloViejo.Descripcion;
 
-        //
+        //resultado ---------- ver de mandar mails
         if (ArticuloWikiFactory.Modificar(articuloNuevo) && HistorialWikiFactory.Insertar(versionAnterior))
             Response.Redirect("Wikimusic.aspx?Z=1");
         else

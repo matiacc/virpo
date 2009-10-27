@@ -13,6 +13,9 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    
     <table class="style1">
         <tr>
             <td colspan="3" style="text-align: center">
@@ -20,7 +23,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 258px">
                 &nbsp;
             </td>
             <td>
@@ -31,7 +34,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 258px">
                 <asp:Label ID="lblTit" runat="server" Text="Titulo"></asp:Label>
             </td>
             <td>
@@ -42,7 +45,7 @@
             </td>
         </tr>
         <tr>
-            <td style="height: 13px">
+            <td style="height: 13px; width: 258px;">
                 <asp:Label ID="lblCat" runat="server" Text="Categoria"></asp:Label>
             </td>
             <td style="height: 13px">
@@ -52,42 +55,17 @@
             </td>
         </tr>
         <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
+            <td style="width: 258px; height: 13px;">
                 <asp:Label ID="lblDesc" runat="server" Text="Descripcion de la Modificacion"></asp:Label>
             </td>
-            <td>
-                <asp:Label ID="lblDescripcion" runat="server"></asp:Label>
+            <td style="text-align: left; height: 13px;">
+                <asp:TextBox ID="txtDescripcion" runat="server" Width="301px"></asp:TextBox>
             </td>
-            <td>
-                &nbsp;</td>
+            <td style="height: 13px">
+                <asp:RequiredFieldValidator ID="rvDescrip" runat="server" 
+                    ControlToValidate="txtDescripcion" Display="Dynamic" ErrorMessage="(*)" 
+                    EnableTheming="False"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td colspan="2">
@@ -100,7 +78,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 258px">
                 &nbsp;
             </td>
             <td style="text-align: right">
