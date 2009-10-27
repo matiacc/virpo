@@ -44,6 +44,8 @@ public partial class AltaClasificado : System.Web.UI.Page
                 txtUbicacion.Text = aviso.Ubicacion;
                 //ddlRubro.SelectedValue = aviso.Rubro.Id.ToString();
                 ViewState["cantImagenes"] = aviso.Imagen.Count;
+                Image1.Visible = true;
+                chkBorrar1.Visible = true;
                 Image1.ImageUrl = aviso.Imagen[0];
                 for (int i = 1; i < aviso.Imagen.Count; i++)
                 {
@@ -51,21 +53,18 @@ public partial class AltaClasificado : System.Web.UI.Page
                     {
                         Image2.Visible = true;
                         chkBorrar2.Visible = true;
-                        uploadImagen0.Visible = true;
                         Image2.ImageUrl = aviso.Imagen[i];
                     }
                     else if (i == 2)
                     {
                         Image3.Visible = true;
                         chkBorrar3.Visible = true;
-                        uploadImagen1.Visible = true;
                         Image3.ImageUrl = aviso.Imagen[i];
                     }
                     else if (i == 3)
                     {
                         Image4.Visible = true; 
                         chkBorrar4.Visible = true;
-                        uploadImagen2.Visible = true;
                         Image4.ImageUrl = aviso.Imagen[i];
                     }
                 }
@@ -105,10 +104,18 @@ public partial class AltaClasificado : System.Web.UI.Page
         AvisoClasificado aviso = new AvisoClasificado();
         aviso.Titulo = txtTitulo.Text;
         aviso.Descripcion = txtDescripcion.Text;
-        if (txtPrecio.Text.Trim() == "")
-            aviso.Precio = 0;
-        else
-            aviso.Precio = Convert.ToDouble(txtPrecio.Text);
+        try
+        {
+            if (txtPrecio.Text.Trim() == "")
+                aviso.Precio = 0;
+            else
+                aviso.Precio = Convert.ToDouble(txtPrecio.Text);
+        }
+        catch (Exception)
+        {
+            aviso.Precio = 0;   
+        }
+        
         if (rb0dias.Visible) //Modifica aviso
         {
             #region Guardar Imagenes
@@ -124,8 +131,8 @@ public partial class AltaClasificado : System.Web.UI.Page
                     AlertJS("El archivo seleccionado no es una imagen");
                     return;
                 }
-                uploadImagen.PostedFile.SaveAs(Server.MapPath(@"./ImagenesProyectos/") + proxId.ToString() + extension);
-                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                uploadImagen.PostedFile.SaveAs(Server.MapPath(@"./ImagenesClasificados/") + proxId.ToString() + extension);
+                aviso.Imagen.Add("./ImagenesClasificados/" + proxId.ToString() + extension);
                 tieneImagen = true;
                 proxId++;
             }
@@ -137,9 +144,9 @@ public partial class AltaClasificado : System.Web.UI.Page
                     AlertJS("El archivo seleccionado no es una imagen");
                     return;
                 }
-                uploadImagen0.PostedFile.SaveAs(Server.MapPath(@"./Imagenes/") + proxId.ToString() + extension);
+                uploadImagen0.PostedFile.SaveAs(Server.MapPath(@"./ImagenesClasificados/") + proxId.ToString() + extension);
 
-                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                aviso.Imagen.Add("./ImagenesClasificados/" + proxId.ToString() + extension);
                 tieneImagen = true;
                 proxId++;
             }
@@ -151,8 +158,8 @@ public partial class AltaClasificado : System.Web.UI.Page
                     AlertJS("El archivo seleccionado no es una imagen");
                     return;
                 }
-                uploadImagen1.PostedFile.SaveAs(Server.MapPath(@"./Imagenes/") + proxId.ToString() + extension);
-                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                uploadImagen1.PostedFile.SaveAs(Server.MapPath(@"./ImagenesClasificados/") + proxId.ToString() + extension);
+                aviso.Imagen.Add("./ImagenesClasificados/" + proxId.ToString() + extension);
                 tieneImagen = true;
                 proxId++;
             }
@@ -164,8 +171,8 @@ public partial class AltaClasificado : System.Web.UI.Page
                     AlertJS("El archivo seleccionado no es una imagen");
                     return;
                 }
-                uploadImagen2.PostedFile.SaveAs(Server.MapPath(@"./ImagenesProyectos/") + proxId.ToString() + extension);
-                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                uploadImagen2.PostedFile.SaveAs(Server.MapPath(@"./ImagenesClasificados/") + proxId.ToString() + extension);
+                aviso.Imagen.Add("./ImagenesClasificados/" + proxId.ToString() + extension);
                 tieneImagen = true;
             }
             if (!tieneImagen)
@@ -212,57 +219,57 @@ public partial class AltaClasificado : System.Web.UI.Page
             if (uploadImagen.HasFile)
             {
                 string extension = Path.GetExtension(uploadImagen.PostedFile.FileName).ToLower();
-                if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
+                if (extension != ".png" && extension != ".jpg" && extension != ".bmp" && extension != ".gif")
                 {
                     AlertJS("El archivo seleccionado no es una imagen");
                     return;
                 }
-                uploadImagen.PostedFile.SaveAs(Server.MapPath(@"./ImagenesProyectos/") + proxId.ToString() + extension);
-                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                uploadImagen.PostedFile.SaveAs(Server.MapPath(@"./ImagenesClasificados/") + proxId.ToString() + extension);
+                aviso.Imagen.Add("./ImagenesClasificados/" + proxId.ToString() + extension);
                 tieneImagen = true;
                 proxId++;
             }
             if (uploadImagen0.HasFile)
             {
                 string extension = Path.GetExtension(uploadImagen0.PostedFile.FileName).ToLower();
-                if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
+                if (extension != ".png" && extension != ".jpg" && extension != ".bmp" && extension != ".gif")
                 {
                     AlertJS("El archivo seleccionado no es una imagen");
                     return;
                 }
-                uploadImagen0.PostedFile.SaveAs(Server.MapPath(@"./Imagenes/") + proxId.ToString() + extension);
-                
-                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                uploadImagen0.PostedFile.SaveAs(Server.MapPath(@"./ImagenesClasificados/") + proxId.ToString() + extension);
+
+                aviso.Imagen.Add("./ImagenesClasificados/" + proxId.ToString() + extension);
                 tieneImagen = true;
                 proxId++;
             }
             if (uploadImagen1.HasFile)
             {
                 string extension = Path.GetExtension(uploadImagen1.PostedFile.FileName).ToLower();
-                if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
+                if (extension != ".png" && extension != ".jpg" && extension != ".bmp" && extension != ".gif")
                 {
                     AlertJS("El archivo seleccionado no es una imagen");
                     return;
                 }
-                uploadImagen1.PostedFile.SaveAs(Server.MapPath(@"./Imagenes/") + proxId.ToString() + extension);
-                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                uploadImagen1.PostedFile.SaveAs(Server.MapPath(@"./ImagenesClasificados/") + proxId.ToString() + extension);
+                aviso.Imagen.Add("./ImagenesClasificados/" + proxId.ToString() + extension);
                 tieneImagen = true;
                 proxId++;
             }
             if (uploadImagen2.HasFile)
             {
                 string extension = Path.GetExtension(uploadImagen2.PostedFile.FileName).ToLower();
-                if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
+                if (extension != ".png" && extension != ".jpg" && extension != ".bmp" && extension != ".gif")
                 {
                     AlertJS("El archivo seleccionado no es una imagen");
                     return;
                 }
-                uploadImagen2.PostedFile.SaveAs(Server.MapPath(@"./ImagenesProyectos/") + proxId.ToString() + extension);
-                aviso.Imagen.Add("./Imagenes/" + proxId.ToString() + extension);
+                uploadImagen2.PostedFile.SaveAs(Server.MapPath(@"./ImagenesClasificados/") + proxId.ToString() + extension);
+                aviso.Imagen.Add("./ImagenesClasificados/" + proxId.ToString() + extension);
                 tieneImagen = true;
             }
             if(!tieneImagen)
-                aviso.Imagen.Add("./ImagenesSite/ProyectoNull.jpg");
+                aviso.Imagen.Add("./ImagenesSite/clasificadoNull.jpg");
             #endregion
 
             aviso.FechaInicio = DateTime.Now;
