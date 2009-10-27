@@ -27,6 +27,8 @@
                     <td style="text-align: right" abbr="btn">
                         <asp:Button ID="btnApuntar" runat="server" onclick="btnApuntar_Click" 
                             Text="Apuntar" CssClass="botones" />
+                        <asp:Button ID="btnRecomendar" runat="server" CssClass="botones" 
+                            Text="Recomendar" />
                         <asp:Button ID="btnEditar" runat="server" CssClass="botones" 
                             onclick="btnEditar_Click" Text="Editar" />
                         <asp:Button ID="btnHistorial" runat="server" CssClass="botones" 
