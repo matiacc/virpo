@@ -79,4 +79,17 @@ public partial class _Default : System.Web.UI.Page
         else
             Response.Redirect("ConsultarArticuloWiki.aspx?Z=0&C=" + idArt);
     }
+
+
+
+    protected void btnEditar_Click(object sender, EventArgs e)
+    {
+        //if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
+        //Usuario usu = (Usuario)Session["Usuario"];
+        int idArt = Convert.ToInt32(this.lblId.Text);
+
+        Response.Redirect("ModificarArticuloWiki.aspx?C=" + idArt);
+
+
+    }
 }
