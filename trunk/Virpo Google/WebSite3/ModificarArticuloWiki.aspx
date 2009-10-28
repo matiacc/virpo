@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="ModificarArticuloWiki.aspx.cs"
     Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="menu8">
         <ul>
@@ -85,7 +87,7 @@
                 <asp:Button ID="btnGuardar" runat="server" CssClass="botones" Text="Guardar" 
                     onclick="btnGuardar_Click" />
                 <asp:Button ID="btnCancelar" runat="server" CssClass="botones" Text="Cancelar" 
-                    onclick="btnCancelar_Click" />
+                    onclick="btnCancelar_Click" CausesValidation="False" />
             </td>
             <td>
                 &nbsp;

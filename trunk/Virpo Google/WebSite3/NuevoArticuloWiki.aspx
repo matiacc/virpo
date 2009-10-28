@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="NuevoArticuloWiki.aspx.cs"
-    Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
+    Inherits="_Default" Title="Untitled Page" ValidateRequest="false" %>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="menu8">
@@ -7,83 +9,91 @@
             <li><a href="NuevoArticuloWiki.aspx" title="Nuevo Articulo">Nuevo Articulo</a></li>
             <li><a href="FavoritosWiki.aspx" title="Articulos Favoritos">Articulos Favoritos</a></li>
             <li><a href="MisArticulosWiki.aspx" title="Mis Articulos">Mis Articulos</a></li>
-            <li><a href="ConsultarArticuloWiki.aspx" title="Articulo Aleatorio">Articulo Aleatorio</a></li>
+            <li><a href="ConsultarArticuloWiki.aspx?A=1" title="Articulo Aleatorio">Articulo Aleatorio</a></li>
         </ul>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-    <table class="style1">
-        <tr>
-            <td colspan="2">
-            <center style="width: 529px; background-color: #333333">
-                    <tituloSubVentana>
-                    Nuevo Articulo WikiMusic</tituloSubVentana></center>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="text-align: left; width: 137px">
-                <asp:Label ID="lblTitulo" runat="server" style="text-align: right" 
-                    Text="Titulo" CssClass="estiloLabelCabecera2"></asp:Label>
-            </td>
-            <td style="text-align: left">
-            <div class="loginboxdiv">
-                <asp:TextBox ID="txtTitulo" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: left; width: 137px">
-                &nbsp;</td>
-            <td style="text-align: left">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-            
-                <asp:Label ID="lblCategoria" runat="server" Text="Categoria" 
-                    CssClass="estiloLabelCabecera2"></asp:Label>
-                </td>
-            <td>
-                <asp:DropDownList ID="ddlCategoria" runat="server" Height="20px" 
-                    style="margin-left: 3px" Width="165px">
-                </asp:DropDownList>
-            
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-            
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-    </table>
-    
-  
-    <asp:TextBox ID="elm3" runat="server" TextMode="MultiLine" Height="403px" 
-        Width="534px"></asp:TextBox>
-    
-    <table class="style1" style="width: 134%">
-    <tr>
-            <td colspan="2" style="text-align: right" >
-            
-    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
-        onclick="btnGuardar_Click" Width="90px" CssClass="botones" />
-            
-    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" 
-    onclick="btnCancelar_Click" Width="87px" CssClass="botones" />
-            
-            </td>
-        </tr>
-    </table>
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <table class="style1">
+                <tr>
+                    <td colspan="2">
+                        <center style="width: 529px; background-color: #333333">
+                            <titulosubventana>
+                    Nuevo Articulo WikiMusic</titulosubventana>
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 137px">
+                        <asp:Label ID="lblTitulo" runat="server" Style="text-align: right" Text="Titulo"
+                            CssClass="estiloLabelCabecera2"></asp:Label>
+                    </td>
+                    <td style="text-align: left">
+                        <div class="loginboxdiv">
+                            <asp:TextBox ID="txtTitulo" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                        </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="(*)"
+                            ControlToValidate="txtTitulo" Display="Dynamic"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 137px">
+                        &nbsp;
+                    </td>
+                    <td style="text-align: left">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblCategoria" runat="server" Text="Categoria" CssClass="estiloLabelCabecera2"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlCategoria" runat="server" Height="20px" Style="margin-left: 3px"
+                            Width="165px">
+                        </asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlCategoria"
+                            ErrorMessage="(*)" Display="Dynamic"></asp:RequiredFieldValidator>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+            </table>
+            <asp:TextBox ID="elm3" runat="server" TextMode="MultiLine" Height="403px" Width="534px"></asp:TextBox>
+            <table class="style1" style="width: 134%">
+                <tr>
+                    <td colspan="2" style="text-align: right">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="elm3"
+                            ErrorMessage="(*)" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click"
+                            Width="90px" CssClass="botones" />
+                        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"
+                            Width="87px" CssClass="botones" CausesValidation="False" />
+                    </td>
+                </tr>
+            </table>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="Server">
 </asp:Content>
