@@ -268,5 +268,27 @@ namespace CapaNegocio.Factories
 
         }
         #endregion
+
+        public static bool CambiarPassword(int id, string pass)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(BDUtilidades.crearParametro("@id", DbType.Int32, id));
+                parametros.Add(BDUtilidades.crearParametro("@password", DbType.String, pass));
+                
+                bool ok = BDUtilidades.ExecuteStoreProcedure("CambiarPassword", parametros);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
     }
 }
