@@ -43,7 +43,8 @@ public partial class CambiarPassword : System.Web.UI.Page
             if (txtNvaPassword.Text == txtConfrimarPassword.Text)
             {
                 lblConfirmaContraseña.Text = "";
-
+                UsuarioFactory.CambiarPassword(int.Parse(usr.Id.ToString()), txtNvaPassword.Text);
+                Panel1_ModalPopupExtender.Show();
             }
             else
             {
@@ -53,6 +54,12 @@ public partial class CambiarPassword : System.Web.UI.Page
         else
         {
             lblContraseñaActual.Text = "Contraseña Actual Incorrecta";
+            lblConfirmaContraseña.Text = "";
         }
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Perfil.aspx");
     }
 }
