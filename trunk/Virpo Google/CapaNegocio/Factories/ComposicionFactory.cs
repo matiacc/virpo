@@ -74,7 +74,7 @@ namespace CapaNegocio.Factories
         public static List<Composicion> DevolverTodos(string restriccion)
         {
             string query = "SELECT nombre, descripcion, tipo, tempo, idTonalidad, idInstrumento, idUsuario" +
-                        "FROM Composicion ";
+                        " FROM Composicion ";
 
             if (!string.IsNullOrEmpty(restriccion))
                 query += restriccion;
@@ -86,7 +86,7 @@ namespace CapaNegocio.Factories
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     Composicion comp = new Composicion();
-                    comp.Id = (int)dt.Rows[i]["id"];
+                    //comp.Id = (int)dt.Rows[i]["id"];
                     comp.Nombre = dt.Rows[i]["nombre"].ToString();
                     comp.Descripcion = dt.Rows[i]["descripcion"].ToString();
                     comp.Tempo = dt.Rows[i]["tempo"].ToString();
