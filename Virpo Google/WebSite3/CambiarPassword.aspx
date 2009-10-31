@@ -3,9 +3,18 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+ <div id="menu8">
+        <ul>
+            <li><a href="ModificarPerfil.aspx" title="Modificar Perfil">Modificar Perfil</a></li>
+            <li><a href="CambiarPassword.aspx" title="Modificar Perfil">Cambiar Contraseña</a></li>
+        </ul>
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-    <table class="style1" style="width: 192%">
+<center style="width: 529px; background-color: #333333">
+                    <tituloSubVentana>
+                    Cambiar Contraseña</tituloSubVentana></center>
+    <table class="style1" style="width: 132%">
         <tr>
             <td style="width: 181px">
                 &nbsp;
@@ -17,11 +26,6 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">
-                Cambiar Contraseña
-            </td>
-        </tr>
-        <tr>
             <td style="width: 181px">
                 &nbsp;
             </td>
@@ -32,7 +36,8 @@
         <tr>
             <td style="width: 181px">
                 &nbsp;
-                <asp:Label ID="Label4" runat="server" Text="Nombre de Usuario:"></asp:Label>
+                <asp:Label ID="Label4" runat="server" Text="Nombre de Usuario:" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
             <td>
                 <asp:Label ID="lblNomUsuario" runat="server"></asp:Label>
@@ -41,10 +46,14 @@
         <tr>
             <td style="width: 181px">
                 &nbsp;
-                <asp:Label ID="Label1" runat="server" Text="Contraseña Actual:"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Contraseña Actual:" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtPasswordActual" runat="server" TextMode="Password"></asp:TextBox>
+                <div class="loginboxdiv">            
+                <asp:TextBox ID="txtPasswordActual" runat="server" TextMode="Password" 
+                        CssClass="loginbox" Width="127px"></asp:TextBox>
+                </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPasswordActual"
                     ErrorMessage="*" Font-Bold="True"></asp:RequiredFieldValidator>
                 <asp:Label ID="lblContraseñaActual" runat="server" ForeColor="Red"></asp:Label>
@@ -53,10 +62,14 @@
         <tr>
             <td style="width: 181px">
                 &nbsp;
-                <asp:Label ID="Label2" runat="server" Text="Contraseña Nueva:"></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="Contraseña Nueva:" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtNvaPassword" runat="server" TextMode="Password"></asp:TextBox>
+                <div class="loginboxdiv">  
+                <asp:TextBox ID="txtNvaPassword" runat="server" TextMode="Password" 
+                        CssClass="loginbox" Width="127px"></asp:TextBox>
+                </div>
                 <cc1:PasswordStrength ID="txtNvaPassword_PasswordStrength" runat="server" TargetControlID="txtNvaPassword"
                     DisplayPosition="RightSide" StrengthIndicatorType="Text" PreferredPasswordLength="5"
                     PrefixText="Fortaleza: " TextCssClass="TextIndicator_TextBox1" MinimumNumericCharacters="1"
@@ -71,10 +84,14 @@
         <tr>
             <td style="width: 181px">
                 &nbsp;
-                <asp:Label ID="Label3" runat="server" Text="Repetir Contraseña:"></asp:Label>
+                <asp:Label ID="Label3" runat="server" Text="Repetir Contraseña:" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtConfrimarPassword" runat="server" TextMode="Password"></asp:TextBox>
+                <div class="loginboxdiv" id="127">  
+                <asp:TextBox ID="txtConfrimarPassword" runat="server" TextMode="Password" 
+                        CssClass="loginbox" Width="127px"></asp:TextBox>
+                </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtConfrimarPassword"
                     ErrorMessage="*" Font-Bold="True"></asp:RequiredFieldValidator>
                 <asp:Label ID="lblConfirmaContraseña" runat="server" ForeColor="Red"></asp:Label>
@@ -91,10 +108,11 @@
         <tr>
             <td style="height: 33px; width: 181px;">
             </td>
-            <td style="height: 33px">
-                <asp:Button ID="btnCambia" runat="server" Text="Cambiar Contraseña" OnClick="btnCambia_Click" />
+            <td style="height: 33px; text-align: right;">
+                <asp:Button ID="btnCambia" runat="server" Text="Cambiar Contraseña" 
+                    OnClick="btnCambia_Click" CssClass="botones" />
                 <asp:Button ID="btnVolver" runat="server" OnClick="btnVolver_Click" Text="Volver"
-                    CausesValidation="False" />
+                    CausesValidation="False" CssClass="botones" />
             </td>
         </tr>
     </table>
