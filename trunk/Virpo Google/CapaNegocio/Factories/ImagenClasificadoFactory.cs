@@ -14,7 +14,7 @@ namespace CapaNegocio.Factories
         public static List<string> Devolver(int idClasificado)
         {
             string query = "SELECT nombre " +
-                           "FROM ImagenesClasificados " +
+                           "FROM ImagenClasificado " +
                            "WHERE idClasificado = " + idClasificado;
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);

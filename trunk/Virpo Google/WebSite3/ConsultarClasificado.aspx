@@ -78,6 +78,11 @@
                 &nbsp;</td>
         </tr>
         <tr>
+        <td colspan="3">
+            <asp:Label ID="lblRecomendar" runat="server"></asp:Label>
+            </td>
+        </tr>
+        <tr>
             <td style="width: 366px" rowspan="2">
                 
                 <asp:Label ID="Label8" runat="server" CssClass="estiloLabel" 
