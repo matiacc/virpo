@@ -45,6 +45,9 @@ public partial class _Default : System.Web.UI.Page
         List<ArticuloWiki> articulos = new List<ArticuloWiki>();
         articulos = ArticuloWikiFactory.DevolverSoloMios(usu.Id);
 
+        List<HistorialWiki> versiones = new List<HistorialWiki>();
+        versiones = HistorialWikiFactory.DevolverMisVersiones(usu.Id);
+
         if (articulos.Count  != 0)
         {
             foreach (ArticuloWiki articulo in articulos)
@@ -57,7 +60,20 @@ public partial class _Default : System.Web.UI.Page
                 row["Creado"] = articulo.FecCreacion.ToShortDateString();
                 dt.Rows.Add(row);
             }
+            
+            foreach (HistorialWiki version in versiones)
+            {
+                ArticuloWiki art = ArticuloWikiFactory.ConvertirAArticuloWiki(version);
+                row = dt.NewRow();
+                row["Id"] = art.Id;
+                row["Version"] = art.Version;
+                row["Titulo"] = art.Titulo;
+                row["Descripcion"] = art.Descripcion;
+                row["Creado"] = art.FecCreacion.ToShortDateString();
+                dt.Rows.Add(row);
+            }
             return dt;
+
         }
         else
         {
@@ -78,16 +94,22 @@ public partial class _Default : System.Web.UI.Page
         {
             string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
             string vers = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[1].Text;
-            
-            if (ArticuloWikiFactory.Eliminar(int.Parse(id.ToString())))
+
+            int ID = int.Parse(id.ToString());
+            int VERS = int.Parse(vers.ToString());
+
+            if (HistorialWikiFactory.Eliminar(ID, VERS))
+            {
                 Response.Redirect("WikiMusic.aspx?Z=1");
+            }
+            else
+            {
+                if (ArticuloWikiFactory.Eliminar(ID))
+                    Response.Redirect("WikiMusic.aspx?Z=1");
+                else
+                    Response.Redirect("WikiMusic.aspx?Z=0");
 
-
-            if (HistorialWikiFactory.Eliminar(int.Parse(id.ToString()),int.Parse(vers.ToString())))
-                Response.Redirect("WikiMusic.aspx?Z=1");
-            else  
-                Response.Redirect("WikiMusic.aspx?Z=0");
-
+            }
         }
 
     }
