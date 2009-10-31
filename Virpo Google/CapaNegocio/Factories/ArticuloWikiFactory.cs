@@ -235,5 +235,24 @@ namespace CapaNegocio.Factories
         }
         #endregion
 
+        public static ArticuloWiki ConvertirAArticuloWiki(HistorialWiki vers)
+        {
+            ArticuloWiki articulo = new ArticuloWiki();
+            articulo.Id = vers.IdArticulo;
+            articulo.Version = vers.Version;            
+            articulo.FecCreacion = vers.FecModificacion;
+            articulo.Titulo = vers.Titulo;
+            articulo.Cuerpo = vers.Cuerpo;
+            articulo.Descripcion = vers.Descripcion;
+
+            CategoriaArticuloWiki cat = CategoriaArticuloWikiFactory.Devolver(vers.IdCat);
+            articulo.IdCat = cat;
+
+            Usuario autor = UsuarioFactory.Devolver(vers.IdAutor);
+            articulo.IdAutor = autor;
+
+            return articulo;
+            // ojo no tiene en cuenta la cant de visitas, se debe mantener las visitas de la version vigente 
+        }
     }
 }
