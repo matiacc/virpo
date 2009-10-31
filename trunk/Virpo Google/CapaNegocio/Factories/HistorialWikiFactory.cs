@@ -111,6 +111,40 @@ namespace CapaNegocio.Factories
 
         }
 
+        public static List<HistorialWiki> DevolverMisVersiones(int id)
+        {
+            string query = "SELECT idArticulo, idCat, idAutor, fecModificacion, titulo, cuerpo, version, descripcion " +
+                        "FROM HistorialWiki " +
+                        "WHERE idAutor = " + id;
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+
+            if (dt != null)
+            {
+                List<HistorialWiki> misVersiones = new List<HistorialWiki>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    HistorialWiki version = new HistorialWiki();
+                    version.IdArticulo = (int)dt.Rows[i]["idArticulo"]; ;
+                    version.IdCat = (int)dt.Rows[i]["idCat"];
+                    version.IdAutor = (int)dt.Rows[i]["idAutor"];
+                    version.FecModificacion = Convert.ToDateTime(dt.Rows[i]["fecModificacion"].ToString());
+                    version.Titulo = dt.Rows[i]["titulo"].ToString();
+                    version.Cuerpo = dt.Rows[i]["cuerpo"].ToString();
+                    version.Version = (int)dt.Rows[i]["version"];
+                    version.Descripcion = dt.Rows[i]["descripcion"].ToString();
+
+                    misVersiones.Add(version);
+                }
+                return misVersiones;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
         #region Insertar
 
         public static bool Insertar(HistorialWiki version)
@@ -149,9 +183,9 @@ namespace CapaNegocio.Factories
 
         #region Eliminar
 
-        public static bool Eliminar(int id, SqlTransaction tran)
+        public static bool Eliminar(int id, int version)
         {
-            return Eliminar(id, (SqlTransaction)null);
+            return Eliminar(id, version,(SqlTransaction)null);
         }
 
         public static bool Eliminar(int idArticulo,int version, SqlTransaction tran)
@@ -176,6 +210,19 @@ namespace CapaNegocio.Factories
         }
         #endregion
 
+        public static HistorialWiki ConvertirAHistorial(ArticuloWiki art)
+        {
+            HistorialWiki versionAnterior = new HistorialWiki();
+            versionAnterior.IdArticulo = art.Id;
+            versionAnterior.Version = art.Version;
+            versionAnterior.IdCat = art.IdCat.Id;
+            versionAnterior.IdAutor = art.IdAutor.Id;
+            versionAnterior.FecModificacion = art.FecCreacion;
+            versionAnterior.Titulo = art.Titulo;
+            versionAnterior.Cuerpo = art.Cuerpo;
+            versionAnterior.Descripcion = art.Descripcion;
 
+            return versionAnterior;
+        }
     }
 }
