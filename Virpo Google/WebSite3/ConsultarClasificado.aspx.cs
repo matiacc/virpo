@@ -25,6 +25,8 @@ public partial class ConsultarClasificado : System.Web.UI.Page
 
             int id = Convert.ToInt32(Request.QueryString["C"]);
             lblContactar.Text = "<a href='javascript:abrirPopup(" + id + ")' class='estiloLabelCabeceraPeque'>Contactar con el vendedor</a>";
+            Session["urlClasificado"] = Request.Url.ToString();
+            lblRecomendar.Text = "<a href='javascript:abrirPopup2()' class='estiloLabelCabeceraPeque'>Recomendar Aviso</a>";
             AvisoClasificado aviso = AvisoClasificadoFactory.Devolver(id);
             Session["Aviso"] = aviso;
             lblDescripcion.Text = aviso.Descripcion;

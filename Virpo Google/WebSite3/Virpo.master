@@ -19,6 +19,11 @@ winLeft = (screen.width - 700)/2;
 hidden = window.open('popupContactarVendedor.aspx?IdAviso='+idAviso+'', 'NewWindow','top=0,left='+winLeft+', width=500,height=400,status=yes, resizable=no,scrollbars=no');
 
 }
+function abrirPopup2() {
+winLeft = (screen.width - 700)/2;
+hidden = window.open('popupRecomendar.aspx', 'NewWindow','top=0,left='+winLeft+', width=500,scrollbars=0,height=400,status=yes, resizable=no,scrollbars=no');
+//hidden = window.open('popupRecomendar.aspx?dire='+direccion+'', 'NewWindow','top=0,left='+winLeft+', width=500,height=400,status=yes, resizable=no,scrollbars=no');
+}
 function mostrarGif(){
  document.getElementById('loading').style.display = '';
 }
