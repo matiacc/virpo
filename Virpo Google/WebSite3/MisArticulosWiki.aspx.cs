@@ -77,11 +77,16 @@ public partial class _Default : System.Web.UI.Page
         if (e.CommandName == "E")
         {
             string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
+            string vers = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[1].Text;
             
-
-            if ( ArticuloWikiFactory.Eliminar(int.Parse(id.ToString())))
+            if (ArticuloWikiFactory.Eliminar(int.Parse(id.ToString())))
                 Response.Redirect("WikiMusic.aspx?Z=1");
-            else Response.Redirect("WikiMusic.aspx?Z=0");
+
+
+            if (HistorialWikiFactory.Eliminar(int.Parse(id.ToString()),int.Parse(vers.ToString())))
+                Response.Redirect("WikiMusic.aspx?Z=1");
+            else  
+                Response.Redirect("WikiMusic.aspx?Z=0");
 
         }
 
