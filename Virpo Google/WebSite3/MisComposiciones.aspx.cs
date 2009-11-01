@@ -24,7 +24,8 @@ public partial class _Default : System.Web.UI.Page
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
             this.CargarComposiciones();
-
+            
+            
 
         }
 
@@ -33,9 +34,11 @@ public partial class _Default : System.Web.UI.Page
     private void CargarComposiciones()
     {
         DataTable dt = this.DatosComposiciones();
+
         
         GridView1.DataSource = dt;
         GridView1.DataBind();
+        GridView1.Columns[6].Visible = false;
 
     }
 
@@ -46,9 +49,10 @@ public partial class _Default : System.Web.UI.Page
         DataRow row;
         dt.Columns.Add("Ruta");
         dt.Columns.Add("Nombre");
-        dt.Columns.Add("Instrumento");
         dt.Columns.Add("Tipo");
+        dt.Columns.Add("Instrumento");
         dt.Columns.Add("Ruta2");
+        dt.Columns.Add("Id");
         
         Usuario usuario = (Usuario)Session["Usuario"];
         String a = "WHERE Composicion.idUsuario = " + Convert.ToString(usuario.Id);
@@ -70,6 +74,9 @@ public partial class _Default : System.Web.UI.Page
                     row["Tipo"] = composicion.Tipo;
                 else
                     row["Tipo"] = "Tipo No definido";
+                row["ruta2"] = composicion.Audio;
+                row["Id"] = composicion.Id;
+
                 dt.Rows.Add(row);
             }
             return dt;
@@ -80,6 +87,14 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
-
-
+  
+    protected void GridView1_RowCommand1(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "E")
+        {
+           // string id = GridView1.Rows[e.RowIndex].Cells[6].Text;
+           // ComposicionFactory.Eliminar(id);
+            Response.Redirect("MisComposiciones.aspx");
+        }
+    }
 }

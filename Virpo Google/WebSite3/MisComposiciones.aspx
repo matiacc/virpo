@@ -19,7 +19,7 @@
     </p>
     <p>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-            Width="468px">
+            Width="468px" onrowcommand="GridView1_RowCommand1">
             <Columns>
                 <asp:ButtonField ButtonType="Image" CommandName="P" DataTextField="Ruta" 
                     ImageUrl="~/ImagenesSite/play.png" Text="Play" />
@@ -29,11 +29,16 @@
                 <asp:BoundField DataField="Instrumento" HeaderText="Instrumento" 
                     SortExpression="Instrumento" />
                 <asp:BoundField DataField="Ruta2" HeaderText="Ruta" SortExpression="Ruta" />
+                <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                 <asp:ButtonField ButtonType="Image" CommandName="E" DataTextField="Ruta" 
                     ImageUrl="~/ImagenesSite/eliminar.png" Text="Eliminar" />
             </Columns>
         </asp:GridView>
     </p>
+    
+    
+    
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
 </asp:Content>
