@@ -14,42 +14,46 @@
 <center style="width: 529px; background-color: #333333">
                     <tituloSubVentana>
                     Cambiar Contraseña</tituloSubVentana></center>
-    <table class="style1" style="width: 132%">
+    <table class="tabla" style="width: 132%">
         <tr>
-            <td style="width: 181px">
+            <td style="width: 171px">
                 &nbsp;
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
             </td>
             <td>
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 181px">
-                &nbsp;
-            </td>
+                &nbsp;</td>
             <td>
                 &nbsp;
             </td>
         </tr>
         <tr>
-            <td style="width: 181px">
+            <td style="width: 171px">
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 171px; height: 39px;">
                 &nbsp;
                 <asp:Label ID="Label4" runat="server" Text="Nombre de Usuario:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
+            <td colspan="2" style="height: 39px; text-align: left">
                 <asp:Label ID="lblNomUsuario" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td style="width: 181px">
+            <td style="width: 171px; height: 39px;">
                 &nbsp;
                 <asp:Label ID="Label1" runat="server" Text="Contraseña Actual:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
+            <td colspan="2" style="height: 39px; text-align: left">
                 <div class="loginboxdiv">            
                 <asp:TextBox ID="txtPasswordActual" runat="server" TextMode="Password" 
                         CssClass="loginbox" Width="127px"></asp:TextBox>
@@ -60,12 +64,12 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 181px">
+            <td style="width: 171px; height: 39px;">
                 &nbsp;
                 <asp:Label ID="Label2" runat="server" Text="Contraseña Nueva:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
+            <td colspan="2" style="height: 39px; text-align: left">
                 <div class="loginboxdiv">  
                 <asp:TextBox ID="txtNvaPassword" runat="server" TextMode="Password" 
                         CssClass="loginbox" Width="127px"></asp:TextBox>
@@ -73,7 +77,7 @@
                 <cc1:PasswordStrength ID="txtNvaPassword_PasswordStrength" runat="server" TargetControlID="txtNvaPassword"
                     DisplayPosition="RightSide" StrengthIndicatorType="Text" PreferredPasswordLength="5"
                     PrefixText="Fortaleza: " TextCssClass="TextIndicator_TextBox1" MinimumNumericCharacters="1"
-                    MinimumSymbolCharacters="1" RequiresUpperAndLowerCaseCharacters="true" TextStrengthDescriptions="muy débil; débil; mejorable; buena; perfecta"
+                    MinimumSymbolCharacters="1" RequiresUpperAndLowerCaseCharacters="true" TextStrengthDescriptions="Muy Débil; Débil; Mejorable; Buena; Perfecta"
                     TextStrengthDescriptionStyles="cssClass2;cssClass2;cssClass3;cssClass4;cssClass5"
                     CalculationWeightings="50;15;15;20">
                 </cc1:PasswordStrength>
@@ -82,12 +86,12 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 181px">
+            <td style="width: 171px; height: 38px;">
                 &nbsp;
                 <asp:Label ID="Label3" runat="server" Text="Repetir Contraseña:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
+            <td colspan="2" style="height: 38px; text-align: left">
                 <div class="loginboxdiv" id="127">  
                 <asp:TextBox ID="txtConfrimarPassword" runat="server" TextMode="Password" 
                         CssClass="loginbox" Width="127px"></asp:TextBox>
@@ -98,21 +102,25 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 181px">
+            <td style="width: 171px">
                 &nbsp;
             </td>
+            <td>
+                &nbsp;</td>
             <td>
                 &nbsp;
             </td>
         </tr>
         <tr>
-            <td style="height: 33px; width: 181px;">
+            <td style="height: 33px; width: 171px;">
+                &nbsp;</td>
+            <td style="height: 33px; text-align: right;">
+                <asp:Button ID="btnCambia" runat="server" Text="Aceptar" 
+                    OnClick="btnCambia_Click" CssClass="botones" Width="100px" />
             </td>
             <td style="height: 33px; text-align: right;">
-                <asp:Button ID="btnCambia" runat="server" Text="Cambiar Contraseña" 
-                    OnClick="btnCambia_Click" CssClass="botones" />
                 <asp:Button ID="btnVolver" runat="server" OnClick="btnVolver_Click" Text="Volver"
-                    CausesValidation="False" CssClass="botones" />
+                    CausesValidation="False" CssClass="botones" Width="100px" />
             </td>
         </tr>
     </table>
