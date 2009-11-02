@@ -4,18 +4,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <p>
-        <br />
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
+        &nbsp;</p>
     <p>
         <asp:Label ID="Label1" runat="server" Text="Mis Composiciones"></asp:Label>
+    </p>
+    <p>
+        <asp:Label ID="Label2" runat="server" ForeColor="Red" 
+            Text="NO SE ENCONTRARON PISTAS Y/O CANCIONES REGISTRADAS POR USTED" 
+            Visible="False"></asp:Label>
     </p>
     <p>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
@@ -32,6 +28,8 @@
                 <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                 <asp:ButtonField ButtonType="Image" CommandName="E" DataTextField="Ruta" 
                     ImageUrl="~/ImagenesSite/eliminar.png" Text="Eliminar" />
+                <asp:ButtonField ButtonType="Image" CommandName="C" 
+                    ImageUrl="~/ImagenesSite/lupa3.png" Text="Consultar" />
             </Columns>
         </asp:GridView>
     </p>

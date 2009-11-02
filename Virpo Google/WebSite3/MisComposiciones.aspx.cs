@@ -37,8 +37,10 @@ public partial class _Default : System.Web.UI.Page
 
         
         GridView1.DataSource = dt;
+        if (dt.Rows.Count==0) Label2.Visible = true;
+        
         GridView1.DataBind();
-        GridView1.Columns[6].Visible = false;
+        GridView1.Columns[5].Visible = false;
 
     }
 
@@ -92,9 +94,18 @@ public partial class _Default : System.Web.UI.Page
     {
         if (e.CommandName == "E")
         {
-           // string id = GridView1.Rows[e.RowIndex].Cells[6].Text;
-           // ComposicionFactory.Eliminar(id);
+            string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text;
+            ComposicionFactory.Eliminar(Convert.ToInt32(id));
             Response.Redirect("MisComposiciones.aspx");
         }
+        if (e.CommandName == "C")
+        {
+            string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text;
+            Response.Redirect("ConsultarComposicion.aspx?C=" + id);
+        }
+
+
+
     }
+    
 }

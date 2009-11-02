@@ -118,7 +118,8 @@
         </tr>
         <tr>
             <td colspan="3" align="center">
-                <asp:Label ID="lblComposiciones" runat="server" ForeColor="#990000" Visible="False">No se ha cargado ninguna composicion</asp:Label>
+                <asp:Label ID="lblComposiciones" runat="server" ForeColor="#990000" Visible="False">No 
+                se ha cargado ninguna composicion</asp:Label>
             </td>
         </tr>
         <tr>
@@ -134,6 +135,9 @@
                         <asp:BoundField DataField="Usuario" HeaderText="Usuario" SortExpression="Usuario" />
                         <asp:BoundField DataField="Ruta2" HeaderText="Ruta" />
                         <asp:HyperLinkField DataNavigateUrlFields="Ruta3" HeaderText="Ruta3" Text="Descargar" />
+                        <asp:ButtonField ButtonType="Image" CommandName="C" 
+                            ImageUrl="~/ImagenesSite/lupa3.png" Text="Modificar" />
+                        <asp:BoundField DataField="Id" />
                     </Columns>
                 </asp:GridView>
             </td>
