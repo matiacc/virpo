@@ -26,15 +26,15 @@
                 <tr>
                     <td style="text-align: right" abbr="btn">
                         <asp:Button ID="btnApuntar" runat="server" onclick="btnApuntar_Click" 
-                            Text="Apuntar" CssClass="botones" />
+                            Text="Apuntar" CssClass="botones" Visible="False" Width="105px" />
                         <asp:Button ID="btnRecomendar" runat="server" CssClass="botones" 
-                            Text="Recomendar" />
+                            Text="Recomendar" Width="105px" />
                         <asp:Button ID="btnEditar" runat="server" CssClass="botones" 
-                            onclick="btnEditar_Click" Text="Editar" />
+                            onclick="btnEditar_Click" Text="Editar" Width="105px" />
                         <asp:Button ID="btnHistorial" runat="server" CssClass="botones" 
-                            Text="Historial" />
+                            Text="Historial" Width="105px" />
                         <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" 
-                            Text="Denunciar" />
+                            Text="Denunciar" Width="105px" />
                     </td>
                 </tr>
                 <tr>
