@@ -41,7 +41,7 @@
             <asp:ButtonField ButtonType="Image" CommandName="C" 
                 ImageUrl="~/ImagenesSite/lupa3.png" Text="Consultar" />
             <asp:ButtonField ButtonType="Image" CommandName="M" 
-                ImageUrl="~/ImagenesSite/eliminar.png" Text="Modificar" />
+                ImageUrl="~/ImagenesSite/edit.png" Text="Modificar" />
             <asp:TemplateField ShowHeader="False">
                 <ItemTemplate>
                     <asp:ImageButton ID="ImageButton2" runat="server" CausesValidation="False" 
