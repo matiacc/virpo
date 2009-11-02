@@ -79,7 +79,7 @@
         </tr>
         <tr>
         <td colspan="3">
-            <asp:Label ID="lblRecomendar" runat="server"></asp:Label>
+            <asp:Label ID="lblRecomendar" runat="server" BackColor="#FFFFCC"></asp:Label>
             </td>
         </tr>
         <tr>
