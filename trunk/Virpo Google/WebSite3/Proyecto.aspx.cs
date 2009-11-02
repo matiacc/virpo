@@ -72,6 +72,7 @@ public partial class Proyecto : System.Web.UI.Page
 
         GridView1.DataSource = dt;
         GridView1.DataBind();
+        GridView1.Columns[8].Visible = false;
     }
 
     private void CargarColaboradores(int idProyecto)
@@ -126,6 +127,12 @@ public partial class Proyecto : System.Web.UI.Page
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
 
+        if (e.CommandName == "C")
+        {
+            string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[8].Text;
+            Response.Redirect("ConsultarComposicion.aspx?C=" + id);
+        }
+
         this.mp3_seleccionado = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text;
         this.mp3_seleccionado_titulo = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[1].Text;
 
@@ -146,6 +153,7 @@ public partial class Proyecto : System.Web.UI.Page
         dt.Columns.Add("Tipo");
         dt.Columns.Add("Ruta2");
         dt.Columns.Add("Ruta3");
+        dt.Columns.Add("Id");
         List<Composicion> composiciones = ComposicionFactory.DevolverXProyecto(id);
 
         if (composiciones != null)
@@ -166,6 +174,7 @@ public partial class Proyecto : System.Web.UI.Page
                     row["Tipo"] = composicion.Tipo;
                 else
                     row["Tipo"] = "Tipo No definido";
+                row["Id"] = composicion.Id;
                 dt.Rows.Add(row);
             }
             return dt;
