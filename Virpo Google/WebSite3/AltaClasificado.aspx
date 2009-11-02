@@ -11,7 +11,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <table style="width: 134%">
+    <table style="width: 134%" class="tabla">
         <tr>
             <td style="height: 16px; width: 2747px;">
                 </td>
@@ -88,7 +88,7 @@
                     <asp:ListItem Value="pesos">$</asp:ListItem>
                     <asp:ListItem Value="dolares">U$S</asp:ListItem>
                 </asp:DropDownList>
-                <asp:TextBox ID="txtPrecio" runat="server" Width="299px"></asp:TextBox>
+                <asp:TextBox ID="txtPrecio" runat="server" Width="100px"></asp:TextBox>
                 
             </td>
         </tr>
@@ -98,7 +98,7 @@
             </td>
             <td colspan="2">
                 <asp:TextBox ID="txtUbicacion" runat="server" 
-                    Width="423px"></asp:TextBox>
+                    Width="405px"></asp:TextBox>
             </td>
         </tr>
         <%--<tr>
@@ -156,6 +156,15 @@
          <tr>
                         <td style="width: 2747px">
                 <asp:Label ID="Label2" runat="server" Text="Imágenes" CssClass="estiloLabel"></asp:Label>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
             </td>
             <td style="text-align: left; " colspan="2">
                 <br/>
@@ -213,10 +222,10 @@
             <td style="width: 2747px">
                 &nbsp;</td>
             <td style="text-align: right; width: 1225px;">
-                &nbsp;</td>
-            <td style="text-align: right; width: 73px;">
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
                     onclick="btGuardar_Click" CssClass="botones" />
+                </td>
+            <td style="text-align: right; width: 73px;">
                 <input id="btVolver" type="button" value="Volver" class="botones" onclick="history.back()"/>
             </td>
         </tr>
