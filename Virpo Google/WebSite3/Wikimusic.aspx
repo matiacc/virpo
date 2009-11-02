@@ -22,11 +22,7 @@
                 </center></td>
         </tr>
         <tr>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="text-align: center">
+            <td style="text-align: center; font-family: Calibri; font-size: x-large; color: #777777;">
                 Un espacio dedicado al conocimiento...</td>
         </tr>
         <tr>
@@ -41,8 +37,8 @@
         </tr>
         <tr>
             <td style="text-align: center">
-    <asp:Image ID="Image1" runat="server" Height="117px" 
-    ImageUrl="~/images/logos virpo/biblioteca.png" Width="531px" />
+    <asp:Image ID="Image1" runat="server" Height="274px" 
+    ImageUrl="~/images/logos virpo/libros2.png" Width="400px" />
             </td>
         </tr>
         <tr>
