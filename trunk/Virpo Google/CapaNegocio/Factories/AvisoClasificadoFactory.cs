@@ -131,8 +131,15 @@ namespace CapaNegocio.Factories
 
             return BDUtilidades.EjecutarConsultaEscalar(query);
         }
-        
-        
+
+        public static int IncrementarVisita(int id)
+        {
+            string sql = "UPDATE AvisoClasificado SET visitas = visitas + 1 WHERE id =" + id;
+            BDUtilidades.EjecutarNonQuery(sql);
+            int visitas = BDUtilidades.EjecutarConsultaEscalar("SELECT visitas FROM AvisoClasificado WHERE id =" + id);
+            return visitas;
+        }
+
         #region Insertar
         /// <summary>
         /// Alta de un registro sin transaccion

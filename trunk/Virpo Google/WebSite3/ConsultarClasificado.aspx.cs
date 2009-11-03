@@ -17,8 +17,6 @@ public partial class ConsultarClasificado : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        
         if (!Page.IsPostBack)
         {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
@@ -47,8 +45,8 @@ public partial class ConsultarClasificado : System.Web.UI.Page
             lblTitulo.Text = aviso.Titulo;
             lblUbicacion.Text = aviso.Ubicacion;
             lblVendedor.Text = aviso.Dueño.NombreUsuario;
-            lblVisitas.Text = "15";
-
+            lblVisitas.Text = AvisoClasificadoFactory.IncrementarVisita(aviso.Id).ToString();
+            lblImprimir.Text = "<a href='javascript:window.print();'>Imprimir</a>";
         }
         //No se muestra contactar con el vendedor si el aviso consultado es publicado por el que se logueo
         if (Session["Aviso"] != null) 
