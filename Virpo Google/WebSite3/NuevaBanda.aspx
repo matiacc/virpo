@@ -5,17 +5,14 @@
         <ul>
             <li><a href="NuevaBanda.aspx" title="Nueva Banda">Nueva Banda</a></li>
             <li><a href="ListarUsuarios.aspx" title="Agregar Integrante">Agregar Integrante</a></li>
-            <li><a href="MostrarIntegrantesBanda.aspx" title="Agregar Integrante">Bandas e Integrantes</a></li>
+            <li><a href="MostrarIntegrantesBanda.aspx" title="Agregar Integrante">Bandas e 
+                Integrantes</a></li>
              <li><a href="ListarBandas.aspx" title="Agregar Integrante">Listar Bandas</a></li>
         </ul>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <table style="width: 100%">
-        <tr>
-            <td colspan="2">
-                &nbsp;</td>
-        </tr>
+    <table style="width: 100%" class="tabla">
         <tr>
             <td colspan="2">
                 <center style="width: 529px; background-color: #333333">
@@ -140,30 +137,6 @@
                 <asp:Button ID="btnCrearBanda" runat="server" CssClass="botones" Text="Crear Banda" 
                     Width="148px" onclick="Button3_Click" />
             </td>
-        </tr>
-        <tr>
-            <td style="width: 248px; height: 19px">
-                &nbsp;</td>
-            <td style="height: 19px">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="width: 248px; height: 19px">
-                &nbsp;</td>
-            <td style="height: 19px; text-align: right;">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="width: 248px">
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="width: 248px">
-                &nbsp;</td>
-            <td style="text-align: right">
-                &nbsp;</td>
         </tr>
         </table>
 </asp:Content>
