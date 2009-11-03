@@ -76,9 +76,9 @@
                 </div>
                 <cc1:PasswordStrength ID="txtNvaPassword_PasswordStrength" runat="server" TargetControlID="txtNvaPassword"
                     DisplayPosition="RightSide" StrengthIndicatorType="Text" PreferredPasswordLength="5"
-                    PrefixText="Fortaleza: " TextCssClass="TextIndicator_TextBox1" MinimumNumericCharacters="1"
+                    PrefixText="Seguridad: " TextCssClass="TextIndicator_TextBox1" MinimumNumericCharacters="1"
                     MinimumSymbolCharacters="1" RequiresUpperAndLowerCaseCharacters="true" TextStrengthDescriptions="Muy Débil; Débil; Mejorable; Buena; Perfecta"
-                    TextStrengthDescriptionStyles="cssClass2;cssClass2;cssClass3;cssClass4;cssClass5"
+                    TextStrengthDescriptionStyles="estiloLabelRojo;estiloLabelNaranja;estiloLabelAmarillo;estiloLabelCeleste;estiloLabelVerde"
                     CalculationWeightings="50;15;15;20">
                 </cc1:PasswordStrength>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtNvaPassword"
