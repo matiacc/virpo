@@ -18,12 +18,19 @@ public partial class Login : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(Page.IsPostBack)
+        if (Page.IsPostBack)
+        {
             if (Request.QueryString["url"] != null)
             {
                 back = Request.QueryString["url"];
                 volver = true;
             }
+        }
+        else
+        {
+            Button buttonLogin = LoginVirpo.FindControl("LoginButton") as Button;
+            Page.Master.Page.Form.DefaultButton = buttonLogin.UniqueID;
+        }
         if (Request.QueryString["var"] != null)
         {
             lblMensaje.ForeColor = System.Drawing.Color.Purple;

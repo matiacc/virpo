@@ -101,7 +101,9 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@tags", DbType.String, proyecto.Tags));
                 parametros.Add(BDUtilidades.crearParametro("@tipo", DbType.Int32, proyecto.Tipo));
                 parametros.Add(BDUtilidades.crearParametro("@fechaCreacion", DbType.DateTime, proyecto.FechaCreacion));
+
                 
+
                 bool ok = BDUtilidades.ExecuteStoreProcedure("ProyectoInsertar", parametros);
                 if (ok)
                     return true;

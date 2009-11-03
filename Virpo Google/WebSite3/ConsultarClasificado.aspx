@@ -22,6 +22,7 @@
                 <table style="width: 100%; height: 249px">
                     <tr>
                         <td colspan="2" style="text-align: right">
+                            
                             <asp:Label ID="lblContactar" runat="server" CssClass="estiloLabelCabeceraPeque"></asp:Label>
                         </td>
                     </tr>
@@ -141,7 +142,8 @@
         </tr>
          <tr>
             <td colspan="2">
-                &nbsp;</td>
+                <asp:Label ID="lblImprimir" runat="server" CssClass="estiloLabel"></asp:Label>
+             </td>
             <td style="width: 198px">
                 &nbsp;</td>
             <td>
