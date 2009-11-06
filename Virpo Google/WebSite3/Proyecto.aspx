@@ -125,7 +125,7 @@
         <tr>
             <td colspan="3" align="center">
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand"
-                    GridLines="Vertical" ShowHeader="False">
+                    GridLines="Vertical">
                     <Columns>
                         <asp:ButtonField ButtonType="Image" CommandName="P" DataTextField="Ruta" ImageUrl="~/ImagenesSite/play.png"
                             Text="Play" />

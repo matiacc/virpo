@@ -22,7 +22,8 @@
         </tr>
         <tr>
             <td colspan="3" style="text-align: center; background-color: #333333">
-                <tituloSubVentana>Nuevo Clasificado</tituloSubVentana></td>
+                <tituloSubVentana><asp:Label ID="lblTitulo" runat="server"></asp:Label><tituloSubVentana>
+                </td>
         </tr>
         <tr>
             <td style="width: 2747px">
@@ -149,7 +150,7 @@
                 
              </td>
             <td colspan="2">
-                <asp:Label ID="lblRubro" runat="server" ForeColor="Red" Text="Ingrese un Rubro" 
+                <asp:Label ID="lblRubro" runat="server" ForeColor="Red" Text="Seleccione un Rubro" 
                     Visible="False"></asp:Label>
              </td>
         </tr>

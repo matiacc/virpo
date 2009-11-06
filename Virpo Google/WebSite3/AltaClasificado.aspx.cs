@@ -28,6 +28,7 @@ public partial class AltaClasificado : System.Web.UI.Page
 
             if (Request.QueryString["E"] != null)
             {
+                lblTitulo.Text = "Modificar Clasificado";
                 int id = Convert.ToInt32(Request.QueryString["E"].ToString());
                 ViewState["Id"] = id;
                 AvisoClasificado aviso = new AvisoClasificado();
@@ -63,13 +64,13 @@ public partial class AltaClasificado : System.Web.UI.Page
                     }
                     else if (i == 3)
                     {
-                        Image4.Visible = true; 
+                        Image4.Visible = true;
                         chkBorrar4.Visible = true;
                         Image4.ImageUrl = aviso.Imagen[i];
                     }
                 }
                 List<Rubro> padres = RubroFactory.DevolverPadres(aviso.Rubro.Id);
-                
+
                 if (padres != null)
                 {
                     padres.Reverse();
@@ -90,6 +91,8 @@ public partial class AltaClasificado : System.Web.UI.Page
                     }
                 }
             }
+            else
+                lblTitulo.Text = "Nuevo Clasificado";
         }
     }
     
