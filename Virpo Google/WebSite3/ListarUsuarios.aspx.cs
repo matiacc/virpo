@@ -76,7 +76,9 @@ public partial class ListarUsuarios : System.Web.UI.Page
             {
                 //Usuario remitente = new Usuario();
                 //remitente = (Usuario)Session["Usuario"];
-
+                //
+                //Falta insertar los músico agregados a la banda
+                //
         	    Usuario destinatario = new Usuario();
                 destinatario = UsuarioFactory.Devolver(id);
                 string banda = ddlMisBandas.Items[ddlMisBandas.SelectedIndex].Text;
