@@ -404,6 +404,7 @@ ul {
     border-collapse: collapse;
     border: #1d1d1d 5px solid;
 	margin-right: 78px;
+	text-align: center;
 }
 /*Header and Pager styles*/
 .HeaderStyle, .PagerStyle /*Common Styles*/
@@ -500,14 +501,14 @@ ul {
 {
 	 font-family: "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
         font-size: 14px;
-        margin-top: .5em; color: #ffff00;
+        margin-top: .5em; color: #666633;
 }
 
 .estiloLabelCeleste	
 {
 	 font-family: "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
         font-size: 14px;
-        margin-top: .5em; color: #00ffff;
+        margin-top: .5em; color: #9999CC;
 }
 
 .estiloLabelVerde	
