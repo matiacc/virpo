@@ -86,7 +86,7 @@ public partial class _Default : System.Web.UI.Page
     {
         Banda banda = new Banda();
         MusicoXBanda mxbanda = new MusicoXBanda();
-        MusicoXBanda mzbanda = new MusicoXBanda();
+        //MusicoXBanda mzbanda = new MusicoXBanda();
         Genero gen = new Genero();
         Localidad loc = new Localidad();
         Usuario usu = (Usuario)Session["Usuario"];
@@ -108,26 +108,31 @@ public partial class _Default : System.Web.UI.Page
         if (BandaFactory.Insertar(banda))
         {
             mxbanda.IdUsuario = usu.Id;
-            //mxbanda.IdBanda = MusicoXBandaFactory.DevolverIdBandaCreada(fecSis);
+            mxbanda.IdBanda = MusicoXBandaFactory.DevolverIdBandaCreada(fecSis);
             mxbanda.Creador = true;
             mxbanda.FecAgregado = fecSis;
-            if(MusicoXBandaFactory.Insertar(mxbanda)) 
-            {mzbanda.IdUsuario = 5;
-                mzbanda.IdBanda = MusicoXBandaFactory.DevolverIdBandaCreada(fecSis);
-                mzbanda.Creador = false;
-                mzbanda.FecAgregado = fecSis;
-                MusicoXBandaFactory.Insertar(mzbanda);
-                Response.Redirect("Bandas.aspx");
+            if (MusicoXBandaFactory.Insertar(mxbanda))
+            {
+                Panel1_ModalPopupExtender.Show();
             }
 
-            if(MusicoXBandaFactory.Insertar(mxbanda)) 
-            {mzbanda.IdUsuario = 5;
+//            if(MusicoXBandaFactory.Insertar(mxbanda)) 
+//            {mzbanda.IdUsuario = 5;
 //                mzbanda.IdBanda = MusicoXBandaFactory.DevolverIdBandaCreada(fecSis);
-                mzbanda.Creador = false;
-                mzbanda.FecAgregado = fecSis;
-                MusicoXBandaFactory.Insertar(mzbanda);
-                Response.Redirect("Bandas.aspx");
-            }
+//                mzbanda.Creador = false;
+//                mzbanda.FecAgregado = fecSis;
+//                MusicoXBandaFactory.Insertar(mzbanda);
+//                Response.Redirect("Bandas.aspx");
+//            }
+
+//            if(MusicoXBandaFactory.Insertar(mxbanda)) 
+//            {mzbanda.IdUsuario = 5;
+////                mzbanda.IdBanda = MusicoXBandaFactory.DevolverIdBandaCreada(fecSis);
+//                mzbanda.Creador = false;
+//                mzbanda.FecAgregado = fecSis;
+//                MusicoXBandaFactory.Insertar(mzbanda);
+//                Response.Redirect("Bandas.aspx");
+//            }
         }
 
     }
@@ -183,5 +188,9 @@ public partial class _Default : System.Web.UI.Page
             return ex.Message;
         }
 
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Bandas.aspx");
     }
 }
