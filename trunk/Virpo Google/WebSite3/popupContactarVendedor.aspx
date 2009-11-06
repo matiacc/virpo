@@ -10,7 +10,7 @@
         {
             width: 488px;
             height: 352px;
-            background-color: #333333;
+            background-color: #CCCCCC;
         }
         .style2
         {
@@ -20,24 +20,29 @@
         {
             width: 50px;
             height: 38px;
+            background-color: #C0C0C0;
         }
         .style4
         {
             height: 38px;
+            background-color: #C0C0C0;
         }
         .style5
         {
             width: 50px;
             height: 172px;
+            background-color: #C0C0C0;
         }
         .style6
         {
             height: 172px;
+            background-color: #C0C0C0;
         }
         .style7
         {
             width: 50px;
             height: 132px;
+            background-color: #CCCCCC;
         }
         .style8
         {
@@ -52,7 +57,8 @@
         <tr>
             <td class="style3">
                 <asp:Label ID="Label1" runat="server" 
-                    style="color: #FFFFFF; font-size: large; font-family: Calibri" Text="Asunto:"></asp:Label>
+                    style="color: #333333; font-size: large; font-family: Calibri" 
+                    Text="Asunto:"></asp:Label>
             </td>
             <td class="style4">
                 <asp:TextBox ID="txtAsunto" runat="server" Width="408px"></asp:TextBox>
@@ -61,7 +67,8 @@
         <tr>
             <td class="style5">
                 <asp:Label ID="Label2" runat="server" 
-                    style="font-size: large; font-family: Calibri; color: #FFFFFF" Text="Mensaje"></asp:Label>
+                    style="font-size: large; font-family: Calibri; color: #333333" 
+                    Text="Mensaje"></asp:Label>
             </td>
             <td class="style6">
                 <asp:TextBox ID="txtMensaje" runat="server" Height="157px" Width="408px"></asp:TextBox>
