@@ -14,8 +14,8 @@ namespace CapaNegocio.Factories
         public static Composicion Devolver(int id)
         {
             string query = "SELECT Composicion.* " +
-            "FROM Composicion INNER JOIN ComposicionXProyecto ON (Composicion.id = ComposicionXProyecto.idComposicion) " +
-            "WHERE ComposicionXProyecto.idProyecto = " + id;
+            "FROM Composicion " +
+            "WHERE Composicion.id = " + id;
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
@@ -73,7 +73,7 @@ namespace CapaNegocio.Factories
 
         public static List<Composicion> DevolverTodos(string restriccion)
         {
-            string query = "SELECT nombre, descripcion, tipo, tempo, idTonalidad, idInstrumento, idUsuario" +
+            string query = "SELECT id, nombre, descripcion, tipo, tempo, idTonalidad, idInstrumento, idUsuario" +
                         " FROM Composicion ";
 
             if (!string.IsNullOrEmpty(restriccion))
@@ -86,7 +86,7 @@ namespace CapaNegocio.Factories
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     Composicion comp = new Composicion();
-                    //comp.Id = (int)dt.Rows[i]["id"];
+                    comp.Id = (int)dt.Rows[i]["id"];
                     comp.Nombre = dt.Rows[i]["nombre"].ToString();
                     comp.Descripcion = dt.Rows[i]["descripcion"].ToString();
                     comp.Tempo = dt.Rows[i]["tempo"].ToString();
@@ -147,6 +147,44 @@ namespace CapaNegocio.Factories
             return BDUtilidades.EjecutarConsultaEscalar(query);
 
         }
+
+        #region Eliminar
+
+        /// <summary>
+        /// Eliminar un registro sin transacción
+        /// </summary>
+        /// <param name="musico">Objeto AvisoClasificado</param>
+        /// <returns>true si modificó con éxito</returns>
+        public static bool Eliminar(int id)
+        {
+            return Eliminar(id, (SqlTransaction)null);
+        }
+        /// <summary>
+        /// Eliminar un registro con transacción
+        /// </summary>
+        /// <param name="musico">Objeto AvisoClasificado</param>
+        /// <returns>true si modificó con éxito</returns>
+        public static bool Eliminar(int id, SqlTransaction tran)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(BDUtilidades.crearParametro("@id", DbType.Int32, id));
+
+                bool ok = BDUtilidades.ExecuteStoreProcedure("ComposicionBorrar", parametros, tran);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                //LogError.Write(ex, "p_guardar_musico");
+                return false;
+            }
+        }
+        #endregion
 
 
     }
