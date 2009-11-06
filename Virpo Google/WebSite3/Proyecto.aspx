@@ -112,8 +112,13 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3" align="center" style="height: 20px">
-                Composiciones
+            <td colspan="3" align="center" style="height: 20px; font-size: large;">
+                <center style="width: 529px; background-color: #333333">
+                    <titulosubventana>
+                   Composiciones 
+                <asp:Label ID="Label7" runat="server"></asp:Label>
+                    </titulosubventana>
+                </center>
             </td>
         </tr>
         <tr>
@@ -125,7 +130,7 @@
         <tr>
             <td colspan="3" align="center">
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand"
-                    GridLines="Vertical">
+                    GridLines="Horizontal" BorderStyle="Dotted">
                     <Columns>
                         <asp:ButtonField ButtonType="Image" CommandName="P" DataTextField="Ruta" ImageUrl="~/ImagenesSite/play.png"
                             Text="Play" />
@@ -134,7 +139,7 @@
                         <asp:BoundField DataField="Instrumento" HeaderText="Instrumento" SortExpression="Instrumento" />
                         <asp:BoundField DataField="Usuario" HeaderText="Usuario" SortExpression="Usuario" />
                         <asp:BoundField DataField="Ruta2" HeaderText="Ruta" />
-                        <asp:HyperLinkField DataNavigateUrlFields="Ruta3" HeaderText="Ruta3" Text="Descargar" />
+                        <asp:HyperLinkField DataNavigateUrlFields="Ruta3" HeaderText="" Text="Descargar" />
                         <asp:ButtonField ButtonType="Image" CommandName="C" 
                             ImageUrl="~/ImagenesSite/lupa3.png" Text="Modificar" />
                         <asp:BoundField DataField="Id" />
