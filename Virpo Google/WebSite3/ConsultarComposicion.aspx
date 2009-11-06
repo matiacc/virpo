@@ -1,17 +1,27 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="ConsultarComposicion.aspx.cs" Inherits="_Default" Title="Página sin título" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<div id="menu8">
+        <ul>
+            <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
+        </ul>
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <p>
-        &nbsp;</p>
-    <p>
-        <asp:Label ID="Label7" runat="server" Font-Size="Medium" 
-            Text="Detalles de la pista de audio"></asp:Label>
-    </p>
-    <p>
-        &nbsp;</p>
-    <table class="style1">
+    <table class="tabla">
+        <tr>
+            <td colspan="2">
+                <center style="width: 529px; background-color: #333333">
+                    <titulosubventana>
+                    Detalles de la composicion </titulosubventana>
+                </center></td>
+        </tr>
+        <tr>
+            <td style="width: 107px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
         <tr>
             <td style="width: 107px">
                 <asp:Label ID="Label1" runat="server" Text="Tipo:"></asp:Label>
@@ -90,25 +100,11 @@
                 <asp:Label ID="lblDescripcion" runat="server" Font-Size="Medium"></asp:Label>
             </td>
         </tr>
-        <tr>
-            <td style="width: 107px">
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="width: 107px; height: 55px">
-            </td>
-            <td style="height: 55px">
-                <br />
-                <br />
-                <br />
-                <br />
-            </td>
-        </tr>
-    </table>
+        </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
+    <p>
+        &nbsp;</p>
     <p>
         <br />
         <asp:Label ID="Label8" runat="server" Text="Autor:"></asp:Label>
