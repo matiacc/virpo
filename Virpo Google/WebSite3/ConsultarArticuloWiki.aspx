@@ -24,17 +24,17 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right" abbr="btn">
+                    <td style="text-align: center" abbr="btn">
                         <asp:Button ID="btnApuntar" runat="server" onclick="btnApuntar_Click" 
-                            Text="Apuntar" CssClass="botones" Visible="False" Width="105px" />
+                            Text="Apuntar" CssClass="botones" Width="101px" />
                         <asp:Button ID="btnRecomendar" runat="server" CssClass="botones" 
-                            Text="Recomendar" Width="105px" />
+                            Text="Recomendar" Width="101px" />
                         <asp:Button ID="btnEditar" runat="server" CssClass="botones" 
-                            onclick="btnEditar_Click" Text="Editar" Width="105px" />
+                            onclick="btnEditar_Click" Text="Editar" Width="101px" />
                         <asp:Button ID="btnHistorial" runat="server" CssClass="botones" 
-                            Text="Historial" Width="105px" />
+                            Text="Historial" Width="101px" onclick="btnHistorial_Click" />
                         <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" 
-                            Text="Denunciar" Width="105px" />
+                            Text="Denunciar" Width="101px" />
                     </td>
                 </tr>
                 <tr>
@@ -51,7 +51,7 @@
                         <asp:Label ID="lblOk" runat="server" Style="color: #009933" Text="Articulo Apuntado"
                             Visible="False"></asp:Label>
                         <asp:Label ID="lblMal" runat="server" Style="color: #CC3300" Text="Articulo Ya Apuntado"
-                            Visible="False"></asp:Label>
+                            Visible="False" Width="80px"></asp:Label>
                         <asp:Label ID="lblId" runat="server" Visible="False"></asp:Label>
                     </td>
                 </tr>
