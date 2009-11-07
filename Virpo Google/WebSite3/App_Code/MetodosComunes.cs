@@ -46,6 +46,8 @@ public static class MetodosComunes
         dr.Close();
     }
 
+
+
     public static void cargarInstrumentos(DropDownList ddl, string tipoInstrumento)
     {
         string query = "SELECT * FROM Instrumento where idTipo = " + tipoInstrumento;
