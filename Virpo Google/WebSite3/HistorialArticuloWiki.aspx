@@ -7,24 +7,29 @@
             <li><a href="NuevoArticuloWiki.aspx" title="Nuevo Articulo">Nuevo Articulo</a></li>
             <li><a href="FavoritosWiki.aspx" title="Articulos Favoritos">Articulos Favoritos</a></li>
             <li><a href="MisArticulosWiki.aspx" title="Mis Articulos">Mis Articulos</a></li>
-            <li><a href="ConsultarArticuloWiki.aspx?A=1" title="Articulo Aleatorio">Articulo 
-                Aleatorio</a></li>
+            <li><a href="ConsultarArticuloWiki.aspx?A=1" title="Articulo Aleatorio">Articulo Aleatorio</a></li>
         </ul>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <table class="style1">
         <tr>
-            <td colspan="3" style="text-align: center">
-                Historial</td>
+            <td>
+                <center style="width: 529px; background-color: #333333">
+                    <titulosubventana>Versiones Anteriores</titulosubventana>
+                </center>
+            </td>
         </tr>
         <tr>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
         </tr>
         <tr>
             <td style="text-align: left">
@@ -33,17 +38,22 @@
                 <asp:Label ID="lblCat" runat="server"></asp:Label>
             </td>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
         </tr>
         <tr>
             <td style="text-align: center">
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
         </tr>
         <tr>
             <td colspan="3">
@@ -54,13 +64,12 @@
                         <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False">
                             <HeaderStyle Font-Size="Small" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="Version" HeaderText="Version"/>
+                        <asp:BoundField DataField="Version" HeaderText="Version" />
                         <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
                         <asp:BoundField DataField="Creado" HeaderText="Creado" />
-                        <asp:BoundField DataField="Autor" HeaderText="Autor"/>
+                        <asp:BoundField DataField="Autor" HeaderText="Autor" />
                         <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/lupa3.png"
                             Text="Consultar" />
-                        
                     </Columns>
                     <RowStyle CssClass="RowStyle" />
                     <EmptyDataRowStyle CssClass="EmptyRowStyle" />
@@ -74,11 +83,14 @@
         </tr>
         <tr>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
         </tr>
     </table>
 </asp:Content>
