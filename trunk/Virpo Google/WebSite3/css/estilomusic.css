@@ -625,5 +625,17 @@ tabla tbody  tr:hover {background: #EAECEE; color: #111;}
 
 tabla tfoot td, tabla tfoot th, tabla tfoot tr {text-align: left; font: 120%  "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif; text-transform: uppercase; background: #fff; padding: 10px;}
 	
-	
-		
+
+
+.blogHeadline {
+	color: #5990AE; 
+    font: 25px Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+}	
+.transparent_60 {
+	filter:alpha(opacity=60);
+	-moz-opacity:0.6;
+	-khtml-opacity: 0.6;
+	opacity: 0.6;
+}
