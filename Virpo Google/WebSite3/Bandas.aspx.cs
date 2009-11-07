@@ -37,11 +37,11 @@ public partial class Bandas : System.Web.UI.Page
             html += "<td>";
             html += @"<div style='border: 0px solid rgb(192, 192, 192); position: relative; margin-right: 15px; "
                     + "margin-bottom: 15px; float: left;'><a class='blogHeadline' title='" + bandas[i].Nombre +
-                    "' href='MisBandas.aspx?Id=" + bandas[i].Id + "'><img src='./ImagenesBandas/" + bandas[i].Imagen + "' style='width:250px; height:250px;'/></a>"
+                    "' href='ConsultarBanda.aspx?C=" + bandas[i].Id + "&P=1'><img src='./ImagenesBandas/" + bandas[i].Imagen + "' style='width:250px; height:250px;'/></a>"
                     + "<h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; background-color: black; color: rgb(51, 51, 51);'"
                     + " class='transparent_60'>" + bandas[i].Nombre + "</h2><h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; color: white;'"
                     + ">" + bandas[i].Nombre + "</h2><div style='padding: 5px; margin-top: 0px; width: 240px; position: absolute; left: 0px; bottom: 0px; background-color: black; color: white;'"
-                    + " class='transparent_60'><a style='text-decoration: none; color: rgb(160, 160, 160);' href='MisBandas.aspx?Id=" + bandas[i].Id + "'>" + bandas[i].Genero.Nombre + "</a><br>"
+                    + " class='transparent_60'><a style='text-decoration: none; color: rgb(160, 160, 160);' href='ConsultarBanda.aspx?C=" + bandas[i].Id + "&P=1'>" + bandas[i].Genero.Nombre + "</a><br>"
                     + "<b>" + bandas[i].PaginaWeb + "</b></div></div>";
             html += "</td>";
             if (i % 2 != 0)
