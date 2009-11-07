@@ -20,6 +20,7 @@ public partial class ConsultarBanda : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             Banda banda = BandaFactory.Devolver(Convert.ToInt32(Request.QueryString["C"]));
+            if (Convert.ToInt32(Request.QueryString["P"]) == 1) btnModificarBanda.Visible = false;
             lblId.Text = banda.Id.ToString();
             lblNombre.Text = banda.Nombre;
             lblGenero.Text = banda.Genero.Nombre;
