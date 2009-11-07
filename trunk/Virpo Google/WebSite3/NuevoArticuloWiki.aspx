@@ -7,7 +7,8 @@
             <li><a href="NuevoArticuloWiki.aspx" title="Nuevo Articulo">Nuevo Articulo</a></li>
             <li><a href="FavoritosWiki.aspx" title="Articulos Favoritos">Articulos Favoritos</a></li>
             <li><a href="MisArticulosWiki.aspx" title="Mis Articulos">Mis Articulos</a></li>
-            <li><a href="ConsultarArticuloWiki.aspx?A=1" title="Articulo Aleatorio">Articulo Aleatorio</a></li>
+            <li><a href="ConsultarArticuloWiki.aspx?A=1" title="Articulo Aleatorio">Articulo 
+                Aleatorio</a></li>
         </ul>
     </div>
 </asp:Content>
@@ -53,6 +54,8 @@
                 <asp:DropDownList ID="ddlCategoria" runat="server" Height="20px" Style="margin-left: 3px"
                     Width="165px">
                 </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                    ControlToValidate="ddlCategoria" ErrorMessage="Falta Categoria"></asp:RequiredFieldValidator>
             </td>
             <td>
             </td>
