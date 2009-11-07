@@ -32,6 +32,7 @@ public partial class _Default : System.Web.UI.Page
             GridView1.DataBind();
             ViewState.Add("SortExpression", "Fecha Fin");
             ViewState.Add("SortDirection", "DESC");
+            GridView1.Columns[0].Visible = false;
         }
     }
 
