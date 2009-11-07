@@ -42,9 +42,9 @@ namespace CapaNegocio.Factories
         //el metodo a continuacion devuelve todas las versiones de un articulo (se le pasa el id de articulo)
         public static List<HistorialWiki> DevolverHistorial(int id)
         {
-            string query = "SELECT idArticulo, version, idCat, idAutor, fecCreacion, cuerpo, cantVisitas, descripcion  " +
+            string query = "SELECT idArticulo, titulo, version, idCat, idAutor, fecModificacion, cuerpo, descripcion " +
                         "FROM HistorialWiki " +
-                        "WHERE idArticulo=" + id;
+                        "WHERE idArticulo=" + id + " order by version desc";
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
            
@@ -52,17 +52,18 @@ namespace CapaNegocio.Factories
             if (dt != null)
             {
                 List<HistorialWiki> historial = new List<HistorialWiki>();
+
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     HistorialWiki versionAnterior = new HistorialWiki();
-                    versionAnterior.IdArticulo = (int)dt.Rows[0]["idArticulo"];
-                    versionAnterior.Version = (int)dt.Rows[0]["version"];
-                    versionAnterior.IdCat = (int)dt.Rows[0]["idCat"];
-                    versionAnterior.IdAutor = (int)dt.Rows[0]["idAutor"];
-                    versionAnterior.FecModificacion = Convert.ToDateTime(dt.Rows[0]["FecModificacion"].ToString());
-                    versionAnterior.Titulo= dt.Rows[0]["titulo"].ToString();
-                    versionAnterior.Cuerpo = dt.Rows[0]["cuerpo"].ToString();
-                    versionAnterior.Descripcion = dt.Rows[0]["Descripcion"].ToString();
+                    versionAnterior.IdArticulo = (int)dt.Rows[i]["idArticulo"];
+                    versionAnterior.Version = (int)dt.Rows[i]["version"];
+                    versionAnterior.IdCat = (int)dt.Rows[i]["idCat"];
+                    versionAnterior.IdAutor = (int)dt.Rows[i]["idAutor"];
+                    versionAnterior.FecModificacion = Convert.ToDateTime(dt.Rows[i]["FecModificacion"].ToString());
+                    versionAnterior.Titulo= dt.Rows[i]["titulo"].ToString();
+                    versionAnterior.Cuerpo = dt.Rows[i]["cuerpo"].ToString();
+                    versionAnterior.Descripcion = dt.Rows[i]["Descripcion"].ToString();
 
                     historial.Add(versionAnterior);
                 }
