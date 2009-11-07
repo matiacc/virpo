@@ -208,19 +208,19 @@ namespace CapaNegocio.Factories
 
         #region Eliminar
 
-        public static bool Eliminar(int id)
+        public static bool Eliminar(int id, int version)
         {
-            return Eliminar(id, (SqlTransaction)null);
+            return Eliminar(id, version,(SqlTransaction)null);
         }
 
-        public static bool Eliminar(int id, SqlTransaction tran)
+        public static bool Eliminar(int id, int vers, SqlTransaction tran)
         {
             try
             {
                 List<SqlParameter> parametros = new List<SqlParameter>();
 
                 parametros.Add(BDUtilidades.crearParametro("@id", DbType.Int32, id));
-                
+                parametros.Add(BDUtilidades.crearParametro("@version", DbType.Int32, vers));
 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("ArticuloWikiBorrar", parametros, tran);
                 if (ok)
