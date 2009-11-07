@@ -106,7 +106,7 @@ body {
 	text-decoration: none;
 }
 #nav ul {
-	padding: 70px 0 0 382px;
+	padding: 45px 0 0 382px;
 	margin: 0;
 	position: relative;
 	z-index: 1;
@@ -123,6 +123,7 @@ body {
 #nav li#m5 { margin-left: 2px; }
 #nav li#m6 { margin-left: 8px; }
 #nav li#m7 { margin-left: 28px; }
+#nav li#m8 { margin-left: 37px; }
 #nav a {
 	font-weight: normal;
 }
