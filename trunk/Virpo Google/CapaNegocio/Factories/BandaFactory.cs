@@ -41,7 +41,7 @@ namespace CapaNegocio.Factories
 
         public static List<Banda> DevolverTodos()
         {
-            string query = "SELECT id, nombre, paginaWeb, imagen, fechaInicio, idGenero, idLocalidad " +
+            string query = "SELECT id, nombre, paginaWeb, imagen, fechaInicio, idGenero, idLocalidad, video " +
                            "FROM Banda";
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
@@ -57,6 +57,7 @@ namespace CapaNegocio.Factories
                     banda.FechaInicio = Convert.ToDateTime(dt.Rows[i]["fechaInicio"].ToString());
                     banda.Genero = GeneroFactory.Devolver(int.Parse(dt.Rows[i]["idGenero"].ToString()));
                     banda.Localidad = LocalidadFactory.Devolver(int.Parse(dt.Rows[i]["idLocalidad"].ToString()));
+                    banda.Video = dt.Rows[i]["video"].ToString();
                     bandas.Add(banda);
                 }
                 return bandas;
@@ -68,7 +69,7 @@ namespace CapaNegocio.Factories
         }
         public static List<Banda> DevolverTodos(string restriccion)
         {
-            string query = "SELECT id, nombre, paginaWeb, imagen, fechaInicio, idGenero, idLocalidad " +
+            string query = "SELECT id, nombre, paginaWeb, imagen, fechaInicio, idGenero, idLocalidad, video " +
                            "FROM Banda";
 
             if (!string.IsNullOrEmpty(restriccion))
@@ -88,6 +89,7 @@ namespace CapaNegocio.Factories
                     banda.FechaInicio = DateTime.Parse(dt.Rows[i]["fechaInicio"].ToString());
                     banda.PaginaWeb = dt.Rows[i]["paginaWeb"].ToString();
                     banda.Localidad = LocalidadFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idLocalidad"].ToString()));
+                    banda.Video = dt.Rows[i]["video"].ToString();
                     bandas.Add(banda);
                 }
                 return bandas;
@@ -100,7 +102,7 @@ namespace CapaNegocio.Factories
 
         public static List<Banda> DevolverBandasDeIntegrante(int idUsuario)
         {
-            string query = "SELECT B.id, B.nombre, B.paginaWeb, B.imagen, B.fechaInicio, B.idGenero " +
+            string query = "SELECT B.id, B.nombre, B.paginaWeb, B.imagen, B.fechaInicio, B.idGenero, B.video " +
                            "FROM MusicoXBanda MXB, Banda B "+
                            "WHERE MXB.idBanda =B.id and MXB.idUsuario = " + idUsuario;
            
@@ -117,6 +119,7 @@ namespace CapaNegocio.Factories
                     banda.Imagen = dt.Rows[i]["imagen"].ToString();
                     banda.FechaInicio = Convert.ToDateTime(dt.Rows[i]["fechaInicio"].ToString());
                     banda.Genero = GeneroFactory.Devolver((int)dt.Rows[i]["idGenero"]);
+                    banda.Video = dt.Rows[i]["video"].ToString();
                     bandas.Add(banda);
                 }
                 return bandas;
@@ -157,7 +160,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@idLocalidad", DbType.Int32, banda.Localidad.Id));
                 parametros.Add(BDUtilidades.crearParametro("@imagenThumb", DbType.String, banda.ImagenThumb));
                 parametros.Add(BDUtilidades.crearParametro("@fecSistema", DbType.DateTime, banda.FecSistema));
-
+                parametros.Add(BDUtilidades.crearParametro("@video", DbType.String, banda.Video));
 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("BandaInsertar", parametros, tran);
                 if (ok)
@@ -202,6 +205,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@fechaInicio", DbType.DateTime, banda.FechaInicio));
                 parametros.Add(BDUtilidades.crearParametro("@idGenero", DbType.Int32, banda.Genero.Id));
                 parametros.Add(BDUtilidades.crearParametro("@idLocalidad", DbType.Int32, banda.Localidad.Id));
+                parametros.Add(BDUtilidades.crearParametro("@video", DbType.String, banda.Video));
                 bool ok = BDUtilidades.ExecuteStoreProcedure("BandaActualizar", parametros, tran);
                 if (ok)
                     return true;
