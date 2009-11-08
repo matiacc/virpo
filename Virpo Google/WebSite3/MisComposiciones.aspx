@@ -1,6 +1,13 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="MisComposiciones.aspx.cs" Inherits="_Default" Title="Página sin título" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+ <div id="menu8">
+        <ul>
+            
+            <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
+            <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
+        </ul>
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <p>
