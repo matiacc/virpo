@@ -29,10 +29,10 @@ public partial class ConsultarBanda : System.Web.UI.Page
             lblLocalidad.Text = banda.Localidad.Nombre;
             Image1.ImageUrl = ResolveUrl("./ImagenesBandas/") + banda.Imagen;
             Image1.ToolTip = banda.Nombre;
-            lblVideo.Text = @"<table align='center'><tr><td><object width='450' height='290'><param name='movie' value='http://www.youtube.com/v/" + banda.Video + "'>"
+            lblVideo.Text = @"<table align='center'><tr><td><object width='545' height='290'><param name='movie' value='http://www.youtube.com/v/" + banda.Video + "'>"
                           + "</param><param name='allowFullScreen' value='true'></param><param name='allowscriptaccess' value='always'></param><embed"
                           + " src='http://www.youtube.com/v/" + banda.Video + "' type='application/x-shockwave-flash' allowscriptaccess='always'"
-                          + " allowfullscreen='true' width='425' height='290'></embed></object></td></tr></table>";
+                          + " allowfullscreen='true' width='545' height='290'></embed></object></td></tr></table>";
             //Esta es otra manera de mostrar un video de youtube.
             //lblVideo.Text = @"<table align='center'><tr><td><object type='application/x-shockwave-flash' allowscriptaccess='never' allownetworking='internal' data='http://www.youtube.com/v/" + banda.Video + "&amp;hl=en' width='280' height='234'>"
             //               + "<param name='allowScriptAccess' value='never'><param name='allowNetworking' value='internal'><param name='movie' value='http://www.youtube.com/v/" + banda.Video + "&amp;hl=en'></object></td></tr></table>";
