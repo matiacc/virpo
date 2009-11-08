@@ -16,7 +16,7 @@
             <td colspan="3">
                     <center style="width: 529px; background-color: #333333">
                     <titulosubventana>
-                    Nuevo Evento</titulosubventana>
+                        Nuevo Evento</titulosubventana>
                 </center></td>
         </tr>
         <tr>
@@ -91,7 +91,7 @@
             </td>
             <td style="width: 92px">
                                 <asp:TextBox ID="txtCiudad" runat="server"></asp:TextBox>
-            &nbsp;</td>
+                                &nbsp;</td>
             <td style="width: 197px">
                 &nbsp;</td>
         </tr>
@@ -127,11 +127,8 @@
                 <asp:Label ID="Label7" runat="server" Text="Fecha:"></asp:Label>
             </td>
             <td style="width: 92px">
-                &nbsp;</td>
-            <td style="width: 197px">
-                <asp:UpdatePanel ID="updatePanel" runat="server">
-                    <ContentTemplate>
-                        <asp:Calendar ID="Calendar1" runat="server" Height="199px" Width="257px">
+                        <asp:Calendar ID="Calendar1" runat="server" Height="199px" 
+                    Width="257px">
                         <TodayDayStyle ForeColor="Black" BackColor="#FF9900"></TodayDayStyle>
                         <SelectorStyle BackColor="#CCCCCC"></SelectorStyle>
                         <NextPrevStyle VerticalAlign="Bottom"></NextPrevStyle>
@@ -145,7 +142,9 @@
                         
                         </asp:Calendar>
                         
-                    </ContentTemplate>
+                    </td>
+            <td style="width: 197px">
+                <asp:UpdatePanel ID="updatePanel" runat="server">
                 </asp:UpdatePanel>
             </td>
         </tr>
