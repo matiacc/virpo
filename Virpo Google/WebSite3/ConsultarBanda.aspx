@@ -5,7 +5,8 @@
         <ul>
              <li><a href="NuevaBanda.aspx" title="Nueva Banda">Nueva Banda</a></li>
             <li><a href="ListarUsuarios.aspx" title="Agregar Integrante">Agregar Integrante</a></li>
-             <li><a href="MostrarIntegrantesBanda.aspx" title="Agregar Integrante">Bandas e Integrantes</a></li>
+             <li><a href="MostrarIntegrantesBanda.aspx" title="Agregar Integrante">Bandas e 
+                 Integrantes</a></li>
              <li><a href="ListarBandas.aspx" title="Agregar Integrante">Listar Bandas</a></li>
         </ul>
     </div>
@@ -13,7 +14,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <table style="width: 100%" class="tabla">
         <tr>
-            <td colspan="4">
+            <td colspan="3">
                 <center style="background-color: #333333; width: 523px;">
                     <tituloSubVentana>Perfil de la Banda
                 <asp:Label ID="lblNombre" runat="server"  
@@ -23,7 +24,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td colspan="2">
                 <asp:Image ID="Image1" runat="server" BorderStyle="Solid" Height="250px" 
                     ImageAlign="Left" Width="250px" />
             </td>
@@ -81,7 +82,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 
                 <asp:Button ID="btnModificarBanda" runat="server" 
                     onclick="btnModificarBanda_Click" Text="Modificar" CssClass="botones" />
@@ -93,21 +94,16 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 366px">
-                &nbsp;</td>
             <td colspan="3">
                 &nbsp;</td>
         </tr>
          <tr>
-            <td style="width: 366px">
-                &nbsp;</td>
-            <td style="width: 366px" colspan="2">
-                &nbsp;</td>
-            <td style="text-align: left; width: 198px;">
-                &nbsp;</td>
+            <td colspan="3" style="text-align: center">
+                <asp:Label ID="lblVideo"  runat="server"></asp:Label>
+             </td>
         </tr>
          <tr>
-            <td colspan="3">
+            <td colspan="2">
                 &nbsp;</td>
             <td style="width: 198px">
                 &nbsp;</td>
