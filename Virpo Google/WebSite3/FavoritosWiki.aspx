@@ -43,9 +43,9 @@
                     <Columns>
                         <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False">
                             <HeaderStyle Font-Size="Small" />
-                        </asp:BoundField>
-                        <asp:BoundField DataField="Version" HeaderText="Version" SortExpression="Version" />
+                        </asp:BoundField>                        
                         <asp:BoundField DataField="Titulo" HeaderText="Titulo" SortExpression="Titulo" />
+                        <asp:BoundField DataField="Version" HeaderText="Version" SortExpression="Version" />
                         <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
                         <asp:BoundField DataField="Creado" HeaderText="Creado" SortExpression="Creado" />
                         <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/lupa3.png"

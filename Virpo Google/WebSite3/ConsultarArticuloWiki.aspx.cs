@@ -26,6 +26,7 @@ public partial class _Default : System.Web.UI.Page
             ArticuloWiki art = new ArticuloWiki();
 
             int id = Convert.ToInt32(Request.QueryString["C"]);
+            int vers = Convert.ToInt32(Request.QueryString["V"]);
 
             int apun;
             if (Request.QueryString["Z"] != null) // bloque resultado Apuntar
@@ -36,21 +37,25 @@ public partial class _Default : System.Web.UI.Page
                 if (apun == 0) lblMal.Visible = true;
             }
 
-            if (id != 0)// bloque muestra id especifico
+            if (id != 0)// bloque muestra articulo/historial especifico
             {
-                if (Request.QueryString["V"] != null)// pregunto si es una version anterior
-                {
-                    int vers = Convert.ToInt32(Request.QueryString["V"]);
+                
+                art = (ArticuloWiki)ArticuloWikiFactory.Devolver(id, vers);
+                if (art!= null)
+	            {                    
+                    lblVisitas.Text = Convert.ToString(art.CantVisitas);
+	            }                 
+                else
+                {                    
                     Label1.Visible=false;
+                    btnApuntar.Visible = false;
+                    btnDenunciar.Visible = false;
+                    btnRecomendar.Visible = false;
+                    btnEditar.Visible = false;
+
                     HistorialWiki version = (HistorialWiki)HistorialWikiFactory.Devolver(id,vers);
                     art = ArticuloWikiFactory.ConvertirAArticuloWiki(version);
-                }
-                else
-                {
-                    art = (ArticuloWiki)ArticuloWikiFactory.Devolver(id);//deberia haber verificacion de existencia de id
-                    lblVisitas.Text = Convert.ToString(art.CantVisitas);
-                }
-                
+                }                    
             }
             
 
@@ -62,14 +67,16 @@ public partial class _Default : System.Web.UI.Page
                 int random = new Random().Next(cantArt);
                 int idExistente = (int)ids[random];
                 art = ArticuloWikiFactory.Devolver(idExistente);
+                lblVisitas.Text = Convert.ToString(art.CantVisitas);
             }
 
             lblId.Text = Convert.ToString(art.Id);
 
+            lblvers.Text = Convert.ToString(art.Version);
+
             lblTitulo.Text = art.Titulo;
 
-            lblCat.Text = art.IdCat.Nombre;
-            
+            lblCat.Text = art.IdCat.Nombre;            
 
             lblContenido.Text = art.Cuerpo;
         }
@@ -80,6 +87,7 @@ public partial class _Default : System.Web.UI.Page
     {
         if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
         int idArt = Convert.ToInt32(this.lblId.Text);
+        int vers = Convert.ToInt32(this.lblvers.Text);
         Usuario usu = (Usuario)Session["Usuario"];
 
         ApuntesWiki apunte = new ApuntesWiki();
@@ -89,9 +97,9 @@ public partial class _Default : System.Web.UI.Page
 
 
         if (ApuntesWikiFactory.Insertar(apunte))
-            Response.Redirect("ConsultarArticuloWiki.aspx?Z=1&C=" + idArt);
+            Response.Redirect("ConsultarArticuloWiki.aspx?Z=1&C=" + idArt+"&V="+vers);
         else
-            Response.Redirect("ConsultarArticuloWiki.aspx?Z=0&C=" + idArt);
+            Response.Redirect("ConsultarArticuloWiki.aspx?Z=0&C=" + idArt+"&V="+vers);
     }
 
 

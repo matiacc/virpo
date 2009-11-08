@@ -45,9 +45,7 @@ public partial class _Default : System.Web.UI.Page
         dt.Columns.Add("Creado");
         dt.Columns.Add("Autor");
 
-        
         ArticuloWiki articuloVigente = ArticuloWikiFactory.Devolver(idArt);
-
         row = dt.NewRow();
         row["Id"] = articuloVigente.Id;
         row["Version"] = articuloVigente.Version;
@@ -58,24 +56,21 @@ public partial class _Default : System.Web.UI.Page
         dt.Rows.Add(row);
 
         List<HistorialWiki> versiones = HistorialWikiFactory.DevolverHistorial(idArt);
-
                   
             foreach (HistorialWiki version in versiones)
             {
                 ArticuloWiki art = ArticuloWikiFactory.ConvertirAArticuloWiki(version);
 
                 row = dt.NewRow();
-                row["Id"] = art.Id;
-                row["Version"] = art.Version;
-                row["Titulo"] = art.Titulo;
-                row["Descripcion"] = art.Descripcion;
-                row["Creado"] = art.FecCreacion.ToShortDateString();
-                row["Autor"] = art.IdAutor.Id;
+                row["Id"] = version.IdArticulo;
+                row["Version"] = version.Version;
+                row["Titulo"] = version.Titulo;
+                row["Descripcion"] = version.Descripcion;
+                row["Creado"] = version.FecModificacion.ToShortDateString();
+                row["Autor"] = version.IdAutor;
                 dt.Rows.Add(row);
             }
-            return dt;
-        
-        
+            return dt;      
     }
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)

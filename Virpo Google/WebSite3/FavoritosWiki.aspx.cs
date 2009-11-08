@@ -71,7 +71,8 @@ public partial class _Default : System.Web.UI.Page
         if (e.CommandName == "C")
         {
             string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
-            Response.Redirect("ConsultarArticuloWiki.aspx?C=" + id);
+            string vers = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[2].Text;
+            Response.Redirect("ConsultarArticuloWiki.aspx?V=" + vers + "&C=" + id);
         }
 
         if (e.CommandName == "E")

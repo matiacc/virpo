@@ -46,6 +46,8 @@
                     <td style="text-align: left">
                         &nbsp;
                         <asp:Label ID="lblTitulo" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text=".v"></asp:Label>
+                        <asp:Label ID="lblvers" runat="server"></asp:Label>
                         <asp:Label ID="lblGuion" runat="server" Text="   -   "></asp:Label>
                         <asp:Label ID="lblCat" runat="server" Font-Italic="True"></asp:Label>
                         <asp:Label ID="lblOk" runat="server" Style="color: #009933" Text="Articulo Apuntado"
