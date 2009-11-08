@@ -139,7 +139,8 @@
             <td style="width: 248px; height: 19px">
                 &nbsp;</td>
             <td style="height: 19px">
-                &nbsp;</td>
+                <asp:Label ID="Label1" runat="server" Text="PELA: RECORDAR LO DEL VIDEO"></asp:Label>
+            </td>
         </tr>
         <tr>
             <td style="width: 248px; height: 19px">
