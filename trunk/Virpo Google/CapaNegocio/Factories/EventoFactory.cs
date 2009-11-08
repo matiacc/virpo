@@ -15,7 +15,7 @@ namespace CapaNegocio.Factories
         public static Evento Devolver(int id)
         {
             string query = "SELECT nombre, lugar, ubicacion, fecha, hora, imagen, idMusico, idBanda, descripcion, estado " +
-                           "FROM   Eventos " +
+                           "FROM   Evento " +
                            "WHERE id=" + id;
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);

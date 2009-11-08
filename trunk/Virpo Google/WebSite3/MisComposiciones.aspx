@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="MisComposiciones.aspx.cs" Inherits="_Default" Title="Página sin título" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- <div id="menu8">
+    <div id="menu8">
         <ul>
             
             <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
@@ -22,7 +22,8 @@
     </p>
     <p>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-            Width="468px" onrowcommand="GridView1_RowCommand1">
+            Width="275px" onrowcommand="GridView1_RowCommand1" 
+            style="margin-right: 0px">
             <Columns>
                 <asp:ButtonField ButtonType="Image" CommandName="P" DataTextField="Ruta" 
                     ImageUrl="~/ImagenesSite/play.png" Text="Play" />

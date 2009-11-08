@@ -153,7 +153,7 @@ namespace CapaNegocio.Factories
         /// <summary>
         /// Eliminar un registro sin transacción
         /// </summary>
-        /// <param name="musico">Objeto AvisoClasificado</param>
+        /// <param name="musico">Objeto ComposicionFactories</param>
         /// <returns>true si modificó con éxito</returns>
         public static bool Eliminar(int id)
         {
@@ -162,7 +162,7 @@ namespace CapaNegocio.Factories
         /// <summary>
         /// Eliminar un registro con transacción
         /// </summary>
-        /// <param name="musico">Objeto AvisoClasificado</param>
+        /// <param name="musico">Objeto ComposicionFactories</param>
         /// <returns>true si modificó con éxito</returns>
         public static bool Eliminar(int id, SqlTransaction tran)
         {
@@ -180,7 +180,7 @@ namespace CapaNegocio.Factories
             }
             catch (Exception ex)
             {
-                //LogError.Write(ex, "p_guardar_musico");
+                
                 return false;
             }
         }

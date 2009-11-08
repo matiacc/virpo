@@ -134,7 +134,8 @@
         <br />
     </p>
     <p>
-        <asp:Image ID="Image1" runat="server" />
+        <asp:Image ID="Image1" runat="server" BorderColor="White" 
+            BorderStyle="Double" />
     </p>
     <p>
     </p>
