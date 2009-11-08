@@ -24,8 +24,10 @@ namespace CapaDatos
         //Cadena de conexion Pela
         //private static string cadena = @"Data Source=COLOSO\SQLEXPRESS;Initial Catalog=VirpoDB;Integrated Security=True";
         //Cadena de conexión Lucho
-        private static string cadena = @"Data Source=.\SQLEXPRESS;AttachDbFilename='C:\Documents and Settings\Mati\Escritorio\Virpo Google\CapaDatos\VirpoDB.mdf';Integrated Security=True;User Instance=True";
+        //private static string cadena = @"Data Source=STOPNEGRO\STOPNEGRO;Initial Catalog=VirpoDB;User ID=sa;Password=-+0342590+-";
         //private static string cadena = @"Data Source=STOPNEGRO\STOPNEGRO;Initial Catalog=VirpoDB;Persist Security Info=True;User ID=sa;Password=-+0342590+-";
+        //private static string cadena = @"Data Source=.\SQLEXPRESS;AttachDbFilename='C:\Documents and Settings\Mati\Escritorio\Virpo Google\CapaDatos\VirpoDB.mdf';Integrated Security=True;User Instance=True";
+        private static string cadena = @"Data Source=STOPNEGRO\STOPNEGRO;Initial Catalog=VirpoDB;Persist Security Info=True;User ID=sa;Password=-+0342590+-";
      
         public static string Cadena
         {
