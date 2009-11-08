@@ -54,7 +54,7 @@ public partial class ListarBandas : System.Web.UI.Page
         {
             string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
             //string id = (GridView1.SelectedRow.Cells[1].Text).ToString();
-            Response.Redirect("ConsultarBanda.aspx?C=" + id);
+            Response.Redirect("ConsultarBanda.aspx?C=" + id + "&P=1");
         }
     }
 
