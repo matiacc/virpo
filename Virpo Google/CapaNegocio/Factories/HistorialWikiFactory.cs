@@ -14,18 +14,19 @@ namespace CapaNegocio.Factories
     {
         public static HistorialWiki Devolver(int id, int version)
         {
-            string query = "SELECT idCat, idAutor, fecCreacion, cuerpo, version, cantVisitas " +
+            string query = "SELECT idArticulo, idCat, titulo, idAutor, fecModificacion, cuerpo, version, descripcion " +
                         "FROM HistorialWiki " +
                         "WHERE idArticulo=" + id + " and version=" + version;
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
-            if (dt != null)
+            if (dt.Rows.Count != 0)
             {
                 HistorialWiki versionAnterior = new HistorialWiki();
                 versionAnterior.IdArticulo  = id;
                 versionAnterior.Version = (int)dt.Rows[0]["version"];
                 versionAnterior.IdCat = (int)dt.Rows[0]["idCat"];
                 versionAnterior.IdAutor = (int)dt.Rows[0]["idAutor"];
+                versionAnterior.Titulo = dt.Rows[0]["titulo"].ToString();
                 versionAnterior.FecModificacion = Convert.ToDateTime(dt.Rows[0]["FecModificacion"].ToString());
                 versionAnterior.Cuerpo = dt.Rows[0]["cuerpo"].ToString();
                 versionAnterior.Descripcion = dt.Rows[0]["Descripcion"].ToString();

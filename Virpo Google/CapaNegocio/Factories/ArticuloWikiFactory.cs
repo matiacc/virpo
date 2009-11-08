@@ -11,6 +11,36 @@ namespace CapaNegocio.Factories
 {
     public class ArticuloWikiFactory
     {
+        public static ArticuloWiki Devolver(int id, int vers)
+        {
+            string query = "SELECT id,idCat, idAutor, fecCreacion, titulo, cuerpo, version, cantVisitas, descripcion " +
+                        "FROM ArticuloWiki " +
+                        "WHERE id=" + id + " and version =" + vers;
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+
+            if (dt.Rows.Count  != 0)
+            {
+                ArticuloWiki articulo = new ArticuloWiki();
+                articulo.Id = id;
+                articulo.IdCat = (CategoriaArticuloWiki)CategoriaArticuloWikiFactory.Devolver((int) dt.Rows[0]["idCat"]);
+                articulo.IdAutor = (Usuario)UsuarioFactory.Devolver((int) dt.Rows[0]["idAutor"]);
+                articulo.FecCreacion = Convert.ToDateTime(dt.Rows[0]["fecCreacion"].ToString());
+                articulo.Titulo = dt.Rows[0]["titulo"].ToString();
+                articulo.Cuerpo = dt.Rows[0]["cuerpo"].ToString();
+                articulo.Version = vers;
+                articulo.CantVisitas = (int) dt.Rows[0]["cantVisitas"];
+                articulo.Descripcion = dt.Rows[0]["descripcion"].ToString();
+
+                return articulo;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
         public static ArticuloWiki Devolver(int id)
         {
             string query = "SELECT id,idCat, idAutor, fecCreacion, titulo, cuerpo, version, cantVisitas, descripcion " +
@@ -22,13 +52,13 @@ namespace CapaNegocio.Factories
             {
                 ArticuloWiki articulo = new ArticuloWiki();
                 articulo.Id = id;
-                articulo.IdCat = CategoriaArticuloWikiFactory.Devolver((int) dt.Rows[0]["idCat"]);
-                articulo.IdAutor = UsuarioFactory.Devolver((int) dt.Rows[0]["idAutor"]);
+                articulo.IdCat = CategoriaArticuloWikiFactory.Devolver((int)dt.Rows[0]["idCat"]);
+                articulo.IdAutor = UsuarioFactory.Devolver((int)dt.Rows[0]["idAutor"]);
                 articulo.FecCreacion = Convert.ToDateTime(dt.Rows[0]["fecCreacion"].ToString());
                 articulo.Titulo = dt.Rows[0]["titulo"].ToString();
                 articulo.Cuerpo = dt.Rows[0]["cuerpo"].ToString();
-                articulo.Version = (int) dt.Rows[0]["version"];
-                articulo.CantVisitas = (int) dt.Rows[0]["cantVisitas"];
+                articulo.Version = (int)dt.Rows[0]["version"];
+                articulo.CantVisitas = (int)dt.Rows[0]["cantVisitas"];
                 articulo.Descripcion = dt.Rows[0]["descripcion"].ToString();
 
                 return articulo;
