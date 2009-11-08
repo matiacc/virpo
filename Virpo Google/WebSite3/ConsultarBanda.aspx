@@ -97,10 +97,41 @@
             <td colspan="3">
                 &nbsp;</td>
         </tr>
+        <tr>
+            <td colspan="3" style="background-color: #999999; text-align: center;">
+                <asp:Label ID="Label3" runat="server" Text="Integrantes de la Banda" Font-Bold="True"></asp:Label>
+            </td>
+        </tr>
          <tr>
-            <td colspan="3" style="text-align: center">
-                <asp:Label ID="lblVideo"  runat="server"></asp:Label>
+            <td colspan="3" style="text-align: left">
+                <br />
+                <asp:Label ID="lblIntegrantes"  runat="server"></asp:Label>
+                <br />
              </td>
+        </tr>
+         <tr>
+            <td colspan="3" style="background-color: #999999; text-align: center;">
+                <asp:Label ID="Label8" runat="server" Text="VIDEO" Font-Bold="True"></asp:Label>
+             </td>
+        </tr>
+         <tr>
+            <td colspan="3" style="width: 523px">
+                <br />
+                <asp:Label ID="lblVideo"  runat="server"></asp:Label>
+                <br />
+             </td>
+        </tr>
+         <tr>
+            <td colspan="2">
+                &nbsp;</td>
+            <td style="width: 198px">
+                &nbsp;</td>
+        </tr>
+         <tr>
+            <td colspan="2">
+                &nbsp;</td>
+            <td style="width: 198px">
+                &nbsp;</td>
         </tr>
          <tr>
             <td colspan="2">
