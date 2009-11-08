@@ -32,6 +32,7 @@ public partial class _Default : System.Web.UI.Page
         DataTable dt = this.VersionesArticulo(id);
         GridView1.DataSource = dt;
         GridView1.DataBind();
+       
     }
     private DataTable VersionesArticulo(int idArt)
     {
@@ -82,7 +83,8 @@ public partial class _Default : System.Web.UI.Page
         if (e.CommandName == "C")
         {
             string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text;
-            Response.Redirect("ConsultarArticuloWiki.aspx?C=" + id);
+            string vers = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[1].Text;
+            Response.Redirect("ConsultarArticuloWiki.aspx?V="+vers+"&C=" + id);
         }
 
     }
