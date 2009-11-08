@@ -11,36 +11,40 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
  
-    <table class="style1">
+    <table class="tabla">
         <tr>
-            <td colspan="3">
+            <td colspan="2">
                     <center style="width: 529px; background-color: #333333">
                     <titulosubventana>
                         Nuevo Evento</titulosubventana>
                 </center></td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td colspan="2">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
             </td>
         </tr>
         <tr>
             <td style="width: 92px">
+                &nbsp;</td>
+            <td style="width: 92px">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 92px">
                 <asp:Label ID="Label2" runat="server" Text="Nombre:"></asp:Label>
             </td>
             <td style="width: 92px">
-                <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+            <div class="loginboxdiv">
+                <asp:TextBox ID="txtNombre" runat="server" CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
-            <td style="width: 197px">
-                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 92px">
-                &nbsp;</td>
-            <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -48,17 +52,15 @@
                 <asp:Label ID="Label3" runat="server" Text="Lugar:"></asp:Label>
             </td>
             <td style="width: 92px">
-                <asp:TextBox ID="txtLugar" runat="server"></asp:TextBox>
+            <div class="loginboxdiv">
+                <asp:TextBox ID="txtLugar" runat="server" CssClass="loginbox" Width="127px"></asp:TextBox>
+                </div>
             </td>
-            <td style="width: 197px">
-                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 92px">
-                &nbsp;</td>
-            <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -68,21 +70,16 @@
             <td style="width: 92px">
                 <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                     <ContentTemplate>
-                        <asp:DropDownList ID="ddlPaises" runat="server" Width="178px" 
+                        <asp:DropDownList ID="ddlPaises" runat="server" Width="145px" 
                             AutoPostBack="True">
                         </asp:DropDownList>
                     </ContentTemplate>
                 </asp:UpdatePanel></td>
-            <td style="width: 197px">
-            
-                </td>
         </tr>
         <tr>
             <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 92px">
-                &nbsp;</td>
-            <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -90,17 +87,15 @@
                 <asp:Label ID="Label5" runat="server" Text="Ciudad:"></asp:Label>
             </td>
             <td style="width: 92px">
-                                <asp:TextBox ID="txtCiudad" runat="server"></asp:TextBox>
-                                &nbsp;</td>
-            <td style="width: 197px">
-                &nbsp;</td>
+            <div class="loginboxdiv">
+                                <asp:TextBox ID="txtCiudad" runat="server" CssClass="loginbox" Width="127px"></asp:TextBox>
+                                </div>
+                                </td>
         </tr>
         <tr>
             <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 92px">
-                &nbsp;</td>
-            <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -108,18 +103,15 @@
                 <asp:Label ID="Label6" runat="server" Text="Dirección"></asp:Label>
             </td>
             <td style="width: 92px">
-                <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
-            </td>
-            <td style="width: 197px">
-                
+            <div class="loginboxdiv">
+                <asp:TextBox ID="txtDireccion" runat="server" CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
         </tr>
         <tr>
             <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 92px">
-                &nbsp;</td>
-            <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -127,24 +119,19 @@
                 <asp:Label ID="Label7" runat="server" Text="Fecha:"></asp:Label>
             </td>
             <td style="width: 92px">
-                        <asp:Calendar ID="Calendar1" runat="server" Height="199px" 
-                    Width="257px">
-                        <TodayDayStyle ForeColor="Black" BackColor="#FF9900"></TodayDayStyle>
-                        <SelectorStyle BackColor="#CCCCCC"></SelectorStyle>
-                        <NextPrevStyle VerticalAlign="Bottom"></NextPrevStyle>
-                        <DayHeaderStyle Font-Size="9pt" Font-Bold="True" BackColor="#CCCCCC"></DayHeaderStyle>
-                        <SelectedDayStyle Font-Bold="True" ForeColor="White" BackColor="#FF9900"></SelectedDayStyle>
-                        <TitleStyle Font-Bold="True" BorderColor="Black" BackColor="#999999"></TitleStyle>
-                        <WeekendDayStyle BackColor="#DBE5EC"></WeekendDayStyle>
-                        <OtherMonthDayStyle ForeColor="Gray"></OtherMonthDayStyle>
-
-                        
-                        
-                        </asp:Calendar>
-                        
-                    </td>
-            <td style="width: 197px">
                 <asp:UpdatePanel ID="updatePanel" runat="server">
+                    <ContentTemplate>
+                        <asp:Calendar ID="Calendar1" runat="server" Height="160px" Width="217px">
+                            <TodayDayStyle BackColor="#FF9900" ForeColor="Black" />
+                            <SelectorStyle BackColor="#CCCCCC" />
+                            <NextPrevStyle VerticalAlign="Bottom" />
+                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="9pt" />
+                            <SelectedDayStyle BackColor="#FF9900" Font-Bold="True" ForeColor="White" />
+                            <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
+                            <WeekendDayStyle BackColor="#DBE5EC" />
+                            <OtherMonthDayStyle ForeColor="Gray" />
+                        </asp:Calendar>
+                    </ContentTemplate>
                 </asp:UpdatePanel>
             </td>
         </tr>
@@ -152,8 +139,6 @@
             <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 92px">
-                &nbsp;</td>
-            <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -180,18 +165,12 @@
                         </td>
                     </tr>
                 </table></td>
-            <td style="width: 197px">
-               
-                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 92px">
                 &nbsp;</td>
-            <td style="width: 197px">
-                <br />
-            </td>
         </tr>
         <tr>
             <td style="width: 92px">
@@ -210,23 +189,18 @@
                         <br />
                         <br />
                         <asp:Button ID="btnCargar" runat="server" onclick="btnCargar_Click" 
-                            Text="Cargar" />
+                            Text="Cargar" CssClass="botones" />
                     </ContentTemplate>
                     <Triggers>
                         <asp:PostBackTrigger ControlID="btnCargar" />
                     </Triggers>
                 </asp:UpdatePanel>
             </td>
-            <td style="width: 197px">
-            
-            </td>
         </tr>
         <tr>
             <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 92px">
-                &nbsp;</td>
-            <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -235,18 +209,13 @@
             </td>
             <td style="width: 92px">
                 <asp:TextBox ID="txtDescripcion" runat="server" Height="52px" 
-                    TextMode="MultiLine" Width="165px"></asp:TextBox>
-            </td>
-            <td style="width: 197px">
-               
+                    TextMode="MultiLine" Width="235px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 92px">
-                &nbsp;</td>
-            <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -257,40 +226,25 @@
                 <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                     <ContentTemplate>
                         <asp:DropDownList ID="ddlBandas" runat="server" AutoPostBack="True" 
-                            Width="178px">
+                            Width="127px">
                         </asp:DropDownList>
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </td>
-            <td style="width: 197px">
-                
-                </td>
         </tr>
         <tr>
             <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 92px">
                 &nbsp;</td>
-            <td style="width: 197px">
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 92px">
-                &nbsp;</td>
-            <td style="width: 92px">
-                &nbsp;</td>
-            <td style="width: 197px">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="width: 92px">
-                &nbsp;</td>
             <td style="text-align: right;" colspan="2">
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
                     onclick="btnGuardar_Click" CssClass="botones" />
             </td>
         </tr>
-    </table>
+        </table>
   
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
