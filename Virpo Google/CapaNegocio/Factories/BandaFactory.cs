@@ -13,7 +13,7 @@ namespace CapaNegocio.Factories
     {
         public static Banda Devolver(int id)
         {
-            string query = "SELECT nombre, descripcion, paginaWeb, imagen, imagenThumb, fechaInicio, idGenero, idLocalidad " +
+            string query = "SELECT nombre, descripcion, paginaWeb, imagen, imagenThumb, fechaInicio, idGenero, idLocalidad, video " +
                         "FROM Banda " +
                         "WHERE id=" + id;
 
@@ -29,6 +29,7 @@ namespace CapaNegocio.Factories
                 banda.FechaInicio = Convert.ToDateTime(dt.Rows[0]["fechaInicio"].ToString());
                 banda.Genero = GeneroFactory.Devolver(int.Parse(dt.Rows[0]["idGenero"].ToString()));
                 //banda.Localidad = LocalidadFactory.Devolver(int.Parse(dt.Rows[0]["idLocalidad"].ToString()));
+                banda.Video = dt.Rows[0]["video"].ToString();
                 banda.Id = id;
                 return banda;
             }
