@@ -7,7 +7,8 @@
         <ul>
             <li><a href="NuevaBanda.aspx" title="Nueva Banda">Nueva Banda</a></li>
             <li><a href="ListarUsuarios.aspx" title="Agregar Integrante">Agregar Integrante</a></li>
-            <li><a href="MostrarIntegrantesBanda.aspx" title="Agregar Integrante">Bandas e Integrantes</a></li>
+            <li><a href="MostrarIntegrantesBanda.aspx" title="Agregar Integrante">Bandas e 
+                Integrantes</a></li>
             <li><a href="ListarBandas.aspx" title="Agregar Integrante">Listar Bandas</a></li>
         </ul>
     </div>
@@ -121,11 +122,18 @@
         </tr>
         <tr>
             <td style="width: 248px; height: 19px">
-                &nbsp;
+                <asp:Label ID="lblVideo" runat="server" Text="Video YouTube:" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="height: 19px">
-                &nbsp;
+                <asp:TextBox ID="txtVideo" runat="server" Width="297px"></asp:TextBox>
             </td>
+        </tr>
+        <tr>
+            <td style="width: 248px; height: 19px">
+                &nbsp;</td>
+            <td style="height: 19px">
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 248px; height: 19px">
