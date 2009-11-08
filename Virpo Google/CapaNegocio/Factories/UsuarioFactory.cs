@@ -111,8 +111,8 @@ namespace CapaNegocio.Factories
 
         public static List<Usuario> DevolverIntegrantesaDeBanda(int idBanda)
         {
-            string query = "SELECT nombre, apellido, idTipoUsuario, nombreUsuario, eMail " +
-                           "FROM MusicoXBanda inner join Usuario on MusicoXBanda.idUsuario = Usuario.id " +
+            string query = "SELECT idUsuario, nombre, apellido, idTipoUsuario, nombreUsuario, eMail, idInstrumento, imagen " +
+                           "FROM MusicoXBanda INNER JOIN Usuario on MusicoXBanda.idUsuario = Usuario.id " +
                           "WHERE idBanda = " + idBanda;
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
@@ -121,11 +121,14 @@ namespace CapaNegocio.Factories
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     Usuario usu = new Usuario();
+                    usu.Id = int.Parse(dt.Rows[i]["idUsuario"].ToString());
                     usu.Nombre = dt.Rows[i]["nombre"].ToString();
                     usu.Apellido = dt.Rows[i]["apellido"].ToString();
                     usu.IdTipoUsuario = int.Parse(dt.Rows[i]["idTipoUsuario"].ToString());
                     usu.NombreUsuario = dt.Rows[i]["nombreUsuario"].ToString();
                     usu.EMail = dt.Rows[i]["eMail"].ToString();
+                    usu.IdInstrumento = int.Parse(dt.Rows[i]["idInstrumento"].ToString());
+                    usu.Imagen = dt.Rows[i]["imagen"].ToString();
                     usuarios.Add(usu);
                 }
                 return usuarios;
