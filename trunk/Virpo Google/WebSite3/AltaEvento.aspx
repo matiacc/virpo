@@ -12,7 +12,7 @@
     </p>
     <table class="style1">
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 <asp:Label ID="Label2" runat="server" Text="Nombre:"></asp:Label>
             </td>
             <td style="width: 197px">
@@ -20,13 +20,13 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 <asp:Label ID="Label3" runat="server" Text="Lugar:"></asp:Label>
             </td>
             <td style="width: 197px">
@@ -34,13 +34,13 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 <asp:Label ID="Label4" runat="server" Text="Pais:"></asp:Label>
             </td>
             <td style="width: 197px">
@@ -54,13 +54,13 @@
                 </td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 <asp:Label ID="Label5" runat="server" Text="Ciudad:"></asp:Label>
             </td>
             <td style="width: 197px">
@@ -68,13 +68,13 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 <asp:Label ID="Label6" runat="server" Text="Dirección"></asp:Label>
             </td>
             <td style="width: 197px">
@@ -82,13 +82,13 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 <asp:Label ID="Label7" runat="server" Text="Fecha:"></asp:Label>
             </td>
             <td style="width: 197px">
@@ -113,27 +113,28 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 <asp:Label ID="Label8" runat="server" Text="Hora:"></asp:Label>
             </td>
             <td style="width: 197px">
-                <table class="style1" style="width: 131%">
+                <table class="style1" style="width: 104%; margin-left: 0px">
                     <tr>
-                        <td style="width: 74px">
-                            <asp:DropDownList ID="ddlHora" runat="server">
+                        <td style="text-align: right; width: 33px">
+                            <asp:DropDownList ID="ddlHora" runat="server" Height="16px" 
+                                style="text-align: right" Width="40px">
                             </asp:DropDownList>
                         </td>
-                        <td style="width: 28px">
+                        <td style="width: 29px">
                             <asp:Label ID="Label12" runat="server" Text="hs"></asp:Label>
                         </td>
-                        <td style="width: 103px">
-                            <asp:DropDownList ID="ddlMin" runat="server">
+                        <td style="text-align: right; width: 53px">
+                            <asp:DropDownList ID="ddlMin" runat="server" Height="16px" Width="43px">
                             </asp:DropDownList>
                         </td>
                         <td>
@@ -144,14 +145,14 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 197px">
                 <br />
             </td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 <asp:Label ID="Label9" runat="server" Text="Imagen:"></asp:Label>
             </td>
             <td style="width: 197px">
@@ -177,13 +178,13 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 <asp:Label ID="Label10" runat="server" Text="Descripción:"></asp:Label>
             </td>
             <td style="width: 197px">
@@ -192,13 +193,13 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 <asp:Label ID="Label11" runat="server" Text="Banda:"></asp:Label>
             </td>
             <td style="width: 197px">
@@ -212,19 +213,19 @@
                 </td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 197px">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 91px">
+            <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 197px">
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
