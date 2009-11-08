@@ -109,7 +109,8 @@ public partial class _Default : System.Web.UI.Page
         Evento evento = new Evento();
         evento.Nombre = txtNombre.Text;
         evento.Lugar = txtLugar.Text;
-        evento.Ubicacion = ddlPaises.SelectedValue;
+        String ubicacion = txtDireccion.Text +", "+txtCiudad.Text + ", Argentina";
+        evento.Ubicacion = ubicacion;
         evento.Fecha = Calendar1.SelectedDate;
         evento.Hora = Convert.ToDateTime(ddlHora.SelectedItem + ":" + ddlMin.SelectedItem);
         evento.Descripcion = txtDescripcion.Text;

@@ -22,8 +22,6 @@ namespace CapaNegocio.Factories
             if (dt != null)
             {
                 Evento evento = new Evento();
-                
-                AvisoClasificado aviso = new AvisoClasificado();
                 evento.Id = id;
                 evento.Nombre = dt.Rows[0]["nombre"].ToString();
                 evento.Lugar = dt.Rows[0]["lugar"].ToString();
@@ -37,6 +35,48 @@ namespace CapaNegocio.Factories
                 evento.Estado = dt.Rows[0]["estado"].ToString();
 
                 return evento;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
+        public static List<Evento> DevolverTodos(string restriccion)
+        {
+
+            string query = "SELECT id, nombre, lugar, ubicacion, fecha, hora, imagen, idMusico, idBanda, descripcion, estado " +
+                           "FROM   Evento ";
+            
+                           
+
+            if (!string.IsNullOrEmpty(restriccion))
+                query += restriccion;
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                List<Evento> eventos = new List<Evento>();
+                
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Evento evento = new Evento();
+                    evento.Id = Convert.ToInt32(dt.Rows[i]["id"]);
+                    evento.Nombre = dt.Rows[i]["nombre"].ToString();
+                    evento.Lugar = dt.Rows[i]["lugar"].ToString();
+                    evento.Ubicacion = dt.Rows[i]["ubicacion"].ToString();
+                    evento.Fecha = Convert.ToDateTime(dt.Rows[i]["fecha"]);
+                    evento.Hora = Convert.ToDateTime(dt.Rows[i]["hora"].ToString());
+                    evento.Imagen = dt.Rows[i]["imagen"].ToString();
+                    evento.Musico = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idMusico"]));
+                    evento.Banda = BandaFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idBanda"]));
+                    evento.Descripcion = dt.Rows[i]["descripcion"].ToString();
+                    evento.Estado = dt.Rows[i]["estado"].ToString();
+                    
+                    eventos.Add(evento);
+                }
+                return eventos;
             }
             else
             {
@@ -79,6 +119,7 @@ namespace CapaNegocio.Factories
 
                 bool ok = true;
                 int idCreado = BDUtilidades.ExecuteStoreProcedureWithOutParameter("EventoInsertar", parametros, tran);
+
                 if (ok)
                     return true;
                 else
