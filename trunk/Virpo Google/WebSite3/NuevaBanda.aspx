@@ -1,5 +1,5 @@
-ï»¿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="NuevaBanda.aspx.cs"
-    Inherits="_Default" Title="PÃ¡gina sin tÃ­tulo" %>
+<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="NuevaBanda.aspx.cs"
+    Inherits="_Default" Title="Página sin título" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -124,10 +124,16 @@
             <td style="width: 248px; height: 19px">
                 <asp:Label ID="lblVideo" runat="server" Text="Video YouTube:" 
                     CssClass="estiloLabel"></asp:Label>
+                <br />
+                <br />
             </td>
             <td style="height: 19px">
-                <asp:TextBox ID="txtVideo" runat="server" Width="297px"></asp:TextBox>
-            </td>
+                <asp:TextBox ID="txtVideo" runat="server" Width="127px"></asp:TextBox>
+                <br>
+                <asp:Label ID="Label1" runat="server" 
+                    Text="Introducir el texto que sigue al signo = de la url, ej: http://www.youtube.com/watch?v=" 
+                    style="font-size: 7pt"></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="xy5JwYOlgvY" style="color: #EF1818"></asp:Label></td>
         </tr>
         <tr>
             <td style="width: 248px; height: 19px">
@@ -149,7 +155,7 @@
     <asp:Button ID="Button3" runat="server" Text="False2" Style="display: none" />
     <asp:Panel ID="Panel1" runat="server" Style="display: none;" CssClass="modalPopup">
         <center>
-            La Banda fue creada con Ã©xito</center>
+            La Banda fue creada con éxito</center>
         <br />
         <br />
         <center>
