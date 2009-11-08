@@ -16,7 +16,7 @@
  
             <table class="style1">
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <center style="width: 529px; background-color: #333333">
                             <titulosubventana>
                                 WikiMusic</titulosubventana>
@@ -24,7 +24,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: center" abbr="btn">
+                    <td style="text-align: center" abbr="btn" colspan="2">
                         <asp:Button ID="btnApuntar" runat="server" onclick="btnApuntar_Click" 
                             Text="Apuntar" CssClass="botones" Width="101px" />
                         <asp:Button ID="btnRecomendar" runat="server" CssClass="botones" 
@@ -38,7 +38,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right">
+                    <td style="text-align: right" colspan="2">
                         <hr />
                     </td>
                 </tr>
@@ -54,25 +54,29 @@
                             Visible="False" Width="80px"></asp:Label>
                         <asp:Label ID="lblId" runat="server" Visible="False"></asp:Label>
                     </td>
+                    <td style="text-align: right">
+                        <asp:Label ID="lblVisitas" runat="server"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="Visitas"></asp:Label>
+                    </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <asp:Label ID="lblContenido" runat="server" Style="text-align: justify"></asp:Label>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         &nbsp;
                         <hr />
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         &nbsp;
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         &nbsp;
                     </td>
                 </tr>

@@ -38,8 +38,21 @@ public partial class _Default : System.Web.UI.Page
 
             if (id != 0)// bloque muestra id especifico
             {
-                art = (ArticuloWiki)ArticuloWikiFactory.Devolver(id);//deberia haber verificacion de existencia de id
+                if (Request.QueryString["V"] != null)// pregunto si es una version anterior
+                {
+                    int vers = Convert.ToInt32(Request.QueryString["V"]);
+                    Label1.Visible=false;
+                    HistorialWiki version = (HistorialWiki)HistorialWikiFactory.Devolver(id,vers);
+                    art = ArticuloWikiFactory.ConvertirAArticuloWiki(version);
+                }
+                else
+                {
+                    art = (ArticuloWiki)ArticuloWikiFactory.Devolver(id);//deberia haber verificacion de existencia de id
+                    lblVisitas.Text = Convert.ToString(art.CantVisitas);
+                }
+                
             }
+            
 
             if (Request.QueryString["A"] != null)// bloque aleatorio
             {
@@ -56,6 +69,7 @@ public partial class _Default : System.Web.UI.Page
             lblTitulo.Text = art.Titulo;
 
             lblCat.Text = art.IdCat.Nombre;
+            
 
             lblContenido.Text = art.Cuerpo;
         }
