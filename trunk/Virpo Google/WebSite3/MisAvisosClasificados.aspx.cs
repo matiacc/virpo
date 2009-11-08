@@ -39,6 +39,7 @@ public partial class MisClasificados : System.Web.UI.Page
             }
 
             this.CargarGrillaAvisos(usuario.Id);
+            GridView1.Columns[0].Visible = false;
         }
     }
 

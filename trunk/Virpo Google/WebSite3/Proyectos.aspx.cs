@@ -32,6 +32,7 @@ public partial class Proyectos : System.Web.UI.Page
             GridView1.DataBind();
             ViewState.Add("SortExpression", "Creado");
             ViewState.Add("SortDirection", "DESC");
+            GridView1.Columns[0].Visible = false;
         }
     }
 

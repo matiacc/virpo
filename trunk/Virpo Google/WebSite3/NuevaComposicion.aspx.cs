@@ -38,11 +38,9 @@ public partial class NuevaComposicion : System.Web.UI.Page
         composicion.Nombre = txtNombre.Text;
         composicion.Descripcion = txtDescripcion.Text;
         if(RadioButton1.Checked)
-            composicion.Tipo = "Pista";
+            composicion.Tipo = "P";
         if (RadioButton2.Checked)
-            composicion.Tipo = "Cancion No Terminada";
-        if (RadioButton3.Checked)
-            composicion.Tipo = "Cancion Finalizada";
+            composicion.Tipo = "CNT";
         
         composicion.Tempo = txtTempo.Text;
         composicion.Usuario = (Usuario)Session["Usuario"];

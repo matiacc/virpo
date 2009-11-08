@@ -172,7 +172,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@ubicacion", DbType.String, avisoClasificado.Ubicacion));
 
                 bool ok = true;
-                int idCreado = BDUtilidades.ExecuteStoreProcedureWithOutParameter("AvisoClasificadoInsertar", parametros, tran);
+                int idCreado = BDUtilidades.ExecuteStoreProcedureWithOutParameter("AvisoClasificadoInsertar", parametros);
                 if (idCreado == 0) ok = false;
                 if (ok)
                 {
