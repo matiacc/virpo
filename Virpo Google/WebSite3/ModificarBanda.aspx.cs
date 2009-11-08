@@ -27,6 +27,7 @@ public partial class ModificarBanda : System.Web.UI.Page
             ddlGenero.SelectedValue = banda.Genero.Id.ToString();
             txtPaginaWeb.Text = banda.PaginaWeb;
             txtFecInicio.Text = banda.FechaInicio.ToShortDateString();
+            txtVideo.Text = banda.Video;
             MetodosComunes.cargarLocalidades(ddlLocalidad);
             ddlLocalidad.SelectedValue = banda.Localidad.Id.ToString();
             MetodosComunes.cargarPaises(ddlPais);
@@ -83,7 +84,7 @@ public partial class ModificarBanda : System.Web.UI.Page
     {
         Banda banda = new Banda();
         banda = (Banda)Session["DatosBanda"];
-        Response.Redirect("ConsultarBanda.aspx?C=" + banda.Id.ToString());
+        Response.Redirect("ConsultarBanda.aspx?C=" + banda.Id.ToString() + "&P=0");
     }
     protected void btnGuardar_Click(object sender, EventArgs e)
     {
@@ -95,6 +96,7 @@ public partial class ModificarBanda : System.Web.UI.Page
         bandaModificada.Genero = GeneroFactory.Devolver(int.Parse(ddlGenero.SelectedValue.ToString()));
         bandaModificada.PaginaWeb = txtPaginaWeb.Text;
         bandaModificada.FechaInicio = DateTime.Parse(txtFecInicio.Text);
+        bandaModificada.Video = txtVideo.Text;
         bandaModificada.Localidad = LocalidadFactory.Devolver(int.Parse(ddlLocalidad.SelectedValue.ToString()));
         bandaModificada.Descripcion = banda.Descripcion;
         bandaModificada.Imagen = banda.Imagen;
@@ -105,6 +107,6 @@ public partial class ModificarBanda : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Response.Redirect("ConsultarBanda.aspx?C=" + ViewState["C"].ToString());
+        Response.Redirect("ConsultarBanda.aspx?C=" + ViewState["C"].ToString() + "&P=0");
     }
 }

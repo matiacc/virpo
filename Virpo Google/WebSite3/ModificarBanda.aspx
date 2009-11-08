@@ -7,7 +7,8 @@
         <ul>
              <li><a href="NuevaBanda.aspx" title="Nueva Banda"> Nueva Banda</a></li>
             <li><a href="ListarUsuarios.aspx" title="Agregar Integrante">Agregar Integrante</a></li>
-             <li><a href="MostrarIntegrantesBanda.aspx" title="Agregar Integrante">Bandas e Integrantes</a></li>
+             <li><a href="MostrarIntegrantesBanda.aspx" title="Agregar Integrante">Bandas e 
+                 Integrantes</a></li>
              <li><a href="ListarBandas.aspx" title="Agregar Integrante">Listar Bandas</a></li>
         </ul>
     </div>
@@ -15,10 +16,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <table class="tabla">
         <tr>
-            <td rowspan="12">
+            <td rowspan="13">
                 &nbsp;</td>
             <td colspan="3">
-                <center style="background-color: #333333; width: 523px;"><tituloSubVentana>Modificar Banda</tituloSubVentana></center></td>
+                <center style="background-color: #333333; width: 523px;"><tituloSubVentana>Modificar 
+                    Banda</tituloSubVentana></center></td>
         </tr>
         <tr>
             <td rowspan="9">
@@ -114,13 +116,23 @@
         </tr>
         <tr>
             <td>
+                <asp:Label ID="Label6" runat="server" Text="Video:"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="txtVideo" runat="server"></asp:TextBox>
+            </td>
+            <td>
                 &nbsp;</td>
             <td>
                 &nbsp;
             </td>
+        </tr>
+        <tr>
             <td>
-                &nbsp;
-            </td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td>
