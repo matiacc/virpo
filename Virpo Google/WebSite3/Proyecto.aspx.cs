@@ -181,7 +181,5 @@ public partial class Proyecto : System.Web.UI.Page
         }
         return null;
     }
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-    }
+    
 }

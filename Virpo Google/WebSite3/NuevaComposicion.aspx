@@ -30,9 +30,10 @@
                 Tipo de Conposicion:
             </td>
             <td colspan="2">
-                <asp:RadioButton ID="RadioButton1" runat="server" Text="Pista" GroupName="Tipo" Checked="True" />&nbsp;
-                <asp:RadioButton ID="RadioButton2" runat="server" Text="Cancion No Terminada" GroupName="Tipo" />&nbsp;
-                <asp:RadioButton ID="RadioButton3" runat="server" Text="Cancion Finalizada" GroupName="Tipo" />
+                <asp:RadioButton ID="RadioButton1" runat="server" Text="Pista" GroupName="Tipo" Checked="True" />
+                &nbsp;
+                <asp:RadioButton ID="RadioButton2" runat="server" Text="Cancion No Terminada" GroupName="Tipo" />
+                &nbsp;
             </td>
         </tr>
         <tr>

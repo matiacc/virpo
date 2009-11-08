@@ -183,7 +183,7 @@
         <br />
         <br />
         
-        <center><asp:Button ID="Button1" runat="server" Text="Aceptar" OnClick="Button1_Click" CssClass="botones" />
+        <center><asp:Button ID="Button1" runat="server" Text="Aceptar" CssClass="botones" />
     </asp:Panel></center>
     <cc1:ModalPopupExtender ID="Panel1_ModalPopupExtender" BackgroundCssClass="modalBackground"
         runat="server" DynamicServicePath="" Enabled="True" TargetControlID="Button2"

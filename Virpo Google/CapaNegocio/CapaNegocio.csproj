@@ -51,13 +51,16 @@
     <Compile Include="Entities\Composicion.cs" />
     <Compile Include="Entities\EstadoAvisoClasificado.cs" />
     <Compile Include="Entities\EstadoMensaje.cs" />
+    <Compile Include="Entities\Evento.cs" />
     <Compile Include="Entities\Genero.cs" />
+    <Compile Include="Entities\Grupo.cs" />
     <Compile Include="Entities\HistorialWiki.cs" />
     <Compile Include="Entities\Instrumento.cs" />
     <Compile Include="Entities\Localidad.cs" />
     <Compile Include="Entities\Mensaje.cs" />
     <Compile Include="Entities\MusicoXBanda.cs" />
     <Compile Include="Entities\Pais.cs" />
+    <Compile Include="Entities\PostGrupo.cs" />
     <Compile Include="Entities\Provincia.cs" />
     <Compile Include="Entities\Proyecto.cs" />
     <Compile Include="Entities\RangoPosteo.cs" />
@@ -65,6 +68,7 @@
     <Compile Include="Entities\TipoAviso.cs" />
     <Compile Include="Entities\TipoInstrumento.cs" />
     <Compile Include="Entities\Tonalidad.cs" />
+    <Compile Include="Entities\TopicGrupo.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Factories\ApuntesWikiFactory.cs" />
     <Compile Include="Factories\ArticuloWikiFactory.cs" />
@@ -74,7 +78,9 @@
     <Compile Include="Factories\CategoriaMusicoFactory.cs" />
     <Compile Include="Factories\ComposicionFactory.cs" />
     <Compile Include="Factories\EstadoAvisoClasificadoFactory.cs" />
+    <Compile Include="Factories\EventoFactory.cs" />
     <Compile Include="Factories\GeneroFactory.cs" />
+    <Compile Include="Factories\GrupoFactory.cs" />
     <Compile Include="Factories\HistorialWikiFactory.cs" />
     <Compile Include="Factories\ImagenClasificadoFactory.cs" />
     <Compile Include="Factories\InstrumentoFactory.cs" />
@@ -82,6 +88,7 @@
     <Compile Include="Factories\MensajeFactory.cs" />
     <Compile Include="Factories\MusicoXBandaFactory.cs" />
     <Compile Include="Factories\PaisFactory.cs" />
+    <Compile Include="Factories\PostGrupoFactory.cs" />
     <Compile Include="Factories\ProvinciaFactory.cs" />
     <Compile Include="Factories\ProyectoFactory.cs" />
     <Compile Include="Factories\RangoPosteoFactory.cs" />
@@ -89,6 +96,7 @@
     <Compile Include="Factories\TipoAvisoFactory.cs" />
     <Compile Include="Factories\TipoInstrumentoFactory.cs" />
     <Compile Include="Factories\TonalidadFactory.cs" />
+    <Compile Include="Factories\TopicGrupoFactory.cs" />
     <Compile Include="Factories\UsuarioFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -118,7 +118,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@estado", DbType.String, evento.Estado));
 
                 bool ok = true;
-                int idCreado = BDUtilidades.ExecuteStoreProcedureWithOutParameter("EventoInsertar", parametros, tran);
+                int idCreado = BDUtilidades.ExecuteStoreProcedureWithOutParameter("EventoInsertar", parametros);
 
                 if (ok)
                     return true;
