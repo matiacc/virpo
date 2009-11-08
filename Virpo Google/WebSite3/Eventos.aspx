@@ -12,12 +12,29 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <p>
+        &nbsp;</p>
+    <p>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
+            Height="182px" onrowcommand="GridView1_RowCommand" Width="407px">
+            <Columns>
+                <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
+                <asp:ImageField DataImageUrlField="imagen">
+                </asp:ImageField>
+                <asp:BoundField DataField="Nombre" HeaderText="Nombre" 
+                    SortExpression="Nombre" />
+                <asp:BoundField DataField="Fecha" HeaderText="Fecha" SortExpression="Fecha" />
+                <asp:BoundField DataField="Lugar" HeaderText="Lugar" SortExpression="Lugar" />
+                <asp:ButtonField ButtonType="Image" CommandName="C" 
+                    ImageUrl="~/ImagenesSite/lupa3.png" Text="Consultar" />
+            </Columns>
+        </asp:GridView>
+</p>
+    <p>
     <br />
 </p>
 <p>
 </p>
-    <cc1:GMap ID="GMap1" runat="server" />
-</asp:Content>
+    </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
 </asp:Content>
 

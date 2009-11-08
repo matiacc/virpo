@@ -20,26 +20,18 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        GMap1.enableDragging = true;
-        GMap1.Language = "es";
-        GMap1.enableGKeyboardHandler = true;
-        GMapUIOptions options = new GMapUIOptions();
-        options.maptypes_hybrid = false;
-        options.keyboard = false;
-        options.maptypes_physical = false;
-        options.zoom_scrollwheel = true;
-        GMap1.Add(new GMapUI(options));
-        List <Evento> eventos = EventoFactory.DevolverTodos("");
-
-        Evento evento = eventos[0];
+        int id = Convert.ToInt32(Request.QueryString["E"]);
+        Evento evento = EventoFactory.Devolver(id);
+        
+        setearMapa();
 
         Ubicar(evento.Ubicacion);
+
         Image1.ImageUrl = evento.Imagen;
         lblNombre.Text = evento.Nombre;
         lblLugar.Text = evento.Lugar;
         lblFecha.Text = Convert.ToString(evento.Fecha.Day)+"/"+Convert.ToString(evento.Fecha.Month)+"/"+Convert.ToString(evento.Fecha.Year);
         lblHora.Text = Convert.ToString(evento.Hora.Hour) + ":" + Convert.ToString(evento.Hora.Minute);
-
         char[] delimiterChars = {','};
         string[] ub = evento.Ubicacion.Split(delimiterChars);
         lblPais.Text = ub[2];
@@ -47,10 +39,21 @@ public partial class _Default : System.Web.UI.Page
         lblUbicacion.Text = ub[0];
 
 
-       
-        
-        
 
+    }
+
+    private void setearMapa()
+    {
+        GMap1.enableDragging = true;
+        GMap1.Language = "es";
+        //GMap1.enableGKeyboardHandler = true;
+        GMapUIOptions options = new GMapUIOptions();
+        options.maptypes_hybrid = false;
+        options.keyboard = false;
+        options.maptypes_physical = false;
+        options.zoom_scrollwheel = true;
+        GMap1.Add(new GMapUI(options));
+        
 
     }
 
@@ -66,12 +69,8 @@ public partial class _Default : System.Web.UI.Page
             GInfoWindowOptions options = new GInfoWindowOptions();
             options.zoomLevel = 14;
             options.mapType = GMapType.GTypes.Hybrid;
-
             GShowMapBlowUp mBlowUp = new GShowMapBlowUp(new GMarker(ubicacion), options);
-
             GMap1.addShowMapBlowUp(mBlowUp);
-
-            
             GMap1.setCenter(ubicacion, 15);
             
                          

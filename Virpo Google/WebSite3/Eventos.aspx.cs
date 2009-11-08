@@ -11,6 +11,9 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Subgurim.Controles;
+using CapaNegocio.Entities;
+using CapaNegocio.Factories;
+using System.Collections.Generic;
 
 
 public partial class _Default : System.Web.UI.Page
@@ -18,26 +21,16 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        GMap1.enableDragging = true;
-        //GMap1.enableGoogleBar = true;
-        GMap1.Language = "es";
-        GMap1.enableGKeyboardHandler = true;
-        GMapUIOptions options = new GMapUIOptions();
-        options.maptypes_hybrid = false;
-        options.keyboard = false;
-        options.maptypes_physical = false;
-        options.zoom_scrollwheel = true;
-        GMap1.Add(new GMapUI(options));
-        Ubicar("Av colon 2000, Córdoba, Argentina");
 
-        
+        if (!Page.IsPostBack)
+        {
+            if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
-        //GMarker marker = new GMarker(ubicacion);
-        //GInfoWindow window = new GInfoWindow(marker,"");
-        //GMap1.addInfoWindow(window); 
- 
+            this.CargarEventos();
 
 
+
+        }
        
         
         
@@ -45,31 +38,68 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
-    private void Ubicar(String direccion)
+    private void CargarEventos()
     {
+
+        DataTable dt = this.DatosEventos();
+        GridView1.DataSource = dt;
+        GridView1.DataBind();
+        GridView1.Columns[0].Visible = false;
                 
-            string Key = System.Configuration.ConfigurationManager.AppSettings.Get("googlemaps.subgurim.net");
-
-            GeoCode geocode = GMap.geoCodeRequest(direccion, Key);
-            Double lat = geocode.Placemark.coordinates.lat;;
-            Double lng = geocode.Placemark.coordinates.lng;
-            GLatLng ubicacion = new GLatLng(lat,lng);
-            GInfoWindowOptions options = new GInfoWindowOptions();
-            options.zoomLevel = 14;
-            options.mapType = GMapType.GTypes.Hybrid;
-
-            GShowMapBlowUp mBlowUp = new GShowMapBlowUp(new GMarker(ubicacion), options);
-
-            GMap1.addShowMapBlowUp(mBlowUp);
-
-            
-            GMap1.setCenter(ubicacion, 15);
-            
-                         
+                          
         
-    } 
+    }
+
+
+    private DataTable DatosEventos()
+    {
+
+        DataTable dt = new DataTable();
+        DataRow row;
+
+        dt.Columns.Add("Id");
+        dt.Columns.Add("Imagen");
+        dt.Columns.Add("Nombre");
+        dt.Columns.Add("Fecha");
+        dt.Columns.Add("Lugar");
+        dt.Columns.Add("Consultar");
+        
 
         
-    
+        List<Evento> eventos = EventoFactory.DevolverTodos("");
 
+        if (eventos != null)
+        {
+            foreach (Evento evento in eventos)
+            {
+                row = dt.NewRow();
+                row["Id"] = evento.Id;
+                row["Imagen"] = evento.Imagen;
+                row["Nombre"] = evento.Nombre;
+                row["Fecha"] =Convert.ToString(evento.Fecha.Day) + "/" + Convert.ToString(evento.Fecha.Month) + "/" + Convert.ToString(evento.Fecha.Year);
+                row["Lugar"] = evento.Lugar;
+
+                dt.Rows.Add(row);
+            }
+            return dt;
+        }
+        return null;
+
+
+
+
+    }
+
+
+
+
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "C")
+        {
+            string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text;
+            Response.Redirect("ConsultarEvento.aspx?E=" + id);
+        }
+
+    }
 }
