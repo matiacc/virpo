@@ -10,14 +10,21 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <p>
-        <br />
-        <asp:Label ID="Label1" runat="server" Font-Size="X-Large" 
-            Text="Crear un evento"></asp:Label>
+ 
+    <table class="style1">
+        <tr>
+            <td colspan="2">
+                    <center style="width: 529px; background-color: #333333">
+                    <titulosubventana>
+                    Nuevo Evento</titulosubventana>
+                </center></td>
+        </tr>
+        <tr>
+            <td colspan="2">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
-    </p>
-    <table class="style1">
+            </td>
+        </tr>
         <tr>
             <td style="width: 92px">
                 <asp:Label ID="Label2" runat="server" Text="Nombre:"></asp:Label>
