@@ -181,13 +181,13 @@ namespace CapaDatos
                 return false;
             }
         }
-        public static int ExecuteStoreProcedureWithOutParameter(string storeProcedure, List<SqlParameter> parametros, SqlTransaction tran)
+        public static int ExecuteStoreProcedureWithOutParameter(string storeProcedure, List<SqlParameter> parametros)
         {
             try
             {
                 SqlConnection con = new SqlConnection(cadena);
                 con.Open();
-                SqlCommand com = new SqlCommand(storeProcedure, con, (SqlTransaction)tran);
+                SqlCommand com = new SqlCommand(storeProcedure, con);
 
                 com.CommandType = CommandType.StoredProcedure;
                 foreach (SqlParameter parametro in parametros)
