@@ -27,7 +27,7 @@
                 <asp:BoundField DataField="Ruta2" HeaderText="Ruta" SortExpression="Ruta" />
                 <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                 <asp:ButtonField ButtonType="Image" CommandName="E" DataTextField="Ruta" 
-                    ImageUrl="~/ImagenesSite/eliminar.png" Text="Eliminar" />
+                    ImageUrl="~/ImagenesSite/delete.png" Text="Eliminar" />
                 <asp:ButtonField ButtonType="Image" CommandName="C" 
                     ImageUrl="~/ImagenesSite/lupa3.png" Text="Consultar" />
             </Columns>
