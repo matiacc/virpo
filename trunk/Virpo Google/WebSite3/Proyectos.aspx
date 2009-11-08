@@ -5,6 +5,7 @@
     <div id="menu8">
         <ul>
             <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
+            <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
         </ul>
     </div>
 </asp:Content>
