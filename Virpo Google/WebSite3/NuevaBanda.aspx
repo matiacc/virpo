@@ -1,5 +1,5 @@
-<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="NuevaBanda.aspx.cs"
-    Inherits="_Default" Title="Página sin título" %>
+ï»¿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="NuevaBanda.aspx.cs"
+    Inherits="_Default" Title="Pgina sin tï¿½tulo" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -139,8 +139,7 @@
             <td style="width: 248px; height: 19px">
                 &nbsp;</td>
             <td style="height: 19px">
-                <asp:Label ID="Label1" runat="server" Text="PELA: RECORDAR LO DEL VIDEO"></asp:Label>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 248px; height: 19px">
@@ -156,7 +155,7 @@
     <asp:Button ID="Button3" runat="server" Text="False2" Style="display: none" />
     <asp:Panel ID="Panel1" runat="server" Style="display: none;" CssClass="modalPopup">
         <center>
-            La Banda fue creada con éxito</center>
+            La Banda fue creada con ï¿½xito</center>
         <br />
         <br />
         <center>
