@@ -96,12 +96,12 @@
         </tr>
         <tr>
             <td style="width: 248px">
-                <asp:Label ID="lblProvincia" runat="server" Text="Provincia:" CssClass="estiloLabel"></asp:Label>
+                <asp:Label ID="lblProvincia" runat="server" Text="Provincia/Estado:" CssClass="estiloLabel"></asp:Label>
             </td>
         </tr>
         <tr>
             <td style="width: 248px">
-                <asp:Label ID="lblLocalidad" runat="server" Text="Localidad:" CssClass="estiloLabel"></asp:Label>
+                <asp:Label ID="lblLocalidad" runat="server" Text="Ciudad:" CssClass="estiloLabel"></asp:Label>
             </td>
         </tr>
         <tr>
