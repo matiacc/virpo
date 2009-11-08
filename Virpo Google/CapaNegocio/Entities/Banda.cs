@@ -17,6 +17,7 @@ namespace CapaNegocio.Entities
         private Localidad localidad;
         private string imagenThumb;
         private DateTime fecSistema;
+        private string video;
 
         #region Propiedades
         public int Id
@@ -73,6 +74,11 @@ namespace CapaNegocio.Entities
         {
             get { return fecSistema; }
             set { fecSistema = value; }
+        }
+        public string Video
+        {
+            get { return video; }
+            set { video = value; }
         }
         #endregion
     }
