@@ -70,6 +70,9 @@ public partial class _Default : System.Web.UI.Page
                 int idExistente = (int)ids[random];
                 art = ArticuloWikiFactory.Devolver(idExistente);
                 lblVisitas.Text = Convert.ToString(art.CantVisitas);
+                art.CantVisitas = art.CantVisitas + 1;
+                ArticuloWikiFactory.Modificar(art);                  // suma visitas  
+	            
             }
 
             lblId.Text = Convert.ToString(art.Id);
