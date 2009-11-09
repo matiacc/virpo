@@ -23,6 +23,7 @@ public partial class Login : System.Web.UI.Page
             if (Request.QueryString["url"] != null)
             {
                 back = Request.QueryString["url"];
+                back += "?idBanda=" + Request.QueryString["id"];
                 volver = true;
             }
         }
@@ -61,7 +62,11 @@ public partial class Login : System.Web.UI.Page
                 //((Label)hdMaster.FindControl("lnkSesion")).Text = "(Cerrar Sesion)";
                 // Redirecciona al usuario a la página que solicitó originalmente
                 if (volver)
-                    Response.Redirect("./" +back,false);
+                {
+                    CapaNegocio.Entities.Usuario usr = new CapaNegocio.Entities.Usuario();
+                    usr = (CapaNegocio.Entities.Usuario)Session["Usuario"];
+                    Response.Redirect("./" + back + "&idUsr=" + usr.Id.ToString(),false);
+                }
                 else
                     Response.Redirect(FormsAuthentication.GetRedirectUrl(LoginVirpo.UserName, false), false);
             }
