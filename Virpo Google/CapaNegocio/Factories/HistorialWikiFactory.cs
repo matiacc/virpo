@@ -117,7 +117,7 @@ namespace CapaNegocio.Factories
         {
             string query = "SELECT idArticulo, idCat, idAutor, fecModificacion, titulo, cuerpo, version, descripcion " +
                         "FROM HistorialWiki " +
-                        "WHERE idAutor = " + id;
+                        "WHERE idAutor = " + id + " order by titulo asc, version desc";
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
 
