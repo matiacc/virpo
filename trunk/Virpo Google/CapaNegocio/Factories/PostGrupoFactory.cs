@@ -34,6 +34,30 @@ namespace CapaNegocio.Factories
             }
         }
 
+        public static PostGrupo DevolverUltimo(int idTopic)
+        {
+            string query = "SELECT id, comentario, idTopic, idCreador, fechaCreacion " +
+                        "FROM PostGrupo " +
+                        "WHERE idTopic=" + idTopic +
+                        " order by fechaCreacion desc";
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                PostGrupo post = new PostGrupo();
+                post.Comentario = dt.Rows[0]["comentario"].ToString();
+                post.IdTopic = idTopic;
+                post.FechaCreacion = Convert.ToDateTime(dt.Rows[0]["fechaCreacion"].ToString());
+                post.Creador = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[0]["idCreador"]));
+                post.Id = Convert.ToInt32(dt.Rows[0]["id"]); ;
+                return post;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public static List<PostGrupo> DevolverTodos(string restriccion)
         {
             string query = "SELECT id, comentario, idTopic, idCreador, fechaCreacion " +
@@ -41,6 +65,33 @@ namespace CapaNegocio.Factories
 
             if (!string.IsNullOrEmpty(restriccion))
                 query += restriccion;
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                List<PostGrupo> posts = new List<PostGrupo>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    PostGrupo post = new PostGrupo();
+                    post.Id = Convert.ToInt32(dt.Rows[i]["id"]);
+                    post.Comentario = dt.Rows[i]["comentario"].ToString();
+                    post.IdTopic = Convert.ToInt32(dt.Rows[i]["idTopic"]);
+                    post.FechaCreacion = Convert.ToDateTime(dt.Rows[i]["fechaCreacion"].ToString());
+                    post.Creador = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idCreador"]));
+                    posts.Add(post);
+                }
+                return posts;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static List<PostGrupo> DevolverTodosPorTopic(string idTopic)
+        {
+            string query = "SELECT id, comentario, idTopic, idCreador, fechaCreacion " +
+                       "FROM PostGrupo " +
+                       "WHERE idTopic =" + idTopic;
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)

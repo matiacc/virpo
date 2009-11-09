@@ -77,6 +77,18 @@ namespace CapaNegocio.Factories
             return BDUtilidades.EjecutarConsultaEscalar(query);
         }
 
+        public static bool EsMiembro(int idUsuario, int idProyecto)
+        {
+            string query = "select count(*) from UsuarioXGrupo " +
+                         "where idUsuario=" + idUsuario +
+                         " and idGrupo=" + idProyecto;
+            int res = BDUtilidades.EjecutarConsultaEscalar(query);
+            if (res > 0)
+                return true;
+            else
+                return false;
+        }
+
         public static int DevolverMaxId()
         {
             string query = "SELECT MAX(ID) FROM Grupo";
@@ -121,7 +133,7 @@ namespace CapaNegocio.Factories
             }
         }
 
-        private static bool UsuarioXGrupoInsertar(int idUsuario, int idGrupo)
+        public static bool UsuarioXGrupoInsertar(int idUsuario, int idGrupo)
         {
             try
             {
@@ -140,5 +152,17 @@ namespace CapaNegocio.Factories
         }
 
         #endregion
+
+        public static bool Borrar(int idUsuario, int idGrupo)
+        {
+            string query = "DELETE FROM UsuarioXGrupo " +
+                           "WHERE idUsuario = " + idUsuario +
+                           " AND idGrupo = " + idGrupo;
+            int res = BDUtilidades.EjecutarNonQuery(query);
+            if (res > 0)
+                return true;
+            else
+                return false;
+        }
     }
 }

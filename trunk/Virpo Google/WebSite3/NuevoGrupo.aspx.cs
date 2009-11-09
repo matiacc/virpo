@@ -20,7 +20,11 @@ public partial class NuevoGrupo : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
-
+        if (!Page.IsPostBack)
+        {
+            lblMisGrupos.Text = "<a href='GruposDeInteres.aspx?Id=" + ((Usuario)Session["Usuario"]).Id + "' title='Mis Grupos'>Mis Grupos</a>";
+            this.Form.DefaultButton = btGuardar.UniqueID;
+        }
     }
     protected void btGuardar_Click(object sender, EventArgs e)
     {
@@ -31,7 +35,8 @@ public partial class NuevoGrupo : System.Web.UI.Page
         grupo.Creador = user;
 
         grupo.Descripcion = txtDescripcion.Text;
-        grupo.Enlaces = txtEnlaces.Text.Trim();
+        //grupo.Enlaces = txtEnlaces.Text.Trim();
+        grupo.Enlaces = "";
 
         #region Guardo Imagen
         int proxId = GrupoFactory.DevolverMaxId() + 1;

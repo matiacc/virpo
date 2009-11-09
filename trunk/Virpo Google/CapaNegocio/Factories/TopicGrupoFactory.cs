@@ -34,11 +34,12 @@ namespace CapaNegocio.Factories
                 return null;
             }
         }
+        
 
         public static List<TopicGrupo> DevolverTodos(string restriccion)
         {
             string query = "SELECT id, titulo, visitas, fechaCreacion, idCreador, idGrupo " +
-                        "FROM TopicGrupo" ;
+                        "FROM TopicGrupo " ;
             
             if (!string.IsNullOrEmpty(restriccion))
                 query += restriccion;
@@ -65,7 +66,54 @@ namespace CapaNegocio.Factories
                 return null;
             }
         }
-       
+        public static List<TopicGrupo> DevolverTodosPorGrupo(int idGrupo)
+        {
+            string query = "SELECT id, titulo, visitas, fechaCreacion, idCreador, idGrupo " +
+                        "FROM TopicGrupo " +
+                        "WHERE idGrupo =" + idGrupo;
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                List<TopicGrupo> topics = new List<TopicGrupo>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    TopicGrupo topic = new TopicGrupo();
+                    topic.Id = Convert.ToInt32(dt.Rows[i]["id"]);
+                    topic.Titulo = dt.Rows[i]["titulo"].ToString();
+                    topic.Visitas = Convert.ToInt32(dt.Rows[i]["visitas"]);
+                    topic.FechaCreacion = Convert.ToDateTime(dt.Rows[i]["fechaCreacion"].ToString());
+                    topic.Creador = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idCreador"]));
+                    topic.Grupo = GrupoFactory.Devolver(idGrupo);
+                    topics.Add(topic);
+                }
+                return topics;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static int CantidadRespuestas(int idTopic)
+        {
+            string query = "SELECT count(*) " +
+                           "FROM PostGrupo " +
+                           "WHERE idTopic = " + idTopic;
+            return BDUtilidades.EjecutarConsultaEscalar(query);
+        }
+
+        public static int CantidadVisitas(int idTopic)
+        {
+            int visitas = BDUtilidades.EjecutarConsultaEscalar("SELECT visitas FROM TopicGrupo WHERE id =" + idTopic);
+            return visitas;
+        }
+        public static int IncrementarVisita(string id)
+        {
+            string sql = "UPDATE TopicGrupo SET visitas = visitas + 1 WHERE id =" + id;
+            return BDUtilidades.EjecutarNonQuery(sql);
+        }
+
         #region Insertar
 
         /// <summary>
@@ -73,7 +121,7 @@ namespace CapaNegocio.Factories
         /// </summary>
         /// <param name="musico">Objeto TopicGrupo</param>
         /// <returns>true si guardó con éxito</returns>
-        public static bool Insertar(TopicGrupo topic)
+        public static int Insertar(TopicGrupo topic)
         {
             try
             {
@@ -84,15 +132,11 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@idCreador", DbType.Int32, topic.Creador.Id));
                 parametros.Add(BDUtilidades.crearParametro("@idGrupo", DbType.Int32, topic.Grupo.Id));
 
-                bool ok = BDUtilidades.ExecuteStoreProcedure("TopicGrupoInsertar", parametros);
-                if (ok)
-                    return true;
-                else
-                    return false;
+                return BDUtilidades.ExecuteStoreProcedureWithOutParameter("TopicGrupoInsertar", parametros);
             }
             catch (Exception ex)
             {
-                return false;
+                return 0;
             }
         }
         #endregion
