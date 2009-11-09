@@ -44,6 +44,8 @@ public partial class _Default : System.Web.UI.Page
                 if (art!= null)
 	            {                    
                     lblVisitas.Text = Convert.ToString(art.CantVisitas);
+                    art.CantVisitas = art.CantVisitas + 1;
+                    ArticuloWikiFactory.Modificar(art);                  // suma visitas  
 	            }                 
                 else
                 {                    

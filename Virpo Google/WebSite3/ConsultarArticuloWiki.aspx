@@ -53,7 +53,7 @@
                         <asp:Label ID="lblOk" runat="server" Style="color: #009933" Text="Articulo Apuntado"
                             Visible="False"></asp:Label>
                         <asp:Label ID="lblMal" runat="server" Style="color: #CC3300" Text="Articulo Ya Apuntado"
-                            Visible="False" Width="80px"></asp:Label>
+                            Visible="False" Width="157px"></asp:Label>
                         <asp:Label ID="lblId" runat="server" Visible="False"></asp:Label>
                     </td>
                     <td style="text-align: right">

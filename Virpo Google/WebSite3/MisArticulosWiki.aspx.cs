@@ -105,10 +105,16 @@ public partial class _Default : System.Web.UI.Page
             }
             else
             {
-                if (ArticuloWikiFactory.Eliminar(ID,VERS))
+                if (ArticuloWikiFactory.Eliminar(ID, VERS))
+                {
+                    //ArticuloWiki art = ArticuloWikiFactory.Devolver(ID);
+                    //HistorialWikiFactory.Eliminar(art.Id, art.Version);
                     Response.Redirect("WikiMusic.aspx?Z=1");
+                }
                 else
+                {
                     Response.Redirect("WikiMusic.aspx?Z=0");
+                }
 
             }
         }

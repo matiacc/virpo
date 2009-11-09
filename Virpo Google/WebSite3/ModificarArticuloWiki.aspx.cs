@@ -34,6 +34,8 @@ public partial class _Default : System.Web.UI.Page
 
             lblTitulo.Text = art.Titulo;
 
+            lblVers.Text = Convert.ToString(art.Version);
+
             lblCategoria.Text = art.IdCat.Nombre;
             
             elm3.Text=art.Cuerpo;
@@ -43,7 +45,7 @@ public partial class _Default : System.Web.UI.Page
     protected void btnCancelar_Click(object sender, EventArgs e)
     {
         int idArt = Convert.ToInt32(Request.QueryString["C"]);
-        Response.Redirect("ConsultarArticuloWiki.aspx?C=" + idArt);
+        Response.Redirect("ConsultarArticuloWiki.aspx?C=" + idArt+"&V="+lblVers.Text);
     }
     protected void btnGuardar_Click(object sender, EventArgs e)
     {

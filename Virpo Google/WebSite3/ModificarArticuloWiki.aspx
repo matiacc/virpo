@@ -41,6 +41,7 @@
             </td>
             <td>
                 <asp:Label ID="lblTitulo" runat="server"></asp:Label>
+                <asp:Label ID="lblVers" runat="server" Visible="False"></asp:Label>
             </td>
             <td>
                 &nbsp;
