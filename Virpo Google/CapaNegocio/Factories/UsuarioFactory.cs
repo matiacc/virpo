@@ -163,6 +163,28 @@ namespace CapaNegocio.Factories
                 return null;
         }
 
+        public static List<Usuario> DevolverIntegrantesDeGrupo(int idGrupo)
+        {
+            string query = "SELECT Usuario.id,nombreUsuario,imagen " +
+                         "FROM UsuarioXGrupo inner join Usuario on UsuarioXGrupo.idUsuario = Usuario.id " +
+                         "WHERE idGrupo = " + idGrupo;
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                List<Usuario> usuarios = new List<Usuario>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Usuario usu = new Usuario();
+                    usu.Id = (int)dt.Rows[i]["id"];
+                    usu.NombreUsuario = dt.Rows[i]["nombreUsuario"].ToString();
+                    usu.Imagen = dt.Rows[i]["imagen"].ToString();
+                    usuarios.Add(usu);
+                }
+                return usuarios;
+            }
+            else
+                return null;
+        }
 
         public static int DevolverEscalar(string nomUsuario, string pass)
         {

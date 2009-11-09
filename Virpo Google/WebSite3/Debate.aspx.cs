@@ -10,15 +10,56 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using CapaNegocio.Entities;
+using CapaNegocio.Factories;
+using System.Collections.Generic;
 
 public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Page.IsPostBack)
+        {
+            if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
+            lblMisGrupos.Text = "<a href='GruposDeInteres.aspx?Id=" + ((Usuario)Session["Usuario"]).Id + "' title='Mis Grupos'>Mis Grupos</a>";
+            if (Request.QueryString["grupo"] != null)
+            {
+                int idGrupo = Convert.ToInt32(Request.QueryString["grupo"]);
+                lblNuevoTopic.Text = "<a href='NuevoTopic.aspx?grupo=" + idGrupo + "'>Iniciar Debate</a>";
+                List<TopicGrupo> topics = TopicGrupoFactory.DevolverTodosPorGrupo(idGrupo);
+                
+                this.CrearTabla(topics);
 
+            }
+        }
+       
     }
-    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+
+    private void CrearTabla(List<TopicGrupo> topics)
     {
-
-    }
+        PostGrupo ultimoPost = new PostGrupo();
+        string html= "";
+        int totalRespuestas = 0;
+        int visitas = 0;
+        Usuario user = (Usuario)Session["Usuario"];
+        foreach (TopicGrupo topic in topics)
+	    {
+           totalRespuestas = TopicGrupoFactory.CantidadRespuestas(topic.Id);
+           visitas = TopicGrupoFactory.CantidadVisitas(topic.Id);
+           ultimoPost = PostGrupoFactory.DevolverUltimo(topic.Id);
+                html += "<tr style='border-style: inset; border-width: thin'>";
+                html += "<td style='text-align: center;'>";
+                html += "<a href='PerfilPublico.aspx?Id="+ user.Id +"'>";
+                html += "<img src='ImagenesUsuario/" + user.Imagen + "' title='" + user.NombreUsuario + "' height='50px' width='50px' /></a>";
+                html += "</td>";
+                html += "<td><a href='PostsGrupos.aspx?topic=" + topic.Id + "'>" + topic.Titulo + "</a><br /> ";
+                html += "creado el " + topic.FechaCreacion.ToShortDateString() + " por ";
+                html += "<a href='PerfilPublico.aspx?Id=" + topic.Creador.Id + "'>" + topic.Creador.NombreUsuario + "</a></td>";
+                html += "<td style='text-align: center;'>" + totalRespuestas + "</td>";
+                html += "<td style='text-align: center;'>" + visitas + "</td>";
+                html += "<td>"+ ultimoPost.FechaCreacion +" por <a href='PerfilPublico.aspx?Id="+ ultimoPost.Creador.Id +"'>"+ ultimoPost.Creador.NombreUsuario +"</a></td>";
+            html += "</tr>";
+	    }
+        lblTabla.Text = html;    
+     }
 }

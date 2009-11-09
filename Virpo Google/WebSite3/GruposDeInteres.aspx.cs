@@ -20,12 +20,25 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            this.CargarGrupos();
+            if (Session["Usuario"] != null)
+                lblMisGrupos.Text = "<a href='GruposDeInteres.aspx?Id=" + ((Usuario)Session["Usuario"]).Id +"' title='Mis Grupos'>Mis Grupos</a>";
+            else
+                lblMisGrupos.Text = "<a href='GruposDeInteres.aspx' title='Mis Grupos'>Mis Grupos</a>";
+            int idUser = 0;
+            if(Request.QueryString["Id"] != null)
+            {
+                idUser = Convert.ToInt32(Request.QueryString["Id"]);
+            }
+            this.CargarGrupos(idUser);
         }
     }
-    private void CargarGrupos()
+    private void CargarGrupos(int idUser)
     {
-        List<Grupo> grupos = GrupoFactory.DevolverTodos(null);
+        string restriccion = "";
+        if (idUser > 0)
+            restriccion = "WHERE idCreador =" + idUser;
+
+        List<Grupo> grupos = GrupoFactory.DevolverTodos(restriccion);
         string html = "<table>";
 
         int i=0;

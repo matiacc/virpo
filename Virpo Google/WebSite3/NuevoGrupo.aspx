@@ -1,6 +1,12 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="NuevoGrupo.aspx.cs" Inherits="NuevoGrupo" Title="Página sin título" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<div id="menu8">
+        <ul>
+            <li><a href="NuevoGrupo.aspx" title="Nuevo Grupo">Nuevo Grupo</a></li>
+            <li><asp:Label ID="lblMisGrupos" runat="server" Text="Mis Grupos"></asp:Label></li>
+        </ul>
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <table class="style1">
@@ -29,6 +35,7 @@
                     <asp:ListItem>Club de Fan</asp:ListItem>
                     <asp:ListItem>Generico</asp:ListItem>
                     <asp:ListItem>Otro</asp:ListItem>
+                    <asp:ListItem>Idioma</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>
@@ -44,14 +51,6 @@
                 Tags</td>
             <td>
                 <asp:TextBox ID="txtTags" runat="server" Width="241px"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Enlaces Recomendados</td>
-            <td>
-                <asp:TextBox ID="txtEnlaces" runat="server" Height="44px" Width="388px"></asp:TextBox><br />
-                * Un enlace por línea
             </td>
         </tr>
         <tr>
