@@ -39,7 +39,7 @@
 	<table width="97%" align="center" class="ContentBox" cellpadding="5" cellspacing="0">
 	<tr class="HeaderCell">
 	<td align="left">
-		<font size="<%=Settings.HeaderSize%>" color="<%=Settings.HeaderFontColor%>"><b>Post New Topic</b></font>
+		<font size="<%=Settings.HeaderSize%>" color="<%=Settings.HeaderFontColor%>"><b>Publicar Nuevo Tema</b></font>
 	</td>
 	</tr>
 	<tr class="TableRow1">
@@ -48,7 +48,7 @@
 		<table border="0" cellpadding="6" align="center">
 		<tr>
 			<td align="right" valign="middle">
-				<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Forum:</b></font>
+				<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Foro:</b></font>
 			</td>
 			<td align="left" valign="middle">
 				<font size="2" color="<%=Settings.TopicsFontColor%>"><asp:Label id="ForumName" runat="server" /></font>
@@ -56,7 +56,7 @@
 		</tr>
 		<tr>
 			<td align="right" valign="middle">
-				<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Subject:</b></font>
+				<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Título:</b></font>
 			</td>
 			<td align="left" valign="middle">
 				<asp:Textbox id="txtSubject" size="100" maxlength="100" runat="server" />
@@ -65,7 +65,7 @@
 		<tr>
 			<td align="right" valign="top">
 				<font size="2" color="<%=Settings.TopicsFontColor%>">
-				<b>Message:</b><br /><br /><br /><br /><a href="javascript:openHelp('DMGcode.html')">Forum Code</a><br />Allowed
+				<b>Contenido:</b><br /><br /><br /><br /><a href="javascript:openHelp('DMGcode.html')">Código de foro</a><br />Permitido
 				</font>
 			</td>
 			<td align="left" valign="middle">
@@ -75,7 +75,7 @@
 		<asp:PlaceHolder id="FileUploadPanel" visible="false" runat="server">
 		<tr>
 			<td align="right" valign="middle">
-				<font size="2" color="<%=Settings.TopicsFontColor%>"><b>File Upload:</b></font>
+				<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Subir archivo:</b></font>
 			</td>
 			<td align="left" valign="middle">
 				<input type="file" id="file" size="40" runat="server" />
@@ -86,16 +86,16 @@
 			<td align="right" valign="top"></td>
 			<td align="left" valign="middle">
 				<font size="2" color="<%=Settings.TopicsFontColor%>">
-					<asp:CheckBox ID="txtSignature" Runat="server" text="Show Profile Signature?<br />" />
-					<asp:CheckBox ID="txtSubscribe" visible="false" Runat="server" text="Subscribe To New Topic?<br />" />
-					<asp:CheckBox ID="txtSticky" visible="false" Runat="server" text="Make Topic Sticky?<br />" />
-					<asp:CheckBox ID="txtNews" visible="false" Runat="server" text="Show Topic In Featured Topics Box?<br />" />
+					<asp:CheckBox ID="txtSignature" Runat="server" text="¿Mostrar firma?<br />" />
+					<asp:CheckBox ID="txtSubscribe" visible="false" Runat="server" text="¿Suscribirse al nuevo tema?<br />" />
+					<asp:CheckBox ID="txtSticky" visible="false" Runat="server" text="¿Marcar como fijo?<br />" />
+					<asp:CheckBox ID="txtNews" visible="false" Runat="server" text="¿Mostrar en cajas de foros?<br />" />
 					<br />
 					<asp:Textbox ID="txtForumID" visible="false" runat="server" />
 					<asp:Textbox ID="txtCategoryID" visible="false" runat="server" />
 					<asp:Textbox ID="txtAuthor" visible="false" runat="server" />
-					<asp:Button type="submit" id="SubmitButton" onclick="SubmitTopic" OnClientClick="javascript:HideButton()" text="Submit Topic" runat="server" />&nbsp;
-					<asp:Button type="submit" id="SubmitPreview" onclick="PreviewTopic" text="Preview Topic" runat="server" />
+					<asp:Button type="submit" id="SubmitButton" onclick="SubmitTopic" OnClientClick="javascript:HideButton()" text="Enviar Tema" runat="server" />&nbsp;
+					<asp:Button type="submit" id="SubmitPreview" onclick="PreviewTopic" text="Tema Anterior" runat="server" />
 					<asp:Label id="SubmitConfirm" text="Please Wait..." style="display: none;" runat="server" />
 				</font>
 			</td>
@@ -119,7 +119,7 @@
 				<tr>
 					<td align="left" valign="bottom" nowrap>
 						<font size="1" color="<%=Settings.TopicsFontColor%>">
-						Posted: <%= PrevDate %>
+						Publicado: <%= PrevDate %>
 						</font>
 					</td>
 				</tr>

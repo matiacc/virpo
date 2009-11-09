@@ -11,7 +11,7 @@
 		<td width="150" nowrap>
 		<% if Session("UserLevel") = "3" then %>
 			<font size="<%=Settings.FooterSize%>" color="<%=Settings.FooterFontColor%>">
-				<a href="admin.aspx" style="color: <%=Settings.FooterFontColor%>">Administration</a>
+				<a href="admin.aspx" style="color: <%=Settings.FooterFontColor%>">Administración</a>
 			</font>
 		<% else %>
 			&nbsp;

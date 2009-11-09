@@ -52,7 +52,7 @@
 	<asp:Panel id="ReplyButton" runat="server">
 		<td width="100%" align="right" valign="bottom" nowrap>
 			<font size="3"><b>
-			<a href="newreply.aspx?ID=<%=TopicID%>">Reply To Topic</a>
+			<a href="newreply.aspx?ID=<%=TopicID%>">Responder el tema</a>
 			</b></font>
 		</td>
 	</asp:Panel>
@@ -86,25 +86,25 @@
 					</font>
 				</td></tr></table>
 				<br />
-				<center><asp:button id="PMButton" onclick="SendPM" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "MEMBER_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((Session("UserLogged") = "1") and (DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL") <> -1) and (DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL") <> 0)), "True", "False") %>' runat="server" Text="SEND PM" /></center>
+				<center><asp:button id="PMButton" onclick="SendPM" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "MEMBER_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((Session("UserLogged") = "1") and (DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL") <> -1) and (DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL") <> 0)), "True", "False") %>' runat="server" Text="MANDAR MP" /></center>
 			</td>
 			<td width="100%" valign="top" style="border-top:1px solid <%=Settings.TableBorderColor%>;border-left:1px solid <%=Settings.TableBorderColor%>;">
 				<table border="0" cellpadding="0" cellspacing="1" width="100%">
 				<tr>
 					<td align="left" valign="bottom" nowrap>
 						<font size="1" color="<%=Settings.TopicsFontColor%>">
-						Posted: <%# FormatDate(DataBinder.Eval(Container.DataItem, "TOPIC_DATE"), 3) %>
+						Publicado: <%# FormatDate(DataBinder.Eval(Container.DataItem, "TOPIC_DATE"), 3) %>
 						</font>
 					</td>
 					<td width="100%" align="right" valign="middle">
 						<nobr>
-						<asp:button id="ConfirmTopicButton" onclick="ConfirmTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((AllowModeration) and (DataBinder.Eval(Container.DataItem, "TOPIC_CONFIRMED") = 0)), "True", "False") %>' runat="server" Text="CONFIRM" />
-						<asp:button id="SubscribeButton" onclick="SubscribeTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((Session("UserLogged") = "1") and ((Settings.AllowSub = 1) or (Session("UserLevel") = "3"))), "True", "False") %>' runat="server" Text="SUBSCRIBE" />
-						<asp:button id="ReportTopicButton" onclick="ReportTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((Session("UserLevel") = "1") and (Settings.AllowReporting = 1)), "True", "False") %>' runat="server" Text="REPORT ABUSE" />
-						<asp:button id="QuoteButton" onclick="QuoteTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((Session("UserLogged") = "1") and (ShowQuoteButton = 1)), "True", "False") %>' runat="server" Text="QUOTE" /> 
-						<asp:button id="EditTopicButton" onclick="EditTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF((((DataBinder.Eval(Container.DataItem, "TOPIC_AUTHOR") = Session("UserID")) and (TopicStatusSave <> 2) and (Settings.AllowEdits = 1)) or ((AllowModeration) and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL"))) or (Session("UserLevel") = "3")), "True", "False") %>' runat="server" Text="EDIT" /> 
-						<asp:button id="DeleteTopicButton" onclick="DeleteTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF((((AllowModeration) and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL"))) or (Session("UserLevel") = "3")), "True", "False") %>' runat="server" Text="DELETE" />
-						<asp:button id="BanMemberButton" onclick="BanMemberConfirm" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_AUTHOR") %>' CssClass="dmgbuttons" visible='<%# IIF(AllowModeration and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL")) and (DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL") <> -1), "True", "False") %>' runat="server" Text="BAN AUTHOR" />
+						<asp:button id="ConfirmTopicButton" onclick="ConfirmTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((AllowModeration) and (DataBinder.Eval(Container.DataItem, "TOPIC_CONFIRMED") = 0)), "True", "False") %>' runat="server" Text="CONFIRMAR" />
+						<asp:button id="SubscribeButton" onclick="SubscribeTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((Session("UserLogged") = "1") and ((Settings.AllowSub = 1) or (Session("UserLevel") = "3"))), "True", "False") %>' runat="server" Text="SUSCRIBIRSE" />
+						<asp:button id="ReportTopicButton" onclick="ReportTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((Session("UserLevel") = "1") and (Settings.AllowReporting = 1)), "True", "False") %>' runat="server" Text="REPORTAR ABUSO" />
+						<asp:button id="QuoteButton" onclick="QuoteTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((Session("UserLogged") = "1") and (ShowQuoteButton = 1)), "True", "False") %>' runat="server" Text="REPLICAR" /> 
+						<asp:button id="EditTopicButton" onclick="EditTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF((((DataBinder.Eval(Container.DataItem, "TOPIC_AUTHOR") = Session("UserID")) and (TopicStatusSave <> 2) and (Settings.AllowEdits = 1)) or ((AllowModeration) and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL"))) or (Session("UserLevel") = "3")), "True", "False") %>' runat="server" Text="EDITAR" /> 
+						<asp:button id="DeleteTopicButton" onclick="DeleteTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF((((AllowModeration) and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL"))) or (Session("UserLevel") = "3")), "True", "False") %>' runat="server" Text="BORRAR" />
+						<asp:button id="BanMemberButton" onclick="BanMemberConfirm" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_AUTHOR") %>' CssClass="dmgbuttons" visible='<%# IIF(AllowModeration and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL")) and (DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL") <> -1), "True", "False") %>' runat="server" Text="BANEAR AUTOR" />
 						</nobr>
 					</td>
 				</tr>
@@ -141,7 +141,7 @@
 					</font>
 				</td></tr></table>
 				<br />
-				<center><asp:button id="PMButton" onclick="SendPM" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "MEMBER_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((Session("UserLogged") = "1") and (DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL") <> -1) and (DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL") <> 0)), "True", "False") %>' runat="server" Text="SEND PM" /></center>
+				<center><asp:button id="PMButton" onclick="SendPM" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "MEMBER_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((Session("UserLogged") = "1") and (DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL") <> -1) and (DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL") <> 0)), "True", "False") %>' runat="server" Text="MANDAR MP" /></center>
 			</td>
 			<td width="100%" valign="top" style="border-top:1px solid <%=Settings.TableBorderColor%>;border-left:1px solid <%=Settings.TableBorderColor%>;">
 				<table border="0" cellpadding="0" cellspacing="1" width="100%">
@@ -149,16 +149,16 @@
 					<%# IIF(((AllowModeration) and (DataBinder.Eval(Container.DataItem, "REPLY_CONFIRMED") = 0)), "<tr><td colspan=""2"" align=""center""><font size=""4""><b>Reply Not Confirmed</b></font></td></tr>", "") %>
 					<td align="left" valign="bottom" nowrap>
 						<font size="1" color="<%=Settings.TopicsFontColor%>">
-						<a name="reply-<%# DataBinder.Eval(Container.DataItem, "REPLY_ID") %>">Posted: <%# FormatDate(DataBinder.Eval(Container.DataItem, "REPLY_DATE"), 3) %></a>
+						<a name="reply-<%# DataBinder.Eval(Container.DataItem, "REPLY_ID") %>">Publicado: <%# FormatDate(DataBinder.Eval(Container.DataItem, "REPLY_DATE"), 3) %></a>
 						</font>
 					</td>
 					<td width="100%" align="right" valign="middle">
 						<nobr>
-						<asp:button id="ConfirmReplyButton" onclick="ConfirmReply" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "REPLY_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((AllowModeration) and (DataBinder.Eval(Container.DataItem, "REPLY_CONFIRMED") = 0)), "True", "False") %>' runat="server" Text="CONFIRM" />
-						<asp:button id="QuoteButton" onclick="QuoteReply" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "REPLY_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((Session("UserLogged") = "1") and (ShowQuoteButton = 1)), "True", "False") %>' runat="server" Text="QUOTE" /> 
-						<asp:button id="EditReplyButton" onclick="EditReply" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "REPLY_ID") %>' CssClass="dmgbuttons" visible='<%# IIF((((DataBinder.Eval(Container.DataItem, "REPLY_AUTHOR") = Session("UserID")) and (TopicStatusSave <> 2) and (Settings.AllowEdits = 1)) or (AllowModeration) and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL")) or (Session("UserLevel") = "3")), "True", "False") %>' runat="server" Text="EDIT" />
-						<asp:button id="DeleteReplyButton" onclick="DeleteReply" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "REPLY_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((AllowModeration) and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL")) or (Session("UserLevel") = "3")), "True", "False") %>' runat="server" Text="DELETE" />
-						<asp:button id="BanMemberButton" onclick="BanMemberConfirm" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "REPLY_AUTHOR") %>' CssClass="dmgbuttons" visible='<%# IIF(AllowModeration and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL")) and (DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL") <> -1), "True", "False") %>' runat="server" Text="BAN AUTHOR" />
+						<asp:button id="ConfirmReplyButton" onclick="ConfirmReply" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "REPLY_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((AllowModeration) and (DataBinder.Eval(Container.DataItem, "REPLY_CONFIRMED") = 0)), "True", "False") %>' runat="server" Text="CONFIRMAR" />
+						<asp:button id="QuoteButton" onclick="QuoteReply" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "REPLY_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((Session("UserLogged") = "1") and (ShowQuoteButton = 1)), "True", "False") %>' runat="server" Text="REPLICAR" /> 
+						<asp:button id="EditReplyButton" onclick="EditReply" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "REPLY_ID") %>' CssClass="dmgbuttons" visible='<%# IIF((((DataBinder.Eval(Container.DataItem, "REPLY_AUTHOR") = Session("UserID")) and (TopicStatusSave <> 2) and (Settings.AllowEdits = 1)) or (AllowModeration) and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL")) or (Session("UserLevel") = "3")), "True", "False") %>' runat="server" Text="EDITAR" />
+						<asp:button id="DeleteReplyButton" onclick="DeleteReply" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "REPLY_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((AllowModeration) and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL")) or (Session("UserLevel") = "3")), "True", "False") %>' runat="server" Text="BORRAR" />
+						<asp:button id="BanMemberButton" onclick="BanMemberConfirm" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "REPLY_AUTHOR") %>' CssClass="dmgbuttons" visible='<%# IIF(AllowModeration and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL")) and (DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL") <> -1), "True", "False") %>' runat="server" Text="BANEAR AUTOR" />
 						</nobr>
 					</td>
 				</tr>
@@ -200,7 +200,7 @@
 					<%# IIF(((AllowModeration) and (DataBinder.Eval(Container.DataItem, "REPLY_CONFIRMED") = 0)), "<tr><td colspan=""2"" align=""center""><font size=""4""><b>Reply Not Confirmed</b></font></td></tr>", "") %>
 					<td align="left" valign="bottom" nowrap>
 						<font size="1" color="<%=Settings.TopicsFontColor%>">
-						<a name="reply-<%# DataBinder.Eval(Container.DataItem, "REPLY_ID") %>">Posted: <%# FormatDate(DataBinder.Eval(Container.DataItem, "REPLY_DATE"), 3) %></a>
+						<a name="reply-<%# DataBinder.Eval(Container.DataItem, "REPLY_ID") %>">Publicado: <%# FormatDate(DataBinder.Eval(Container.DataItem, "REPLY_DATE"), 3) %></a>
 						</font>
 					</td>
 					<td width="100%" align="right" valign="middle">
@@ -237,21 +237,21 @@
 			<tr>
 			<td width="150" align="right" nowrap>
 				<font size="2"><b>
-				<asp:LinkButton runat="server" ID="FirstLink" Text="&laquo; First" onClick="ChangePage" />
+				<asp:LinkButton runat="server" ID="FirstLink" Text="&laquo; Primero" onClick="ChangePage" />
 				&nbsp;&nbsp;
-				<asp:LinkButton runat="server" ID="PreviousLink" Text="&laquo; Previous" onClick="ChangePage" />
+				<asp:LinkButton runat="server" ID="PreviousLink" Text="&laquo; Anterior" onClick="ChangePage" />
 				</b></font>
 			</td>
 			<td align="center" nowrap>
 				<font size="2" color="<%=Settings.FontColor%>">
-				<b>Page <asp:DropDownList runat="server" ID="JumpPage" AutoPostBack="true" OnSelectedIndexChanged="ChangePage"  /> of <asp:Label runat="server" ID="PageCountLabel" EnableViewState="true" /></b>
+				<b>Página <asp:DropDownList runat="server" ID="JumpPage" AutoPostBack="true" OnSelectedIndexChanged="ChangePage"  /> de <asp:Label runat="server" ID="PageCountLabel" EnableViewState="true" /></b>
 				</font>
 			</td>
 			<td width="150" align="left" nowrap>
 				<font size="2"><b>
-				<asp:LinkButton runat="server" ID="NextLink" Text="Next &raquo;" onClick="ChangePage" />
+				<asp:LinkButton runat="server" ID="NextLink" Text="Próximo &raquo;" onClick="ChangePage" />
 				&nbsp;&nbsp;
-				<asp:LinkButton runat="server" ID="LastLink" Text="Last &raquo;" onClick="ChangePage" />
+				<asp:LinkButton runat="server" ID="LastLink" Text="Último &raquo;" onClick="ChangePage" />
 				</b></font>
 			</td>
 			</tr>
@@ -265,21 +265,21 @@
 		<tr>
 			<td align="center" valign="middle">
 				<font size="2" color="<%=Settings.FontColor%>"><b>
-				<a href="javascript:openHelp('DMGcode.html')">Forum Code</a><br />Allowed
+				<a href="javascript:openHelp('DMGcode.html')">Código de Foro</a><br />Permitido
 				</b></font>
 			</td>
 			<td align="left" valign="top">
-				<font size="2" color="<%=Settings.FontColor%>"><b>Reply Message:</b><br />
+				<font size="2" color="<%=Settings.FontColor%>"><b>Mensaje de respuesta:</b><br />
 				<asp:Textbox id="txtForumID" runat="server" visible="false" />
 				<asp:Textbox id="txtTopicID" runat="server" visible="false" />
 				<asp:Textbox id="txtAuthor" runat="server" visible="false" />
 
 				<asp:Textbox id="txtPosts" runat="server" visible="false" />
 				<asp:Textbox id="txtReplyMessage" Textmode="Multiline" Columns="65" Rows="10" runat="server" /><br/>
-				<asp:CheckBox ID="txtSignature" Runat="server" text="Show Profile Signature?<br />" />
+				<asp:CheckBox ID="txtSignature" Runat="server" text="¿Mostrar Firma?<br />" />
 				<br />
 				<center>
-					<asp:Button type="submit" id="SubmitButton" onclick="SubmitReply" OnClientClick="javascript:HideButton()" text="Submit Reply" runat="server" />
+					<asp:Button type="submit" id="SubmitButton" onclick="SubmitReply" OnClientClick="javascript:HideButton()" text="Enviar Respuesta" runat="server" />
 					<asp:Label id="SubmitConfirm" text="Please Wait..." style="display: none;" runat="server" />
 				</center>
 				</font>
@@ -296,13 +296,13 @@
 		<table border="0" width="97%" align="center" cellpadding="5" cellspacing="0">
 		<tr>
 		<td width="100%" align="center" valign="bottom">
-			<font size="2" color="<%=Settings.FontColor%>">Are you sure you want to confirm this topic and make it visible to the public?</font><br /><br />
+			<font size="2" color="<%=Settings.FontColor%>">¿Hacer este tema visible para los usuarios?</font><br /><br />
 			<asp:DropDownList id="ConfirmTopicDropdown" runat="server">
-				<asp:ListItem Selected="True" Value="1" Text="Yes" />
+				<asp:ListItem Selected="True" Value="1" Text="Si" />
 				<asp:ListItem Value="0" Text="No" />
 			</asp:DropDownList>
 			<br /><br />
-			<asp:Button id="ConfirmTopicSubmitButton" onclick="ApplyTopicConfirmation" runat="server" Text="Submit" />
+			<asp:Button id="ConfirmTopicSubmitButton" onclick="ApplyTopicConfirmation" runat="server" Text="Enviar" />
 		</td>
 		</tr>
 		</table>
@@ -313,13 +313,13 @@
 		<table border="0" width="97%" align="center" cellpadding="5" cellspacing="0">
 		<tr>
 		<td width="100%" align="center" valign="bottom">
-			<font size="2" color="<%=Settings.FontColor%>">Are you sure you want to confirm this reply and make it visible to the public?</font><br /><br />
+			<font size="2" color="<%=Settings.FontColor%>">¿Hacer este respuesta visible para los usuarios?</font><br /><br />
 			<asp:DropDownList id="ConfirmReplyDropdown" runat="server">
-				<asp:ListItem Selected="True" Value="1" Text="Yes" />
+				<asp:ListItem Selected="True" Value="1" Text="Si" />
 				<asp:ListItem Value="0" Text="No" />
 			</asp:DropDownList>
 			<br /><br />
-			<asp:Button id="ConfirmReplySubmitButton" onclick="ApplyReplyConfirmation" runat="server" Text="Submit" />
+			<asp:Button id="ConfirmReplySubmitButton" onclick="ApplyReplyConfirmation" runat="server" Text="Enviar" />
 		</td>
 		</tr>
 		</table>
@@ -330,11 +330,11 @@
 		<table border="0" width="97%" align="center" cellpadding="5" cellspacing="0">
 		<tr>
 		<td width="100%" align="center" valign="bottom">
-			<font size="2" color="<%=Settings.FontColor%>">Enter a message that will be sent to the admins/moderators along with this alert.</font>
+			<font size="2" color="<%=Settings.FontColor%>">Ingresar el texto que será enviado a los administradores.</font>
 			<br /><br />
 			<asp:Textbox id="txtReportTopicMessage" Columns="45" Rows="6" Textmode="multiline" runat="server" />
 			<br /><br />
-			<asp:Button id="ReportTopicSubmitButton" onclick="ReportTopicConfirmation" runat="server" Text="Submit" />
+			<asp:Button id="ReportTopicSubmitButton" onclick="ReportTopicConfirmation" runat="server" Text="Enviar" />
 		</td>
 		</tr>
 		</table>
@@ -345,7 +345,7 @@
 
 	<asp:Panel id="BanMemberPanel" visible="false" runat="server">
 		<center>
-		<asp:Button type="submit" id="YesButton" onclick="BanMember" text="Yes" runat="server" />
+		<asp:Button type="submit" id="YesButton" onclick="BanMember" text="Si" runat="server" />
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<asp:Button type="submit" id="NoButton" onclick="CancelBanMember" text="No" runat="server" />
 		</center>

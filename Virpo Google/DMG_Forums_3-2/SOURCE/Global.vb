@@ -1986,7 +1986,7 @@ Namespace DMGForums.Global
 			if mLogged = "0" then
 				ReturnString &= Separator & "<a href=""register.aspx"">Register</a>"
 			end if
-			ReturnString &= Separator & "<a href=""active.aspx"">Active Topics</a>"
+            ReturnString &= Separator & "<a href=""active.aspx"">Topicos Activos</a>"
 			ReturnString &= Separator & "<a href=""members.aspx"">Members</a>"
 			ReturnString &= Separator & "<a href=""search.aspx"">Search</a>"
 			if mLogged = "1" then

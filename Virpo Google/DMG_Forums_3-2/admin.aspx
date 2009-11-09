@@ -23,7 +23,7 @@
 	<table width="97%" align="center" class="ContentBox" cellpadding="5" cellspacing="0">
 	<tr class="HeaderCell">
 	<td align="left">
-		<font size="<%=Settings.HeaderSize%>" color="<%=Settings.HeaderFontColor%>"><b><a href="admin.aspx" style="color:<%=Settings.HeaderFontColor%>;">DMG Forums Admin Console</a></b></font>
+		<font size="<%=Settings.HeaderSize%>" color="<%=Settings.HeaderFontColor%>"><b><a href="admin.aspx" style="color:<%=Settings.HeaderFontColor%>;">Foro Virpo - Panel de control del Administrador</a></b></font>
 	</td>
 	</tr>
 	<tr class="TableRow1">
@@ -37,27 +37,27 @@
 				<table border="2" cellpadding="0" cellspacing="5" align="center" bgcolor="<%=Settings.TableBGColor2%>">
 				<tr>
 				<td align="center" valign="middle" height="40">
-					<font size="4" color="<%=Settings.TopicsFontColor%>"><b>Site Setup</b></font>
+					<font size="4" color="<%=Settings.TopicsFontColor%>"><b>Configuración del Foro</b></font>
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="SiteMainConfigButton" onclick="OpenConfig" CommandArgument="1" Text="Main Configuration" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="SiteMainConfigButton" onclick="OpenConfig" CommandArgument="1" Text="Configuración Principal" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="EmailConfigButton" onclick="OpenConfig" CommandArgument="12" Text="E-Mail Server Setup" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="EmailConfigButton" onclick="OpenConfig" CommandArgument="12" Text="Configuración de E-mail" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="CustomVariablesButton" onclick="OpenConfig" CommandArgument="10" Text="Custom Variables" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="CustomVariablesButton" onclick="OpenConfig" CommandArgument="10" Text="Varibles personalizadas" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="SearchConfigButton" onclick="OpenConfig" CommandArgument="23" Text="Search Configuration" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="SearchConfigButton" onclick="OpenConfig" CommandArgument="23" Text="Configuración de búsqueda" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				</table>
@@ -66,27 +66,27 @@
 				<table border="2" cellpadding="0" cellspacing="5" align="center" bgcolor="<%=Settings.TableBGColor2%>">
 				<tr>
 				<td align="center" valign="middle" height="40">
-					<font size="4" color="<%=Settings.TopicsFontColor%>"><b>Page Content</b></font>
+					<font size="4" color="<%=Settings.TopicsFontColor%>"><b>Contenido de la página</b></font>
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="CreatePageButton" onclick="CreateNewPage" Text="Create New Page" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="CreatePageButton" onclick="CreateNewPage" Text="Crear una nueva página" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="EditPageButton" onclick="EditPages" Text="Edit Pages" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="EditPageButton" onclick="EditPages" Text="Editar páginas" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="MainMenuConfigButton" onclick="EditMainMenu" Text="Main Menu Configuration" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="MainMenuConfigButton" onclick="EditMainMenu" Text="Configuración del menú principal" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="HTMLFormResultsButton" onclick="OpenConfig" CommandArgument="16" Text="HTML Form Results" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="HTMLFormResultsButton" onclick="OpenConfig" CommandArgument="16" Text="Resultados del formulario HTML" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				</table>
@@ -95,27 +95,27 @@
 				<table border="2" cellpadding="0" cellspacing="5" align="center" bgcolor="<%=Settings.TableBGColor2%>">
 				<tr>
 				<td align="center" valign="middle" height="40">
-					<font size="4" color="<%=Settings.TopicsFontColor%>"><b>Web Page Design</b></font>
+					<font size="4" color="<%=Settings.TopicsFontColor%>"><b>Diseño de la página Web</b></font>
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="ColorsFontsButton" onclick="OpenConfig" CommandArgument="2" Text="Colors & Fonts" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="ColorsFontsButton" onclick="OpenConfig" CommandArgument="2" Text="Colores y fuentes" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="CustomHTMLButton" onclick="OpenConfig" CommandArgument="3" Text="HTML Design Layout" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="CustomHTMLButton" onclick="OpenConfig" CommandArgument="3" Text="HTML Layout" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="NewTemplateButton" onclick="CreateNewTemplate" Text="Create New Design Template" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="NewTemplateButton" onclick="CreateNewTemplate" Text="Crear una una plantilla de diseño" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="DeleteTemplateButton" onclick="DeleteTemplateMenu" Text="Delete Unused Templates" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="DeleteTemplateButton" onclick="DeleteTemplateMenu" Text="Borrar plantillas" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				</table>
@@ -126,67 +126,67 @@
 				<table border="2" cellpadding="0" cellspacing="5" align="center" bgcolor="<%=Settings.TableBGColor2%>">
 				<tr>
 				<td align="center" valign="middle" height="40">
-					<font size="4" color="<%=Settings.TopicsFontColor%>"><b>DMG Forums</b></font>
+					<font size="4" color="<%=Settings.TopicsFontColor%>"><b>Foro Virpo</b></font>
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="ForumsMainConfigButton" onclick="OpenConfig" CommandArgument="21" Text="Forum Options" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="ForumsMainConfigButton" onclick="OpenConfig" CommandArgument="21" Text="Opciones del foro" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="EditCategoriesButton" onclick="OpenConfig" CommandArgument="4" Text="Categories" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="EditCategoriesButton" onclick="OpenConfig" CommandArgument="4" Text="Categorías" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="EditForumsButton" onclick="OpenConfig" CommandArgument="5" Text="Forums" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="EditForumsButton" onclick="OpenConfig" CommandArgument="5" Text="Foros" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="CreateMemberButton" onclick="CreateNewMember" Text="Create Member" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="CreateMemberButton" onclick="CreateNewMember" Text="Crear miembro" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="EditMembersButton" onclick="OpenConfig" CommandArgument="6" Text="Edit Members" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="EditMembersButton" onclick="OpenConfig" CommandArgument="6" Text="Editar miembros" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="RankingButton" onclick="OpenConfig" CommandArgument="8" Text="Forum Rankings" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="RankingButton" onclick="OpenConfig" CommandArgument="8" Text="Rankings de foros" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="VerifyMembersButton" onclick="OpenConfig" CommandArgument="13" Text="Members Pending Validation" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="VerifyMembersButton" onclick="OpenConfig" CommandArgument="13" Text="Validación de miembros" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="BannedIPButton" onclick="OpenConfig" CommandArgument="17" Text="Banned IP Addresses" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="BannedIPButton" onclick="OpenConfig" CommandArgument="17" Text="Banear IP" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="CurseFilterButton" onclick="OpenConfig" CommandArgument="14" Text="Bad Word Filter" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="CurseFilterButton" onclick="OpenConfig" CommandArgument="14" Text="Filtro de malas palabras" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="CustomMessagesButton" onclick="OpenConfig" CommandArgument="19" Text="Customize E-Mails & Dialogs" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="CustomMessagesButton" onclick="OpenConfig" CommandArgument="19" Text="Personalizar E-Mails  y diálogos" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="CleanupPMButton" onclick="OpenConfig" CommandArgument="22" Text="Private Messages Cleanup" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="CleanupPMButton" onclick="OpenConfig" CommandArgument="22" Text="Borrar mensajes privados" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="UpdateCountsButton" onclick="UpdateCounts" Text="Repair Forum Counts" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="UpdateCountsButton" onclick="UpdateCounts" Text="Reparar el contador de foros" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				</table>
@@ -195,12 +195,12 @@
 				<table border="2" cellpadding="0" cellspacing="5" align="center" bgcolor="<%=Settings.TableBGColor2%>">
 				<tr>
 				<td align="center" valign="middle" height="40">
-					<font size="4" color="<%=Settings.TopicsFontColor%>"><b>File Uploads</b></font>
+					<font size="4" color="<%=Settings.TopicsFontColor%>"><b>Subida de archivos</b></font>
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="FileManagerButton" onclick="GoToFileManager" Text="File Manager" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="FileManagerButton" onclick="GoToFileManager" Text="Administrador de archivos" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
@@ -210,12 +210,12 @@
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="PhotoGalleryButton" onclick="OpenConfig" CommandArgument="18" Text="Photo Galleries" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="PhotoGalleryButton" onclick="OpenConfig" CommandArgument="18" Text="Galería de fotos" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="RotatorButton" onclick="OpenConfig" CommandArgument="15" Text="Image Rotators" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="RotatorButton" onclick="OpenConfig" CommandArgument="15" Text="Rotación de imágenes" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				</table>
@@ -224,22 +224,22 @@
 				<table border="2" cellpadding="0" cellspacing="5" align="center" bgcolor="<%=Settings.TableBGColor2%>">
 				<tr>
 				<td align="center" valign="middle" height="40">
-					<font size="4" color="<%=Settings.TopicsFontColor%>"><b>Help</b></font>
+					<font size="4" color="<%=Settings.TopicsFontColor%>"><b>Ayuda</b></font>
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<input type="submit" id="DMGForumCodesButton" OnClick="openHelp('DMGCode.html')" value="DMG Forum Codes" class="AdminButtons" />
+					<input type="submit" id="DMGForumCodesButton" OnClick="openHelp('DMGCode.html')" value="Códigos de Foro Virpo" class="AdminButtons" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<input type="submit" id="DMGAdminCodesButton" OnClick="openHelp('DMGAdminCode.html')" value="DMG Admin Codes" class="AdminButtons" />
+					<input type="submit" id="DMGAdminCodesButton" OnClick="openHelp('DMGAdminCode.html')" value="Códigos de administración Virpo" class="AdminButtons" />
 				</td>
 				</tr>
 				<tr>
 				<td align="center">
-					<asp:Button id="AboutDMGButton" onclick="OpenConfig" CommandArgument="20" Text="About DMG Forums" CssClass="AdminButtons" runat="server" />
+					<asp:Button id="AboutDMGButton" onclick="OpenConfig" CommandArgument="20" Text="Acerca de Voro Virpo" CssClass="AdminButtons" runat="server" />
 				</td>
 				</tr>
 				</table>
@@ -261,7 +261,7 @@
 			<table border="2" cellpadding="10" align="center">
 			<tr class="TableRow2">
 			<td align="center" valign="middle" height="40">
-				<font size="4" color="<%=Settings.TopicsFontColor%>"><b>Main Configuration</b></font>
+				<font size="4" color="<%=Settings.TopicsFontColor%>"><b>Configuración Principal</b></font>
 			</td>
 			</tr>
 			<tr>
@@ -269,7 +269,7 @@
 				<table border="0" cellpadding="6" align="center">
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Website Name:</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Nombre del Website:</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:Textbox id="txtDMGTitle" size="50" maxlength="100" runat="server" />
@@ -277,7 +277,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>HTML Page Title:</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Título de la página HTML:</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:Textbox id="txtDMGHtmlTitle" size="50" maxlength="100" runat="server" />
@@ -285,7 +285,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Copyright Text:</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Texto Copyright:</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:Textbox id="txtDMGCopyright" size="50" maxlength="100" runat="server" />
@@ -293,7 +293,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Current Layout Template:</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Plantilla actual:</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:DropDownList id="txtDMGLayoutTemplate" runat="server" />
@@ -301,11 +301,11 @@
 				</tr>
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Main Page Options:</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Opciones de la página principal:</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:DropDownList id="txtDMGSetDefaultPage" runat="server">
-							<asp:ListItem Value="1" Text="Forums Only" />
+							<asp:ListItem Value="1" Text="Solo foros" />
 							<asp:ListItem Value="0" Text="Custom HTML (No Forums)" />
 							<asp:ListItem Value="2" Text="Custom HTML Above Forums" />
 						</asp:DropDownList>
@@ -313,7 +313,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Website Logo URL:</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Dirección web de logo:</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:Textbox id="txtDMGLogo" size="50" maxlength="100" runat="server" />
@@ -321,7 +321,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Website URL:</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Dirección web del foro:</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:Textbox id="txtDMGURL" size="50" maxlength="100" runat="server" />
@@ -329,7 +329,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="top">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Maximum Thumbnail Width/Height:</b><br />(pixels)</font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Tamaño máximo de las miniaturas ancho/alto:</b><br />(pixeles)</font>
 					</td>
 					<td align="left" valign="top">
 						<asp:Textbox id="txtDMGThumbnailSize" size="3" maxlength="5" runat="server" /></font>
@@ -337,7 +337,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="top">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>META Keywords:</b><br /><br /></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Palabras clave:</b><br /><br /></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:Textbox id="txtDMGCustomMeta" Columns="45" Rows="6" Textmode="multiline" runat="server" />
@@ -348,7 +348,7 @@
 			</tr>
 			<tr>
 				<td align="center" valign="middle">
-					<asp:Button type="submit" id="MainConfigSubmit" onclick="SubmitMainConfig" text="Save Changes" CssClass="AdminButtons" runat="server" />
+					<asp:Button type="submit" id="MainConfigSubmit" onclick="SubmitMainConfig" text="Guardar cambios" CssClass="AdminButtons" runat="server" />
 				</td>
 			</tr>
 			</table>
@@ -1108,8 +1108,8 @@
 					</td>
 					<td align="center">
 						<select name="txtLinkType<%# DataBinder.Eval(Container.DataItem, "LINK_ID") %>">
-						<option value="1" <%# IIF(DataBinder.Eval(Container.DataItem, "LINK_TYPE") = 1, "SELECTED", "") %>>Main Page</option>
-						<option value="2" <%# IIF(DataBinder.Eval(Container.DataItem, "LINK_TYPE") = 2, "SELECTED", "") %>>Content Page</option>
+						<option value="1" <%# IIF(DataBinder.Eval(Container.DataItem, "LINK_TYPE") = 1, "SELECTED", "") %>>Página Principal</option>
+						<option value="2" <%# IIF(DataBinder.Eval(Container.DataItem, "LINK_TYPE") = 2, "SELECTED", "") %>>Página De Contenido</option>
 						<option value="3" <%# IIF(DataBinder.Eval(Container.DataItem, "LINK_TYPE") = 3, "SELECTED", "") %>>Forums</option>
 						<option value="4" <%# IIF(DataBinder.Eval(Container.DataItem, "LINK_TYPE") = 4, "SELECTED", "") %>>Register</option>
 						<option value="5" <%# IIF(DataBinder.Eval(Container.DataItem, "LINK_TYPE") = 5, "SELECTED", "") %>>Active Topics</option>
@@ -1149,21 +1149,21 @@
 				</td>
 				<td align="center">
 					<asp:DropDownList id="NewLinkType" runat="server">
-						<asp:ListItem Value="1" Text="Main Page" />
-						<asp:ListItem Selected="True" Value="2" Text="Content Page" />
-						<asp:ListItem Value="3" Text="Forums" />
-						<asp:ListItem Value="4" Text="Register" />
-						<asp:ListItem Value="5" Text="Active Topics" />
-						<asp:ListItem Value="6" Text="Members" />
-						<asp:ListItem Value="7" Text="Search" />
-						<asp:ListItem Value="8" Text="Specific Category" />
-						<asp:ListItem Value="9" Text="Specific Forum" />
-						<asp:ListItem Value="10" Text="User CP" />
-						<asp:ListItem Value="11" Text="Private Messages" />
-						<asp:ListItem Value="12" Text="Edit Profile" />
-						<asp:ListItem Value="15" Text="Login Page" />
-						<asp:ListItem Value="13" Text="Administration" />
-						<asp:ListItem Value="14" Text="Custom URL" />
+						<asp:ListItem Value="1" Text="Página Principal" />
+						<asp:ListItem Selected="True" Value="2" Text="Página de contenido" />
+						<asp:ListItem Value="3" Text="Foros" />
+						<asp:ListItem Value="4" Text="Registrarse" />
+						<asp:ListItem Value="5" Text="´Temas activos" />
+						<asp:ListItem Value="6" Text="Miembros" />
+						<asp:ListItem Value="7" Text="Buscar" />
+						<asp:ListItem Value="8" Text="Categoría Específica" />
+						<asp:ListItem Value="9" Text="Foro Específico" />
+						<asp:ListItem Value="10" Text="Panel de Control" />
+						<asp:ListItem Value="11" Text="Mensajes Privados" />
+						<asp:ListItem Value="12" Text="Editar Perfil" />
+						<asp:ListItem Value="15" Text="Página De Ingreso" />
+						<asp:ListItem Value="13" Text="Administración" />
+						<asp:ListItem Value="14" Text="URL Personalizada" />
 					</asp:DropDownList>
 				</td>
 				<td align="center">
@@ -2847,6 +2847,7 @@
 			</td>
 			</tr>
 			</table>
+			<br>
 			</br >
 		</asp:Panel>
 

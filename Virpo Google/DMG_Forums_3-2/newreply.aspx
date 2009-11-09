@@ -39,7 +39,7 @@
 	<table width="97%" align="center" class="ContentBox" cellpadding="5" cellspacing="0">
 	<tr class="HeaderCell">
 	<td align="left">
-		<font size="<%=Settings.HeaderSize%>" color="<%=Settings.HeaderFontColor%>"><b>Post New Reply</b></font>
+		<font size="<%=Settings.HeaderSize%>" color="<%=Settings.HeaderFontColor%>"><b>Publicar Nueva Respuesta</b></font>
 	</td>
 	</tr>
 	<tr class="TableRow1">
@@ -48,7 +48,7 @@
 		<table border="0" cellpadding="6" align="center">
 		<tr>
 			<td align="right" valign="middle">
-				<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Topic:</b></font>
+				<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Tema:</b></font>
 			</td>
 			<td align="left" valign="middle">
 				<font size="2" color="<%=Settings.TopicsFontColor%>"><asp:Label id="txtTopicSubject" runat="server" /></font>
@@ -57,7 +57,7 @@
 		<tr>
 			<td align="right" valign="top">
 				<font size="2" color="<%=Settings.TopicsFontColor%>">
-				<b>Reply Message:</b><br /><br /><br /><br /><a href="javascript:openHelp('DMGcode.html')">Forum Code</a><br />Allowed
+				<b>Mensaje:</b><br /><br /><br /><br /><a href="javascript:openHelp('DMGcode.html')">Código de foro</a><br />Permitido
 				</font>
 			</td>
 			<td align="left" valign="middle">
@@ -68,13 +68,13 @@
 			<td align="right" valign="top"></td>
 			<td align="left" valign="middle">
 				<font size="2" color="<%=Settings.TopicsFontColor%>"> 
-					<asp:CheckBox ID="txtSignature" Runat="server" text="Show Profile Signature?<br />" />
+					<asp:CheckBox ID="txtSignature" Runat="server" text="¿Mostrar firma?<br />" />
 					<br />
 					<asp:Textbox ID="txtTopicID" visible="false" runat="server" />
 					<asp:Textbox ID="txtForumID" visible="false" runat="server" />
 					<asp:Textbox ID="txtAuthor" visible="false" runat="server" />
-					<asp:Button type="submit" id="SubmitButton" onclick="SubmitReply" OnClientClick="javascript:HideButton()" text="Submit Reply" runat="server" />&nbsp;
-					<asp:Button type="submit" id="SubmitPreview" onclick="PreviewReply" text="Preview Reply" runat="server" />
+					<asp:Button type="submit" id="SubmitButton" onclick="SubmitReply" OnClientClick="javascript:HideButton()" text="Enviar respuesta" runat="server" />&nbsp;
+					<asp:Button type="submit" id="SubmitPreview" onclick="PreviewReply" text="Respuesta Anterior" runat="server" />
 					<asp:Label id="SubmitConfirm" text="Please Wait..." style="display: none;" runat="server" />
 				</font>
 			</td>
@@ -98,7 +98,7 @@
 				<tr>
 					<td align="left" valign="bottom" nowrap>
 						<font size="1" color="<%=Settings.TopicsFontColor%>">
-						Posted: <%= PrevDate %>
+						Publicado: <%= PrevDate %>
 						</font>
 					</td>
 				</tr>

@@ -22,7 +22,7 @@
 		<table width="97%" align="center" class="ContentBox" cellpadding="5" cellspacing="0">
 		<tr class="HeaderCell">
 		<td align="left">
-			<font size="<%=Settings.HeaderSize%>" color="<%=Settings.HeaderFontColor%>"><b><a href="admin.aspx" style="color:<%=Settings.HeaderFontColor%>;">DMG Forums Admin Console</a> >> <a href="admin_createmember.aspx" style="color:<%=Settings.HeaderFontColor%>;">Create Member</a></b></font>
+			<font size="<%=Settings.HeaderSize%>" color="<%=Settings.HeaderFontColor%>"><b><a href="admin.aspx" style="color:<%=Settings.HeaderFontColor%>;">Foro Virpo - Consola de administración</a> >> <a href="admin_createmember.aspx" style="color:<%=Settings.HeaderFontColor%>;">Create Member</a></b></font>
 		</td>
 		</tr>
 		<tr class="TableRow1">
@@ -30,7 +30,7 @@
 			<table border="2" cellpadding="10" align="center">
 			<tr class="TableRow2">
 			<td align="center" valign="middle" height="40">
-				<font size="4" color="<%=Settings.TopicsFontColor%>"><b>Create Member</b></font>
+				<font size="4" color="<%=Settings.TopicsFontColor%>"><b>Crear Miembro</b></font>
 			</td>
 			</tr>
 			<tr>
@@ -38,7 +38,7 @@
 				<table border="0" cellpadding="6" align="center">
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Username:</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Nombre de usuario:</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:Textbox id="txtUsername" size="30" maxlength="50" runat="server" />
@@ -46,7 +46,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Password:</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Contraseña:</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:Textbox id="txtPassword" TextMode="password" size="30" maxlength="50" runat="server" />
@@ -54,7 +54,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Member Type:</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Tipo de miembro:</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:DropDownList id="txtLevel" runat="server">
@@ -67,7 +67,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Custom Title:</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Título personalizado:</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:Textbox id="txtTitle" size="30" maxlength="30" runat="server" />
@@ -75,7 +75,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Use Custom Title?</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>¿Usa título personalizado?</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:DropDownList id="txtUseTitle" runat="server">
@@ -86,7 +86,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Allow Title Editing?</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>¿Permitir final de texto?</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:DropDownList id="txtAllowTitle" runat="server">
@@ -105,7 +105,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>E-Mail Address:</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Direccion de E-Mail:</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:Textbox id="txtEmail" size="30" maxlength="50" runat="server" />
@@ -113,7 +113,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Show E-Mail?</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>¿Mostrar E-mail?</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:DropDownList id="txtShowEmail" runat="server">
@@ -124,7 +124,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="middle">
-						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>Allow Custom Avatars?</b></font>
+						<font size="2" color="<%=Settings.TopicsFontColor%>"><b>¿Permitir avatares personalizados?</b></font>
 					</td>
 					<td align="left" valign="middle">
 						<asp:DropDownList id="txtAllowCustomAvatar" runat="server">
@@ -138,7 +138,7 @@
 			</tr>
 			<tr>
 				<td align="center" valign="middle">
-					<asp:Button type="submit" id="CreateMemberSubmit" onclick="SubmitNewMember" text="Submit New Member" CssClass="AdminButtons" runat="server" />
+					<asp:Button type="submit" id="CreateMemberSubmit" onclick="SubmitNewMember" text="Guardar nuevo miembro" CssClass="AdminButtons" runat="server" />
 				</td>
 			</tr>
 			</table>
