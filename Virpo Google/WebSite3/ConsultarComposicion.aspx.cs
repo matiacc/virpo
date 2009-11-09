@@ -41,11 +41,17 @@ public partial class _Default : System.Web.UI.Page
         lblTonalidad.Text = comp.Tonalidad.Nombre;
         lblInstrumento.Text = comp.Instrumento.Nombre;
 
-        if (Session["Usuario"] != comp.Usuario) ; 
+        if (Session["Usuario"] != comp.Usuario) 
         {
             this.CargarFoto(comp);
             
+            
         }
+        else
+        {
+            Label8.Visible = false;
+        }
+       
        
 
 

@@ -16,9 +16,17 @@ using System.Collections.Generic;
 
 public partial class _Default : System.Web.UI.Page
 {
+
+    protected string mp3_seleccionado = "";
+    protected string mp3_seleccionado_titulo = "";
+    protected string reproducir = "no";
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        mp3_seleccionado = "";
+        mp3_seleccionado_titulo = "";
+        reproducir = "no";
+        
         if (!Page.IsPostBack)
         {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
@@ -34,11 +42,11 @@ public partial class _Default : System.Web.UI.Page
     private void CargarComposiciones()
     {
         DataTable dt = this.DatosComposiciones();
-
+        GridView1.Columns[5].Visible = true;
         
         GridView1.DataSource = dt;
         if (dt.Rows.Count==0) Label2.Visible = true;
-        
+        pnlReproductor.Visible = true;
         GridView1.DataBind();
         GridView1.Columns[5].Visible = false;
 
@@ -76,7 +84,7 @@ public partial class _Default : System.Web.UI.Page
                     row["Tipo"] = composicion.Tipo;
                 else
                     row["Tipo"] = "Tipo No definido";
-                row["ruta2"] = composicion.Audio;
+                row["Ruta2"] = composicion.Audio;
                 row["Id"] = composicion.Id;
 
                 dt.Rows.Add(row);
@@ -103,6 +111,16 @@ public partial class _Default : System.Web.UI.Page
             string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text;
             Response.Redirect("ConsultarComposicion.aspx?C=" + id);
         }
+        if (e.CommandName == "P")
+        {
+            this.mp3_seleccionado = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[4].Text;
+            this.mp3_seleccionado_titulo = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[1].Text;
+            this.reproducir = "yes";
+
+            this.Page.DataBind();
+            this.CargarComposiciones();
+        }
+
 
 
 

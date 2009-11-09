@@ -141,5 +141,13 @@
     </p>
     <p>
     </p>
+    <p>
+    </p>
+    <p>
+        <asp:Label ID="lblAutor" runat="server" ></asp:Label>
+    
+    </p>
+    <p>
+    </p>
 </asp:Content>
 

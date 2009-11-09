@@ -121,13 +121,8 @@ public partial class _Default : System.Web.UI.Page
         banda.Id = Convert.ToInt32(ddlBandas.SelectedValue);
         evento.Banda = banda;
         EventoFactory.Insertar(evento);
+        Response.Redirect("Eventos.aspx");
         
-       
-
-
-
-
-
 
     }
 }

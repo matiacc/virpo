@@ -65,6 +65,9 @@ public partial class Proyecto : System.Web.UI.Page
     private void CargarComposiciones(int idProyecto)
     {
         DataTable dt = this.DatosComposiciones(idProyecto);
+
+        GridView1.Columns[8].Visible = true;
+        GridView1.Columns[5].Visible = true;
         if (dt.Rows.Count == 0)
             lblComposiciones.Visible = true;
         else
@@ -73,6 +76,7 @@ public partial class Proyecto : System.Web.UI.Page
         GridView1.DataSource = dt;
         GridView1.DataBind();
         GridView1.Columns[8].Visible = false;
+        GridView1.Columns[5].Visible = false;
     }
 
     private void CargarColaboradores(int idProyecto)
