@@ -81,7 +81,7 @@ function mostrarGif(){
     </script>
 
     <!-- /TinyMCE -->
-    
+       
     </head>
 <body>
 <div id="outer">
@@ -114,7 +114,8 @@ function mostrarGif(){
         <li id="m3"><a href="Wikimusic.aspx">Wikimusic</a></li>
         <li id="m4"><a href="Proyectos.aspx">Colaboraciones</a></li>
         <li id="m5"><a href="Bandas.aspx">Bandas</a></li>
-        <li id="m6"><a href="Foro.aspx">Foro</a></li>
+        <li id="m6"><a href="http://localhost:3392/DMG_Forums_3-2/">Foros</a></li>
+       
         
         
        
