@@ -32,7 +32,7 @@ public partial class _Default : System.Web.UI.Page
         DataTable dt = this.VersionesArticulo(id);
         GridView1.DataSource = dt;
         GridView1.DataBind();
-       
+        GridView1.Columns[0].Visible = false;
     }
     private DataTable VersionesArticulo(int idArt)
     {
