@@ -139,13 +139,13 @@
 							<% if Session("UserLevel") = "3" then %>
 							<tr><td align="center" valign="middle" width="100%">
 								<nobr>
-								<asp:button id="EditForumButton" onclick="EditForum" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "(""FORUM_ID"")") %>' CssClass="dmgbuttons" runat="server" Text="EDIT" />&nbsp;
-								<asp:button id="DeleteForumButton" onclick="DeleteForum" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "(""FORUM_ID"")") %>' CssClass="dmgbuttons" runat="server" Text="DELETE" />
+								<asp:button id="EditForumButton" onclick="EditForum" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "(""FORUM_ID"")") %>' CssClass="dmgbuttons" runat="server" Text="EDITAR" />&nbsp;
+								<asp:button id="DeleteForumButton" onclick="DeleteForum" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "(""FORUM_ID"")") %>' CssClass="dmgbuttons" runat="server" Text="BORRAR" />
 								</nobr>
 							</td></tr>
 							<% end if %>
 							<tr><td align="center" valign="middle" width="100%">
-							<asp:button id="NewTopicButton" onclick="NewTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "(""FORUM_ID"")") %>' Visible='<%# IIF(((DataBinder.Eval(Container.DataItem, "(""FORUM_STATUS"")") = 1) and Session("UserLogged") = "1") or (Session("UserLevel") = "3"), "True", "False")%>' CssClass="dmgbuttons" runat="server" Text="NEW TOPIC" />
+							<asp:button id="NewTopicButton" onclick="NewTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "(""FORUM_ID"")") %>' Visible='<%# IIF(((DataBinder.Eval(Container.DataItem, "(""FORUM_STATUS"")") = 1) and Session("UserLogged") = "1") or (Session("UserLevel") = "3"), "True", "False")%>' CssClass="dmgbuttons" runat="server" Text="NUEVO TEMA" />
 							</td></tr>
 							</table>
 							</td>

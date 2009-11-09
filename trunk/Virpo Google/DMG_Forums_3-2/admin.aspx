@@ -1108,8 +1108,8 @@
 					</td>
 					<td align="center">
 						<select name="txtLinkType<%# DataBinder.Eval(Container.DataItem, "LINK_ID") %>">
-						<option value="1" <%# IIF(DataBinder.Eval(Container.DataItem, "LINK_TYPE") = 1, "SELECTED", "") %>>Página Principal</option>
-						<option value="2" <%# IIF(DataBinder.Eval(Container.DataItem, "LINK_TYPE") = 2, "SELECTED", "") %>>Página De Contenido</option>
+						<option value="1" <%# IIF(DataBinder.Eval(Container.DataItem, "LINK_TYPE") = 1, "SELECTED", "") %>>Main Page</option>
+						<option value="2" <%# IIF(DataBinder.Eval(Container.DataItem, "LINK_TYPE") = 2, "SELECTED", "") %>>Content Page</option>
 						<option value="3" <%# IIF(DataBinder.Eval(Container.DataItem, "LINK_TYPE") = 3, "SELECTED", "") %>>Forums</option>
 						<option value="4" <%# IIF(DataBinder.Eval(Container.DataItem, "LINK_TYPE") = 4, "SELECTED", "") %>>Register</option>
 						<option value="5" <%# IIF(DataBinder.Eval(Container.DataItem, "LINK_TYPE") = 5, "SELECTED", "") %>>Active Topics</option>

@@ -35,7 +35,7 @@ logueado como <a href="usercp.aspx?ID=<%=Session("UserID")%>"><%=Session("UserNa
 				<tr>
 				<td>
 					<font size="1" color="<%=Settings.LoginFontColor%>">
-					<b>Nombre de usuario:</b>
+					<b>Usuario:</b>
 					<br /></font>
 					<asp:textbox id="usernamebox" size="10" runat="server" TextMode="SingleLine" CssClass="LoginBox" />
 				</td>
