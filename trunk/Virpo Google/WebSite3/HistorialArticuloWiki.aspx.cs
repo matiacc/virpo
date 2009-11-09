@@ -32,7 +32,7 @@ public partial class _Default : System.Web.UI.Page
         DataTable dt = this.VersionesArticulo(id);
         GridView1.DataSource = dt;
         GridView1.DataBind();
-        GridView1.Columns[0].Visible = false;
+        //GridView1.Columns[0].Visible = false;
     }
     private DataTable VersionesArticulo(int idArt)
     {
@@ -77,8 +77,8 @@ public partial class _Default : System.Web.UI.Page
     {
         if (e.CommandName == "C")
         {
-            string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text;
-            string vers = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[1].Text;
+            string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
+            string vers = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[1].Text;
             Response.Redirect("ConsultarArticuloWiki.aspx?V="+vers+"&C=" + id);
         }
 

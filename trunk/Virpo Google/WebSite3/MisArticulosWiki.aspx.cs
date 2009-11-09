@@ -107,8 +107,8 @@ public partial class _Default : System.Web.UI.Page
             {
                 if (ArticuloWikiFactory.Eliminar(ID, VERS))
                 {
-                    //ArticuloWiki art = ArticuloWikiFactory.Devolver(ID);
-                    //HistorialWikiFactory.Eliminar(art.Id, art.Version);
+                    ArticuloWiki art = ArticuloWikiFactory.Devolver(ID);
+                    HistorialWikiFactory.Eliminar(art.Id, art.Version);
                     Response.Redirect("WikiMusic.aspx?Z=1");
                 }
                 else
