@@ -114,10 +114,13 @@ function mostrarGif(){
         <li id="m3"><a href="Wikimusic.aspx">Wikimusic</a></li>
         <li id="m4"><a href="Proyectos.aspx">Colaboraciones</a></li>
         <li id="m5"><a href="Bandas.aspx">Bandas</a></li>
-        <li id="m6"><a href="http://localhost:3392/DMG_Forums_3-2/">Foros</a></li>
+        
+        <%--Link Para Ingresar al foro Lucho
+        <li id="m6"><a href="http://localhost:3392/DMG_Forums_3-2/">Foro</a></li>--%>
        
+        <%--Link Para Ingresar al foro Pelado--%>
         
-        
+        <li id="m6"><a href="http://localhost:3736/DMG_Forums_3-2/">Foro</a></li>
        
       </ul>
       <div id="search" dir="ltr">
