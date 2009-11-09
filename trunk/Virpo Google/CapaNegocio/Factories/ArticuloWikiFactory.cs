@@ -93,7 +93,41 @@ namespace CapaNegocio.Factories
                 return null;
             }
 
-        }      
+        }
+
+        public static List<ArticuloWiki> DevolverTopFive()
+        {
+            string query = "SELECT top 5 id, idCat, idAutor, fecCreacion, titulo, cuerpo, version, cantVisitas, descripcion " +
+                        "FROM ArticuloWiki " + "order by cantVisitas desc";
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+
+            if (dt != null)
+            {
+                List<ArticuloWiki> articulos = new List<ArticuloWiki>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    ArticuloWiki articulo = new ArticuloWiki();
+                    articulo.Id = (int)dt.Rows[i]["id"]; ;
+                    articulo.IdCat = CategoriaArticuloWikiFactory.Devolver((int)dt.Rows[i]["idCat"]);
+                    articulo.IdAutor = UsuarioFactory.Devolver((int)dt.Rows[i]["idAutor"]);
+                    articulo.FecCreacion = Convert.ToDateTime(dt.Rows[i]["fecCreacion"].ToString());
+                    articulo.Titulo = dt.Rows[i]["titulo"].ToString();
+                    articulo.Cuerpo = dt.Rows[i]["cuerpo"].ToString();
+                    articulo.Version = (int)dt.Rows[i]["version"];
+                    articulo.CantVisitas = (int)dt.Rows[i]["cantVisitas"];
+                    articulo.Descripcion = dt.Rows[i]["descripcion"].ToString();
+
+                    articulos.Add(articulo);
+                }
+                return articulos;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
 
         public static List<ArticuloWiki> DevolverTodos()
         {
@@ -252,7 +286,35 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@id", DbType.Int32, id));
                 parametros.Add(BDUtilidades.crearParametro("@version", DbType.Int32, vers));
 
-                bool ok = BDUtilidades.ExecuteStoreProcedure("ArticuloWikiBorrar", parametros, tran);
+                bool ok;
+                List<HistorialWiki> versiones = HistorialWikiFactory.DevolverHistorial(id);
+
+                if (versiones.Count != 0)
+                {
+
+                    ArticuloWiki art= ArticuloWikiFactory.Devolver(id);
+                    art.Version = versiones[0].Version;
+                    art.Cuerpo = versiones[0].Cuerpo;
+                    art.Descripcion= versiones[0].Descripcion;
+                    art.FecCreacion= versiones[0].FecModificacion;
+                    art.IdAutor = UsuarioFactory.Devolver(versiones[0].IdAutor);
+                    ArticuloWikiFactory.Modificar(art);
+
+                    List<SqlParameter> parametros2 = new List<SqlParameter>();
+                    parametros2.Add(BDUtilidades.crearParametro("@idArticulo", DbType.Int32, id));
+                    parametros2.Add(BDUtilidades.crearParametro("@version", DbType.Int32, vers));
+
+                    ok = BDUtilidades.ExecuteStoreProcedure("HistorialWikiBorrar", parametros2, tran);
+                    
+                }
+                else
+                {
+                ok = BDUtilidades.ExecuteStoreProcedure("ArticuloWikiBorrar", parametros, tran);
+                }
+                
+                
+                
+                
                 if (ok)
                     return true;
                 else
