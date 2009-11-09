@@ -15,6 +15,8 @@
                 Nombre</td>
             <td>
                 <asp:TextBox ID="txtNombre" runat="server" Width="241px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                    ControlToValidate="txtNombre" ErrorMessage="*"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -30,7 +32,7 @@
             <td>
                 <asp:DropDownList ID="ddlTema" runat="server">
                     <asp:ListItem>Instrumento</asp:ListItem>
-                    <asp:ListItem>Bandas</asp:ListItem>
+                    <asp:ListItem>Banda</asp:ListItem>
                     <asp:ListItem>Ubicacion</asp:ListItem>
                     <asp:ListItem>Club de Fan</asp:ListItem>
                     <asp:ListItem>Generico</asp:ListItem>
