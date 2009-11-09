@@ -67,9 +67,9 @@
 				</td>
 				<% if Session("UserLevel") = "3" then %>
 					<td width="100%" align="right">
-						<asp:button id="EditCatButton" onclick="EditCategory" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "CATEGORY_ID") %>' CssClass="dmgbuttons" runat="server" Text="EDIT" />&nbsp;
-						<asp:button id="DeleteCatButton" onclick="DeleteCategory" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "CATEGORY_ID") %>' CssClass="dmgbuttons" runat="server" Text="DELETE" />&nbsp;
-						<asp:button id="AddForumButton" onclick="AddForum" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "CATEGORY_ID") %>' CssClass="dmgbuttons" runat="server" Text="NEW FORUM" />
+						<asp:button id="EditCatButton" onclick="EditCategory" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "CATEGORY_ID") %>' CssClass="dmgbuttons" runat="server" Text="EDITAR" />&nbsp;
+						<asp:button id="DeleteCatButton" onclick="DeleteCategory" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "CATEGORY_ID") %>' CssClass="dmgbuttons" runat="server" Text="BORRAR" />&nbsp;
+						<asp:button id="AddForumButton" onclick="AddForum" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "CATEGORY_ID") %>' CssClass="dmgbuttons" runat="server" Text="NUEVO FORO" />
 					</td>
 				<% end if %>
 				</tr>
@@ -77,10 +77,10 @@
 			</td>
 			</tr>
 			<tr class="SubHeaderCell">
-			<td width="100%"><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Forum</b></font></td>
-			<td width="180" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Last Post</b></font></td>
-			<td width="65" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Topics</b></font></td>
-			<td width="65" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Posts</b></font></td>
+			<td width="100%"><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Foro</b></font></td>
+			<td width="180" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Última respuesta</b></font></td>
+			<td width="65" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Temas</b></font></td>
+			<td width="65" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Respuestas</b></font></td>
 			<td width="65" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>">&nbsp;</font></td>
 			</tr>
 				<asp:Repeater id="Forum" DataSource='<%# (CType(Container.DataItem,DataRowView)).Row.GetChildRows("CategoryRelation")%>' runat="server">
@@ -145,7 +145,7 @@
 				<tr>
 				<td align="left" valign="middle">
 				<font size="<%=Settings.HeaderSize%>" color="<%=Settings.HeaderFontColor%>"><b>
-					Statistics
+					Estadísticas
 				</b></font>
 				</td>
 				</tr>

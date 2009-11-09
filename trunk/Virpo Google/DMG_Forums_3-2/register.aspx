@@ -150,7 +150,7 @@
 			Show E-Mail?
 			</font>
 			<asp:DropDownList id="txtShowEmail" runat="server">
-				<asp:ListItem Value="1" Selected="True" Text="Yes" />
+				<asp:ListItem Value="1" Selected="True" Text="Si" />
 				<asp:ListItem Value="0" Text="No" />
 			</asp:DropDownList>
 		</td>

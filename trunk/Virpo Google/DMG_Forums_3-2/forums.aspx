@@ -42,7 +42,7 @@
 		<td width="100%" align="right" valign="bottom">
 			<% if (ForumStatus = 1 and Session("UserLogged") = "1") or (Session("UserLevel") = "3") then %>
 				<font size="3"><b>
-				<a href="newtopic.aspx?ID=<%=ForumID%>">New Topic</a>
+				<a href="newtopic.aspx?ID=<%=ForumID%>">Nuevo Tema</a>
 				</b></font>
 			<% end if %>
 		</td>
@@ -62,11 +62,11 @@
 			</td>
 			</tr>
 			<tr class="SubHeaderCell">
-			<td width="100%"><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Topic</b></font></td>
-			<td width="180" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Author</b></font></td>
-			<td width="65" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Replies</b></font></td>
-			<td width="65" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Views</b></font></td>
-			<td width="180" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Last Post</b></font></td>
+			<td width="100%"><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Tema</b></font></td>
+			<td width="180" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Autor</b></font></td>
+			<td width="65" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Respuestas</b></font></td>
+			<td width="65" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Visitas</b></font></td>
+			<td width="180" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>"><b>Última respuesta</b></font></td>
 			<td width="65" align="center" nowrap><font size="1" color="<%=Settings.SubHeaderFontColor%>">&nbsp;</font></td>
 			</tr>
 			</tr>
@@ -114,16 +114,16 @@
 			<td width="65" align="center" style="border-top:1px solid <%=Settings.TableBorderColor%>;border-left:1px solid <%=Settings.TableBorderColor%>;" nowrap>
 				<table border="0" width="100%">
 				<tr><td align="center" valign="middle" width="100%">
-					<asp:button id="ConfirmTopicButton" onclick="ConfirmTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((AllowModeration) and (DataBinder.Eval(Container.DataItem, "TOPIC_CONFIRMED") = 0)), "True", "False") %>' runat="server" Text="CONFIRM" />
+					<asp:button id="ConfirmTopicButton" onclick="ConfirmTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((AllowModeration) and (DataBinder.Eval(Container.DataItem, "TOPIC_CONFIRMED") = 0)), "True", "False") %>' runat="server" Text="CONFIRMAR" />
 				</td></tr>
 				<tr><td align="center" valign="middle" width="100%">
 					<nobr>
-					<asp:button id="EditTopicButton" onclick="EditTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF((((DataBinder.Eval(Container.DataItem, "TOPIC_AUTHOR") = Session("UserID")) and (DataBinder.Eval(Container.DataItem, "TOPIC_STATUS") <> 2) and (Settings.AllowEdits = 1)) or ((AllowModeration) and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL"))) or (Session("UserLevel") = "3")), "True", "False") %>' runat="server" Text="EDIT" /> 
-					<asp:button id="DeleteTopicButton" onclick="DeleteTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF((((AllowModeration) and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL"))) or (Session("UserLevel") = "3")), "True", "False") %>' runat="server" Text="DELETE" />
+					<asp:button id="EditTopicButton" onclick="EditTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF((((DataBinder.Eval(Container.DataItem, "TOPIC_AUTHOR") = Session("UserID")) and (DataBinder.Eval(Container.DataItem, "TOPIC_STATUS") <> 2) and (Settings.AllowEdits = 1)) or ((AllowModeration) and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL"))) or (Session("UserLevel") = "3")), "True", "False") %>' runat="server" Text="EDITAR" /> 
+					<asp:button id="DeleteTopicButton" onclick="DeleteTopic" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF((((AllowModeration) and (Session("UserLevel") > DataBinder.Eval(Container.DataItem, "MEMBER_LEVEL"))) or (Session("UserLevel") = "3")), "True", "False") %>' runat="server" Text="BORRAR" />
 					</nobr>
 				</td></tr>
 				<tr><td align="center" valign="middle" width="100%">
-					<asp:button id="ReplyButton" onclick="NewReply" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((Session("UserLogged") = "1") and (DataBinder.Eval(Container.DataItem, "TOPIC_STATUS") <> 2) and (ForumStatus <> 2)) or (AllowModeration), "True", "False") %>' runat="server" Text="REPLY" />
+					<asp:button id="ReplyButton" onclick="NewReply" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "TOPIC_ID") %>' CssClass="dmgbuttons" visible='<%# IIF(((Session("UserLogged") = "1") and (DataBinder.Eval(Container.DataItem, "TOPIC_STATUS") <> 2) and (ForumStatus <> 2)) or (AllowModeration), "True", "False") %>' runat="server" Text="RESPONDER" />
 				</td></tr>
 				</table>
 			</td>
@@ -140,21 +140,21 @@
 			<tr>
 			<td width="150" align="right" nowrap>
 				<font size="2"><b>
-				<asp:LinkButton runat="server" ID="FirstLink" Text="&laquo; First" onClick="ChangePage" />
+				<asp:LinkButton runat="server" ID="FirstLink" Text="&laquo; Primero" onClick="ChangePage" />
 				&nbsp;&nbsp;
-				<asp:LinkButton runat="server" ID="PreviousLink" Text="&laquo; Previous" onClick="ChangePage" />
+				<asp:LinkButton runat="server" ID="PreviousLink" Text="&laquo; Anterior:" onClick="ChangePage" />
 				</b></font>
 			</td>
 			<td align="center" nowrap>
 					<font size="2" color="<%=Settings.FontColor%>">
-					<b>Page <asp:DropDownList runat="server" ID="JumpPage" AutoPostBack="true" OnSelectedIndexChanged="ChangePage"  /> of <asp:Label runat="server" ID="PageCountLabel" EnableViewState="true" /></b>
+					<b>Página <asp:DropDownList runat="server" ID="JumpPage" AutoPostBack="true" OnSelectedIndexChanged="ChangePage"  /> de <asp:Label runat="server" ID="PageCountLabel" EnableViewState="true" /></b>
 					</font>
 			</td>
 			<td width="150" align="left" nowrap>
 				<font size="2"><b>
-				<asp:LinkButton runat="server" ID="NextLink" Text="Next &raquo;" onClick="ChangePage" />
+				<asp:LinkButton runat="server" ID="NextLink" Text="Próximo &raquo;" onClick="ChangePage" />
 				&nbsp;&nbsp;
-				<asp:LinkButton runat="server" ID="LastLink" Text="Last &raquo;" onClick="ChangePage" />
+				<asp:LinkButton runat="server" ID="LastLink" Text="Último &raquo;" onClick="ChangePage" />
 				</b></font>
 			</td>
 			</tr>
@@ -167,7 +167,7 @@
 			<table border="0" width="97%" align="center" cellpadding="5" cellspacing="0">
 			<tr>
 			<td align="left" valign="bottom">
-				<font size="2" color="<%=Settings.FontColor%>"><b>Moderated By:</b> (
+				<font size="2" color="<%=Settings.FontColor%>"><b>Moderado por:</b> (
 		</HeaderTemplate>
 		<ItemTemplate>
 			&nbsp;-&nbsp;<%# DataBinder.Eval(Container.DataItem, "MEMBER_USERNAME") %>
@@ -186,13 +186,13 @@
 		<tr>
 		<td width="100%" align="center" valign="bottom">
 			<br /><br />
-			<font size="2" color="<%=Settings.FontColor%>">Are you sure you want to confirm this topic and make it visible to the public?</font><br /><br />
+			<font size="2" color="<%=Settings.FontColor%>">¿Quiere hacer este tema invisible para los demás miembros?</font><br /><br />
 			<asp:DropDownList id="ConfirmTopicDropdown" runat="server">
-				<asp:ListItem Selected="True" Value="1" Text="Yes" />
+				<asp:ListItem Selected="True" Value="1" Text="Si" />
 				<asp:ListItem Value="0" Text="No" />
 			</asp:DropDownList>
 			<br /><br />
-			<asp:Button id="ConfirmButton" onclick="ApplyConfirmation" runat="server" Text="Submit" />
+			<asp:Button id="ConfirmButton" onclick="ApplyConfirmation" runat="server" Text="Guardar" />
 		</td>
 		</tr>
 		</table>
@@ -205,9 +205,9 @@
 		<table border="0" width="97%" align="center" cellpadding="5" cellspacing="0">
 		<tr>
 		<td width="100%" align="center" valign="bottom">
-			<font size="2" color="<%=Settings.FontColor%>">This Forum Requires A Password</font><br /><br />
+			<font size="2" color="<%=Settings.FontColor%>">Este foro requiere contraseña</font><br /><br />
 			<asp:Textbox id="PasswordBox" size="30" maxlength="50" textmode="password" runat="server" /><br />
-			<asp:Button id="PasswordButton" onclick="ApplyForumPassword" runat="server" Text="Submit" />
+			<asp:Button id="PasswordButton" onclick="ApplyForumPassword" runat="server" Text="Guardar" />
 		</td>
 		</tr>
 		</table>
