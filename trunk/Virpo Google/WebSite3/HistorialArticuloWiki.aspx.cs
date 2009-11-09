@@ -52,7 +52,7 @@ public partial class _Default : System.Web.UI.Page
         row["Titulo"] = articuloVigente.Titulo;
         row["Descripcion"] = articuloVigente.Descripcion;
         row["Creado"] = articuloVigente.FecCreacion.ToShortDateString();
-        row["Autor"] = articuloVigente.IdAutor.Id;
+        row["Autor"] = articuloVigente.IdAutor.Apellido+" "+articuloVigente.IdAutor.Nombre;
         dt.Rows.Add(row);
 
         List<HistorialWiki> versiones = HistorialWikiFactory.DevolverHistorial(idArt);
@@ -67,7 +67,7 @@ public partial class _Default : System.Web.UI.Page
                 row["Titulo"] = version.Titulo;
                 row["Descripcion"] = version.Descripcion;
                 row["Creado"] = version.FecModificacion.ToShortDateString();
-                row["Autor"] = version.IdAutor;
+                row["Autor"] = art.IdAutor.Apellido+" "+art.IdAutor.Nombre;
                 dt.Rows.Add(row);
             }
             return dt;      
