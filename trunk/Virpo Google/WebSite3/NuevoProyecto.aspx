@@ -71,6 +71,16 @@
         </tr>
         <tr>
             <td style="width: 129px">
+                <asp:Label ID="lblPublicar" runat="server" CssClass="estiloLabel" 
+                    Text="Publicar en Grupo:"></asp:Label>
+            </td>
+            <td style="width: 291px">
+                <asp:DropDownList ID="ddlGrupos" runat="server">
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 129px">
                 <asp:Label ID="Label5" runat="server" CssClass="estiloLabel" Text="Tipo:"></asp:Label>
             </td>
             <td style="width: 291px">
@@ -147,7 +157,7 @@
                                 </td>
             <td style="width: 291px">
                 <div class="loginboxdiv">   <asp:TextBox ID="txtTags" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>   </div>
-            &nbsp;<span style="font-size: xx-small; color: #808080">(separados por comas)</span></td>
+                &nbsp;<span style="font-size: xx-small; color: #808080">(separados por comas)</span></td>
         </tr>
         <tr>
             <td style="width: 129px">
