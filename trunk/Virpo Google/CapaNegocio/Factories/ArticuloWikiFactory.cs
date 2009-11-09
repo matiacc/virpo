@@ -291,7 +291,6 @@ namespace CapaNegocio.Factories
 
                 if (versiones.Count != 0)
                 {
-
                     ArticuloWiki art= ArticuloWikiFactory.Devolver(id);
                     art.Version = versiones[0].Version;
                     art.Cuerpo = versiones[0].Cuerpo;
@@ -299,13 +298,7 @@ namespace CapaNegocio.Factories
                     art.FecCreacion= versiones[0].FecModificacion;
                     art.IdAutor = UsuarioFactory.Devolver(versiones[0].IdAutor);
                     ArticuloWikiFactory.Modificar(art);
-
-                    List<SqlParameter> parametros2 = new List<SqlParameter>();
-                    parametros2.Add(BDUtilidades.crearParametro("@idArticulo", DbType.Int32, id));
-                    parametros2.Add(BDUtilidades.crearParametro("@version", DbType.Int32, vers));
-
-                    ok = BDUtilidades.ExecuteStoreProcedure("HistorialWikiBorrar", parametros2, tran);
-                    
+                    ok = true;                    
                 }
                 else
                 {
@@ -344,7 +337,7 @@ namespace CapaNegocio.Factories
             articulo.IdAutor = autor;
 
             return articulo;
-            // ojo no tiene en cuenta la cant de visitas, se debe mantener las visitas de la version vigente 
+            
         }
     }
 }
