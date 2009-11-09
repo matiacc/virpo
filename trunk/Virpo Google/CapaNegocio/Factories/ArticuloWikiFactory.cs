@@ -167,7 +167,7 @@ namespace CapaNegocio.Factories
         {
             string query = "SELECT id, idCat, idAutor, fecCreacion, titulo, cuerpo, version, cantVisitas, descripcion " +
                         "FROM ArticuloWiki "+
-                        "WHERE idAutor = "+ id;
+                        "WHERE idAutor = "+ id + " order by titulo asc, version desc";
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
 
