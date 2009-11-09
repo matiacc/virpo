@@ -23,6 +23,7 @@ namespace CapaNegocio.Factories
                 Composicion comp = new Composicion();
                 comp.Id = id;
                 comp.Nombre = dt.Rows[0]["nombre"].ToString();
+                comp.Audio = dt.Rows[0]["ruta"].ToString();
                 comp.Descripcion = dt.Rows[0]["descripcion"].ToString();
                 comp.Tempo = dt.Rows[0]["tempo"].ToString();
                 comp.Tonalidad = TonalidadFactory.Devolver(Convert.ToInt32(dt.Rows[0]["idTonalidad"]));
@@ -73,7 +74,7 @@ namespace CapaNegocio.Factories
 
         public static List<Composicion> DevolverTodos(string restriccion)
         {
-            string query = "SELECT id, nombre, descripcion, tipo, tempo, idTonalidad, idInstrumento, idUsuario" +
+            string query = "SELECT id, nombre, descripcion, tipo, tempo, idTonalidad, idInstrumento, idUsuario, ruta" +
                         " FROM Composicion ";
 
             if (!string.IsNullOrEmpty(restriccion))
@@ -93,6 +94,7 @@ namespace CapaNegocio.Factories
                     comp.Tonalidad = TonalidadFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idTonalidad"]));
                     comp.Instrumento = InstrumentoFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idInstrumento"]));
                     comp.Usuario = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idUsuario"]));
+                    comp.Audio = dt.Rows[i]["ruta"].ToString();
                     composiciones.Add(comp);
                 }
                 return composiciones;

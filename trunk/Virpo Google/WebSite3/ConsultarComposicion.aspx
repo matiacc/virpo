@@ -10,7 +10,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <table class="tabla">
         <tr>
-            <td colspan="2">
+            <td colspan="2" style="height: 14px">
                 <center style="width: 529px; background-color: #333333">
                     <titulosubventana>
                     Detalles de la composicion </titulosubventana>
@@ -103,18 +103,34 @@
         </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
-    <p>
-        &nbsp;</p>
-    <p>
-        <br />
+    <table class="style1">
+        <tr>
+            <td>
         <asp:Label ID="Label8" runat="server" Text="Autor:"></asp:Label>
-    </p>
-    <p>
-        <asp:Label ID="lblAutor" runat="server"></asp:Label>
-    </p>
-    <p>
-        <asp:Label ID="lblNombreAutor" runat="server"></asp:Label>
-    </p>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </td>
+        </tr>
+        <tr>
+            
+            <td colspan="2">
+               
+                
+            
+            
+                <br />
+               
+                
+            
+            
+                <asp:Label ID="lblAutor" runat="server"></asp:Label>
+                <br />
+            </td>
+        </tr>
+    </table>
     <p>
     </p>
 </asp:Content>

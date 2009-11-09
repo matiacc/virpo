@@ -37,6 +37,15 @@ public partial class _Default : System.Web.UI.Page
         lblPais.Text = ub[2];
         lblCiudad.Text = ub[1];
         lblUbicacion.Text = ub[0];
+        
+
+        if (Session["Usuario"] != evento.Musico) 
+        {
+            this.CargarDueño(evento);
+
+
+        }
+        
 
 
 
@@ -75,7 +84,21 @@ public partial class _Default : System.Web.UI.Page
             
                          
         
-    } 
+    }
+
+
+
+    private void CargarDueño(Evento evento)
+    {
+        string html = "<table>";
+
+        html += "<td>";
+        html += "<a href='PerfilPublico.aspx?Id=" + evento.Musico.Id + "' title='" + evento.Musico.NombreUsuario + "'>" +
+        "<img src='./ImagenesUsuario/" + evento.Musico.Imagen + "' width='100' border='0' height='70'></a>";
+        html += "</td>";
+        html += "</table>";
+        lblAutor.Text = html;
+    }
 
         
     

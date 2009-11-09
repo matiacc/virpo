@@ -241,7 +241,7 @@
         <tr>
             <td style="text-align: right;" colspan="2">
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
-                    onclick="btnGuardar_Click" CssClass="botones" />
+                    onclick="btnGuardar_Click" CssClass="botones" OnClientClick="return confirm('Evento Registrado')"/>
             </td>
         </tr>
         </table>
