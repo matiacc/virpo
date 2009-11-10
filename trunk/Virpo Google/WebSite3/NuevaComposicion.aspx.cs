@@ -40,7 +40,7 @@ public partial class NuevaComposicion : System.Web.UI.Page
         if(RadioButton1.Checked)
             composicion.Tipo = "Pista";
         if (RadioButton2.Checked)
-            composicion.Tipo = "Cancion NO termianda";
+            composicion.Tipo = "Cancion NO terminada";
         
         composicion.Tempo = txtTempo.Text;
         composicion.Usuario = (Usuario)Session["Usuario"];
