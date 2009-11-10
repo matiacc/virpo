@@ -10,6 +10,10 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+<center style="width: 529px; background-color: #333333">
+                    <titulosubventana>
+                        Últimos Grupos de Interés</titulosubventana>
+                </center>
 <table border="0" align="center">
 <tbody><tr valign="top">
 	<td width="600">
