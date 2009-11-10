@@ -105,6 +105,7 @@ public partial class _Default : System.Web.UI.Page
         banda.ImagenThumb = thumb;
         banda.Descripcion = "";
         banda.FecSistema = fecSis;
+        banda.Video = txtVideo.Text;
         if (BandaFactory.Insertar(banda))
         {
             mxbanda.IdUsuario = usu.Id;
