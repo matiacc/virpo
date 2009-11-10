@@ -14,7 +14,7 @@
         </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-<table class="style1">
+    <table class="style1">
         <tr>
             <td>
                 <center style="width: 527px; background-color: #333333"><tituloSubVentana>
