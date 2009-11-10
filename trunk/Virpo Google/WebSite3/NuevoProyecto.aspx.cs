@@ -25,6 +25,7 @@ public partial class NuevoProyecto : System.Web.UI.Page
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
             MetodosComunes.cargarGrupos(ddlGrupos,((Usuario)Session["Usuario"]).Id);
+            MetodosComunes.cargarBandasDeUser(ddlBandas, ((Usuario)Session["Usuario"]).Id);
 
         }
     }
@@ -73,6 +74,11 @@ public partial class NuevoProyecto : System.Web.UI.Page
                 proyecto.IdGrupo = Convert.ToInt32(ddlGrupos.SelectedValue);
             else
                 proyecto.IdGrupo = 0;
+
+            if (!string.IsNullOrEmpty(ddlBandas.SelectedValue))
+                proyecto.IdBanda = Convert.ToInt32(ddlBandas.SelectedValue);
+            else
+                proyecto.IdBanda = 0;
 
             if (ProyectoFactory.Insertar(proyecto))
             {

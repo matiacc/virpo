@@ -51,7 +51,7 @@ public partial class _Default : System.Web.UI.Page
 
             lblTonalidad.Text = comp.Tonalidad.Nombre;
             lblInstrumento.Text = comp.Instrumento.Nombre;
-
+            lblTempo.Text = comp.Tempo;
             
 
        

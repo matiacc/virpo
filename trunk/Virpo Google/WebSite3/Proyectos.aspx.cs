@@ -38,6 +38,18 @@ public partial class Proyectos : System.Web.UI.Page
                 Grupo grupo = GrupoFactory.Devolver(Convert.ToInt32(filtro));
                 lblGrupo.Text = "<a href='ConsultarGrupo.aspx?id="+ grupo.Id +"'>"+ grupo.Nombre +"</a>";
             }
+            if (Request.QueryString["banda"] != null)
+            {
+                string filtro = Request.QueryString["banda"];
+                ViewState.Add("Filtro", filtro);
+                restriccion = "WHERE idBanda =" + filtro;
+
+                label4.Visible = true;
+                lblBanda.Visible = true;
+                Banda banda = BandaFactory.Devolver(Convert.ToInt32(filtro));
+                lblBanda.Text = "<a href='ConsultarBanda.aspx?C=" + banda.Id + "'>" + banda.Nombre + "</a>";
+            }
+            
             DataTable dt = this.DatosProyectos(restriccion);
             GridView1.DataSource = dt;
             GridView1.DataBind();

@@ -6,6 +6,7 @@
         <ul>
             <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
             <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
+            <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones Terminadas</a></li>
         </ul>
     </div>
 </asp:Content>
@@ -25,6 +26,13 @@
                 <asp:Label ID="label3" runat="server" Text="Proyectos publicados en el Grupo " 
                     Visible="False"></asp:Label>
                 <asp:Label ID="lblGrupo" runat="server" Visible="False"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label ID="label4" runat="server" Text="Proyectos publicados en la Banda  " 
+                    Visible="False"></asp:Label>
+                <asp:Label ID="lblBanda" runat="server" Visible="False"></asp:Label>
             </td>
         </tr>
         <tr>
