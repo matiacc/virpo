@@ -13,10 +13,15 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <table class="style1">
+    <table class="tabla">
         <tr>
-            <td colspan="4" style="text-align: center; background-color: #333333">
-                <tituloSubVentana><asp:Label ID="lblNombre" runat="server"></asp:Label><tituloSubVentana></td>
+        <td colspan="3" style="text-align: center; background-color: #333333">
+        <center style="width: 529px; background-color: #333333">
+                    <titulosubventana>
+                        Grupo: <asp:Label ID="lblNombre" runat="server"></asp:Label></titulosubventana>
+                </center>
+            
+              </td>
             
         </tr>
         <tr>
@@ -26,44 +31,50 @@
             </td>
             <td>
                 &nbsp;</td>
-            <td colspan="2" align="right" rowspan="5">
-                <asp:Label ID="lblDescripcion" runat="server"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Image ID="imgGrupo" runat="server" />
-            </td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
+            <td colspan="3">
+               
+                
+                <asp:Label ID="lblDescripcion" runat="server" CssClass="estiloLabel"></asp:Label>
+                </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+               
+                
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td>
-                Creado por</td>
+                Creado por:</td>
             <td>
                 <asp:Label ID="lblCreador" runat="server"></asp:Label>
+            </td>
+            <td rowspan="6" style="text-align: right">
+                <asp:Image ID="imgGrupo"  runat="server" style="height:120px" Width="120px"/>
+                <br />
             </td>
         </tr>
         <tr>
             <td>
-                Tema</td>
+                Tema:</td>
             <td>
                 <asp:Label ID="lblTema" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
             <td>
-                Miembros (<asp:Label ID="lblCantMiembros" runat="server"></asp:Label>
-                )</td>
+                 Miembros (<asp:Label ID="lblCantMiembros" runat="server"></asp:Label>)</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <asp:Label ID="lblMiembros" runat="server"></asp:Label>
             </td>
-            <td>
-                &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -86,22 +97,29 @@
                 &nbsp;</td>
         </tr>--%>
         <tr>
-            <td colspan="2" align="center">
-                <asp:Button ID="btUnirme" runat="server" Text="Unirme al Grupo!" 
-                    onclick="btUnirme_Click" CssClass="botones" /></td>
-            <td>
+            <td align="center">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2" align="center">
+            <td align="center">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center" style="text-align: right">
+
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center" style="text-align: right">
+
+                <asp:Button ID="btUnirme" runat="server" Text="Unirme al Grupo!" 
+                    onclick="btUnirme_Click" CssClass="botones" />
 
             </td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
         </tr>
     </table>
                  <asp:Button ID="Button2" runat="server" Text="False" Style="display: none;" />
