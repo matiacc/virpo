@@ -29,6 +29,8 @@ public partial class NuevoPost : System.Web.UI.Page
                 ViewState.Add("idTopic", Request.QueryString["idTopic"]);
                 TopicGrupo topic = TopicGrupoFactory.Devolver(Convert.ToInt32(Request.QueryString["idTopic"]));
                 lblTitulo.Text = topic.Titulo;
+                lblProyectos.Text = "<a href='Proyectos.aspx?grupo=" + topic.Grupo.Id + "' title='Proyectos'>Proyectos</a>";
+                lblDebate.Text = "<a href='Debate.aspx?grupo=" + topic.Grupo.Id + "'>Debates</a>";
             }
 
         }

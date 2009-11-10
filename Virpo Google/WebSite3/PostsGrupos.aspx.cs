@@ -28,7 +28,9 @@ public partial class PostsGrupos : System.Web.UI.Page
                 string idTopic = Request.QueryString["topic"];
                 TopicGrupo topic = TopicGrupoFactory.Devolver(Convert.ToInt32(idTopic));
                 lblTituloTopic.Text = topic.Titulo;
-                lblResponder.Text = "<a href='NuevoPost.aspx?idTopic=" + idTopic + "'>Responder</a>"; 
+                lblResponder.Text = "<a href='NuevoPost.aspx?idTopic=" + idTopic + "'>Responder</a>";
+                lblProyectos.Text = "<a href='Proyectos.aspx?grupo=" + topic.Grupo.Id + "' title='Proyectos'>Proyectos</a>";
+                lblDebate.Text = "<a href='Debate.aspx?grupo=" + topic.Grupo.Id + "'>Debates</a>";
                 List<PostGrupo> posts = PostGrupoFactory.DevolverTodosPorTopic(idTopic);
                 this.CargarTabla(posts);
                 TopicGrupoFactory.IncrementarVisita(idTopic);

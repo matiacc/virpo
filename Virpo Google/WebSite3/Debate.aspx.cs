@@ -25,6 +25,8 @@ public partial class _Default : System.Web.UI.Page
             if (Request.QueryString["grupo"] != null)
             {
                 int idGrupo = Convert.ToInt32(Request.QueryString["grupo"]);
+                lblProyectos.Text = "<a href='Proyectos.aspx?grupo=" + idGrupo + "' title='Proyectos'>Proyectos</a>";
+                lblDebate.Text = "<a href='Debate.aspx?grupo=" + idGrupo + "'>Debates</a>";
                 lblNuevoTopic.Text = "<a href='NuevoTopic.aspx?grupo=" + idGrupo + "'>Iniciar Debate</a>";
                 List<TopicGrupo> topics = TopicGrupoFactory.DevolverTodosPorGrupo(idGrupo);
                 
@@ -41,7 +43,6 @@ public partial class _Default : System.Web.UI.Page
         string html= "";
         int totalRespuestas = 0;
         int visitas = 0;
-        Usuario user = (Usuario)Session["Usuario"];
         foreach (TopicGrupo topic in topics)
 	    {
            totalRespuestas = TopicGrupoFactory.CantidadRespuestas(topic.Id);
@@ -49,8 +50,8 @@ public partial class _Default : System.Web.UI.Page
            ultimoPost = PostGrupoFactory.DevolverUltimo(topic.Id);
                 html += "<tr style='border-style: inset; border-width: thin'>";
                 html += "<td style='text-align: center;'>";
-                html += "<a href='PerfilPublico.aspx?Id="+ user.Id +"'>";
-                html += "<img src='ImagenesUsuario/" + user.Imagen + "' title='" + user.NombreUsuario + "' height='50px' width='50px' /></a>";
+                html += "<a href='PerfilPublico.aspx?Id="+ topic.Creador.Id+"'>";
+                html += "<img src='ImagenesUsuario/" + topic.Creador.Imagen + "' title='" + topic.Creador.NombreUsuario + "' height='50px' width='50px' /></a>";
                 html += "</td>";
                 html += "<td><a href='PostsGrupos.aspx?topic=" + topic.Id + "'>" + topic.Titulo + "</a><br /> ";
                 html += "creado el " + topic.FechaCreacion.ToShortDateString() + " por ";

@@ -27,6 +27,17 @@ public partial class Proyectos : System.Web.UI.Page
                 ViewState.Add("Filtro", filtro);
                 restriccion = "WHERE nombre like '%" + filtro + "%' or descripcion like '%" + filtro + "%'";
             }
+            if (Request.QueryString["grupo"] != null)
+            {
+                string filtro = Request.QueryString["grupo"];
+                ViewState.Add("Filtro", filtro);
+                restriccion = "WHERE idGrupo =" + filtro;
+
+                label3.Visible = true;
+                lblGrupo.Visible = true;
+                Grupo grupo = GrupoFactory.Devolver(Convert.ToInt32(filtro));
+                lblGrupo.Text = "<a href='ConsultarGrupo.aspx?id="+ grupo.Id +"'>"+ grupo.Nombre +"</a>";
+            }
             DataTable dt = this.DatosProyectos(restriccion);
             GridView1.DataSource = dt;
             GridView1.DataBind();

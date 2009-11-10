@@ -92,8 +92,17 @@ public static class MetodosComunes
         CargarCombo(ddl, dr, "nombre", "id", "Seleccione una opción");
         dr.Close();
     }
-  
-    
+
+    public static void cargarGrupos(DropDownList ddl, int idCreador)
+    {
+        string query = "SELECT id, nombre FROM Grupo WHERE idCreador ="+ idCreador;
+        SqlDataReader dr = BDUtilidades.GetReader(query);
+
+
+        CargarCombo(ddl, dr, "nombre", "id", "Seleccione una opción");
+        dr.Close();
+
+    }
   
 
 

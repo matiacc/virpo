@@ -26,6 +26,8 @@ public partial class NuevoTopic : System.Web.UI.Page
           {
               int idGrupo = Convert.ToInt32(Request.QueryString["grupo"]);
               ViewState.Add("idGrupo", idGrupo);
+              lblProyectos.Text = "<a href='Proyectos.aspx?grupo=" + idGrupo + "' title='Proyectos'>Proyectos</a>";
+              lblDebate.Text = "<a href='Debate.aspx?grupo=" + idGrupo + "'>Debates</a>";
           }
         }
 
@@ -50,6 +52,6 @@ public partial class NuevoTopic : System.Web.UI.Page
         post.IdTopic = idTopic;
 
         PostGrupoFactory.Insertar(post);
-        Response.Redirect("Debate.aspx?Id=" + ViewState["idGrupo"]);
+        Response.Redirect("Debate.aspx?grupo=" + ViewState["idGrupo"]);
     }
 }
