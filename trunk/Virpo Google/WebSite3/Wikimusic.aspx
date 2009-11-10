@@ -80,8 +80,7 @@
                         </tr>
                         <tr>
                             <td>
-                                &nbsp;
-                                <hr />
+                               
                             </td>
                         </tr>
     </table>
