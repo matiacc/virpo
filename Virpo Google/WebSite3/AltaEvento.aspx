@@ -112,7 +112,9 @@
             <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 92px">
-                &nbsp;</td>
+                <asp:Label ID="Label14" runat="server" Text="(Ingresar Calle y Número)" 
+                    Width="200px"></asp:Label>
+            </td>
         </tr>
         <tr>
             <td style="width: 92px">
