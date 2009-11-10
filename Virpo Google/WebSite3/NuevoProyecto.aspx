@@ -4,8 +4,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div id="menu8">
         <ul>
-            <li><a href="AltaMusico.aspx" title="Registrar Musico">Nuevo Proyecto</a></li>
+            <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
             <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
+            <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones Terminadas</a></li>
         </ul>
     </div>
 </asp:Content>

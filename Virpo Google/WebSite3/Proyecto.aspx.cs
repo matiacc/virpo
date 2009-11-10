@@ -26,7 +26,7 @@ public partial class Proyecto : System.Web.UI.Page
         mp3_seleccionado_titulo = "";
         reproducir = "no";
         if (!btUnirse.Text.Contains("Subir"))
-            btUnirse.OnClientClick = "mostrargif();";
+            btUnirse.OnClientClick = "javascript:mostrargif();";
 
         if (!Page.IsPostBack)
         {
