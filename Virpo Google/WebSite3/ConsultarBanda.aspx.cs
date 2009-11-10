@@ -39,6 +39,7 @@ public partial class ConsultarBanda : System.Web.UI.Page
             //               + "<param name='allowScriptAccess' value='never'><param name='allowNetworking' value='internal'><param name='movie' value='http://www.youtube.com/v/" + banda.Video + "&amp;hl=en'></object></td></tr></table>";
             CargarIntegrantes(banda.Id);
             lblProyectos.Text = "<a href='Proyectos.aspx?banda=" + banda.Id + "' title='Proyectos'>Proyectos</a>";
+            this.CargarEventos();
         }
     }
     protected void btnModificarBanda_Click(object sender, EventArgs e)
@@ -76,5 +77,54 @@ public partial class ConsultarBanda : System.Web.UI.Page
         if (usuarios.Count % 3 == 0 || usuarios.Count == 1) html += "</tr>";
         html += "</table>";
         lblIntegrantes.Text = html;
+    }
+
+    private void CargarEventos()
+    {
+        DataTable dt = this.DatosEventos();
+        GridView1.DataSource = dt;
+        GridView1.DataBind();
+        GridView1.Columns[0].Visible = false;
+    }
+
+    private DataTable DatosEventos()
+    {
+        DataTable dt = new DataTable();
+        DataRow row;
+
+        dt.Columns.Add("Id");
+        dt.Columns.Add("Imagen");
+        dt.Columns.Add("Nombre");
+        dt.Columns.Add("Fecha");
+        dt.Columns.Add("Lugar");
+        dt.Columns.Add("Consultar");
+
+        List<Evento> eventos = EventoFactory.DevolverTodos("WHERE idBanda = " + Convert.ToInt32(Request.QueryString["C"]));
+
+        if (eventos != null)
+        {
+            foreach (Evento evento in eventos)
+            {
+                row = dt.NewRow();
+                row["Id"] = evento.Id;
+                row["Imagen"] = evento.Imagen;
+                row["Nombre"] = evento.Nombre;
+                row["Fecha"] = Convert.ToString(evento.Fecha.Day) + "/" + Convert.ToString(evento.Fecha.Month) + "/" + Convert.ToString(evento.Fecha.Year);
+                row["Lugar"] = evento.Lugar;
+
+                dt.Rows.Add(row);
+            }
+            return dt;
+        }
+        return null;
+    }
+
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "C")
+        {
+            string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text;
+            Response.Redirect("ConsultarEvento.aspx?E=" + id);
+        }
     }
 }
