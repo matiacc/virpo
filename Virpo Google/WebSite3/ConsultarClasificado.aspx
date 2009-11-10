@@ -18,7 +18,7 @@
                 <asp:Label ID="lblImagen" runat="server"></asp:Label>
             
             </td>
-            <td colspan="3">
+            <td colspan="2">
                 <table style="width: 100%; height: 249px">
                     <tr>
                         <td colspan="2" style="text-align: right">
@@ -75,8 +75,6 @@
                     </tr>
                 </table>
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
         <td colspan="3">
@@ -97,16 +95,8 @@
             </td>
             <td style="text-align: right">
                 &nbsp;</td>
-            <td style="text-align: right">
-                &nbsp;</td>
-            <td style="text-align: right">
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="text-align: right">
-                &nbsp;</td>
-            <td style="text-align: right">
-                &nbsp;</td>
             <td style="text-align: right">
                 &nbsp;</td>
         </tr>
@@ -117,10 +107,6 @@
             <td colspan="2">
                 <asp:Label ID="lblUbicacion" runat="server" style="text-align: right"></asp:Label>
             </td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -135,24 +121,15 @@
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
         </tr>
          <tr>
             <td colspan="2">
-                <asp:Label ID="lblImprimir" runat="server" CssClass="estiloLabel"></asp:Label>
-             </td>
+                &nbsp;</td>
             <td style="width: 198px">
                 &nbsp;</td>
             <td>
-                &nbsp;</td>
-            <td>
-                
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
+                <asp:Label ID="lblImprimir" runat="server" CssClass="estiloLabel"></asp:Label>
+             </td>
         </tr>
     </table>
 </asp:Content>
