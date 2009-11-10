@@ -18,10 +18,13 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     
-    <table class="style1">
+    <table class="tabla">
         <tr>
             <td colspan="3" style="text-align: center">
-                Modificar Articulo Wiki
+                <center style="width: 529px; background-color: #333333">
+                    <titulosubventana>
+                    Modificar Artículo</titulosubventana>
+                </center>
             </td>
         </tr>
         <tr>
@@ -37,7 +40,7 @@
         </tr>
         <tr>
             <td style="width: 258px">
-                <asp:Label ID="lblTit" runat="server" Text="Titulo"></asp:Label>
+                <asp:Label ID="lblTit" runat="server" Text="Titulo:"></asp:Label>
             </td>
             <td>
                 <asp:Label ID="lblTitulo" runat="server"></asp:Label>
@@ -48,18 +51,18 @@
             </td>
         </tr>
         <tr>
-            <td style="height: 13px; width: 258px;">
-                <asp:Label ID="lblCat" runat="server" Text="Categoria"></asp:Label>
+            <td style="height: 13px; width: 258px;" class="submit">
+                <asp:Label ID="lblCat" runat="server" Text="Categoria:"></asp:Label>
             </td>
-            <td style="height: 13px">
+            <td style="height: 13px" class="submit">
                 <asp:Label ID="lblCategoria" runat="server"></asp:Label>
             </td>
-            <td style="height: 13px">
+            <td style="height: 13px" class="submit">
             </td>
         </tr>
         <tr>
             <td style="width: 258px; height: 13px;">
-                <asp:Label ID="lblDesc" runat="server" Text="Descripcion de la Modificacion"></asp:Label>
+                <asp:Label ID="lblDesc" runat="server" Text="Descripcion de la Modificacion:"></asp:Label>
             </td>
             <td style="text-align: left; height: 13px;">
                 <asp:TextBox ID="txtDescripcion" runat="server" Width="301px"></asp:TextBox>
