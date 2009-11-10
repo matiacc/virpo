@@ -56,7 +56,7 @@ namespace CapaNegocio.Factories
                     banda.Imagen = dt.Rows[i]["imagen"].ToString();
                     banda.FechaInicio = Convert.ToDateTime(dt.Rows[i]["fechaInicio"].ToString());
                     banda.Genero = GeneroFactory.Devolver(int.Parse(dt.Rows[i]["idGenero"].ToString()));
-                   // banda.Localidad = LocalidadFactory.Devolver(int.Parse(dt.Rows[i]["idLocalidad"].ToString()));
+                    banda.Localidad = LocalidadFactory.Devolver(int.Parse(dt.Rows[i]["idLocalidad"].ToString()));
                     banda.Video = dt.Rows[i]["video"].ToString();
                     bandas.Add(banda);
                 }
