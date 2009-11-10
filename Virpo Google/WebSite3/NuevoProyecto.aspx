@@ -5,7 +5,7 @@
 <div id="menu8">
         <ul>
             <li><a href="AltaMusico.aspx" title="Registrar Musico">Nuevo Proyecto</a></li>
-            
+            <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
         </ul>
     </div>
 </asp:Content>
@@ -72,10 +72,20 @@
         <tr>
             <td style="width: 129px">
                 <asp:Label ID="lblPublicar" runat="server" CssClass="estiloLabel" 
-                    Text="Publicar en Grupo:"></asp:Label>
+                    Text="Grupo:"></asp:Label>
             </td>
             <td style="width: 291px">
                 <asp:DropDownList ID="ddlGrupos" runat="server">
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 129px">
+                <asp:Label ID="lblPublicarBanda" runat="server" CssClass="estiloLabel" 
+                    Text="Banda:"></asp:Label>
+            </td>
+            <td style="width: 291px">
+                <asp:DropDownList ID="ddlBandas" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>

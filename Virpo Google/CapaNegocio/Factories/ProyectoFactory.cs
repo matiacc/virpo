@@ -13,7 +13,7 @@ namespace CapaNegocio.Factories
     {
         public static Proyecto Devolver(int id)
         {
-            string query = "SELECT P.nombre,P.descripcion,P.imagen,P.licencia, P.genero, P.tags, P.tipo,P.fechaCreacion,UP.idUsuario, P.idGrupo " +
+            string query = "SELECT P.nombre,P.descripcion,P.imagen,P.licencia, P.genero, P.tags, P.tipo,P.fechaCreacion,UP.idUsuario, P.idGrupo, P.idBanda " +
                          "FROM UsuarioXProyecto UP, Proyecto P " +
                          "WHERE UP.idProyecto = P.id " +
                          "AND P.id=" + id +
@@ -32,7 +32,8 @@ namespace CapaNegocio.Factories
                 proyecto.Tipo = (int)dt.Rows[0]["tipo"];
                 proyecto.Usuario = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[0]["idUsuario"]));
                 proyecto.FechaCreacion = Convert.ToDateTime(dt.Rows[0]["fechaCreacion"]);
-                proyecto.IdGrupo = Convert.ToInt32(dt.Rows[0]["tipo"]);
+                proyecto.IdGrupo = Convert.ToInt32(dt.Rows[0]["idGrupo"]);
+                proyecto.IdBanda = Convert.ToInt32(dt.Rows[0]["idBanda"]);
                 return proyecto;
             }
             else
@@ -47,7 +48,7 @@ namespace CapaNegocio.Factories
             //             "FROM UsuarioXProyecto UP, Proyecto P " +
             //             "WHERE UP.idProyecto = P.id ";
 
-            string query = "SELECT id,nombre,descripcion,imagen,licencia,genero,tags,tipo,fechaCreacion,idGrupo " +
+            string query = "SELECT id,nombre,descripcion,imagen,licencia,genero,tags,tipo,fechaCreacion,idGrupo,idBanda " +
                          "FROM Proyecto ";
 
             if (!string.IsNullOrEmpty(restriccion))
@@ -68,7 +69,8 @@ namespace CapaNegocio.Factories
                     proyecto.Tags = dt.Rows[i]["tags"].ToString();
                     proyecto.Tipo = (int)dt.Rows[i]["tipo"];
                     proyecto.FechaCreacion = Convert.ToDateTime(dt.Rows[i]["fechaCreacion"]);
-                    proyecto.IdGrupo = Convert.ToInt32(dt.Rows[i]["tipo"]);
+                    proyecto.IdGrupo = Convert.ToInt32(dt.Rows[i]["idGrupo"]);
+                    proyecto.IdBanda = Convert.ToInt32(dt.Rows[i]["idBanda"]);
                     //proyecto.Usuario = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[0]["idUsuario"]));
                     proyectos.Add(proyecto);
                 }
@@ -104,7 +106,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@tipo", DbType.Int32, proyecto.Tipo));
                 parametros.Add(BDUtilidades.crearParametro("@fechaCreacion", DbType.DateTime, proyecto.FechaCreacion));
                 parametros.Add(BDUtilidades.crearParametro("@idGrupo", DbType.Int32, proyecto.IdGrupo));
-                
+                parametros.Add(BDUtilidades.crearParametro("@idBanda", DbType.Int32, proyecto.IdBanda));
 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("ProyectoInsertar", parametros);
                 if (ok)

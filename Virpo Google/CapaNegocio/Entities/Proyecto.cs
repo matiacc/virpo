@@ -18,9 +18,15 @@ namespace CapaNegocio.Entities
         private Usuario usuario;
         private DateTime fechaCreacion;
         private int idGrupo;
+        private int idBanda;
 
         #region Propiedades
 
+        public int IdBanda
+        {
+            get { return idBanda; }
+            set { idBanda = value; }
+        }
         public int IdGrupo
         {
             get { return idGrupo; }

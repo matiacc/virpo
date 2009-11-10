@@ -38,6 +38,7 @@ public partial class ConsultarBanda : System.Web.UI.Page
             //lblVideo.Text = @"<table align='center'><tr><td><object type='application/x-shockwave-flash' allowscriptaccess='never' allownetworking='internal' data='http://www.youtube.com/v/" + banda.Video + "&amp;hl=en' width='280' height='234'>"
             //               + "<param name='allowScriptAccess' value='never'><param name='allowNetworking' value='internal'><param name='movie' value='http://www.youtube.com/v/" + banda.Video + "&amp;hl=en'></object></td></tr></table>";
             CargarIntegrantes(banda.Id);
+            lblProyectos.Text = "<a href='Proyectos.aspx?banda=" + banda.Id + "' title='Proyectos'>Proyectos</a>";
         }
     }
     protected void btnModificarBanda_Click(object sender, EventArgs e)

@@ -99,11 +99,26 @@ public static class MetodosComunes
         SqlDataReader dr = BDUtilidades.GetReader(query);
 
 
-        CargarCombo(ddl, dr, "nombre", "id", "Seleccione una opción");
+        CargarCombo(ddl, dr, "nombre", "id", "No publicar en Grupos");
         dr.Close();
 
     }
-  
+
+    public static void cargarBandasDeUser(DropDownList ddl, int idCreador)
+    {
+        string query = "select B.id, B.nombre "+
+                       "from Banda B, MusicoXBanda M "+
+                       "where M.idBanda=B.id "+
+                       "and M.creador='True' " +
+                       "and M.idUsuario=" + idCreador;
+
+        SqlDataReader dr = BDUtilidades.GetReader(query);
+
+
+        CargarCombo(ddl, dr, "nombre", "id", "No publicar en Bandas");
+        dr.Close();
+
+    }
 
 
     public static void cargarPaises(DropDownList ddl)

@@ -8,6 +8,7 @@
             <li><a href="ListarUsuarios.aspx" title="Agregar Integrante">Agregar Integrante</a></li>
             <li><a href="MostrarIntegrantesBanda.aspx" title="Agregar Integrante">Bandas e Integrantes</a></li>
             <li><a href="ListarBandas.aspx" title="Agregar Integrante">Listar Bandas</a></li>
+            <li><asp:Label ID="lblProyectos" runat="server"></asp:Label></li>
         </ul>
     </div>
 </asp:Content>
