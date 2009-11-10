@@ -7,6 +7,9 @@
         <ul>
             <li><a href="NuevoGrupo.aspx" title="Nuevo Grupo">Nuevo Grupo</a></li>
             <li><asp:Label ID="lblMisGrupos" runat="server"></asp:Label></li>
+            <li><asp:Label ID="lblDebate" runat="server"></asp:Label></li>
+            <li><asp:Label ID="lblProyectos" runat="server"></asp:Label></li>
+            
         </ul>
         </div>
 </asp:Content>
@@ -75,7 +78,7 @@
            <asp:Button ID="Button2" runat="server" Text="False" Style="display: none;" />
     <asp:Button ID="Button3" runat="server" Text="False2" Style="display: none;"/>
     <asp:Panel ID="Panel1" runat="server" Style="display: none;" CssClass="modalPopup">
-        <center>Se ha agregado al grupo!!</center>
+        <center>El comentario ha sido grabado!</center>
         <br />
         <br />
         

@@ -24,6 +24,8 @@ public partial class _Default : System.Web.UI.Page
                 lblMisGrupos.Text = "<a href='GruposDeInteres.aspx?Id=" + ((Usuario)Session["Usuario"]).Id +"' title='Mis Grupos'>Mis Grupos</a>";
             else
                 lblMisGrupos.Text = "<a href='GruposDeInteres.aspx' title='Mis Grupos'>Mis Grupos</a>";
+
+            
             int idUser = 0;
             if(Request.QueryString["Id"] != null)
             {

@@ -28,6 +28,8 @@ public partial class ConsultarGrupo : System.Web.UI.Page
                 grupo = GrupoFactory.Devolver(id);
                 lblDebate.Text = "<a href='Debate.aspx?grupo=" + id + "'>Debates</a>";
 
+                lblProyectos.Text = "<a href='Proyectos.aspx?grupo="+ id +"' title='Proyectos'>Proyectos</a>";
+
                 if (Session["Usuario"] == null)
                 {
                     lblMisGrupos.Text = "<a href='GruposDeInteres.aspx' title='Mis Grupos'>Mis Grupos</a>";
@@ -53,6 +55,7 @@ public partial class ConsultarGrupo : System.Web.UI.Page
                 //{
                 //    lblEnlaces.Text += "<a href='" + enlace + "'>" + enlace + "</a>";
                 //}
+                imgGrupo.ImageUrl = grupo.Imagen;
                 lblNombre.Text = grupo.Nombre;
                 lblTema.Text = grupo.Tema;
                 this.CargarMiembros(grupo.Id);

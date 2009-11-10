@@ -22,6 +22,9 @@
         <tr>
             <td>
                 &nbsp;
+                <asp:Label ID="label3" runat="server" Text="Proyectos publicados en el Grupo " 
+                    Visible="False"></asp:Label>
+                <asp:Label ID="lblGrupo" runat="server" Visible="False"></asp:Label>
             </td>
         </tr>
         <tr>

@@ -5,6 +5,7 @@
         <ul>
             <li><a href="NuevoGrupo.aspx" title="Nuevo Grupo">Nuevo Grupo</a></li>
             <li><asp:Label ID="lblMisGrupos" runat="server" Text="Mis Grupos"></asp:Label></li>
+            
         </ul>
     </div>
 </asp:Content>
