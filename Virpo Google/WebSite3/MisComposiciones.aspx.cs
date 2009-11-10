@@ -33,7 +33,7 @@ public partial class _Default : System.Web.UI.Page
 
             if (Request.QueryString["fin"] != null)
             {
-                Label1.Visible = false;
+                //Label1.Visible = false;
                 DataTable dt = this.DatosCancionesTerminadas();
                 GridView1.Columns[5].Visible = true;
 
