@@ -12,10 +12,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <p>
-        &nbsp;</p>
+        <center style="width: 529px; background-color: #333333">
+                    <titulosubventana>
+                        Ultimos Eventos</titulosubventana>
+                </center></td>
     <p>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-            Height="182px" onrowcommand="GridView1_RowCommand" Width="407px">
+            Height="120px" onrowcommand="GridView1_RowCommand" Width="529px" 
+            CssClass="GridViewStyle" GridLines="None" 
+            onselectedindexchanged="GridView1_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                 <asp:ImageField DataImageUrlField="imagen">
@@ -27,6 +32,13 @@
                 <asp:ButtonField ButtonType="Image" CommandName="C" 
                     ImageUrl="~/ImagenesSite/lupa3.png" Text="Consultar" />
             </Columns>
+            <RowStyle CssClass="RowStyle" />
+                            <EmptyDataRowStyle CssClass="EmptyRowStyle" />
+                            <PagerStyle CssClass="PagerStyle" />
+                            <SelectedRowStyle CssClass="SelectedRowStyle" />
+                            <HeaderStyle CssClass="HeaderStyle" />
+                            <EditRowStyle CssClass="EditRowStyle" />
+                            <AlternatingRowStyle CssClass="AltRowStyle" />
         </asp:GridView>
 </p>
     <p>
