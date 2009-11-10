@@ -12,61 +12,44 @@
         </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <table class="style1">
+    <table class="tabla">
         <tr>
             <td>
-                Titulo</td>
+               <center style="width: 529px; background-color: #333333">
+                    <titulosubventana>
+                        Nuevo Debate</titulosubventana>
+                </center></td>
+        </tr>
+        <tr>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
             <td>
-                <asp:TextBox ID="txtTitulo" runat="server" Width="500px"></asp:TextBox>
-            </td>
+                Titulo</td>
+        </tr>
+        <tr>
             <td>
-                &nbsp;</td>
+                <asp:TextBox ID="txtTitulo" runat="server" Width="529px"></asp:TextBox>
+            </td>
         </tr>
         <tr>
             <td>
                 Comentario</td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
             <td>
                 <asp:TextBox ID="txtComentario" runat="server" Rows="15" TextMode="MultiLine" 
-                    Width="500px"></asp:TextBox>
+                    Width="529px"></asp:TextBox>
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
             <td align="right">
                 <asp:Button ID="btPublicar" runat="server" CssClass="botones" 
                     onclick="btPublicar_Click" Text="Publicar" />
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-    </table>
+        </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
 </asp:Content>
