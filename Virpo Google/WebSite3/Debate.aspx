@@ -11,19 +11,17 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-
+<center style="width: 527px; background-color: #333333"><tituloSubVentana>
+                   Debates</tituloSubVentana></center>
     <table class="tabla" style="width: 531px">
         <tr>
-            <td style="width: 37px; background-color: #C0C0C0;" colspan="2">
-               <asp:Label ID="lblNuevoTopic" runat="server"></asp:Label></td>
-            <%--<td class="estiloLabel" 
-                style="text-align: center; width: 178px; background-color: #C0C0C0">
-                </td>--%>
-            <td style="text-align: left; width: 114px; background-color: #C0C0C0;">
+            <td style="width: 37px; ">
                 &nbsp;</td>
-            <td style="text-align: right; width: 60px; background-color: #C0C0C0">
+            <td style="text-align: left; width: 114px; ">
                 &nbsp;</td>
-            <td style="text-align: center; background-color: #C0C0C0">
+            <td style="text-align: right; width: 60px; ">
+                &nbsp;</td>
+            <td style="text-align: center; ">
                  &nbsp;</td>
         </tr>
      </table>
@@ -37,11 +35,11 @@
                     CssClass="estiloLabelCabecera2" Font-Size="Medium"></asp:Label>
             </td>
             <td style="text-align: left; width: 9px; background-color: #C0C0C0;">
-                <asp:Label ID="Label5" runat="server" Text="Respuestas" 
+                <asp:Label ID="Label5" runat="server" Text="Respuestas " 
                     CssClass="estiloLabelCabecera2" Font-Size="Medium"></asp:Label>
             </td>
             <td style="text-align: center; width: 50px; background-color: #C0C0C0">
-                <asp:Label ID="Label4" runat="server" Text="Visitas" 
+                <asp:Label ID="Label4" runat="server" Text="Visitas " 
                     CssClass="estiloLabelCabecera2" Font-Size="Medium"></asp:Label>
             </td>
             <td style="text-align: center; background-color: #C0C0C0">
@@ -87,7 +85,34 @@
                     CssClass="estiloLabel"></asp:Label>
             </td>
         </tr>--%>
-    </table>
+        <tr>
+            <td style="width: 37px; ">
+                &nbsp;</td>
+            <td class="estiloLabel" 
+                style="text-align: center; width: 212px; ">
+                &nbsp;</td>
+            <td style="text-align: left; width: 9px; ">
+                &nbsp;</td>
+            <td style="text-align: center; width: 50px; ">
+                &nbsp;</td>
+            <td style="text-align: center; ">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 37px; background-color: #C0C0C0;">
+               <asp:Label ID="lblNuevoTopic" runat="server" Width="150px"></asp:Label>
+            </td>
+            <td class="estiloLabel" 
+                style="text-align: center; width: 212px; background-color: #C0C0C0">
+                &nbsp;</td>
+            <td style="text-align: left; width: 9px; background-color: #C0C0C0;">
+                &nbsp;</td>
+            <td style="text-align: center; width: 50px; background-color: #C0C0C0">
+                &nbsp;</td>
+            <td style="text-align: center; background-color: #C0C0C0">
+                &nbsp;</td>
+        </tr>
+        </table>
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
