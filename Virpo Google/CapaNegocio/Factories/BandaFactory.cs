@@ -28,7 +28,7 @@ namespace CapaNegocio.Factories
                 banda.ImagenThumb = dt.Rows[0]["imagenThumb"].ToString();
                 banda.FechaInicio = Convert.ToDateTime(dt.Rows[0]["fechaInicio"].ToString());
                 banda.Genero = GeneroFactory.Devolver(int.Parse(dt.Rows[0]["idGenero"].ToString()));
-                //banda.Localidad = LocalidadFactory.Devolver(int.Parse(dt.Rows[0]["idLocalidad"].ToString()));
+                banda.Localidad = LocalidadFactory.Devolver(int.Parse(dt.Rows[0]["idLocalidad"].ToString()));
                 banda.Video = dt.Rows[0]["video"].ToString();
                 banda.Id = id;
                 return banda;
