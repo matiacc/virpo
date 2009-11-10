@@ -56,7 +56,7 @@
                             <td>
                                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
                                     AutoGenerateColumns="False" CssClass="GridViewStyle" GridLines="None" OnRowCommand="GridView1_RowCommand"
-                                    Width="527px" PageSize="6">
+                                    Width="529" PageSize="6">
                                     <Columns>
                                         <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False">
                                             <HeaderStyle Font-Size="Small" />
