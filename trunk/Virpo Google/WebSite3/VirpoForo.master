@@ -43,7 +43,7 @@
         <li id="m1"><a href="GruposDeInteres.aspx">Grupos De Interes</a></li>
         <li id="m2"><a href="Clasificados.aspx">Clasificados</a></li>
         <li id="m3"><a href="Wikimusic.aspx">Wikimusic</a></li>
-        <li id="m4"><a href="Proyectos.aspx">Colaboraciones</a></li>
+        <li id="m4"><a href="Proyectos.aspx">Proyectos</a></li>
         <li id="m5"><a href="Bandas.aspx">Bandas</a></li>
         
         <%--Link Para Ingresar al foro Lucho

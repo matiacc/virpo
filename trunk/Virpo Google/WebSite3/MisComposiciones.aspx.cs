@@ -31,12 +31,26 @@ public partial class _Default : System.Web.UI.Page
         {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
-            this.CargarComposiciones();
-            
-            
+            if (Request.QueryString["fin"] != null)
+            {
+                Label1.Visible = false;
+                DataTable dt = this.DatosCancionesTerminadas();
+                GridView1.Columns[5].Visible = true;
 
+                GridView1.DataSource = dt;
+                if (dt.Rows.Count == 0)
+                {
+                    Label2.Visible = true;
+                    Label2.Text = "No hay canciones terminadas";
+                }
+                pnlReproductor.Visible = true;
+                GridView1.DataBind();
+                GridView1.Columns[5].Visible = false;
+            }
+            else
+                this.CargarComposiciones();
+            
         }
-
     }
 
     private void CargarComposiciones()
@@ -61,7 +75,7 @@ public partial class _Default : System.Web.UI.Page
         dt.Columns.Add("Nombre");
         dt.Columns.Add("Tipo");
         dt.Columns.Add("Instrumento");
-        dt.Columns.Add("Ruta2");
+        //dt.Columns.Add("Ruta2");
         dt.Columns.Add("Id");
         
         Usuario usuario = (Usuario)Session["Usuario"];
@@ -73,7 +87,7 @@ public partial class _Default : System.Web.UI.Page
             foreach (Composicion composicion in composiciones)
             {
                 row = dt.NewRow();
-                row["Ruta"] = composicion.Audio;
+                row["Ruta"] = "./Composiciones/" + composicion.Audio;
                 row["Nombre"] = composicion.Nombre;
                 if (composicion.Instrumento != null)
                     row["Instrumento"] = composicion.Instrumento.Nombre;
@@ -84,7 +98,47 @@ public partial class _Default : System.Web.UI.Page
                     row["Tipo"] = composicion.Tipo;
                 else
                     row["Tipo"] = "Tipo No definido";
-                row["Ruta2"] = composicion.Audio;
+                //row["Ruta2"] = "./Composiciones/" + composicion.Audio;
+                row["Id"] = composicion.Id;
+
+                dt.Rows.Add(row);
+            }
+            return dt;
+        }
+        return null;
+    }
+
+    private DataTable DatosCancionesTerminadas()
+    {
+        DataTable dt = new DataTable();
+        DataRow row;
+        dt.Columns.Add("Ruta");
+        dt.Columns.Add("Nombre");
+        dt.Columns.Add("Tipo");
+        dt.Columns.Add("Instrumento");
+        //dt.Columns.Add("Ruta2");
+        dt.Columns.Add("Id");
+
+        string restriccion = "WHERE tipo = 'Finalizada'";
+        List<Composicion> composiciones = ComposicionFactory.DevolverTodos(restriccion);
+
+        if (composiciones != null)
+        {
+            foreach (Composicion composicion in composiciones)
+            {
+                row = dt.NewRow();
+                row["Ruta"] = "./Composiciones/" + composicion.Audio;
+                row["Nombre"] = composicion.Nombre;
+                if (composicion.Instrumento != null)
+                    row["Instrumento"] = composicion.Instrumento.Nombre;
+                else
+                    row["Instrumento"] = "Instrumento No definido";
+
+                if (composicion.Tipo != null)
+                    row["Tipo"] = composicion.Tipo;
+                else
+                    row["Tipo"] = "Tipo No definido";
+                //row["Ruta2"] = "./Composiciones/" + composicion.Audio;
                 row["Id"] = composicion.Id;
 
                 dt.Rows.Add(row);
