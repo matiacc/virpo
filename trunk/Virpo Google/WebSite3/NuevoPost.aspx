@@ -18,7 +18,7 @@
         <tr>
             <td>
                 <center style="width: 527px; background-color: #333333"><tituloSubVentana>
-                  Nueva respuesta sobre <asp:Label ID="lblTitulo" runat="server"></asp:Label></tituloSubVentana></center></td>
+                  <asp:Label ID="lblTitulo" runat="server"></asp:Label></tituloSubVentana></center></td>
         </tr>
         <tr>
             <td class="tabla">
