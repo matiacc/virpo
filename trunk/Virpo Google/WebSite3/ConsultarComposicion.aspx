@@ -112,6 +112,21 @@
         </tr>
         <tr>
             <td style="width: 107px">
+                <asp:Label ID="Label9" runat="server" Text="¿Finalizar?"></asp:Label>
+            </td>
+            <td>
+                <asp:Button ID="btnFinalizar" runat="server" onclick="Button1_Click" 
+                    Text="Si" />
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 107px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 107px">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
