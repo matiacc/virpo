@@ -19,8 +19,7 @@
     <p>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
             Height="120px" onrowcommand="GridView1_RowCommand" Width="529px" 
-            CssClass="GridViewStyle" GridLines="None" 
-            onselectedindexchanged="GridView1_SelectedIndexChanged">
+            CssClass="GridViewStyle" GridLines="None">
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                 <asp:ImageField DataImageUrlField="imagen">
