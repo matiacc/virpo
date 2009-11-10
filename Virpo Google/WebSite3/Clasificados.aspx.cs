@@ -25,7 +25,11 @@ public partial class _Default : System.Web.UI.Page
             {
                 string filtro = Request.QueryString["filtro"];
                 ViewState.Add("Filtro", filtro);
-                restriccion = "WHERE titulo like '%" + filtro + "%' or descripcion like '%" + filtro + "%'";
+                restriccion = "AND (titulo like '%" + filtro + "%' or descripcion like '%" + filtro + "%')";
+            }
+            if (Request.QueryString["rank"] != null)
+            {
+                restriccion = "order by visitas desc";
             }
             DataTable dt = this.DatosClasificados(restriccion);
             GridView1.DataSource = dt;
