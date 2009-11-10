@@ -22,6 +22,7 @@ namespace CapaNegocio.Factories
             {
                 Composicion comp = new Composicion();
                 comp.Id = id;
+                comp.Tipo = dt.Rows[0]["tipo"].ToString();
                 comp.Nombre = dt.Rows[0]["nombre"].ToString();
                 comp.Audio = dt.Rows[0]["ruta"].ToString();
                 comp.Descripcion = dt.Rows[0]["descripcion"].ToString();
@@ -53,6 +54,7 @@ namespace CapaNegocio.Factories
                 {
                     Composicion comp = new Composicion();
                     comp.Audio = dt.Rows[i]["ruta"].ToString();
+                    comp.Tipo = dt.Rows[i]["tipo"].ToString();
                     comp.Id = (int)dt.Rows[i]["id"];
                     comp.Nombre = dt.Rows[i]["nombre"].ToString();
                     comp.Descripcion = dt.Rows[i]["descripcion"].ToString();
@@ -89,6 +91,7 @@ namespace CapaNegocio.Factories
                     Composicion comp = new Composicion();
                     comp.Id = (int)dt.Rows[i]["id"];
                     comp.Nombre = dt.Rows[i]["nombre"].ToString();
+                    comp.Tipo = dt.Rows[i]["tipo"].ToString();
                     comp.Descripcion = dt.Rows[i]["descripcion"].ToString();
                     comp.Tempo = dt.Rows[i]["tempo"].ToString();
                     comp.Tonalidad = TonalidadFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idTonalidad"]));
@@ -142,6 +145,27 @@ namespace CapaNegocio.Factories
             }
         }
 
+        public static int DevolverIdMusicoProyecto(int idComposicion)
+        {
+            int id=0;
+            string query = "SELECT up.idUsuario " +
+                       " FROM Composicion c, ComposicionXProyecto cp, Proyecto p, UsuarioXProyecto up " +
+                       " WHERE up.idProyecto = p.id AND p.id = cp.idProyecto AND cp.idComposicion = " + idComposicion;
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+
+            if (dt!=null)
+            {
+                id = (int)dt.Rows[0]["idUsuario"];
+
+                
+            }
+            return id;
+
+
+        }
+
+
         public static int DevolverIdComposicionCreada(int idMusico)
         {
             string query = "SELECT MAX(ID) FROM Composicion WHERE idUsuario = " + idMusico;
@@ -187,6 +211,17 @@ namespace CapaNegocio.Factories
             }
         }
         #endregion
+
+
+        public static bool Finalizar(int id)
+        {
+            string sql = "UPDATE Composicion SET tipo = 'Finalizada' WHERE id =" + id;
+            BDUtilidades.EjecutarNonQuery(sql);
+
+            return true;
+        }
+
+
 
 
     }

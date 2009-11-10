@@ -12,6 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using CapaNegocio.Entities;
 using CapaNegocio.Factories;
+using System.Drawing;
 
 public partial class _Default : System.Web.UI.Page
 {
@@ -34,11 +35,10 @@ public partial class _Default : System.Web.UI.Page
             int id = Convert.ToInt32(Request.QueryString["C"]);
             Composicion comp = ComposicionFactory.Devolver(id);
 
-            if (comp.Tipo != null)
+            if (comp.Tipo == "Finalizada") lblTipo.ForeColor = Color.Red; ;
+                
                 lblTipo.Text = comp.Tipo;
-            else
-                lblTipo.Text = "Tipo No definido";
-
+ 
             if (comp.Nombre != null)
                 lblNombre.Text = comp.Nombre;
             else
@@ -73,23 +73,20 @@ public partial class _Default : System.Web.UI.Page
             ImageButton1.Visible = false;
             
         }
+        if (u.Id!= ComposicionFactory.DevolverIdMusicoProyecto(comp.Id) || comp.Tipo =="Finalizada")
+        {
+            Label9.Visible = false;
+            btnFinalizar.Visible = false;
+            
+        }
+
+
 
 
 
     }
 
-    private void CargarFoto(Composicion comp)
-    {
-        string html = "<table>";
-
-        html += "<td>";
-        html += "<a href='PerfilPublico.aspx?Id=" + comp.Usuario.Id + "' title='" + comp.Usuario.NombreUsuario + "'>" +
-        "<img src='./ImagenesUsuario/" + comp.Usuario.Imagen + "' width='20' border='0' height='10'></a>";
-        html += "</td>";
-        html += "</table>";
-        lblAutor.Text = html;
-    }
-
+    
 
 
 
@@ -116,6 +113,14 @@ public partial class _Default : System.Web.UI.Page
         pnlReproductor.Visible = true;
 
 
+
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+        int id = Convert.ToInt32(Request.QueryString["C"]);
+        ComposicionFactory.Finalizar(id);
+        Response.Redirect("ConsultarComposicion.aspx?C=" + id);
 
     }
 }
