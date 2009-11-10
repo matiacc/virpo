@@ -17,6 +17,8 @@ using System.Collections.Generic;
 
 public partial class _Default : System.Web.UI.Page
 {
+    int idU;
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -37,16 +39,23 @@ public partial class _Default : System.Web.UI.Page
         lblPais.Text = ub[2];
         lblCiudad.Text = ub[1];
         lblUbicacion.Text = ub[0];
-        
+        Usuario u = (Usuario)Session["Usuario"];
 
-        if (Session["Usuario"] != evento.Musico) 
+        idU = evento.Musico.Id;
+
+        if (u.Id != idU)
         {
-            this.CargarDueño(evento);
+
+            ImageButton1.ImageUrl = "./ImagenesUsuario/" + evento.Musico.Imagen;
 
 
         }
-        
 
+        else
+        {
+            Label14.Visible = false;
+            ImageButton1.Visible = false;
+        }
 
 
     }
@@ -88,19 +97,15 @@ public partial class _Default : System.Web.UI.Page
 
 
 
-    private void CargarDueño(Evento evento)
+
+
+
+
+
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
     {
-        string html = "<table>";
 
-        html += "<td>";
-        html += "<a href='PerfilPublico.aspx?Id=" + evento.Musico.Id + "' title='" + evento.Musico.NombreUsuario + "'>" +
-        "<img src='./ImagenesUsuario/" + evento.Musico.Imagen + "' width='100' border='0' height='70'></a>";
-        html += "</td>";
-        html += "</table>";
-        lblAutor.Text = html;
+        Response.Redirect("PerfilPublico.aspx?Id=" + idU);
+
     }
-
-        
-    
-
 }

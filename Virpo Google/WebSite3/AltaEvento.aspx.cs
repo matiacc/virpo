@@ -51,7 +51,7 @@ public partial class _Default : System.Web.UI.Page
             ddlHora.Items.Add(Convert.ToString(i));
 	 
         }
-        ddlMin.Items.Add(Convert.ToString(0));
+        ddlMin.Items.Add(Convert.ToString(00));
         ddlMin.Items.Add(Convert.ToString(15));
         ddlMin.Items.Add(Convert.ToString(30));
         ddlMin.Items.Add(Convert.ToString(45));
