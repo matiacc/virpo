@@ -22,10 +22,19 @@
             </td>
         </tr>
         <tr>
-            <td rowspan="11" style="width: 250px; ">
+            <td style="width: 11px; " rowspan="13">
                 <asp:Image ID="ImgPerfil" runat="server" Height="253px" Width="247px" />
+                
             </td>
-            <td style="width: 11px; ">
+            <td style="width: 171px; ">
+                &nbsp;</td>
+            <td style="width: 171px; ">
+                &nbsp;</td>
+            <td style="width: 105px; ">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 171px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
                 <asp:Label ID="Label2" runat="server" Text="Nombre:" CssClass="estiloLabel"></asp:Label>
@@ -35,7 +44,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 11px; ">
+            <td style="width: 171px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
                 <asp:Label ID="Label3" runat="server" Text="Apellido:" CssClass="estiloLabel"></asp:Label>
@@ -45,7 +54,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 11px; ">
+            <td style="width: 171px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
                 <asp:Label ID="Label13" runat="server" Text="Instrumento:" 
@@ -56,7 +65,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 11px; ">
+            <td style="width: 171px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
                 <asp:Label ID="Label7" runat="server" Text="Fecha de Nacimiento:" 
@@ -67,7 +76,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 11px; ">
+            <td style="width: 171px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
                 <asp:Label ID="Label8" runat="server" Text="Sexo:" CssClass="estiloLabel"></asp:Label>
@@ -77,7 +86,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 11px; ">
+            <td style="width: 171px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
                 <asp:Label ID="Label4" runat="server" Text="E-mail:" CssClass="estiloLabel"></asp:Label>
@@ -87,7 +96,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 11px; ">
+            <td style="width: 171px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
                 <asp:Label ID="Label5" runat="server" Text="Teléfono Fijo:" 
@@ -98,7 +107,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 11px; ">
+            <td style="width: 171px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
                 <asp:Label ID="Label6" runat="server" Text="Teléfono Móvil:" 
@@ -109,7 +118,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 11px; ">
+            <td style="width: 171px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
                 <asp:Label ID="Label10" runat="server" Text="Ciudad:" CssClass="estiloLabel"></asp:Label>
@@ -119,7 +128,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 11px; ">
+            <td style="width: 171px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
                 <asp:Label ID="Label11" runat="server" Text="Estado o Provincia" CssClass="estiloLabel"></asp:Label>
@@ -129,7 +138,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 11px; ">
+            <td style="width: 171px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
                 <asp:Label ID="Label12" runat="server" Text="País:" CssClass="estiloLabel"></asp:Label>
@@ -138,6 +147,27 @@
                 <asp:Label ID="lblPais" runat="server"></asp:Label>
             </td>
         </tr>
+
+        <tr>
+            <td style="width: 171px; ">
+                &nbsp;</td>
+            <td style="width: 171px; ">
+                &nbsp;</td>
+            <td style="width: 105px; ">
+                &nbsp;</td>
+        </tr>
+
+        <tr>
+            <td style="width: 11px; ">
+                &nbsp;</td>
+            <td style="width: 171px; ">
+                &nbsp;</td>
+            <td style="width: 171px; ">
+                &nbsp;</td>
+            <td style="width: 105px; ">
+                &nbsp;</td>
+        </tr>
+
         </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="Server">
