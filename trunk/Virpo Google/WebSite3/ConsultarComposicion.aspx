@@ -12,7 +12,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <table class="tabla">
         <tr>
-            <td colspan="2" style="height: 14px">
+            <td colspan="3" style="height: 14px">
                 <center style="width: 529px; background-color: #333333">
                     <titulosubventana>
                     Detalles de la composicion </titulosubventana>
@@ -23,7 +23,7 @@
         <tr>
             <td style="width: 107px">
                 &nbsp;</td>
-            <td>
+            <td colspan="2">
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
             </td>
@@ -40,21 +40,22 @@
             <td>
         <asp:Label ID="Label8" runat="server" Text="Autor:"></asp:Label>
             </td>
+            <td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
+            <td>
+                &nbsp;</td>
             <td rowspan="7">
-                            <asp:ImageButton ID="ImageButton1" runat="server" Height="89px" 
-                                onclick="ImageButton1_Click" Width="100px" />
                             <br />
                
                 
             
             
-                <asp:Label ID="lblAutor" runat="server"></asp:Label>
                             </td>
         </tr>
         <tr>
@@ -63,6 +64,16 @@
             </td>
             <td>
                 <asp:Label ID="lblNombre" runat="server" Font-Size="Medium"></asp:Label>
+            </td>
+            <td rowspan="5">
+                            <asp:ImageButton ID="ImageButton1" runat="server" Height="89px" 
+                                onclick="ImageButton1_Click" Width="100px" />
+                            <br />
+               
+                
+            
+            
+                <asp:Label ID="lblAutor" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -96,7 +107,7 @@
         <tr>
             <td style="width: 107px">
                 &nbsp;</td>
-            <td>
+            <td colspan="2">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -105,6 +116,11 @@
             </td>
             <td>
                 <asp:Label ID="lblInstrumento" runat="server" Font-Size="Medium"></asp:Label>
+            </td>
+            <td rowspan="5">
+                <asp:ImageButton ID="ImageButton2" runat="server" Height="74px" 
+                    ImageUrl="~/ImagenesSite/play.png" Width="79px" 
+                    onclick="ImageButton2_Click" />
             </td>
             <td>
                 &nbsp;</td>
@@ -149,7 +165,7 @@
         <tr>
             <td style="width: 107px">
                 &nbsp;</td>
-            <td>
+            <td colspan="2">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
@@ -157,18 +173,15 @@
         <tr>
             <td style="width: 107px">
                 &nbsp;</td>
-            <td>
+            <td colspan="2">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
-                <asp:ImageButton ID="ImageButton2" runat="server" Height="74px" 
-                    ImageUrl="~/ImagenesSite/play.png" Width="79px" 
-                    onclick="ImageButton2_Click" />
-            </td>
-            <td>
+                &nbsp;</td>
+            <td colspan="2">
                 
         <asp:Panel ID="pnlReproductor" runat="server" Height="42px" Visible="False" Width="506px">
                     <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
