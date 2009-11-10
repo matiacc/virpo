@@ -11,13 +11,20 @@
         </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+<center style="width: 527px; background-color: #333333"><tituloSubVentana>
+                  <asp:Label ID="lblTituloTopic" runat="server"></asp:Label></tituloSubVentana></center>
+
     <table class="tabla" border="1" style="width:529px;">
     <tr>
-            <td align="left" colspan="2">
-                <asp:Label ID="lblTituloTopic" runat="server"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td align="left">
                     <asp:Label ID="lblResponder" runat="server"></asp:Label>
                     
+            </tr>
+        <tr>
+            <td align="left">
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
         </tr>
         <asp:Label ID="lblTabla" runat="server"></asp:Label>
        <%-- <tr>
