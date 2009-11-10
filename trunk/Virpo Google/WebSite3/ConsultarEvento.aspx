@@ -83,7 +83,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <table class="style1">
+                    <table class="style1" style="width: 105%">
                         <tr>
                             <td style="width: 75px">
                                 <asp:Label ID="Label13" runat="server" Text="Ciudad:"></asp:Label>
@@ -117,7 +117,14 @@
                 <td style="width: 190px">
                     &nbsp;</td>
                 <td>
-                    &nbsp;</td>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </td>
             </tr>
         </table>
     <br />
@@ -142,10 +149,15 @@
     <p>
     </p>
     <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        <asp:Label ID="Label14" runat="server" Text="Creado por:"></asp:Label>
     </p>
     <p>
-        <asp:Label ID="lblAutor" runat="server" ></asp:Label>
-    
+        <asp:ImageButton ID="ImageButton1" runat="server" Height="81px" 
+            onclick="ImageButton1_Click" Width="91px" />
     </p>
     <p>
     </p>
