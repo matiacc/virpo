@@ -13,6 +13,10 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+  <center style="width: 529px; background-color: #333333">
+                    <titulosubventana>
+                    Mis Composiciones</titulosubventana>
+                </center>
     <p>
         &nbsp;<asp:Panel ID="pnlReproductor" runat="server" Height="42px" Visible="False" Width="506px">
                     <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
@@ -36,7 +40,6 @@
     <p>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
-        <asp:Label ID="Label1" runat="server" Text="Mis Composiciones"></asp:Label>
     </p>
     <p>
         <asp:Label ID="Label2" runat="server" ForeColor="Red" 
@@ -47,8 +50,8 @@
     </p>
     <p>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-            Width="275px" onrowcommand="GridView1_RowCommand1" 
-            style="margin-right: 0px">
+            Width="527px" onrowcommand="GridView1_RowCommand1" 
+            style="margin-right: 0px" CssClass="GridViewStyle">
             <Columns>
                 <asp:ButtonField ButtonType="Image" CommandName="P" DataTextField="Ruta" 
                     ImageUrl="~/ImagenesSite/play.png" Text="Play" />
@@ -64,6 +67,13 @@
                 <asp:ButtonField ButtonType="Image" CommandName="C" 
                     ImageUrl="~/ImagenesSite/lupa3.png" Text="Consultar" />
             </Columns>
+            <RowStyle CssClass="RowStyle" />
+                    <EmptyDataRowStyle CssClass="EmptyRowStyle" />
+                    <PagerStyle CssClass="PagerStyle" />
+                    <SelectedRowStyle CssClass="SelectedRowStyle" />
+                    <HeaderStyle CssClass="HeaderStyle" />
+                    <EditRowStyle CssClass="EditRowStyle" />
+                    <AlternatingRowStyle CssClass="AltRowStyle" />
         </asp:GridView>
     </p>
    
