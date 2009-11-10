@@ -1,0 +1,10 @@
+Hay que compilar cada .vb que esta en la carpeta SOURCE en un nuevo dll y copiar los generados en la carpeta bin del Foro
+
+la respuesta es simple, el interprete de comandos no reconoce el comando vbc. Esto es porque no encuentra la ruta del mismo. Para solucionarlo podes hacer una de estas tres cosas:
+1) Colocar la ruta absoluta del archivo vbc en la variable de entorno PATH. Doble click en mi-pc, propiedades, buscas el boton "variables de entorno" en una de las solapas. Luego concatenas la ruta absoluta a la variable PATH.
+
+2) Setear la variable de entorno desde linea de comandos, antes de ejecutar:
+set PATH=%PATH%;c:\archivos de programa\....\vbc.exe
+
+3) Ejecutar directamente con la ruta absoluta:
+c:\archivos de programa\....\vbc.exe ruta_de_Mi_Archivo\archivo.vb
