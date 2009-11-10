@@ -386,14 +386,14 @@ Namespace DMGForums.Topics
 								NumPages += 1
 							end if
 
-						NoItemsDiv.InnerHtml = "Reply Posted Successfully<br /><br /><a href=""topics.aspx?ID=" & txtTopicID.text & "&PAGE=" & NumPages & """>Click Here</a> To Return To The Thread<br /><br />"
+                        NoItemsDiv.InnerHtml = "Respuesta Grabada con Éxito<br /><br /><a href=""topics.aspx?ID=" & txtTopicID.Text & "&PAGE=" & NumPages & """>Click Aquí</a> para volver atrás<br /><br />"
 					else
 						Database.Write("UPDATE " & Database.DBPrefix & "_TOPICS SET TOPIC_UNCONFIRMED_REPLIES = (TOPIC_UNCONFIRMED_REPLIES + 1) WHERE TOPIC_ID = " & txtTopicID.text)
 						Functions.SendToModerators(2, txtTopicID.text, txtForumID.text)
-						NoItemsDiv.InnerHtml = Functions.CustomMessage("MESSAGE_CONFIRMPOST") & "<br /><br /><a href=""forums.aspx?ID=" & txtForumID.text & """>Click Here</a> To Return To The Forum<br /><br />"
+                        NoItemsDiv.InnerHtml = Functions.CustomMessage("MESSAGE_CONFIRMPOST") & "<br /><br /><a href=""forums.aspx?ID=" & txtForumID.Text & """>Click Aquí</a> To Return To The Forum<br /><br />"
 					end if
 				else
-					NoItemsDiv.InnerHtml = "You Can Not Post More Than Once In " & Settings.SpamFilter & " Seconds.<br /><br /><a href=""topics.aspx?ID=" & txtTopicID.text & """>Click Here</a> To Return To The Thread<br /><br />"
+                    NoItemsDiv.InnerHtml = "You Can Not Post More Than Once In " & Settings.SpamFilter & " Seconds.<br /><br /><a href=""topics.aspx?ID=" & txtTopicID.Text & """>Click Aquí</a> para volver atrás<br /><br />"
 				end if
 			end if
 		End Sub
@@ -418,7 +418,7 @@ Namespace DMGForums.Topics
 				Functions.UpdateCounts(2, ForumID, 0, 0)
 				PagePanel.visible = "false"
 				ConfirmTopicForm.visible = "false"
-				NoItemsDiv.InnerHtml = "The Topic Has Been Confirmed Successfully<br /><br /><a href=""forums.aspx?ID=" & ForumID & """>Click Here</a> To Return To The Forum<br /><br />"
+                NoItemsDiv.InnerHtml = "The Topic Has Been Confirmed Successfully<br /><br /><a href=""forums.aspx?ID=" & ForumID & """>Click Aquí</a> To Return To The Forum<br /><br />"
 			else
 				Response.Redirect("topics.aspx?ID=" & sender.CommandArgument)
 			end if
@@ -455,1072 +455,1072 @@ Namespace DMGForums.Topics
 
 				PagePanel.visible = "false"
 				ConfirmReplyForm.visible = "false"
-				NoItemsDiv.InnerHtml = "The Reply Has Been Confirmed Successfully<br /><br /><a href=""topics.aspx?ID=" & TopicID & """>Click Here</a> To Return To The Thread<br /><br />"
-			else
-				Response.Redirect("topics.aspx?ID=" & TopicID)
-			end if
-		End Sub
-
-		Sub ReportTopic(sender As System.Object, e As System.EventArgs)
-			PagePanel.visible = "false"
-			ReportTopicForm.visible = "true"
-			ReportTopicSubmitButton.CommandArgument = sender.CommandArgument
-			NoItemsDiv.InnerHtml = ""
-		End Sub
-
-		Sub ReportTopicConfirmation(sender As System.Object, e As System.EventArgs)
-			Dim TopicSubject as String = ""
-			Dim ForumID as Integer = 0
-			Dim Reader as OdbcDataReader = Database.Read("SELECT TOPIC_SUBJECT, FORUM_ID FROM " & Database.DBPrefix & "_TOPICS WHERE TOPIC_ID = " & sender.CommandArgument)
-			While Reader.Read()
-				TopicSubject = Reader("TOPIC_SUBJECT").ToString()
-				ForumID = Reader("FORUM_ID")
-			End While
-			Reader.Close()
-
-			Dim Message as String = Functions.RepairString("TOPIC ALERT: [urlnopop=topics.aspx?ID=" & sender.CommandArgument & "]" & TopicSubject & "[/urlnopop][br][br]This topic has been reported for Admin/Moderator review.  The user's custom message is displayed below.[br][br][hr][br]" & txtReportTopicMessage.text)
-
-			Reader = Database.Read("SELECT P.MEMBER_ID FROM " & Database.DBPrefix & "_PRIVILEGED P Left Outer Join " & Database.DBPrefix & "_MEMBERS M On P.MEMBER_ID = M.MEMBER_ID WHERE P.FORUM_ID = " & ForumID & " AND M.MEMBER_LEVEL <> 3")
-			While Reader.Read()
-				Database.Write("INSERT INTO " & Database.DBPrefix & "_PM_TOPICS (TOPIC_FROM, TOPIC_TO, TOPIC_SUBJECT, TOPIC_MESSAGE, TOPIC_DATE, TOPIC_TO_READ, TOPIC_FROM_READ, TOPIC_LASTPOST_AUTHOR, TOPIC_LASTPOST_DATE, TOPIC_REPLIES, TOPIC_SHOWSENDER, TOPIC_SHOWRECEIVER) VALUES (" & Session("UserID") & ", " & Reader("MEMBER_ID") & ", 'Topic To Report For Admin/Moderator Review', '" & Message & "', " & Database.GetTimeStamp() & ", 0, 1, " & Session("UserID") & ", " & Database.GetTimeStamp() & ", 0, 0, 1)")
-			End While
-			Reader.Close()
-
-			Reader = Database.Read("SELECT MEMBER_ID FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_LEVEL = 3")
-			While Reader.Read()
-				Database.Write("INSERT INTO " & Database.DBPrefix & "_PM_TOPICS (TOPIC_FROM, TOPIC_TO, TOPIC_SUBJECT, TOPIC_MESSAGE, TOPIC_DATE, TOPIC_TO_READ, TOPIC_FROM_READ, TOPIC_LASTPOST_AUTHOR, TOPIC_LASTPOST_DATE, TOPIC_REPLIES, TOPIC_SHOWSENDER, TOPIC_SHOWRECEIVER) VALUES (" & Session("UserID") & ", " & Reader("MEMBER_ID") & ", 'Topic To Report For Admin/Moderator Review', '" & Message & "', " & Database.GetTimeStamp() & ", 0, 1, " & Session("UserID") & ", " & Database.GetTimeStamp() & ", 0, 0, 1)")
-			End While
-			Reader.Close()
-
-			PagePanel.visible = "false"
-			ReportTopicForm.visible = "false"
-			NoItemsDiv.InnerHtml = "The Admins/Moderators Have Been Alerted About This Topic<br /><br /><a href=""topics.aspx?ID=" & sender.CommandArgument & """>Click Here</a> To Return To The Thread<br /><br />"
-		End Sub
-
-		Sub EditTopic(sender As System.Object, e As System.EventArgs)
-			Response.Redirect("edittopic.aspx?ID=" & sender.CommandArgument)
-		End Sub
-
-		Sub DeleteTopic(sender As System.Object, e As System.EventArgs)
-			Response.Redirect("deletetopic.aspx?ID=" & sender.CommandArgument)
-		End Sub
-
-		Sub EditReply(sender As System.Object, e As System.EventArgs)
-			Response.Redirect("editreply.aspx?ID=" & sender.CommandArgument)
-		End Sub
-
-		Sub DeleteReply(sender As System.Object, e As System.EventArgs)
-			Response.Redirect("deletereply.aspx?ID=" & sender.CommandArgument)
-		End Sub
-
-		Sub QuoteTopic(sender As System.Object, e As System.EventArgs)
-			Response.Redirect("newreply.aspx?ID=" & Request.Querystring("ID") & "&TQ=" & sender.CommandArgument)
-		End Sub
-
-		Sub QuoteReply(sender As System.Object, e As System.EventArgs)
-			Response.Redirect("newreply.aspx?ID=" & Request.Querystring("ID") & "&RQ=" & sender.CommandArgument)
-		End Sub
-
-		Sub SendPM(sender As System.Object, e As System.EventArgs)
-			Response.Redirect("pm_send.aspx?SendTo=" & sender.CommandArgument)
-		End Sub
-
-		Sub SubscribeTopic(sender As System.Object, e As System.EventArgs)
-			Response.Redirect("subscribe.aspx?ID=" & sender.CommandArgument)
-		End Sub
-
-		Sub BanMemberConfirm(sender As System.Object, e As System.EventArgs)
-			Dim MemberID as Integer = sender.CommandArgument
-			Dim MemberUsername as String = ""
-			Dim MemberLevel as Integer = 0
-			Dim MemberReader as OdbcDataReader = Database.Read("SELECT MEMBER_USERNAME, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & MemberID)
-			While MemberReader.Read()
-				MemberLevel = MemberReader("MEMBER_LEVEL")
-				MemberUsername = MemberReader("MEMBER_USERNAME").ToString()
-			End While
-			MemberReader.Close()
-
-			if (Session("UserLevel") > MemberLevel) then
-				YesButton.CommandArgument = MemberID
-				PagePanel.visible = "false"
-				BanMemberPanel.visible = "true"
-				NoItemsDiv.InnerHtml = "Are you sure you want to ban <a href=""profile.aspx?id=" & MemberID & """>" & MemberUsername & "</a><br /><br />"
-			else
-				PagePanel.visible = "false"
-				NoItemsDiv.InnerHtml = "You Do Not Have Rights To Ban This Member.<br /><br /><a href=""default.aspx"">Click Here</a> To Return To The Main Page<br /><br />"
-			end if
-		End Sub
-
-		Sub CancelBanMember(sender As System.Object, e As System.EventArgs)
-			Response.Redirect("default.aspx")
-		End Sub
-
-		Sub BanMember(sender As System.Object, e As System.EventArgs)
-			Database.Write("UPDATE " & Database.DBPrefix & "_MEMBERS SET MEMBER_LEVEL = 0 WHERE MEMBER_ID = " & sender.CommandArgument)
-			Database.Write("DELETE FROM " & Database.DBPrefix & "_PRIVILEGED WHERE MEMBER_ID = " & sender.CommandArgument)
-			PagePanel.visible = "false"
-			BanMemberPanel.visible = "false"
-			NoItemsDiv.InnerHtml = "The Member Has Been Successfully Banned.<br /><br /><a href=""default.aspx"">Click Here</a> To Return To The Main Page<br /><br />"
-		End Sub
-
-		Sub SetSession()
-			if Not Request.Cookies("dmgforums") Is Nothing then
-				Dim aCookie As New System.Web.HttpCookie("dmgforums")
-
-				Dim UserReader as OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Server.HtmlEncode(Request.Cookies("dmgforums")("mukul")) & " AND MEMBER_PASSWORD = '" & Server.HtmlEncode(Request.Cookies("dmgforums")("gupta")) & "'", 1)
-					While(UserReader.Read())
-						Session("UserID") = UserReader("MEMBER_ID").ToString()
-						Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
-						Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
-						Session("UserLogged") = "1"
-						aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
-						aCookie.Values("mukul") = UserReader("MEMBER_ID").ToString()
-						aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
-						aCookie.Values("gupta") = UserReader("MEMBER_PASSWORD").ToString()
-						aCookie.Expires = DateTime.Now.AddDays(30)
-						Response.Cookies.Add(aCookie)
-					End While
-				UserReader.Close()
-
-				if ((Session("UserLevel") = 0) or (Session("UserLevel") = -1)) then
-					aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
-					aCookie.Values("mukul") = "-3"
-					aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
-					aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now())
-					aCookie.Expires = DateTime.Now.AddDays(-1)
-					Response.Cookies.Add(aCookie)
-					Session("UserID") = "-1"
-					Session("UserName") = ""
-					Session("UserLogged") = "0"
-					Session("UserLevel") = "0"
-				end if
-			else
-				if (Session("UserLogged") = "1") then
-					Dim UserReader as OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"), 1)
-						While(UserReader.Read())
-							Session("UserID") = UserReader("MEMBER_ID").ToString()
-							Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
-							Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
-							Session("UserLogged") = "1"
-						End While
-					UserReader.Close()
-
-					if ((Session("UserLevel") = 0) or (Session("UserLevel") = -1)) then
-						Dim aCookie As New System.Web.HttpCookie("dmgforums")
-						aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
-						aCookie.Values("mukul") = "-3"
-						aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now() & "bbb")
-						aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now() & "ccc")
-						aCookie.Expires = DateTime.Now.AddDays(-1)
-						Response.Cookies.Add(aCookie)
-						Session("UserID") = "-1"
-						Session("UserName") = ""
-						Session("UserLogged") = "0"
-						Session("UserLevel") = "0"
-					end if
-				else
-					Session("UserID") = "-1"
-					Session("UserName") = ""
-					Session("UserLogged") = "0"
-					Session("UserLevel") = "0"
-				end if
-			end if
-		End Sub
-	End Class
-
-
-	'---------------------------------------------------------------------------------------------------
-	' NewTopic - Codebehind For newtopic.aspx
-	'---------------------------------------------------------------------------------------------------
-	Public Class NewTopic
-		Inherits System.Web.UI.Page
-
-		Public file As System.Web.UI.HtmlControls.HtmlInputFile
-		Public ForumName As System.Web.UI.WebControls.Label
-		Public txtForumID As System.Web.UI.WebControls.TextBox
-		Public txtAuthor As System.Web.UI.WebControls.TextBox
-		Public txtCategoryID As System.Web.UI.WebControls.TextBox
-		Public txtSticky As System.Web.UI.WebControls.CheckBox
-		Public txtSignature As System.Web.UI.WebControls.CheckBox
-		Public txtSubscribe As System.Web.UI.WebControls.CheckBox
-		Public txtNews As System.Web.UI.WebControls.CheckBox
-		Public txtSubject As System.Web.UI.WebControls.TextBox
-		Public txtMessage As System.Web.UI.WebControls.TextBox
-		Public TopicPreview As System.Web.UI.WebControls.PlaceHolder
-		Public FileUploadPanel As System.Web.UI.WebControls.PlaceHolder
-		Public PagePanel As System.Web.UI.WebControls.Panel
-		Public NoItemsDiv As System.Web.UI.HtmlControls.HtmlGenericControl
-
-		Public PrevSubject as String = ""
-		Public PrevDate as String = ""
-		Public PrevMessage as String = ""
-		Public PrevSignature as String = ""
-
-		Public DMGHeader As DMGForums.Global.Header
-		Public DMGFooter As DMGForums.Global.Footer
-		Public DMGLogin As DMGForums.Global.Login
-
-		Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
-			if Not Page.IsPostBack() then
-				if (Session("UserLogged") = "1") then
-					if (Functions.IsInteger(Request.QueryString("ID"))) then
-						if ((Settings.AllowSub = 1) or (Session("UserLevel") = "3")) then
-							txtSubscribe.visible = "true"
-						end if
-
-						Dim StatusCheck as String
-						if Session("UserLevel") = 3 then
-							StatusCheck = ""
-						else
-							StatusCheck = "FORUM_STATUS = 1 AND "
-						end if
-
-						Dim ForumID, ForumType as Integer
-						Dim ForumReader as OdbcDataReader = Database.Read("SELECT FORUM_ID, FORUM_NAME, FORUM_SHOWHEADERS, FORUM_SHOWLOGIN, CATEGORY_ID, FORUM_TYPE FROM " & Database.DBPrefix & "_FORUMS WHERE " & StatusCheck & "FORUM_ID = " & Request.Querystring("ID"))
-							if (Not ForumReader.HasRows) then
-								PagePanel.visible = "false"
-								NoItemsDiv.InnerHtml = "No Forums To Post To<br /><br />"
-							else
-								While ForumReader.Read()
-									ForumID = ForumReader("FORUM_ID")
-									ForumName.text = ForumReader("FORUM_NAME").ToString()
-									ForumType = ForumReader("FORUM_TYPE")
-									txtForumID.text = ForumReader("FORUM_ID")
-									txtCategoryID.text = ForumReader("CATEGORY_ID")
-									if (ForumReader("FORUM_SHOWHEADERS") <> 1) then
-										DMGHeader.visible = "false"
-										DMGFooter.visible = "false"
-									end if
-									DMGLogin.ShowLogin() = ForumReader("FORUM_SHOWLOGIN")
-								End While
-
-								if (ForumType = 1) or (ForumType = 3) or (ForumType = 4) then
-									if Not Functions.IsPrivileged(ForumID, ForumType, Session("UserID"), Session("UserLevel"), Session("UserLogged")) then
-										PagePanel.visible = "false"
-										NoItemsDiv.InnerHtml = "You Do Not Have Access To This Forum<br /><br />"
-									end if
-								elseif (ForumType = 2) then
-									if Not Session("FORUM_" & Request.Querystring("ID")) = "logged" then
-										PagePanel.visible = "false"
-										NoItemsDiv.InnerHtml = "You Do Not Have Access To This Forum<br /><br />"
-									end if
-								end if
-
-								Dim UserReader as OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_LEVEL, MEMBER_SIGNATURE_SHOW, MEMBER_POSTS, MEMBER_RANKING FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"))
-									While UserReader.Read()
-										txtAuthor.text = UserReader("MEMBER_ID")
-										if (Functions.IsModerator(UserReader("MEMBER_ID"), UserReader("MEMBER_LEVEL"), ForumID)) then
-											txtSticky.visible = "true"
-										end if
-										if UserReader("MEMBER_LEVEL") = 3 then
-											txtNews.visible = "true"
-											FileUploadPanel.visible = "true"
-										end if
-										if UserReader("MEMBER_SIGNATURE_SHOW") = 1 then
-											txtSignature.checked = "true"
-										end if
-										if (Not Functions.AllowCustom(UserReader("MEMBER_RANKING"), UserReader("MEMBER_POSTS"), 0, "Topics")) then
-											PagePanel.visible = "false"
-											NoItemsDiv.InnerHtml = "Your ranking only allows you to reply to current topics.<br /><br />"
-										end if
-										if (Functions.AllowCustom(UserReader("MEMBER_RANKING"), UserReader("MEMBER_POSTS"), 0, "Uploads")) then
-											FileUploadPanel.visible = "true"
-										end if
-									End While
-								UserReader.Close()
-							end if
-						ForumReader.Close()
-					else
-						PagePanel.visible = "false"
-						NoItemsDiv.InnerHtml = "No Forums To Post To<br /><br />"
-					end if
-				else
-					PagePanel.visible = "false"
-					NoItemsDiv.InnerHtml = "You Must Be Logged In To Post<br /><br />"
-				end if
-			end if
-		End Sub
-
-		Sub SubmitTopic(sender As Object, e As EventArgs)
-			Dim Failure as Integer = 0
-			Dim TopicID as Integer
-
-			if (txtSubject.text = "") or (txtSubject.text = " ") then
-				Failure = 1
-				Functions.Messagebox("No Subject Entered!")
-			end if
-			if (txtMessage.text = "") or (txtMessage.text = " ") then
-				Failure = 1
-				Functions.Messagebox("No Message Entered!")
-			end if
-
-			Dim SpamSeconds as Integer = -99
-			Dim MemberRanking as Integer = 0
-			Dim MemberPosts as Integer = 0
-			Dim SpamReader as OdbcDataReader = Database.Read("SELECT " & Database.GetDateDiff("ss", "MEMBER_DATE_LASTPOST", Database.GetTimeStamp()) & " as PostSeconds, MEMBER_RANKING, MEMBER_POSTS FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & txtAuthor.text, 1)
-			While SpamReader.Read()
-				if Functions.IsDBNull(SpamReader("PostSeconds")) then
-					SpamSeconds = -99
-				else
-					SpamSeconds = SpamReader("PostSeconds")
-				end if
-				MemberRanking = SpamReader("MEMBER_RANKING")
-				MemberPosts = SpamReader("MEMBER_POSTS")
-			End While
-			SpamReader.Close()
-
-			if (Not ((SpamSeconds > Settings.SpamFilter) or (SpamSeconds = -99) or (Session("UserLevel") = "3"))) then
-				Failure = 1
-				Functions.Messagebox("You Can Not Post More Than Once In " & Settings.SpamFilter & " Seconds.")
-			end if
-
-			Dim UploadedFileName as String = ""
-			if (Not file.PostedFile Is Nothing) then
-				Dim ReturnFile as HttpPostedFile = file.PostedFile
-				if (((Functions.AllowCustom(MemberRanking, MemberPosts, 0, "Uploads")) or (Session("UserLevel") = "3")) and (ReturnFile.ContentLength > 0)) then
-					Dim Reader as OdbcDataReader = Database.Read("SELECT " & Database.DBPrefix & "_TOPIC_UPLOADSIZE, " & Database.DBPrefix & "_MEMBER_FILETYPES FROM " & Database.DBPrefix & "_SETTINGS WHERE ID = " & Settings.DefaultTemplate, 1)
-					While Reader.Read()
-						if ((((Reader(Database.DBPrefix & "_MEMBER_FILETYPES").ToString()).Contains(ReturnFile.ContentType)) and (ReturnFile.ContentLength <= Reader(Database.DBPrefix & "_TOPIC_UPLOADSIZE")*1024)) or (Session("UserLevel") = "3")) then
-							Dim Timestamp as DateTime = DateTime.Now()
-							Dim TimeString as String = Timestamp.ToString("ddMMyyyyhhmmss")
-
-							UploadedFileName = System.IO.Path.GetFileName(ReturnFile.FileName)
-							UploadedFileName = TimeString & UploadedFileName
-							UploadedFileName = UploadedFileName.Replace(" ", "")
-							Dim FolderID as Integer = 0
-							Dim Reader2 as OdbcDataReader = Database.Read("SELECT FOLDER_ID FROM " & Database.DBPrefix & "_FOLDERS WHERE FOLDER_NAME = 'topicfiles' AND FOLDER_PARENT = 0")
-							While Reader2.Read()
-								FolderID = Reader2("FOLDER_ID")
-							End While
-							Reader2.Close()
-
-							Dim FilePath as String = MapPath("topicfiles/" & UploadedFileName)
-							ReturnFile.SaveAs(FilePath)
-
-							Database.Write("INSERT INTO " & Database.DBPrefix & "_FILES (FILE_FOLDER, FILE_NAME, FILE_CORE) VALUES (" & FolderID & ", '" & UploadedFileName & "', 0)")
-						else
-							Failure = 1
-							if (Not (Reader(Database.DBPrefix & "_MEMBER_FILETYPES").ToString()).Contains(ReturnFile.ContentType)) then
-								Functions.Messagebox("This file format is not allowed." & ReturnFile.ContentType)
-							elseif (Not (ReturnFile.ContentLength <= Reader(Database.DBPrefix & "_TOPIC_UPLOADSIZE")*1024))
-								Functions.Messagebox("File size must be less than " & Reader(Database.DBPrefix & "_TOPIC_UPLOADSIZE") & " Kb.")
-							end if
-						end if
-					End While
-					Reader.Close()
-				end if
-			end if
-
-			if Failure = 0 then
-				PagePanel.visible = "false"
-
-				Dim Sticky as Integer = 0
-				Dim News as Integer = 0
-				Dim Signature as Integer = 0
-				if (txtSticky.Checked) then
-					Sticky = 1
-				end if
-				if (txtNews.Checked) then
-					News = 1
-				end if
-				if (txtSignature.Checked) then
-					Signature = 1
-				end if
-
-				Dim ForceConfirm as Integer = 0
-				Dim ForumReader as OdbcDataReader = Database.Read("SELECT FORUM_FORCECONFIRM FROM " & Database.DBPrefix & "_FORUMS WHERE FORUM_ID = " & txtForumID.text)
-				While ForumReader.Read()
-					ForceConfirm = ForumReader("FORUM_FORCECONFIRM")
-				End While
-				ForumReader.Close()
-
-				Dim TopicConfirm as Integer = 1
-				if (ForceConfirm = 1) and (Session("UserLevel") <> "3") and (Session("UserLevel") <> "2") then
-					TopicConfirm = 0
-				end if
-
-				Database.Write("INSERT INTO " & Database.DBPrefix & "_TOPICS (CATEGORY_ID, FORUM_ID, TOPIC_SUBJECT, TOPIC_MESSAGE, TOPIC_AUTHOR, TOPIC_DATE, TOPIC_REPLIES, TOPIC_VIEWS, TOPIC_LASTPOST_DATE, TOPIC_LASTPOST_AUTHOR, TOPIC_STICKY, TOPIC_SIGNATURE, TOPIC_STATUS, TOPIC_NEWS, TOPIC_CONFIRMED, TOPIC_UNCONFIRMED_REPLIES, TOPIC_FILEUPLOAD) VALUES (" & txtCategoryID.text & ", " & txtForumID.text & ", '" & Functions.RepairString(txtSubject.text) & "', '" & Functions.RepairString(txtMessage.text) & "', " & txtAuthor.text & ", " & Database.GetTimeStamp() & ", 0, 0, " & Database.GetTimeStamp() & ", " & txtAuthor.text & ", " & Sticky & ", " & Signature & ", 1, " & News & ", " & TopicConfirm & ", 0, '" & UploadedFileName & "')")
-				Database.Write("UPDATE " & Database.DBPrefix & "_MEMBERS SET MEMBER_POSTS = (MEMBER_POSTS + 1), MEMBER_DATE_LASTPOST = " & Database.GetTimeStamp() & " WHERE MEMBER_ID = " & txtAuthor.text)
-
-				Dim TopicPostback as OdbcDataReader = Database.Read("SELECT TOPIC_ID FROM " & Database.DBPrefix & "_TOPICS WHERE TOPIC_AUTHOR = " & txtAuthor.text & " ORDER BY TOPIC_ID DESC", 1)
-				While TopicPostback.Read()
-					TopicID = TopicPostback("TOPIC_ID")
-				End While
-				TopicPostback.Close()
-
-				if (TopicConfirm = 1) then
-					Database.Write("UPDATE " & Database.DBPrefix & "_FORUMS SET FORUM_TOPICS = (FORUM_TOPICS + 1), FORUM_POSTS = (FORUM_POSTS + 1), FORUM_LASTPOST_DATE = " & Database.GetTimeStamp() & ", FORUM_LASTPOST_AUTHOR = '" & txtAuthor.text & "', FORUM_LASTPOST_TOPIC = " & TopicID & " WHERE FORUM_ID = " & txtForumID.text)
-
-					if (txtSubscribe.Checked) then
-						Database.Write("INSERT INTO " & Database.DBPrefix & "_SUBSCRIPTIONS (SUB_MEMBER, SUB_TOPIC, SUB_EMAIL) VALUES (" & Session("UserID") & ", " & TopicID & ", 0)")
-					end if
-
-					NoItemsDiv.InnerHtml = "Topic Posted Successfully<br /><br /><a href=""forums.aspx?ID=" & txtForumID.text & """>Click Here</a> To Return To The Forum<br /><br />"
-				else
-					NoItemsDiv.InnerHtml = Functions.CustomMessage("MESSAGE_CONFIRMPOST") & "<br /><br /><a href=""forums.aspx?ID=" & txtForumID.text & """>Click Here</a> To Return To The Forum<br /><br />"
-					Functions.SendToModerators(1, TopicID, txtForumID.text)
-				end if
-			end if
-		End Sub
-
-		Sub PreviewTopic(sender As Object, e As EventArgs)
-			Dim Failure as Integer = 0
-			Dim ShowSig as Integer = 0
-
-			if (txtSubject.text = "") or (txtSubject.text = " ") then
-				Failure = 1
-				Functions.Messagebox("No Subject Entered!")
-			end if
-			if (txtMessage.text = "") or (txtMessage.text = " ") then
-				Failure = 1
-				Functions.Messagebox("No Message Entered!")
-			end if
-			if (txtSignature.Checked) then
-				ShowSig = 1
-			end if
-
-			if Failure = 0 then
-				TopicPreview.visible = "true"
-				PrevSubject = Functions.RepairString(txtSubject.text)
-				PrevMessage = Functions.FormatString(Functions.RepairString(txtMessage.text))
-				PrevDate = DateTime.Now()
-
-				if (ShowSig = 1) then
-					Dim Reader as OdbcDataReader = Database.Read("SELECT MEMBER_SIGNATURE FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"))
-					While Reader.Read()
-						PrevSignature = Functions.Signature(1, Reader("MEMBER_SIGNATURE").ToString())
-					End While
-					Reader.Close()
-				end if
-			end if
-		End Sub
-
-	End Class
-
-
-	'---------------------------------------------------------------------------------------------------
-	' EditTopic - Codebehind For edittopic.aspx
-	'---------------------------------------------------------------------------------------------------
-	Public Class EditTopic
-		Inherits System.Web.UI.Page
-
-		Public txtForumID As System.Web.UI.WebControls.DropDownList
-		Public txtSubject As System.Web.UI.WebControls.TextBox
-		Public txtMessage As System.Web.UI.WebControls.TextBox
-		Public txtSticky As System.Web.UI.WebControls.CheckBox
-		Public txtSignature As System.Web.UI.WebControls.CheckBox
-		Public txtStatus As System.Web.UI.WebControls.DropDownList
-		Public txtNews As System.Web.UI.WebControls.CheckBox
-		Public ForumPanel As System.Web.UI.WebControls.Panel
-		Public StatusPanel As System.Web.UI.WebControls.Panel
-		Public OldForumID As System.Web.UI.WebControls.TextBox
-		Public PagePanel As System.Web.UI.WebControls.Panel
-		Public NoItemsDiv As System.Web.UI.HtmlControls.HtmlGenericControl
-
-		Dim ForumID as Integer = 0
-
-		Public DMGHeader As DMGForums.Global.Header
-		Public DMGFooter As DMGForums.Global.Footer
-		Public DMGLogin As DMGForums.Global.Login
-
-		Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
-			if Not Page.IsPostBack() then
-				SetSession()
-
-				if (Functions.IsInteger(Request.QueryString("ID"))) then
-					Dim AllowModeration as Boolean
-					Dim ModeratorReader as OdbcDataReader = Database.Read("SELECT FORUM_ID, TOPIC_AUTHOR FROM " & Database.DBPrefix & "_TOPICS WHERE TOPIC_ID = " & Request.Querystring("ID"))
-						While ModeratorReader.Read()
-							AllowModeration = Functions.IsModerator(Session("UserID"), Session("UserLevel"), ModeratorReader("FORUM_ID"))
-							if (Not AllowModeration) and (ModeratorReader("TOPIC_AUTHOR").ToString() = Session("UserID")) then
-								AllowModeration = True
-							end if
-						End While
-					ModeratorReader.Close()
-
-					if AllowModeration then
-						Dim TopicReader as OdbcDataReader = Database.Read("SELECT T.FORUM_ID, T.TOPIC_SUBJECT, T.TOPIC_MESSAGE, T.TOPIC_STICKY, T.TOPIC_SIGNATURE, T.TOPIC_STATUS, T.TOPIC_NEWS, F.FORUM_SHOWHEADERS, F.FORUM_SHOWLOGIN FROM " & Database.DBPrefix & "_TOPICS T Left Outer Join " & Database.DBPrefix & "_FORUMS F On T.FORUM_ID = F.FORUM_ID WHERE T.TOPIC_ID = " & Request.Querystring("ID"))
-							While TopicReader.Read()
-								txtSubject.text = Server.HTMLDecode(TopicReader("TOPIC_SUBJECT"))
-								txtMessage.text = Server.HTMLDecode(TopicReader("TOPIC_MESSAGE"))
-								if TopicReader("TOPIC_STICKY") = 1 then
-									txtSticky.Checked = "true"
-								end if
-								if TopicReader("TOPIC_NEWS") = 1 then
-									txtNews.Checked = "true"
-								end if
-								if TopicReader("TOPIC_SIGNATURE") = 1 then
-									txtSignature.Checked = "true"
-								end if
-								ForumID = TopicReader("FORUM_ID")
-								txtStatus.SelectedValue = TopicReader("TOPIC_STATUS")
-								if (TopicReader("FORUM_SHOWHEADERS") <> 1) then
-									DMGHeader.visible = "false"
-									DMGFooter.visible = "false"
-								end if
-								DMGLogin.ShowLogin() = TopicReader("FORUM_SHOWLOGIN")
-							End While
-						TopicReader.Close()
-
-						txtForumID.Datasource = Database.Read("SELECT FORUM_ID, FORUM_NAME FROM " & Database.DBPrefix & "_FORUMS")
-						txtForumID.Databind()
-							txtForumID.SelectedValue = ForumID
-						txtForumID.Datasource.Close()
-
-						OldForumID.text = ForumID
-
-						if Functions.IsModerator(Session("UserID"), Session("UserLevel"), ForumID) then
-							txtSticky.visible = "true"
-							txtNews.visible = "true"
-							ForumPanel.visible = "true"
-							StatusPanel.visible = "true"
-						end if
-					else
-						PagePanel.visible = "false"
-						NoItemsDiv.InnerHtml = "Access Denied<br /><br />"
-					end if
-				else
-					Response.Redirect("default.aspx")
-				end if
-			end if
-		End Sub
-
-		Sub SubmitTopic(sender As System.Object, e As System.EventArgs)
-			Dim Sticky as Integer = 0
-			Dim News as Integer = 0
-			Dim Signature as Integer = 0
-			Dim Status as Integer = 1
-			Dim theForumID as Integer = 0
-
-			if (txtSticky.Checked) then
-				Sticky = 1
-			end if
-			if (txtNews.Checked) then
-				News = 1
-			end if
-			if (txtSignature.Checked) then
-				Signature = 1
-			end if
-
-			theForumID = txtForumID.SelectedValue
-			Status = txtStatus.SelectedValue
-
-			PagePanel.visible = "false"
-
-			Dim CategoryID as String = "-1"
-			Dim CategoryReader as OdbcDataReader = Database.Read("SELECT CATEGORY_ID FROM " & Database.DBPrefix & "_FORUMS WHERE FORUM_ID = " & theForumID)
-				While CategoryReader.Read
-					CategoryID = CategoryReader("CATEGORY_ID")
-				End While
-			CategoryReader.Close()
-
-			Database.Write("UPDATE " & Database.DBPrefix & "_TOPICS SET FORUM_ID = " & theForumID & ", CATEGORY_ID = " & CategoryID & ", TOPIC_SUBJECT = '" & Functions.RepairString(txtSubject.Text) & "', TOPIC_MESSAGE = '" & Functions.RepairString(txtMessage.Text) & "', TOPIC_STICKY = " & Sticky & ", TOPIC_SIGNATURE = " & Signature & ", TOPIC_STATUS = " & Status & ", TOPIC_NEWS = " & News & " WHERE TOPIC_ID = " & Request.Querystring("ID"))
-
-			if (theForumID <> OldForumID.text) then
-				Functions.UpdateCounts(4, OldForumID.text, theForumID, Request.Querystring("ID"))
-			end if
-
-			NoItemsDiv.InnerHtml = "Topic Edited Successfully<br /><br /><a href=""topics.aspx?ID=" & Request.Querystring("ID") & """>Click Here</a> To Return To The Thread<br /><br />"
-		End Sub
-
-		Sub SetSession()
-			if Not Request.Cookies("dmgforums") Is Nothing then
-				Dim aCookie As New System.Web.HttpCookie("dmgforums")
-
-				Dim UserReader as OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Server.HtmlEncode(Request.Cookies("dmgforums")("mukul")) & " AND MEMBER_PASSWORD = '" & Server.HtmlEncode(Request.Cookies("dmgforums")("gupta")) & "'", 1)
-					While(UserReader.Read())
-						Session("UserID") = UserReader("MEMBER_ID").ToString()
-						Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
-						Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
-						Session("UserLogged") = "1"
-						aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
-						aCookie.Values("mukul") = UserReader("MEMBER_ID").ToString()
-						aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
-						aCookie.Values("gupta") = UserReader("MEMBER_PASSWORD").ToString()
-						aCookie.Expires = DateTime.Now.AddDays(30)
-						Response.Cookies.Add(aCookie)
-					End While
-				UserReader.Close()
-
-				if ((Session("UserLevel") = 0) or (Session("UserLevel") = -1)) then
-					aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
-					aCookie.Values("mukul") = "-3"
-					aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
-					aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now())
-					aCookie.Expires = DateTime.Now.AddDays(-1)
-					Response.Cookies.Add(aCookie)
-					Session("UserID") = "-1"
-					Session("UserName") = ""
-					Session("UserLogged") = "0"
-					Session("UserLevel") = "0"
-				end if
-			else
-				if (Session("UserLogged") = "1") then
-					Dim UserReader as OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"), 1)
-						While(UserReader.Read())
-							Session("UserID") = UserReader("MEMBER_ID").ToString()
-							Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
-							Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
-							Session("UserLogged") = "1"
-						End While
-					UserReader.Close()
-
-					if ((Session("UserLevel") = 0) or (Session("UserLevel") = -1)) then
-						Dim aCookie As New System.Web.HttpCookie("dmgforums")
-						aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
-						aCookie.Values("mukul") = "-3"
-						aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now() & "bbb")
-						aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now() & "ccc")
-						aCookie.Expires = DateTime.Now.AddDays(-1)
-						Response.Cookies.Add(aCookie)
-						Session("UserID") = "-1"
-						Session("UserName") = ""
-						Session("UserLogged") = "0"
-						Session("UserLevel") = "0"
-					end if
-				else
-					Session("UserID") = "-1"
-					Session("UserName") = ""
-					Session("UserLogged") = "0"
-					Session("UserLevel") = "0"
-				end if
-			end if
-		End Sub
-	End Class
-
-
-	'---------------------------------------------------------------------------------------------------
-	' DeleteTopic - Codebehind For deletetopic.aspx
-	'---------------------------------------------------------------------------------------------------
-	Public Class DeleteTopic
-		Inherits System.Web.UI.Page
-
-		Public DeleteButton As System.Web.UI.WebControls.Button
-		Public TopicSubject As System.Web.UI.WebControls.Label
-		Public ForumID As System.Web.UI.WebControls.TextBox
-		Public PagePanel As System.Web.UI.WebControls.Panel
-		Public NoItemsDiv As System.Web.UI.HtmlControls.HtmlGenericControl
-
-		Public DMGHeader As DMGForums.Global.Header
-		Public DMGFooter As DMGForums.Global.Footer
-		Public DMGLogin As DMGForums.Global.Login
-
-		Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
-			if Not Page.IsPostBack() then
-				if (Functions.IsInteger(Request.QueryString("ID"))) then
-					Dim AllowModeration as Boolean
-					Dim ModeratorReader as OdbcDataReader = Database.Read("SELECT FORUM_ID FROM " & Database.DBPrefix & "_TOPICS WHERE TOPIC_ID = " & Request.Querystring("ID"))
-						While ModeratorReader.Read()
-							AllowModeration = Functions.IsModerator(Session("UserID"), Session("UserLevel"), ModeratorReader("FORUM_ID"))
-						End While
-					ModeratorReader.Close()
-
-					if AllowModeration then
-						Dim TopicReader as OdbcDataReader = Database.Read("SELECT T.TOPIC_ID, T.TOPIC_SUBJECT, T.FORUM_ID, F.FORUM_SHOWHEADERS, F.FORUM_SHOWLOGIN FROM " & Database.DBPrefix & "_TOPICS T Left Outer Join " & Database.DBPrefix & "_FORUMS F On T.FORUM_ID = F.FORUM_ID WHERE T.TOPIC_ID = " & Request.QueryString("ID"))
-							if TopicReader.HasRows then
-								While(TopicReader.Read())
-									DeleteButton.CommandArgument = TopicReader("TOPIC_ID")
-									TopicSubject.text = TopicReader("TOPIC_SUBJECT").ToString()
-									ForumID.text = TopicReader("FORUM_ID")
-									if (TopicReader("FORUM_SHOWHEADERS") <> 1) then
-										DMGHeader.visible = "false"
-										DMGFooter.visible = "false"
-									end if
-									DMGLogin.ShowLogin() = TopicReader("FORUM_SHOWLOGIN")
-								End While
-							else
-								PagePanel.visible = "false"
-								NoItemsDiv.InnerHtml = "Invalid Topic ID<br /><br />"
-							end if
-						TopicReader.close()
-					else
-						PagePanel.visible = "false"
-						NoItemsDiv.InnerHtml = "Access Denied<br /><br />"
-					end if
-				else
-					Response.Redirect("default.aspx")
-				end if
-			end if
-		End Sub
-
-		Sub DeleteTopic(sender As System.Object, e As System.EventArgs)
-			PagePanel.visible = "false"
-			Dim Replies, ForumTopics, ForumPosts as Integer
-
-			Dim Reader as OdbcDataReader = Database.Read("SELECT TOPIC_FILEUPLOAD FROM " & Database.DBPrefix & "_TOPICS WHERE TOPIC_ID = " & sender.CommandArgument, 1)
-			While Reader.Read()
-				if Reader("TOPIC_FILEUPLOAD").ToString() <> "" then
-					Database.Write("DELETE " & Database.DBPrefix & "_FILES FROM " & Database.DBPrefix & "_FILES, " & Database.DBPrefix & "_FOLDERS WHERE " & Database.DBPrefix & "_FILES.FILE_FOLDER = " & Database.DBPrefix & "_FOLDERS.FOLDER_ID AND " & Database.DBPrefix & "_FILES.FILE_NAME = '" & Reader("TOPIC_FILEUPLOAD").ToString() & "' AND " & Database.DBPrefix & "_FOLDERS.FOLDER_NAME = 'topicfiles' AND " & Database.DBPrefix & "_FOLDERS.FOLDER_PARENT = 0")
-					File.Delete(MapPath("topicfiles/" & Reader("TOPIC_FILEUPLOAD").ToString()))
-				end if
-			End While
-			Reader.Close()
-
-			Dim ReplyCount as OdbcDataReader = Database.Read("SELECT COUNT(*) AS ReplyCounter FROM " & Database.DBPrefix & "_REPLIES WHERE TOPIC_ID = " & sender.CommandArgument)
-				While ReplyCount.Read()
-					Replies = ReplyCount("ReplyCounter")
-				End While
-			ReplyCount.Close()
-
-			Dim ForumCounts as OdbcDataReader = Database.Read("SELECT FORUM_TOPICS, FORUM_POSTS FROM " & Database.DBPrefix & "_FORUMS WHERE FORUM_ID = " & ForumID.text)
-				While ForumCounts.Read()
-					ForumTopics = ForumCounts("FORUM_TOPICS")
-					ForumPosts = ForumCounts("FORUM_POSTS")
-				End While
-			ForumCounts.Close()
-
-			Database.Write("DELETE FROM " & Database.DBPrefix & "_TOPICS WHERE TOPIC_ID = " & sender.CommandArgument)
-			Database.Write("DELETE FROM " & Database.DBPrefix & "_REPLIES WHERE TOPIC_ID = " & sender.CommandArgument)
-
-			if ForumTopics = 1 then
-				Database.Write("UPDATE " & Database.DBPrefix & "_FORUMS SET FORUM_TOPICS = " & ForumTopics - 1 & ", FORUM_POSTS = " & ForumPosts - Replies - 1 & ", FORUM_LASTPOST_AUTHOR = 0 WHERE FORUM_ID = " & ForumID.text)
-			else
-				Dim LastPostAuthor as String = ""
-				Dim LastPostDate as String = ""
-				Dim AuthorReader as OdbcDataReader = Database.Read("SELECT TOPIC_LASTPOST_AUTHOR, TOPIC_LASTPOST_DATE FROM " & Database.DBPrefix & "_TOPICS WHERE FORUM_ID = " & ForumID.text & " ORDER BY TOPIC_LASTPOST_DATE DESC", 1)
-					While AuthorReader.Read()
-						LastPostAuthor = AuthorReader("TOPIC_LASTPOST_AUTHOR").ToString()
-						LastPostDate = AuthorReader("TOPIC_LASTPOST_DATE").ToString()
-					End While
-				AuthorReader.Close()
-				Database.Write("UPDATE " & Database.DBPrefix & "_FORUMS SET FORUM_TOPICS = " & ForumTopics - 1 & ", FORUM_POSTS = " & ForumPosts - Replies - 1 & ", FORUM_LASTPOST_AUTHOR = " & LastPostAuthor & ", FORUM_LASTPOST_DATE = '" & LastPostDate & "' WHERE FORUM_ID = " & ForumID.text)
-			end if
-
-			NoItemsDiv.InnerHtml = "Topic Deleted Successfully<br /><br /><a href=""forums.aspx?ID=" & ForumID.text & """>Click Here</a> To Return To The Forum<br /><br />"
-		End Sub
-	End Class
-
-
-	'---------------------------------------------------------------------------------------------------
-	' Active - Codebehind For active.aspx
-	'---------------------------------------------------------------------------------------------------
-	Public Class Active
-		Inherits System.Web.UI.Page
-
-		Public Forum As System.Web.UI.WebControls.Repeater
-		Public NoItemsDiv As System.Web.UI.HtmlControls.HtmlGenericControl
-
-		Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
-			if Not Page.IsPostBack() then
-				if (Session("ActiveLevel") is Nothing) or (Session("ActiveLevel") = 3) or (Session("ActiveTime") is Nothing) then
-					Session("ActiveTime") = Database.DatabaseTimestamp(3)
-				end if
-
-				Dim TimeFrame as String = "'" & Session("ActiveTime") & "'"
-
-				Dim DataSet1 As new DataSet()
-				Dim strSql As new OdbcCommand("SELECT F.FORUM_ID, F.FORUM_NAME, C.CATEGORY_ID, C.CATEGORY_NAME FROM " & Database.DBPrefix & "_FORUMS F LEFT OUTER JOIN " & Database.DBPrefix & "_CATEGORIES C ON F.CATEGORY_ID = C.CATEGORY_ID WHERE F.FORUM_TOPICS > 0 AND F.FORUM_STATUS <> 0 AND " & Database.GetDateDiff("ss", "F.FORUM_LASTPOST_DATE", TimeFrame) & " <= 0 ORDER BY C.CATEGORY_SORTBY, F.FORUM_SORTBY, F.FORUM_NAME", Database.DatabaseConnection())
-
-				Dim DataAdapter1 As new OdbcDataAdapter()
-				DataAdapter1.SelectCommand = strSql
-				DataAdapter1.Fill(DataSet1, "FORUMS")
-
-				strSql = new OdbcCommand("SELECT T.FORUM_ID, T.TOPIC_ID, T.TOPIC_SUBJECT, T.TOPIC_AUTHOR, T.TOPIC_STATUS, T.TOPIC_CONFIRMED, M.MEMBER_USERNAME as TOPIC_AUTHOR_NAME, T.TOPIC_REPLIES, T.TOPIC_VIEWS, T.TOPIC_STICKY, T.TOPIC_LASTPOST_AUTHOR, MEMBERS_1.MEMBER_USERNAME as TOPIC_LASTPOST_NAME, T.TOPIC_LASTPOST_DATE FROM " & Database.DBPrefix & "_MEMBERS M, " & Database.DBPrefix & "_TOPICS T, " & Database.DBPrefix & "_MEMBERS as MEMBERS_1, " & Database.DBPrefix & "_FORUMS F WHERE M.MEMBER_ID = T.TOPIC_AUTHOR and T.TOPIC_LASTPOST_AUTHOR = MEMBERS_1.MEMBER_ID and T.FORUM_ID = F.FORUM_ID and T.TOPIC_STATUS <> 0 and T.TOPIC_CONFIRMED = 1 and F.FORUM_STATUS <> 0 and F.FORUM_TOPICS > 0 AND " & Database.GetDateDiff("ss", "F.FORUM_LASTPOST_DATE", TimeFrame) & " <= 0 and " & Database.GetDateDiff("ss", "T.TOPIC_LASTPOST_DATE", TimeFrame) & " <= 0 ORDER BY T.TOPIC_STICKY DESC, T.TOPIC_LASTPOST_DATE DESC", Database.DatabaseConnection())
-				DataAdapter1.SelectCommand = strSql
-				DataAdapter1.Fill(DataSet1, "TOPICS")
-
-				DataSet1.Relations.Add("TopicRelation", DataSet1.Tables("FORUMS").Columns("FORUM_ID"), DataSet1.Tables("TOPICS").Columns("FORUM_ID"))
-
-				Forum.DataSource = DataSet1
-				Forum.DataBind()
-
-				if (Forum.Items.Count = 0) then
-					NoItemsDiv.InnerHtml = "There Are No Items To Display<br /><br />"
-				end if
-			end if
-		End Sub
-	End Class
-
-
-	'---------------------------------------------------------------------------------------------------
-	' NewReply - Codebehind For newreply.aspx
-	'---------------------------------------------------------------------------------------------------
-	Public Class NewReply
-		Inherits System.Web.UI.Page
-
-		Public txtTopicID As System.Web.UI.WebControls.TextBox
-		Public txtForumID As System.Web.UI.WebControls.TextBox
-		Public txtAuthor As System.Web.UI.WebControls.TextBox
-		Public txtMessage As System.Web.UI.WebControls.TextBox
-		Public txtSignature As System.Web.UI.WebControls.CheckBox
-		Public txtTopicSubject As System.Web.UI.WebControls.Label
-		Public ReplyPreview As System.Web.UI.WebControls.PlaceHolder
-		Public PagePanel As System.Web.UI.WebControls.Panel
-		Public NoItemsDiv As System.Web.UI.HtmlControls.HtmlGenericControl
-
-		Public PrevSubject as String = ""
-		Public PrevDate as String = ""
-		Public PrevMessage as String = ""
-		Public PrevSignature as String = ""
-
-		Public DMGHeader As DMGForums.Global.Header
-		Public DMGFooter As DMGForums.Global.Footer
-		Public DMGLogin As DMGForums.Global.Login
-
-		Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
-			if Not Page.IsPostBack() then
-				SetSession()
-
-				if (Session("UserLogged") = "1") then
-					if (Functions.IsInteger(Request.QueryString("ID"))) then
-						Dim StatusCheck as String
-						if Session("UserLevel") = 3 then
-							StatusCheck = ""
-						else
-							StatusCheck = "T.TOPIC_STATUS = 1 AND F.FORUM_STATUS = 1 AND "
-						end if
-							
-						Dim ForumType, ForumID as Integer
-						Dim TopicReader as OdbcDataReader = Database.Read("SELECT T.TOPIC_ID, T.TOPIC_SUBJECT, T.FORUM_ID, F.FORUM_TYPE, F.FORUM_STATUS, F.FORUM_SHOWHEADERS, F.FORUM_SHOWLOGIN FROM " & Database.DBPrefix & "_TOPICS T LEFT OUTER JOIN " & Database.DBPrefix & "_FORUMS F ON T.FORUM_ID = F.FORUM_ID WHERE " & StatusCheck & "T.TOPIC_ID = " & Request.Querystring("ID"))
-							if (Not TopicReader.HasRows) then
-								PagePanel.visible = "false"
-								NoItemsDiv.InnerHtml = "No Topic To Post To<br /><br />"
-							else
-								While TopicReader.Read()
-									txtTopicID.text = TopicReader("TOPIC_ID")
-									txtForumID.text = TopicReader("FORUM_ID")
-									txtTopicSubject.text = TopicReader("TOPIC_SUBJECT").ToString()
-									ForumType = TopicReader("FORUM_TYPE")
-									ForumID = TopicReader("FORUM_ID")
-									if (TopicReader("FORUM_SHOWHEADERS") <> 1) then
-										DMGHeader.visible = "false"
-										DMGFooter.visible = "false"
-									end if
-									DMGLogin.ShowLogin() = TopicReader("FORUM_SHOWLOGIN")
-								End While
-
-								if (ForumType = 1) or (ForumType = 3) or (ForumType = 4) then
-									if Not Functions.IsPrivileged(ForumID, ForumType, Session("UserID"), Session("UserLevel"), Session("UserLogged")) then
-										PagePanel.visible = "false"
-										NoItemsDiv.InnerHtml = "You Do Not Have Access To This Forum<br /><br />"
-									end if
-								elseif (ForumType = 2) then
-									if Not Session("FORUM_" & ForumID) = "logged" then
-										PagePanel.visible = "false"
-										NoItemsDiv.InnerHtml = "You Do Not Have Access To This Forum<br /><br />"
-									end if
-								end if
-
-								Dim UserReader as OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_LEVEL, MEMBER_SIGNATURE_SHOW FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"))
-									While UserReader.Read()
-										txtAuthor.text = UserReader("MEMBER_ID")
-										if UserReader("MEMBER_SIGNATURE_SHOW") = 1 then
-											txtSignature.checked = "true"
-										end if
-									End While
-								UserReader.Close()
-							end if
-						TopicReader.Close()
-
-						Dim Reader as OdbcDataReader
-						if (Functions.IsInteger(Request.QueryString("RQ"))) then
-							Dim ReplyQuoteMessage as String = ""
-							Reader = Database.Read("SELECT M.MEMBER_USERNAME, R.REPLY_MESSAGE FROM " & Database.DBPrefix & "_MEMBERS M Left Outer Join " & Database.DBPrefix & "_REPLIES R On R.REPLY_AUTHOR = M.MEMBER_ID WHERE R.REPLY_ID = " & Request.QueryString("RQ"))
-							While Reader.Read()
-								ReplyQuoteMessage = Reader("REPLY_MESSAGE").ToString()
-								ReplyQuoteMessage = Regex.Replace(ReplyQuoteMessage, "(\[quote\])((.|\n)*?)(\[\/quote\])(\r\n\r\n)", "")
-								ReplyQuoteMessage = Regex.Replace(ReplyQuoteMessage, "(\[quote\])((.|\n)*?)(\[\/quote\])", "")
-								txtMessage.text = "[quote][b]Quoted From " & Reader("MEMBER_USERNAME") & ":[/b] " & CHR(10) & CHR(10) & Server.HTMLDecode(ReplyQuoteMessage) & CHR(10) & "[/quote]" & CHR(10) & CHR(10)
-							End While
-							Reader.Close()
-						end if
-
-						if (Functions.IsInteger(Request.QueryString("TQ"))) then
-							Dim TopicQuoteMessage as String = ""
-							Reader = Database.Read("SELECT M.MEMBER_USERNAME, T.TOPIC_MESSAGE FROM " & Database.DBPrefix & "_MEMBERS M Left Outer Join " & Database.DBPrefix & "_TOPICS T On T.TOPIC_AUTHOR = M.MEMBER_ID WHERE T.TOPIC_ID = " & Request.QueryString("TQ"))
-							While Reader.Read()
-								TopicQuoteMessage = Reader("TOPIC_MESSAGE").ToString()
-								TopicQuoteMessage = Regex.Replace(TopicQuoteMessage, "(\[quote\])((.|\n)*?)(\[\/quote\])(\r\n\r\n)", "")
-								TopicQuoteMessage = Regex.Replace(TopicQuoteMessage, "(\[quote\])((.|\n)*?)(\[\/quote\])", "")
-								txtMessage.text = "[quote][b]Quoted From " & Reader("MEMBER_USERNAME") & ":[/b] " & CHR(10) & CHR(10) & Server.HTMLDecode(TopicQuoteMessage) & CHR(10) & "[/quote]" & CHR(10) & CHR(10)
-							End While
-							Reader.Close()
-						end if
-					else
-						PagePanel.visible = "false"
-						NoItemsDiv.InnerHtml = "No Forums To Post To<br /><br />"
-					end if
-				else
-					PagePanel.visible = "false"
-					NoItemsDiv.InnerHtml = "You Must Be Logged In To Post<br /><br />"
-				end if
-			end if
-		End Sub
-
-		Sub SubmitReply(sender As System.Object, e As System.EventArgs)
-			Dim Failure as Integer = 0
-			Dim SpamSeconds as Integer
-
-			if (txtMessage.text = "") or (txtMessage.text = " ") then
-				Failure = 1
-				Functions.Messagebox("No Message Entered!")
-			end if
-
-			if Failure = 0 then
-				Dim TopicReplies, ReplyID as Integer
-				Dim Signature as Integer = 0
-				if (txtSignature.Checked) then
-					Signature = 1
-				end if
-
-				PagePanel.visible = "false"
-
-				Dim SpamReader as OdbcDataReader
-				SpamReader = Database.Read("SELECT " & Database.GetDateDiff("ss", "MEMBER_DATE_LASTPOST", Database.GetTimeStamp()) & " as PostSeconds FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & txtAuthor.text)
-				While SpamReader.Read()
-					if Functions.IsDBNull(SpamReader("PostSeconds")) then
-						SpamSeconds = -99
-					else
-						SpamSeconds = SpamReader("PostSeconds")
-					end if
-				End While
-				SpamReader.Close()
-
-				if (SpamSeconds > Settings.SpamFilter) or (SpamSeconds = -99) or (Session("UserLevel") = "3") then
-					Dim ForceConfirm as Integer = 0
-					Dim ForumReader as OdbcDataReader = Database.Read("SELECT FORUM_FORCECONFIRM FROM " & Database.DBPrefix & "_FORUMS WHERE FORUM_ID = " & txtForumID.text)
-					While ForumReader.Read()
-						ForceConfirm = ForumReader("FORUM_FORCECONFIRM")
-					End While
-					ForumReader.Close()
-
-					Dim ReplyConfirm as Integer = 1
-					if (ForceConfirm = 1) and (Session("UserLevel") <> "3") and (Session("UserLevel") <> "2") then
-						ReplyConfirm = 0
-					end if
-
-					Database.Write("INSERT INTO " & Database.DBPrefix & "_REPLIES (TOPIC_ID, REPLY_MESSAGE, REPLY_DATE, REPLY_AUTHOR, REPLY_SIGNATURE, REPLY_CONFIRMED) VALUES (" & txtTopicID.text & ", '" & Functions.RepairString(txtMessage.text) & "', " & Database.GetTimeStamp() & ", " & txtAuthor.text & ", " & Signature & ", " & ReplyConfirm & ")")
-					Database.Write("UPDATE " & Database.DBPrefix & "_MEMBERS SET MEMBER_POSTS = (MEMBER_POSTS + 1), MEMBER_DATE_LASTPOST = " & Database.GetTimeStamp() & " WHERE MEMBER_ID = " & txtAuthor.text)
-
-					if (ReplyConfirm = 1) then
-						Database.Write("UPDATE " & Database.DBPrefix & "_TOPICS SET TOPIC_REPLIES = (TOPIC_REPLIES + 1), TOPIC_LASTPOST_DATE = " & Database.GetTimeStamp() & ", TOPIC_LASTPOST_AUTHOR = " & txtAuthor.text & " WHERE TOPIC_ID = " & txtTopicID.text)
-						Database.Write("UPDATE " & Database.DBPrefix & "_FORUMS SET FORUM_POSTS = (FORUM_POSTS + 1), FORUM_LASTPOST_DATE = " & Database.GetTimeStamp() & ", FORUM_LASTPOST_AUTHOR = " & txtAuthor.text & " WHERE FORUM_ID = " & txtForumID.text)
-	
-						Functions.SendToSubscribers(txtTopicID.text)
-	
-							Dim ReplyPostback as OdbcDataReader = Database.Read("SELECT REPLY_ID FROM " & Database.DBPrefix & "_REPLIES WHERE TOPIC_ID = " & txtTopicID.text & " AND REPLY_AUTHOR = " & txtAuthor.text & " ORDER BY REPLY_ID DESC", 1)
-								While ReplyPostback.Read()
-									ReplyID = ReplyPostback("REPLY_ID")
-								End While
-							ReplyPostback.Close()
-
-							Dim Reader as OdbcDataReader = Database.Read("SELECT TOPIC_REPLIES FROM " & Database.DBPrefix & "_TOPICS WHERE TOPIC_ID = " & txtTopicID.text)
-							While Reader.Read()
-								TopicReplies = Reader("TOPIC_REPLIES")
-							End While
-							Reader.Close()
-
-							Dim PageItems as Integer = Settings.ItemsPerPage
-							Dim NumPages as Integer = TopicReplies \ PageItems
-							Dim Leftover as Integer = TopicReplies Mod PageItems
-							If Leftover > 0 then
-								NumPages += 1
-							end if
-
-						NoItemsDiv.InnerHtml = "Reply Posted Successfully<br /><br /><a href=""topics.aspx?ID=" & txtTopicID.text & "&PAGE=" & NumPages & "#reply-" & ReplyID & """>Click Here</a> To Return To The Thread<br /><br />"
-					else
-						Database.Write("UPDATE " & Database.DBPrefix & "_TOPICS SET TOPIC_UNCONFIRMED_REPLIES = (TOPIC_UNCONFIRMED_REPLIES + 1) WHERE TOPIC_ID = " & txtTopicID.text)
-						Functions.SendToModerators(2, txtTopicID.text, txtForumID.text)
-						NoItemsDiv.InnerHtml = Functions.CustomMessage("MESSAGE_CONFIRMPOST") & "<br /><br /><a href=""forums.aspx?ID=" & txtForumID.text & """>Click Here</a> To Return To The Forum<br /><br />"
-					end if
-				else
-					NoItemsDiv.InnerHtml = "You Can Not Post More Than Once In " & Settings.SpamFilter & " Seconds.<br /><br /><a href=""topics.aspx?ID=" & txtTopicID.text & """>Click Here</a> To Return To The Thread<br /><br />"
-				end if
-			end if
-		End Sub
-
-		Sub PreviewReply(sender As Object, e As EventArgs)
-			Dim Failure as Integer = 0
-			Dim ShowSig as Integer = 0
-
-			if (txtMessage.text = "") or (txtMessage.text = " ") then
-				Failure = 1
-				Functions.Messagebox("No Message Entered!")
-			end if
-			if (txtSignature.Checked) then
-				ShowSig = 1
-			end if
-
-			if Failure = 0 then
-				ReplyPreview.visible = "true"
-				PrevSubject = txtTopicSubject.text
-				PrevMessage = Functions.FormatString(Functions.RepairString(txtMessage.text))
-				PrevDate = DateTime.Now()
-
-				if (ShowSig = 1) then
-					Dim Reader as OdbcDataReader = Database.Read("SELECT MEMBER_SIGNATURE FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"))
-					While Reader.Read()
-						PrevSignature = Functions.Signature(1, Reader("MEMBER_SIGNATURE").ToString())
-					End While
-					Reader.Close()
-				end if
-			end if
-		End Sub
-
-		Sub SetSession()
-			if Not Request.Cookies("dmgforums") Is Nothing then
-				Dim aCookie As New System.Web.HttpCookie("dmgforums")
-
-				Dim UserReader as OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Server.HtmlEncode(Request.Cookies("dmgforums")("mukul")) & " AND MEMBER_PASSWORD = '" & Server.HtmlEncode(Request.Cookies("dmgforums")("gupta")) & "'", 1)
-					While(UserReader.Read())
-						Session("UserID") = UserReader("MEMBER_ID").ToString()
-						Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
-						Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
-						Session("UserLogged") = "1"
-						aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
-						aCookie.Values("mukul") = UserReader("MEMBER_ID").ToString()
-						aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
-						aCookie.Values("gupta") = UserReader("MEMBER_PASSWORD").ToString()
-						aCookie.Expires = DateTime.Now.AddDays(30)
-						Response.Cookies.Add(aCookie)
-					End While
-				UserReader.Close()
-
-				if ((Session("UserLevel") = 0) or (Session("UserLevel") = -1)) then
-					aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
-					aCookie.Values("mukul") = "-3"
-					aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
-					aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now())
-					aCookie.Expires = DateTime.Now.AddDays(-1)
-					Response.Cookies.Add(aCookie)
-					Session("UserID") = "-1"
-					Session("UserName") = ""
-					Session("UserLogged") = "0"
-					Session("UserLevel") = "0"
-				end if
-			else
-				if (Session("UserLogged") = "1") then
-					Dim UserReader as OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"), 1)
-						While(UserReader.Read())
-							Session("UserID") = UserReader("MEMBER_ID").ToString()
-							Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
-							Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
-							Session("UserLogged") = "1"
-						End While
-					UserReader.Close()
-
-					if ((Session("UserLevel") = 0) or (Session("UserLevel") = -1)) then
-						Dim aCookie As New System.Web.HttpCookie("dmgforums")
-						aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
-						aCookie.Values("mukul") = "-3"
-						aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now() & "bbb")
-						aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now() & "ccc")
-						aCookie.Expires = DateTime.Now.AddDays(-1)
-						Response.Cookies.Add(aCookie)
-						Session("UserID") = "-1"
-						Session("UserName") = ""
-						Session("UserLogged") = "0"
-						Session("UserLevel") = "0"
-					end if
-				else
-					Session("UserID") = "-1"
-					Session("UserName") = ""
-					Session("UserLogged") = "0"
-					Session("UserLevel") = "0"
-				end if
-			end if
-		End Sub
-	End Class
+                NoItemsDiv.InnerHtml = "The Reply Has Been Confirmed Successfully<br /><br /><a href=""topics.aspx?ID=" & TopicID & """>Click Aquí</a> para volver atrás<br /><br />"
+            Else
+                Response.Redirect("topics.aspx?ID=" & TopicID)
+            End If
+        End Sub
+
+        Sub ReportTopic(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            PagePanel.Visible = "false"
+            ReportTopicForm.Visible = "true"
+            ReportTopicSubmitButton.CommandArgument = sender.CommandArgument
+            NoItemsDiv.InnerHtml = ""
+        End Sub
+
+        Sub ReportTopicConfirmation(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Dim TopicSubject As String = ""
+            Dim ForumID As Integer = 0
+            Dim Reader As OdbcDataReader = Database.Read("SELECT TOPIC_SUBJECT, FORUM_ID FROM " & Database.DBPrefix & "_TOPICS WHERE TOPIC_ID = " & sender.CommandArgument)
+            While Reader.Read()
+                TopicSubject = Reader("TOPIC_SUBJECT").ToString()
+                ForumID = Reader("FORUM_ID")
+            End While
+            Reader.Close()
+
+            Dim Message As String = Functions.RepairString("TOPIC ALERT: [urlnopop=topics.aspx?ID=" & sender.CommandArgument & "]" & TopicSubject & "[/urlnopop][br][br]This topic has been reported for Admin/Moderator review.  The user's custom message is displayed below.[br][br][hr][br]" & txtReportTopicMessage.Text)
+
+            Reader = Database.Read("SELECT P.MEMBER_ID FROM " & Database.DBPrefix & "_PRIVILEGED P Left Outer Join " & Database.DBPrefix & "_MEMBERS M On P.MEMBER_ID = M.MEMBER_ID WHERE P.FORUM_ID = " & ForumID & " AND M.MEMBER_LEVEL <> 3")
+            While Reader.Read()
+                Database.Write("INSERT INTO " & Database.DBPrefix & "_PM_TOPICS (TOPIC_FROM, TOPIC_TO, TOPIC_SUBJECT, TOPIC_MESSAGE, TOPIC_DATE, TOPIC_TO_READ, TOPIC_FROM_READ, TOPIC_LASTPOST_AUTHOR, TOPIC_LASTPOST_DATE, TOPIC_REPLIES, TOPIC_SHOWSENDER, TOPIC_SHOWRECEIVER) VALUES (" & Session("UserID") & ", " & Reader("MEMBER_ID") & ", 'Topic To Report For Admin/Moderator Review', '" & Message & "', " & Database.GetTimeStamp() & ", 0, 1, " & Session("UserID") & ", " & Database.GetTimeStamp() & ", 0, 0, 1)")
+            End While
+            Reader.Close()
+
+            Reader = Database.Read("SELECT MEMBER_ID FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_LEVEL = 3")
+            While Reader.Read()
+                Database.Write("INSERT INTO " & Database.DBPrefix & "_PM_TOPICS (TOPIC_FROM, TOPIC_TO, TOPIC_SUBJECT, TOPIC_MESSAGE, TOPIC_DATE, TOPIC_TO_READ, TOPIC_FROM_READ, TOPIC_LASTPOST_AUTHOR, TOPIC_LASTPOST_DATE, TOPIC_REPLIES, TOPIC_SHOWSENDER, TOPIC_SHOWRECEIVER) VALUES (" & Session("UserID") & ", " & Reader("MEMBER_ID") & ", 'Topic To Report For Admin/Moderator Review', '" & Message & "', " & Database.GetTimeStamp() & ", 0, 1, " & Session("UserID") & ", " & Database.GetTimeStamp() & ", 0, 0, 1)")
+            End While
+            Reader.Close()
+
+            PagePanel.Visible = "false"
+            ReportTopicForm.Visible = "false"
+            NoItemsDiv.InnerHtml = "The Admins/Moderators Have Been Alerted About This Topic<br /><br /><a href=""topics.aspx?ID=" & sender.CommandArgument & """>Click Aquí</a> para volver atrás<br /><br />"
+        End Sub
+
+        Sub EditTopic(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Response.Redirect("edittopic.aspx?ID=" & sender.CommandArgument)
+        End Sub
+
+        Sub DeleteTopic(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Response.Redirect("deletetopic.aspx?ID=" & sender.CommandArgument)
+        End Sub
+
+        Sub EditReply(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Response.Redirect("editreply.aspx?ID=" & sender.CommandArgument)
+        End Sub
+
+        Sub DeleteReply(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Response.Redirect("deletereply.aspx?ID=" & sender.CommandArgument)
+        End Sub
+
+        Sub QuoteTopic(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Response.Redirect("newreply.aspx?ID=" & Request.QueryString("ID") & "&TQ=" & sender.CommandArgument)
+        End Sub
+
+        Sub QuoteReply(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Response.Redirect("newreply.aspx?ID=" & Request.QueryString("ID") & "&RQ=" & sender.CommandArgument)
+        End Sub
+
+        Sub SendPM(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Response.Redirect("pm_send.aspx?SendTo=" & sender.CommandArgument)
+        End Sub
+
+        Sub SubscribeTopic(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Response.Redirect("subscribe.aspx?ID=" & sender.CommandArgument)
+        End Sub
+
+        Sub BanMemberConfirm(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Dim MemberID As Integer = sender.CommandArgument
+            Dim MemberUsername As String = ""
+            Dim MemberLevel As Integer = 0
+            Dim MemberReader As OdbcDataReader = Database.Read("SELECT MEMBER_USERNAME, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & MemberID)
+            While MemberReader.Read()
+                MemberLevel = MemberReader("MEMBER_LEVEL")
+                MemberUsername = MemberReader("MEMBER_USERNAME").ToString()
+            End While
+            MemberReader.Close()
+
+            If (Session("UserLevel") > MemberLevel) Then
+                YesButton.CommandArgument = MemberID
+                PagePanel.Visible = "false"
+                BanMemberPanel.Visible = "true"
+                NoItemsDiv.InnerHtml = "Are you sure you want to ban <a href=""profile.aspx?id=" & MemberID & """>" & MemberUsername & "</a><br /><br />"
+            Else
+                PagePanel.Visible = "false"
+                NoItemsDiv.InnerHtml = "You Do Not Have Rights To Ban This Member.<br /><br /><a href=""default.aspx"">Click Aquí</a> To Return To The Main Page<br /><br />"
+            End If
+        End Sub
+
+        Sub CancelBanMember(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Response.Redirect("default.aspx")
+        End Sub
+
+        Sub BanMember(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Database.Write("UPDATE " & Database.DBPrefix & "_MEMBERS SET MEMBER_LEVEL = 0 WHERE MEMBER_ID = " & sender.CommandArgument)
+            Database.Write("DELETE FROM " & Database.DBPrefix & "_PRIVILEGED WHERE MEMBER_ID = " & sender.CommandArgument)
+            PagePanel.Visible = "false"
+            BanMemberPanel.Visible = "false"
+            NoItemsDiv.InnerHtml = "The Member Has Been Successfully Banned.<br /><br /><a href=""default.aspx"">Click Aquí</a> To Return To The Main Page<br /><br />"
+        End Sub
+
+        Sub SetSession()
+            If Not Request.Cookies("dmgforums") Is Nothing Then
+                Dim aCookie As New System.Web.HttpCookie("dmgforums")
+
+                Dim UserReader As OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Server.HtmlEncode(Request.Cookies("dmgforums")("mukul")) & " AND MEMBER_PASSWORD = '" & Server.HtmlEncode(Request.Cookies("dmgforums")("gupta")) & "'", 1)
+                While (UserReader.Read())
+                    Session("UserID") = UserReader("MEMBER_ID").ToString()
+                    Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
+                    Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
+                    Session("UserLogged") = "1"
+                    aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("mukul") = UserReader("MEMBER_ID").ToString()
+                    aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("gupta") = UserReader("MEMBER_PASSWORD").ToString()
+                    aCookie.Expires = DateTime.Now.AddDays(30)
+                    Response.Cookies.Add(aCookie)
+                End While
+                UserReader.Close()
+
+                If ((Session("UserLevel") = 0) Or (Session("UserLevel") = -1)) Then
+                    aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("mukul") = "-3"
+                    aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Expires = DateTime.Now.AddDays(-1)
+                    Response.Cookies.Add(aCookie)
+                    Session("UserID") = "-1"
+                    Session("UserName") = ""
+                    Session("UserLogged") = "0"
+                    Session("UserLevel") = "0"
+                End If
+            Else
+                If (Session("UserLogged") = "1") Then
+                    Dim UserReader As OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"), 1)
+                    While (UserReader.Read())
+                        Session("UserID") = UserReader("MEMBER_ID").ToString()
+                        Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
+                        Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
+                        Session("UserLogged") = "1"
+                    End While
+                    UserReader.Close()
+
+                    If ((Session("UserLevel") = 0) Or (Session("UserLevel") = -1)) Then
+                        Dim aCookie As New System.Web.HttpCookie("dmgforums")
+                        aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
+                        aCookie.Values("mukul") = "-3"
+                        aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now() & "bbb")
+                        aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now() & "ccc")
+                        aCookie.Expires = DateTime.Now.AddDays(-1)
+                        Response.Cookies.Add(aCookie)
+                        Session("UserID") = "-1"
+                        Session("UserName") = ""
+                        Session("UserLogged") = "0"
+                        Session("UserLevel") = "0"
+                    End If
+                Else
+                    Session("UserID") = "-1"
+                    Session("UserName") = ""
+                    Session("UserLogged") = "0"
+                    Session("UserLevel") = "0"
+                End If
+            End If
+        End Sub
+    End Class
+
+
+    '---------------------------------------------------------------------------------------------------
+    ' NewTopic - Codebehind For newtopic.aspx
+    '---------------------------------------------------------------------------------------------------
+    Public Class NewTopic
+        Inherits System.Web.UI.Page
+
+        Public file As System.Web.UI.HtmlControls.HtmlInputFile
+        Public ForumName As System.Web.UI.WebControls.Label
+        Public txtForumID As System.Web.UI.WebControls.TextBox
+        Public txtAuthor As System.Web.UI.WebControls.TextBox
+        Public txtCategoryID As System.Web.UI.WebControls.TextBox
+        Public txtSticky As System.Web.UI.WebControls.CheckBox
+        Public txtSignature As System.Web.UI.WebControls.CheckBox
+        Public txtSubscribe As System.Web.UI.WebControls.CheckBox
+        Public txtNews As System.Web.UI.WebControls.CheckBox
+        Public txtSubject As System.Web.UI.WebControls.TextBox
+        Public txtMessage As System.Web.UI.WebControls.TextBox
+        Public TopicPreview As System.Web.UI.WebControls.PlaceHolder
+        Public FileUploadPanel As System.Web.UI.WebControls.PlaceHolder
+        Public PagePanel As System.Web.UI.WebControls.Panel
+        Public NoItemsDiv As System.Web.UI.HtmlControls.HtmlGenericControl
+
+        Public PrevSubject As String = ""
+        Public PrevDate As String = ""
+        Public PrevMessage As String = ""
+        Public PrevSignature As String = ""
+
+        Public DMGHeader As DMGForums.Global.Header
+        Public DMGFooter As DMGForums.Global.Footer
+        Public DMGLogin As DMGForums.Global.Login
+
+        Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            If Not Page.IsPostBack() Then
+                If (Session("UserLogged") = "1") Then
+                    If (Functions.IsInteger(Request.QueryString("ID"))) Then
+                        If ((Settings.AllowSub = 1) Or (Session("UserLevel") = "3")) Then
+                            txtSubscribe.Visible = "true"
+                        End If
+
+                        Dim StatusCheck As String
+                        If Session("UserLevel") = 3 Then
+                            StatusCheck = ""
+                        Else
+                            StatusCheck = "FORUM_STATUS = 1 AND "
+                        End If
+
+                        Dim ForumID, ForumType As Integer
+                        Dim ForumReader As OdbcDataReader = Database.Read("SELECT FORUM_ID, FORUM_NAME, FORUM_SHOWHEADERS, FORUM_SHOWLOGIN, CATEGORY_ID, FORUM_TYPE FROM " & Database.DBPrefix & "_FORUMS WHERE " & StatusCheck & "FORUM_ID = " & Request.QueryString("ID"))
+                        If (Not ForumReader.HasRows) Then
+                            PagePanel.Visible = "false"
+                            NoItemsDiv.InnerHtml = "No Forums To Post To<br /><br />"
+                        Else
+                            While ForumReader.Read()
+                                ForumID = ForumReader("FORUM_ID")
+                                ForumName.Text = ForumReader("FORUM_NAME").ToString()
+                                ForumType = ForumReader("FORUM_TYPE")
+                                txtForumID.Text = ForumReader("FORUM_ID")
+                                txtCategoryID.Text = ForumReader("CATEGORY_ID")
+                                If (ForumReader("FORUM_SHOWHEADERS") <> 1) Then
+                                    DMGHeader.Visible = "false"
+                                    DMGFooter.Visible = "false"
+                                End If
+                                DMGLogin.ShowLogin() = ForumReader("FORUM_SHOWLOGIN")
+                            End While
+
+                            If (ForumType = 1) Or (ForumType = 3) Or (ForumType = 4) Then
+                                If Not Functions.IsPrivileged(ForumID, ForumType, Session("UserID"), Session("UserLevel"), Session("UserLogged")) Then
+                                    PagePanel.Visible = "false"
+                                    NoItemsDiv.InnerHtml = "You Do Not Have Access To This Forum<br /><br />"
+                                End If
+                            ElseIf (ForumType = 2) Then
+                                If Not Session("FORUM_" & Request.QueryString("ID")) = "logged" Then
+                                    PagePanel.Visible = "false"
+                                    NoItemsDiv.InnerHtml = "You Do Not Have Access To This Forum<br /><br />"
+                                End If
+                            End If
+
+                            Dim UserReader As OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_LEVEL, MEMBER_SIGNATURE_SHOW, MEMBER_POSTS, MEMBER_RANKING FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"))
+                            While UserReader.Read()
+                                txtAuthor.Text = UserReader("MEMBER_ID")
+                                If (Functions.IsModerator(UserReader("MEMBER_ID"), UserReader("MEMBER_LEVEL"), ForumID)) Then
+                                    txtSticky.Visible = "true"
+                                End If
+                                If UserReader("MEMBER_LEVEL") = 3 Then
+                                    txtNews.Visible = "true"
+                                    FileUploadPanel.Visible = "true"
+                                End If
+                                If UserReader("MEMBER_SIGNATURE_SHOW") = 1 Then
+                                    txtSignature.Checked = "true"
+                                End If
+                                If (Not Functions.AllowCustom(UserReader("MEMBER_RANKING"), UserReader("MEMBER_POSTS"), 0, "Topics")) Then
+                                    PagePanel.Visible = "false"
+                                    NoItemsDiv.InnerHtml = "Your ranking only allows you to reply to current topics.<br /><br />"
+                                End If
+                                If (Functions.AllowCustom(UserReader("MEMBER_RANKING"), UserReader("MEMBER_POSTS"), 0, "Uploads")) Then
+                                    FileUploadPanel.Visible = "true"
+                                End If
+                            End While
+                            UserReader.Close()
+                        End If
+                        ForumReader.Close()
+                    Else
+                        PagePanel.Visible = "false"
+                        NoItemsDiv.InnerHtml = "No Forums To Post To<br /><br />"
+                    End If
+                Else
+                    PagePanel.Visible = "false"
+                    NoItemsDiv.InnerHtml = "You Must Be Logged In To Post<br /><br />"
+                End If
+            End If
+        End Sub
+
+        Sub SubmitTopic(ByVal sender As Object, ByVal e As EventArgs)
+            Dim Failure As Integer = 0
+            Dim TopicID As Integer
+
+            If (txtSubject.Text = "") Or (txtSubject.Text = " ") Then
+                Failure = 1
+                Functions.MessageBox("No Subject Entered!")
+            End If
+            If (txtMessage.Text = "") Or (txtMessage.Text = " ") Then
+                Failure = 1
+                Functions.MessageBox("No Message Entered!")
+            End If
+
+            Dim SpamSeconds As Integer = -99
+            Dim MemberRanking As Integer = 0
+            Dim MemberPosts As Integer = 0
+            Dim SpamReader As OdbcDataReader = Database.Read("SELECT " & Database.GetDateDiff("ss", "MEMBER_DATE_LASTPOST", Database.GetTimeStamp()) & " as PostSeconds, MEMBER_RANKING, MEMBER_POSTS FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & txtAuthor.Text, 1)
+            While SpamReader.Read()
+                If Functions.IsDBNull(SpamReader("PostSeconds")) Then
+                    SpamSeconds = -99
+                Else
+                    SpamSeconds = SpamReader("PostSeconds")
+                End If
+                MemberRanking = SpamReader("MEMBER_RANKING")
+                MemberPosts = SpamReader("MEMBER_POSTS")
+            End While
+            SpamReader.Close()
+
+            If (Not ((SpamSeconds > Settings.SpamFilter) Or (SpamSeconds = -99) Or (Session("UserLevel") = "3"))) Then
+                Failure = 1
+                Functions.MessageBox("You Can Not Post More Than Once In " & Settings.SpamFilter & " Seconds.")
+            End If
+
+            Dim UploadedFileName As String = ""
+            If (Not file.PostedFile Is Nothing) Then
+                Dim ReturnFile As HttpPostedFile = file.PostedFile
+                If (((Functions.AllowCustom(MemberRanking, MemberPosts, 0, "Uploads")) Or (Session("UserLevel") = "3")) And (ReturnFile.ContentLength > 0)) Then
+                    Dim Reader As OdbcDataReader = Database.Read("SELECT " & Database.DBPrefix & "_TOPIC_UPLOADSIZE, " & Database.DBPrefix & "_MEMBER_FILETYPES FROM " & Database.DBPrefix & "_SETTINGS WHERE ID = " & Settings.DefaultTemplate, 1)
+                    While Reader.Read()
+                        If ((((Reader(Database.DBPrefix & "_MEMBER_FILETYPES").ToString()).Contains(ReturnFile.ContentType)) And (ReturnFile.ContentLength <= Reader(Database.DBPrefix & "_TOPIC_UPLOADSIZE") * 1024)) Or (Session("UserLevel") = "3")) Then
+                            Dim Timestamp As DateTime = DateTime.Now()
+                            Dim TimeString As String = Timestamp.ToString("ddMMyyyyhhmmss")
+
+                            UploadedFileName = System.IO.Path.GetFileName(ReturnFile.FileName)
+                            UploadedFileName = TimeString & UploadedFileName
+                            UploadedFileName = UploadedFileName.Replace(" ", "")
+                            Dim FolderID As Integer = 0
+                            Dim Reader2 As OdbcDataReader = Database.Read("SELECT FOLDER_ID FROM " & Database.DBPrefix & "_FOLDERS WHERE FOLDER_NAME = 'topicfiles' AND FOLDER_PARENT = 0")
+                            While Reader2.Read()
+                                FolderID = Reader2("FOLDER_ID")
+                            End While
+                            Reader2.Close()
+
+                            Dim FilePath As String = MapPath("topicfiles/" & UploadedFileName)
+                            ReturnFile.SaveAs(FilePath)
+
+                            Database.Write("INSERT INTO " & Database.DBPrefix & "_FILES (FILE_FOLDER, FILE_NAME, FILE_CORE) VALUES (" & FolderID & ", '" & UploadedFileName & "', 0)")
+                        Else
+                            Failure = 1
+                            If (Not (Reader(Database.DBPrefix & "_MEMBER_FILETYPES").ToString()).Contains(ReturnFile.ContentType)) Then
+                                Functions.MessageBox("This file format is not allowed." & ReturnFile.ContentType)
+                            ElseIf (Not (ReturnFile.ContentLength <= Reader(Database.DBPrefix & "_TOPIC_UPLOADSIZE") * 1024)) Then
+                                Functions.MessageBox("File size must be less than " & Reader(Database.DBPrefix & "_TOPIC_UPLOADSIZE") & " Kb.")
+                            End If
+                        End If
+                    End While
+                    Reader.Close()
+                End If
+            End If
+
+            If Failure = 0 Then
+                PagePanel.Visible = "false"
+
+                Dim Sticky As Integer = 0
+                Dim News As Integer = 0
+                Dim Signature As Integer = 0
+                If (txtSticky.Checked) Then
+                    Sticky = 1
+                End If
+                If (txtNews.Checked) Then
+                    News = 1
+                End If
+                If (txtSignature.Checked) Then
+                    Signature = 1
+                End If
+
+                Dim ForceConfirm As Integer = 0
+                Dim ForumReader As OdbcDataReader = Database.Read("SELECT FORUM_FORCECONFIRM FROM " & Database.DBPrefix & "_FORUMS WHERE FORUM_ID = " & txtForumID.Text)
+                While ForumReader.Read()
+                    ForceConfirm = ForumReader("FORUM_FORCECONFIRM")
+                End While
+                ForumReader.Close()
+
+                Dim TopicConfirm As Integer = 1
+                If (ForceConfirm = 1) And (Session("UserLevel") <> "3") And (Session("UserLevel") <> "2") Then
+                    TopicConfirm = 0
+                End If
+
+                Database.Write("INSERT INTO " & Database.DBPrefix & "_TOPICS (CATEGORY_ID, FORUM_ID, TOPIC_SUBJECT, TOPIC_MESSAGE, TOPIC_AUTHOR, TOPIC_DATE, TOPIC_REPLIES, TOPIC_VIEWS, TOPIC_LASTPOST_DATE, TOPIC_LASTPOST_AUTHOR, TOPIC_STICKY, TOPIC_SIGNATURE, TOPIC_STATUS, TOPIC_NEWS, TOPIC_CONFIRMED, TOPIC_UNCONFIRMED_REPLIES, TOPIC_FILEUPLOAD) VALUES (" & txtCategoryID.Text & ", " & txtForumID.Text & ", '" & Functions.RepairString(txtSubject.Text) & "', '" & Functions.RepairString(txtMessage.Text) & "', " & txtAuthor.Text & ", " & Database.GetTimeStamp() & ", 0, 0, " & Database.GetTimeStamp() & ", " & txtAuthor.Text & ", " & Sticky & ", " & Signature & ", 1, " & News & ", " & TopicConfirm & ", 0, '" & UploadedFileName & "')")
+                Database.Write("UPDATE " & Database.DBPrefix & "_MEMBERS SET MEMBER_POSTS = (MEMBER_POSTS + 1), MEMBER_DATE_LASTPOST = " & Database.GetTimeStamp() & " WHERE MEMBER_ID = " & txtAuthor.Text)
+
+                Dim TopicPostback As OdbcDataReader = Database.Read("SELECT TOPIC_ID FROM " & Database.DBPrefix & "_TOPICS WHERE TOPIC_AUTHOR = " & txtAuthor.Text & " ORDER BY TOPIC_ID DESC", 1)
+                While TopicPostback.Read()
+                    TopicID = TopicPostback("TOPIC_ID")
+                End While
+                TopicPostback.Close()
+
+                If (TopicConfirm = 1) Then
+                    Database.Write("UPDATE " & Database.DBPrefix & "_FORUMS SET FORUM_TOPICS = (FORUM_TOPICS + 1), FORUM_POSTS = (FORUM_POSTS + 1), FORUM_LASTPOST_DATE = " & Database.GetTimeStamp() & ", FORUM_LASTPOST_AUTHOR = '" & txtAuthor.Text & "', FORUM_LASTPOST_TOPIC = " & TopicID & " WHERE FORUM_ID = " & txtForumID.Text)
+
+                    If (txtSubscribe.Checked) Then
+                        Database.Write("INSERT INTO " & Database.DBPrefix & "_SUBSCRIPTIONS (SUB_MEMBER, SUB_TOPIC, SUB_EMAIL) VALUES (" & Session("UserID") & ", " & TopicID & ", 0)")
+                    End If
+
+                    NoItemsDiv.InnerHtml = "Topic Posted Successfully<br /><br /><a href=""forums.aspx?ID=" & txtForumID.Text & """>Click Aquí</a> To Return To The Forum<br /><br />"
+                Else
+                    NoItemsDiv.InnerHtml = Functions.CustomMessage("MESSAGE_CONFIRMPOST") & "<br /><br /><a href=""forums.aspx?ID=" & txtForumID.Text & """>Click Aquí</a> To Return To The Forum<br /><br />"
+                    Functions.SendToModerators(1, TopicID, txtForumID.Text)
+                End If
+            End If
+        End Sub
+
+        Sub PreviewTopic(ByVal sender As Object, ByVal e As EventArgs)
+            Dim Failure As Integer = 0
+            Dim ShowSig As Integer = 0
+
+            If (txtSubject.Text = "") Or (txtSubject.Text = " ") Then
+                Failure = 1
+                Functions.MessageBox("No Subject Entered!")
+            End If
+            If (txtMessage.Text = "") Or (txtMessage.Text = " ") Then
+                Failure = 1
+                Functions.MessageBox("No Message Entered!")
+            End If
+            If (txtSignature.Checked) Then
+                ShowSig = 1
+            End If
+
+            If Failure = 0 Then
+                TopicPreview.Visible = "true"
+                PrevSubject = Functions.RepairString(txtSubject.Text)
+                PrevMessage = Functions.FormatString(Functions.RepairString(txtMessage.Text))
+                PrevDate = DateTime.Now()
+
+                If (ShowSig = 1) Then
+                    Dim Reader As OdbcDataReader = Database.Read("SELECT MEMBER_SIGNATURE FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"))
+                    While Reader.Read()
+                        PrevSignature = Functions.Signature(1, Reader("MEMBER_SIGNATURE").ToString())
+                    End While
+                    Reader.Close()
+                End If
+            End If
+        End Sub
+
+    End Class
+
+
+    '---------------------------------------------------------------------------------------------------
+    ' EditTopic - Codebehind For edittopic.aspx
+    '---------------------------------------------------------------------------------------------------
+    Public Class EditTopic
+        Inherits System.Web.UI.Page
+
+        Public txtForumID As System.Web.UI.WebControls.DropDownList
+        Public txtSubject As System.Web.UI.WebControls.TextBox
+        Public txtMessage As System.Web.UI.WebControls.TextBox
+        Public txtSticky As System.Web.UI.WebControls.CheckBox
+        Public txtSignature As System.Web.UI.WebControls.CheckBox
+        Public txtStatus As System.Web.UI.WebControls.DropDownList
+        Public txtNews As System.Web.UI.WebControls.CheckBox
+        Public ForumPanel As System.Web.UI.WebControls.Panel
+        Public StatusPanel As System.Web.UI.WebControls.Panel
+        Public OldForumID As System.Web.UI.WebControls.TextBox
+        Public PagePanel As System.Web.UI.WebControls.Panel
+        Public NoItemsDiv As System.Web.UI.HtmlControls.HtmlGenericControl
+
+        Dim ForumID As Integer = 0
+
+        Public DMGHeader As DMGForums.Global.Header
+        Public DMGFooter As DMGForums.Global.Footer
+        Public DMGLogin As DMGForums.Global.Login
+
+        Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            If Not Page.IsPostBack() Then
+                SetSession()
+
+                If (Functions.IsInteger(Request.QueryString("ID"))) Then
+                    Dim AllowModeration As Boolean
+                    Dim ModeratorReader As OdbcDataReader = Database.Read("SELECT FORUM_ID, TOPIC_AUTHOR FROM " & Database.DBPrefix & "_TOPICS WHERE TOPIC_ID = " & Request.QueryString("ID"))
+                    While ModeratorReader.Read()
+                        AllowModeration = Functions.IsModerator(Session("UserID"), Session("UserLevel"), ModeratorReader("FORUM_ID"))
+                        If (Not AllowModeration) And (ModeratorReader("TOPIC_AUTHOR").ToString() = Session("UserID")) Then
+                            AllowModeration = True
+                        End If
+                    End While
+                    ModeratorReader.Close()
+
+                    If AllowModeration Then
+                        Dim TopicReader As OdbcDataReader = Database.Read("SELECT T.FORUM_ID, T.TOPIC_SUBJECT, T.TOPIC_MESSAGE, T.TOPIC_STICKY, T.TOPIC_SIGNATURE, T.TOPIC_STATUS, T.TOPIC_NEWS, F.FORUM_SHOWHEADERS, F.FORUM_SHOWLOGIN FROM " & Database.DBPrefix & "_TOPICS T Left Outer Join " & Database.DBPrefix & "_FORUMS F On T.FORUM_ID = F.FORUM_ID WHERE T.TOPIC_ID = " & Request.QueryString("ID"))
+                        While TopicReader.Read()
+                            txtSubject.Text = Server.HtmlDecode(TopicReader("TOPIC_SUBJECT"))
+                            txtMessage.Text = Server.HtmlDecode(TopicReader("TOPIC_MESSAGE"))
+                            If TopicReader("TOPIC_STICKY") = 1 Then
+                                txtSticky.Checked = "true"
+                            End If
+                            If TopicReader("TOPIC_NEWS") = 1 Then
+                                txtNews.Checked = "true"
+                            End If
+                            If TopicReader("TOPIC_SIGNATURE") = 1 Then
+                                txtSignature.Checked = "true"
+                            End If
+                            ForumID = TopicReader("FORUM_ID")
+                            txtStatus.SelectedValue = TopicReader("TOPIC_STATUS")
+                            If (TopicReader("FORUM_SHOWHEADERS") <> 1) Then
+                                DMGHeader.Visible = "false"
+                                DMGFooter.Visible = "false"
+                            End If
+                            DMGLogin.ShowLogin() = TopicReader("FORUM_SHOWLOGIN")
+                        End While
+                        TopicReader.Close()
+
+                        txtForumID.DataSource = Database.Read("SELECT FORUM_ID, FORUM_NAME FROM " & Database.DBPrefix & "_FORUMS")
+                        txtForumID.DataBind()
+                        txtForumID.SelectedValue = ForumID
+                        txtForumID.DataSource.Close()
+
+                        OldForumID.Text = ForumID
+
+                        If Functions.IsModerator(Session("UserID"), Session("UserLevel"), ForumID) Then
+                            txtSticky.Visible = "true"
+                            txtNews.Visible = "true"
+                            ForumPanel.Visible = "true"
+                            StatusPanel.Visible = "true"
+                        End If
+                    Else
+                        PagePanel.Visible = "false"
+                        NoItemsDiv.InnerHtml = "Access Denied<br /><br />"
+                    End If
+                Else
+                    Response.Redirect("default.aspx")
+                End If
+            End If
+        End Sub
+
+        Sub SubmitTopic(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Dim Sticky As Integer = 0
+            Dim News As Integer = 0
+            Dim Signature As Integer = 0
+            Dim Status As Integer = 1
+            Dim theForumID As Integer = 0
+
+            If (txtSticky.Checked) Then
+                Sticky = 1
+            End If
+            If (txtNews.Checked) Then
+                News = 1
+            End If
+            If (txtSignature.Checked) Then
+                Signature = 1
+            End If
+
+            theForumID = txtForumID.SelectedValue
+            Status = txtStatus.SelectedValue
+
+            PagePanel.Visible = "false"
+
+            Dim CategoryID As String = "-1"
+            Dim CategoryReader As OdbcDataReader = Database.Read("SELECT CATEGORY_ID FROM " & Database.DBPrefix & "_FORUMS WHERE FORUM_ID = " & theForumID)
+            While CategoryReader.Read
+                CategoryID = CategoryReader("CATEGORY_ID")
+            End While
+            CategoryReader.Close()
+
+            Database.Write("UPDATE " & Database.DBPrefix & "_TOPICS SET FORUM_ID = " & theForumID & ", CATEGORY_ID = " & CategoryID & ", TOPIC_SUBJECT = '" & Functions.RepairString(txtSubject.Text) & "', TOPIC_MESSAGE = '" & Functions.RepairString(txtMessage.Text) & "', TOPIC_STICKY = " & Sticky & ", TOPIC_SIGNATURE = " & Signature & ", TOPIC_STATUS = " & Status & ", TOPIC_NEWS = " & News & " WHERE TOPIC_ID = " & Request.QueryString("ID"))
+
+            If (theForumID <> OldForumID.Text) Then
+                Functions.UpdateCounts(4, OldForumID.Text, theForumID, Request.QueryString("ID"))
+            End If
+
+            NoItemsDiv.InnerHtml = "Topic Edited Successfully<br /><br /><a href=""topics.aspx?ID=" & Request.QueryString("ID") & """>Click Aquí</a> para volver atrás<br /><br />"
+        End Sub
+
+        Sub SetSession()
+            If Not Request.Cookies("dmgforums") Is Nothing Then
+                Dim aCookie As New System.Web.HttpCookie("dmgforums")
+
+                Dim UserReader As OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Server.HtmlEncode(Request.Cookies("dmgforums")("mukul")) & " AND MEMBER_PASSWORD = '" & Server.HtmlEncode(Request.Cookies("dmgforums")("gupta")) & "'", 1)
+                While (UserReader.Read())
+                    Session("UserID") = UserReader("MEMBER_ID").ToString()
+                    Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
+                    Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
+                    Session("UserLogged") = "1"
+                    aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("mukul") = UserReader("MEMBER_ID").ToString()
+                    aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("gupta") = UserReader("MEMBER_PASSWORD").ToString()
+                    aCookie.Expires = DateTime.Now.AddDays(30)
+                    Response.Cookies.Add(aCookie)
+                End While
+                UserReader.Close()
+
+                If ((Session("UserLevel") = 0) Or (Session("UserLevel") = -1)) Then
+                    aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("mukul") = "-3"
+                    aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Expires = DateTime.Now.AddDays(-1)
+                    Response.Cookies.Add(aCookie)
+                    Session("UserID") = "-1"
+                    Session("UserName") = ""
+                    Session("UserLogged") = "0"
+                    Session("UserLevel") = "0"
+                End If
+            Else
+                If (Session("UserLogged") = "1") Then
+                    Dim UserReader As OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"), 1)
+                    While (UserReader.Read())
+                        Session("UserID") = UserReader("MEMBER_ID").ToString()
+                        Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
+                        Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
+                        Session("UserLogged") = "1"
+                    End While
+                    UserReader.Close()
+
+                    If ((Session("UserLevel") = 0) Or (Session("UserLevel") = -1)) Then
+                        Dim aCookie As New System.Web.HttpCookie("dmgforums")
+                        aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
+                        aCookie.Values("mukul") = "-3"
+                        aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now() & "bbb")
+                        aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now() & "ccc")
+                        aCookie.Expires = DateTime.Now.AddDays(-1)
+                        Response.Cookies.Add(aCookie)
+                        Session("UserID") = "-1"
+                        Session("UserName") = ""
+                        Session("UserLogged") = "0"
+                        Session("UserLevel") = "0"
+                    End If
+                Else
+                    Session("UserID") = "-1"
+                    Session("UserName") = ""
+                    Session("UserLogged") = "0"
+                    Session("UserLevel") = "0"
+                End If
+            End If
+        End Sub
+    End Class
+
+
+    '---------------------------------------------------------------------------------------------------
+    ' DeleteTopic - Codebehind For deletetopic.aspx
+    '---------------------------------------------------------------------------------------------------
+    Public Class DeleteTopic
+        Inherits System.Web.UI.Page
+
+        Public DeleteButton As System.Web.UI.WebControls.Button
+        Public TopicSubject As System.Web.UI.WebControls.Label
+        Public ForumID As System.Web.UI.WebControls.TextBox
+        Public PagePanel As System.Web.UI.WebControls.Panel
+        Public NoItemsDiv As System.Web.UI.HtmlControls.HtmlGenericControl
+
+        Public DMGHeader As DMGForums.Global.Header
+        Public DMGFooter As DMGForums.Global.Footer
+        Public DMGLogin As DMGForums.Global.Login
+
+        Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            If Not Page.IsPostBack() Then
+                If (Functions.IsInteger(Request.QueryString("ID"))) Then
+                    Dim AllowModeration As Boolean
+                    Dim ModeratorReader As OdbcDataReader = Database.Read("SELECT FORUM_ID FROM " & Database.DBPrefix & "_TOPICS WHERE TOPIC_ID = " & Request.QueryString("ID"))
+                    While ModeratorReader.Read()
+                        AllowModeration = Functions.IsModerator(Session("UserID"), Session("UserLevel"), ModeratorReader("FORUM_ID"))
+                    End While
+                    ModeratorReader.Close()
+
+                    If AllowModeration Then
+                        Dim TopicReader As OdbcDataReader = Database.Read("SELECT T.TOPIC_ID, T.TOPIC_SUBJECT, T.FORUM_ID, F.FORUM_SHOWHEADERS, F.FORUM_SHOWLOGIN FROM " & Database.DBPrefix & "_TOPICS T Left Outer Join " & Database.DBPrefix & "_FORUMS F On T.FORUM_ID = F.FORUM_ID WHERE T.TOPIC_ID = " & Request.QueryString("ID"))
+                        If TopicReader.HasRows Then
+                            While (TopicReader.Read())
+                                DeleteButton.CommandArgument = TopicReader("TOPIC_ID")
+                                TopicSubject.Text = TopicReader("TOPIC_SUBJECT").ToString()
+                                ForumID.Text = TopicReader("FORUM_ID")
+                                If (TopicReader("FORUM_SHOWHEADERS") <> 1) Then
+                                    DMGHeader.Visible = "false"
+                                    DMGFooter.Visible = "false"
+                                End If
+                                DMGLogin.ShowLogin() = TopicReader("FORUM_SHOWLOGIN")
+                            End While
+                        Else
+                            PagePanel.Visible = "false"
+                            NoItemsDiv.InnerHtml = "Invalid Topic ID<br /><br />"
+                        End If
+                        TopicReader.Close()
+                    Else
+                        PagePanel.Visible = "false"
+                        NoItemsDiv.InnerHtml = "Access Denied<br /><br />"
+                    End If
+                Else
+                    Response.Redirect("default.aspx")
+                End If
+            End If
+        End Sub
+
+        Sub DeleteTopic(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            PagePanel.Visible = "false"
+            Dim Replies, ForumTopics, ForumPosts As Integer
+
+            Dim Reader As OdbcDataReader = Database.Read("SELECT TOPIC_FILEUPLOAD FROM " & Database.DBPrefix & "_TOPICS WHERE TOPIC_ID = " & sender.CommandArgument, 1)
+            While Reader.Read()
+                If Reader("TOPIC_FILEUPLOAD").ToString() <> "" Then
+                    Database.Write("DELETE " & Database.DBPrefix & "_FILES FROM " & Database.DBPrefix & "_FILES, " & Database.DBPrefix & "_FOLDERS WHERE " & Database.DBPrefix & "_FILES.FILE_FOLDER = " & Database.DBPrefix & "_FOLDERS.FOLDER_ID AND " & Database.DBPrefix & "_FILES.FILE_NAME = '" & Reader("TOPIC_FILEUPLOAD").ToString() & "' AND " & Database.DBPrefix & "_FOLDERS.FOLDER_NAME = 'topicfiles' AND " & Database.DBPrefix & "_FOLDERS.FOLDER_PARENT = 0")
+                    File.Delete(MapPath("topicfiles/" & Reader("TOPIC_FILEUPLOAD").ToString()))
+                End If
+            End While
+            Reader.Close()
+
+            Dim ReplyCount As OdbcDataReader = Database.Read("SELECT COUNT(*) AS ReplyCounter FROM " & Database.DBPrefix & "_REPLIES WHERE TOPIC_ID = " & sender.CommandArgument)
+            While ReplyCount.Read()
+                Replies = ReplyCount("ReplyCounter")
+            End While
+            ReplyCount.Close()
+
+            Dim ForumCounts As OdbcDataReader = Database.Read("SELECT FORUM_TOPICS, FORUM_POSTS FROM " & Database.DBPrefix & "_FORUMS WHERE FORUM_ID = " & ForumID.Text)
+            While ForumCounts.Read()
+                ForumTopics = ForumCounts("FORUM_TOPICS")
+                ForumPosts = ForumCounts("FORUM_POSTS")
+            End While
+            ForumCounts.Close()
+
+            Database.Write("DELETE FROM " & Database.DBPrefix & "_TOPICS WHERE TOPIC_ID = " & sender.CommandArgument)
+            Database.Write("DELETE FROM " & Database.DBPrefix & "_REPLIES WHERE TOPIC_ID = " & sender.CommandArgument)
+
+            If ForumTopics = 1 Then
+                Database.Write("UPDATE " & Database.DBPrefix & "_FORUMS SET FORUM_TOPICS = " & ForumTopics - 1 & ", FORUM_POSTS = " & ForumPosts - Replies - 1 & ", FORUM_LASTPOST_AUTHOR = 0 WHERE FORUM_ID = " & ForumID.Text)
+            Else
+                Dim LastPostAuthor As String = ""
+                Dim LastPostDate As String = ""
+                Dim AuthorReader As OdbcDataReader = Database.Read("SELECT TOPIC_LASTPOST_AUTHOR, TOPIC_LASTPOST_DATE FROM " & Database.DBPrefix & "_TOPICS WHERE FORUM_ID = " & ForumID.Text & " ORDER BY TOPIC_LASTPOST_DATE DESC", 1)
+                While AuthorReader.Read()
+                    LastPostAuthor = AuthorReader("TOPIC_LASTPOST_AUTHOR").ToString()
+                    LastPostDate = AuthorReader("TOPIC_LASTPOST_DATE").ToString()
+                End While
+                AuthorReader.Close()
+                Database.Write("UPDATE " & Database.DBPrefix & "_FORUMS SET FORUM_TOPICS = " & ForumTopics - 1 & ", FORUM_POSTS = " & ForumPosts - Replies - 1 & ", FORUM_LASTPOST_AUTHOR = " & LastPostAuthor & ", FORUM_LASTPOST_DATE = '" & LastPostDate & "' WHERE FORUM_ID = " & ForumID.Text)
+            End If
+
+            NoItemsDiv.InnerHtml = "Topic Deleted Successfully<br /><br /><a href=""forums.aspx?ID=" & ForumID.Text & """>Click Aquí</a> To Return To The Forum<br /><br />"
+        End Sub
+    End Class
+
+
+    '---------------------------------------------------------------------------------------------------
+    ' Active - Codebehind For active.aspx
+    '---------------------------------------------------------------------------------------------------
+    Public Class Active
+        Inherits System.Web.UI.Page
+
+        Public Forum As System.Web.UI.WebControls.Repeater
+        Public NoItemsDiv As System.Web.UI.HtmlControls.HtmlGenericControl
+
+        Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            If Not Page.IsPostBack() Then
+                If (Session("ActiveLevel") Is Nothing) Or (Session("ActiveLevel") = 3) Or (Session("ActiveTime") Is Nothing) Then
+                    Session("ActiveTime") = Database.DatabaseTimestamp(3)
+                End If
+
+                Dim TimeFrame As String = "'" & Session("ActiveTime") & "'"
+
+                Dim DataSet1 As New DataSet()
+                Dim strSql As New OdbcCommand("SELECT F.FORUM_ID, F.FORUM_NAME, C.CATEGORY_ID, C.CATEGORY_NAME FROM " & Database.DBPrefix & "_FORUMS F LEFT OUTER JOIN " & Database.DBPrefix & "_CATEGORIES C ON F.CATEGORY_ID = C.CATEGORY_ID WHERE F.FORUM_TOPICS > 0 AND F.FORUM_STATUS <> 0 AND " & Database.GetDateDiff("ss", "F.FORUM_LASTPOST_DATE", TimeFrame) & " <= 0 ORDER BY C.CATEGORY_SORTBY, F.FORUM_SORTBY, F.FORUM_NAME", Database.DatabaseConnection())
+
+                Dim DataAdapter1 As New OdbcDataAdapter()
+                DataAdapter1.SelectCommand = strSql
+                DataAdapter1.Fill(DataSet1, "FORUMS")
+
+                strSql = New OdbcCommand("SELECT T.FORUM_ID, T.TOPIC_ID, T.TOPIC_SUBJECT, T.TOPIC_AUTHOR, T.TOPIC_STATUS, T.TOPIC_CONFIRMED, M.MEMBER_USERNAME as TOPIC_AUTHOR_NAME, T.TOPIC_REPLIES, T.TOPIC_VIEWS, T.TOPIC_STICKY, T.TOPIC_LASTPOST_AUTHOR, MEMBERS_1.MEMBER_USERNAME as TOPIC_LASTPOST_NAME, T.TOPIC_LASTPOST_DATE FROM " & Database.DBPrefix & "_MEMBERS M, " & Database.DBPrefix & "_TOPICS T, " & Database.DBPrefix & "_MEMBERS as MEMBERS_1, " & Database.DBPrefix & "_FORUMS F WHERE M.MEMBER_ID = T.TOPIC_AUTHOR and T.TOPIC_LASTPOST_AUTHOR = MEMBERS_1.MEMBER_ID and T.FORUM_ID = F.FORUM_ID and T.TOPIC_STATUS <> 0 and T.TOPIC_CONFIRMED = 1 and F.FORUM_STATUS <> 0 and F.FORUM_TOPICS > 0 AND " & Database.GetDateDiff("ss", "F.FORUM_LASTPOST_DATE", TimeFrame) & " <= 0 and " & Database.GetDateDiff("ss", "T.TOPIC_LASTPOST_DATE", TimeFrame) & " <= 0 ORDER BY T.TOPIC_STICKY DESC, T.TOPIC_LASTPOST_DATE DESC", Database.DatabaseConnection())
+                DataAdapter1.SelectCommand = strSql
+                DataAdapter1.Fill(DataSet1, "TOPICS")
+
+                DataSet1.Relations.Add("TopicRelation", DataSet1.Tables("FORUMS").Columns("FORUM_ID"), DataSet1.Tables("TOPICS").Columns("FORUM_ID"))
+
+                Forum.DataSource = DataSet1
+                Forum.DataBind()
+
+                If (Forum.Items.Count = 0) Then
+                    NoItemsDiv.InnerHtml = "There Are No Items To Display<br /><br />"
+                End If
+            End If
+        End Sub
+    End Class
+
+
+    '---------------------------------------------------------------------------------------------------
+    ' NewReply - Codebehind For newreply.aspx
+    '---------------------------------------------------------------------------------------------------
+    Public Class NewReply
+        Inherits System.Web.UI.Page
+
+        Public txtTopicID As System.Web.UI.WebControls.TextBox
+        Public txtForumID As System.Web.UI.WebControls.TextBox
+        Public txtAuthor As System.Web.UI.WebControls.TextBox
+        Public txtMessage As System.Web.UI.WebControls.TextBox
+        Public txtSignature As System.Web.UI.WebControls.CheckBox
+        Public txtTopicSubject As System.Web.UI.WebControls.Label
+        Public ReplyPreview As System.Web.UI.WebControls.PlaceHolder
+        Public PagePanel As System.Web.UI.WebControls.Panel
+        Public NoItemsDiv As System.Web.UI.HtmlControls.HtmlGenericControl
+
+        Public PrevSubject As String = ""
+        Public PrevDate As String = ""
+        Public PrevMessage As String = ""
+        Public PrevSignature As String = ""
+
+        Public DMGHeader As DMGForums.Global.Header
+        Public DMGFooter As DMGForums.Global.Footer
+        Public DMGLogin As DMGForums.Global.Login
+
+        Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            If Not Page.IsPostBack() Then
+                SetSession()
+
+                If (Session("UserLogged") = "1") Then
+                    If (Functions.IsInteger(Request.QueryString("ID"))) Then
+                        Dim StatusCheck As String
+                        If Session("UserLevel") = 3 Then
+                            StatusCheck = ""
+                        Else
+                            StatusCheck = "T.TOPIC_STATUS = 1 AND F.FORUM_STATUS = 1 AND "
+                        End If
+
+                        Dim ForumType, ForumID As Integer
+                        Dim TopicReader As OdbcDataReader = Database.Read("SELECT T.TOPIC_ID, T.TOPIC_SUBJECT, T.FORUM_ID, F.FORUM_TYPE, F.FORUM_STATUS, F.FORUM_SHOWHEADERS, F.FORUM_SHOWLOGIN FROM " & Database.DBPrefix & "_TOPICS T LEFT OUTER JOIN " & Database.DBPrefix & "_FORUMS F ON T.FORUM_ID = F.FORUM_ID WHERE " & StatusCheck & "T.TOPIC_ID = " & Request.QueryString("ID"))
+                        If (Not TopicReader.HasRows) Then
+                            PagePanel.Visible = "false"
+                            NoItemsDiv.InnerHtml = "No Topic To Post To<br /><br />"
+                        Else
+                            While TopicReader.Read()
+                                txtTopicID.Text = TopicReader("TOPIC_ID")
+                                txtForumID.Text = TopicReader("FORUM_ID")
+                                txtTopicSubject.Text = TopicReader("TOPIC_SUBJECT").ToString()
+                                ForumType = TopicReader("FORUM_TYPE")
+                                ForumID = TopicReader("FORUM_ID")
+                                If (TopicReader("FORUM_SHOWHEADERS") <> 1) Then
+                                    DMGHeader.Visible = "false"
+                                    DMGFooter.Visible = "false"
+                                End If
+                                DMGLogin.ShowLogin() = TopicReader("FORUM_SHOWLOGIN")
+                            End While
+
+                            If (ForumType = 1) Or (ForumType = 3) Or (ForumType = 4) Then
+                                If Not Functions.IsPrivileged(ForumID, ForumType, Session("UserID"), Session("UserLevel"), Session("UserLogged")) Then
+                                    PagePanel.Visible = "false"
+                                    NoItemsDiv.InnerHtml = "You Do Not Have Access To This Forum<br /><br />"
+                                End If
+                            ElseIf (ForumType = 2) Then
+                                If Not Session("FORUM_" & ForumID) = "logged" Then
+                                    PagePanel.Visible = "false"
+                                    NoItemsDiv.InnerHtml = "You Do Not Have Access To This Forum<br /><br />"
+                                End If
+                            End If
+
+                            Dim UserReader As OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_LEVEL, MEMBER_SIGNATURE_SHOW FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"))
+                            While UserReader.Read()
+                                txtAuthor.Text = UserReader("MEMBER_ID")
+                                If UserReader("MEMBER_SIGNATURE_SHOW") = 1 Then
+                                    txtSignature.Checked = "true"
+                                End If
+                            End While
+                            UserReader.Close()
+                        End If
+                        TopicReader.Close()
+
+                        Dim Reader As OdbcDataReader
+                        If (Functions.IsInteger(Request.QueryString("RQ"))) Then
+                            Dim ReplyQuoteMessage As String = ""
+                            Reader = Database.Read("SELECT M.MEMBER_USERNAME, R.REPLY_MESSAGE FROM " & Database.DBPrefix & "_MEMBERS M Left Outer Join " & Database.DBPrefix & "_REPLIES R On R.REPLY_AUTHOR = M.MEMBER_ID WHERE R.REPLY_ID = " & Request.QueryString("RQ"))
+                            While Reader.Read()
+                                ReplyQuoteMessage = Reader("REPLY_MESSAGE").ToString()
+                                ReplyQuoteMessage = Regex.Replace(ReplyQuoteMessage, "(\[quote\])((.|\n)*?)(\[\/quote\])(\r\n\r\n)", "")
+                                ReplyQuoteMessage = Regex.Replace(ReplyQuoteMessage, "(\[quote\])((.|\n)*?)(\[\/quote\])", "")
+                                txtMessage.Text = "[quote][b]Quoted From " & Reader("MEMBER_USERNAME") & ":[/b] " & Chr(10) & Chr(10) & Server.HtmlDecode(ReplyQuoteMessage) & Chr(10) & "[/quote]" & Chr(10) & Chr(10)
+                            End While
+                            Reader.Close()
+                        End If
+
+                        If (Functions.IsInteger(Request.QueryString("TQ"))) Then
+                            Dim TopicQuoteMessage As String = ""
+                            Reader = Database.Read("SELECT M.MEMBER_USERNAME, T.TOPIC_MESSAGE FROM " & Database.DBPrefix & "_MEMBERS M Left Outer Join " & Database.DBPrefix & "_TOPICS T On T.TOPIC_AUTHOR = M.MEMBER_ID WHERE T.TOPIC_ID = " & Request.QueryString("TQ"))
+                            While Reader.Read()
+                                TopicQuoteMessage = Reader("TOPIC_MESSAGE").ToString()
+                                TopicQuoteMessage = Regex.Replace(TopicQuoteMessage, "(\[quote\])((.|\n)*?)(\[\/quote\])(\r\n\r\n)", "")
+                                TopicQuoteMessage = Regex.Replace(TopicQuoteMessage, "(\[quote\])((.|\n)*?)(\[\/quote\])", "")
+                                txtMessage.Text = "[quote][b]Quoted From " & Reader("MEMBER_USERNAME") & ":[/b] " & Chr(10) & Chr(10) & Server.HtmlDecode(TopicQuoteMessage) & Chr(10) & "[/quote]" & Chr(10) & Chr(10)
+                            End While
+                            Reader.Close()
+                        End If
+                    Else
+                        PagePanel.Visible = "false"
+                        NoItemsDiv.InnerHtml = "No Forums To Post To<br /><br />"
+                    End If
+                Else
+                    PagePanel.Visible = "false"
+                    NoItemsDiv.InnerHtml = "You Must Be Logged In To Post<br /><br />"
+                End If
+            End If
+        End Sub
+
+        Sub SubmitReply(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Dim Failure As Integer = 0
+            Dim SpamSeconds As Integer
+
+            If (txtMessage.Text = "") Or (txtMessage.Text = " ") Then
+                Failure = 1
+                Functions.MessageBox("No Message Entered!")
+            End If
+
+            If Failure = 0 Then
+                Dim TopicReplies, ReplyID As Integer
+                Dim Signature As Integer = 0
+                If (txtSignature.Checked) Then
+                    Signature = 1
+                End If
+
+                PagePanel.Visible = "false"
+
+                Dim SpamReader As OdbcDataReader
+                SpamReader = Database.Read("SELECT " & Database.GetDateDiff("ss", "MEMBER_DATE_LASTPOST", Database.GetTimeStamp()) & " as PostSeconds FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & txtAuthor.Text)
+                While SpamReader.Read()
+                    If Functions.IsDBNull(SpamReader("PostSeconds")) Then
+                        SpamSeconds = -99
+                    Else
+                        SpamSeconds = SpamReader("PostSeconds")
+                    End If
+                End While
+                SpamReader.Close()
+
+                If (SpamSeconds > Settings.SpamFilter) Or (SpamSeconds = -99) Or (Session("UserLevel") = "3") Then
+                    Dim ForceConfirm As Integer = 0
+                    Dim ForumReader As OdbcDataReader = Database.Read("SELECT FORUM_FORCECONFIRM FROM " & Database.DBPrefix & "_FORUMS WHERE FORUM_ID = " & txtForumID.Text)
+                    While ForumReader.Read()
+                        ForceConfirm = ForumReader("FORUM_FORCECONFIRM")
+                    End While
+                    ForumReader.Close()
+
+                    Dim ReplyConfirm As Integer = 1
+                    If (ForceConfirm = 1) And (Session("UserLevel") <> "3") And (Session("UserLevel") <> "2") Then
+                        ReplyConfirm = 0
+                    End If
+
+                    Database.Write("INSERT INTO " & Database.DBPrefix & "_REPLIES (TOPIC_ID, REPLY_MESSAGE, REPLY_DATE, REPLY_AUTHOR, REPLY_SIGNATURE, REPLY_CONFIRMED) VALUES (" & txtTopicID.Text & ", '" & Functions.RepairString(txtMessage.Text) & "', " & Database.GetTimeStamp() & ", " & txtAuthor.Text & ", " & Signature & ", " & ReplyConfirm & ")")
+                    Database.Write("UPDATE " & Database.DBPrefix & "_MEMBERS SET MEMBER_POSTS = (MEMBER_POSTS + 1), MEMBER_DATE_LASTPOST = " & Database.GetTimeStamp() & " WHERE MEMBER_ID = " & txtAuthor.Text)
+
+                    If (ReplyConfirm = 1) Then
+                        Database.Write("UPDATE " & Database.DBPrefix & "_TOPICS SET TOPIC_REPLIES = (TOPIC_REPLIES + 1), TOPIC_LASTPOST_DATE = " & Database.GetTimeStamp() & ", TOPIC_LASTPOST_AUTHOR = " & txtAuthor.Text & " WHERE TOPIC_ID = " & txtTopicID.Text)
+                        Database.Write("UPDATE " & Database.DBPrefix & "_FORUMS SET FORUM_POSTS = (FORUM_POSTS + 1), FORUM_LASTPOST_DATE = " & Database.GetTimeStamp() & ", FORUM_LASTPOST_AUTHOR = " & txtAuthor.Text & " WHERE FORUM_ID = " & txtForumID.Text)
+
+                        Functions.SendToSubscribers(txtTopicID.Text)
+
+                        Dim ReplyPostback As OdbcDataReader = Database.Read("SELECT REPLY_ID FROM " & Database.DBPrefix & "_REPLIES WHERE TOPIC_ID = " & txtTopicID.Text & " AND REPLY_AUTHOR = " & txtAuthor.Text & " ORDER BY REPLY_ID DESC", 1)
+                        While ReplyPostback.Read()
+                            ReplyID = ReplyPostback("REPLY_ID")
+                        End While
+                        ReplyPostback.Close()
+
+                        Dim Reader As OdbcDataReader = Database.Read("SELECT TOPIC_REPLIES FROM " & Database.DBPrefix & "_TOPICS WHERE TOPIC_ID = " & txtTopicID.Text)
+                        While Reader.Read()
+                            TopicReplies = Reader("TOPIC_REPLIES")
+                        End While
+                        Reader.Close()
+
+                        Dim PageItems As Integer = Settings.ItemsPerPage
+                        Dim NumPages As Integer = TopicReplies \ PageItems
+                        Dim Leftover As Integer = TopicReplies Mod PageItems
+                        If Leftover > 0 Then
+                            NumPages += 1
+                        End If
+
+                        NoItemsDiv.InnerHtml = "Respuesta Grabada con Éxito<br /><br /><a href=""topics.aspx?ID=" & txtTopicID.Text & "&PAGE=" & NumPages & "#reply-" & ReplyID & """>Click Aquí</a> para volver atrás<br /><br />"
+                    Else
+                        Database.Write("UPDATE " & Database.DBPrefix & "_TOPICS SET TOPIC_UNCONFIRMED_REPLIES = (TOPIC_UNCONFIRMED_REPLIES + 1) WHERE TOPIC_ID = " & txtTopicID.Text)
+                        Functions.SendToModerators(2, txtTopicID.Text, txtForumID.Text)
+                        NoItemsDiv.InnerHtml = Functions.CustomMessage("MESSAGE_CONFIRMPOST") & "<br /><br /><a href=""forums.aspx?ID=" & txtForumID.Text & """>Click Aquí</a> To Return To The Forum<br /><br />"
+                    End If
+                Else
+                    NoItemsDiv.InnerHtml = "You Can Not Post More Than Once In " & Settings.SpamFilter & " Seconds.<br /><br /><a href=""topics.aspx?ID=" & txtTopicID.Text & """>Click Aquí</a> para volver atrás<br /><br />"
+                End If
+            End If
+        End Sub
+
+        Sub PreviewReply(ByVal sender As Object, ByVal e As EventArgs)
+            Dim Failure As Integer = 0
+            Dim ShowSig As Integer = 0
+
+            If (txtMessage.Text = "") Or (txtMessage.Text = " ") Then
+                Failure = 1
+                Functions.MessageBox("No Message Entered!")
+            End If
+            If (txtSignature.Checked) Then
+                ShowSig = 1
+            End If
+
+            If Failure = 0 Then
+                ReplyPreview.Visible = "true"
+                PrevSubject = txtTopicSubject.Text
+                PrevMessage = Functions.FormatString(Functions.RepairString(txtMessage.Text))
+                PrevDate = DateTime.Now()
+
+                If (ShowSig = 1) Then
+                    Dim Reader As OdbcDataReader = Database.Read("SELECT MEMBER_SIGNATURE FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"))
+                    While Reader.Read()
+                        PrevSignature = Functions.Signature(1, Reader("MEMBER_SIGNATURE").ToString())
+                    End While
+                    Reader.Close()
+                End If
+            End If
+        End Sub
+
+        Sub SetSession()
+            If Not Request.Cookies("dmgforums") Is Nothing Then
+                Dim aCookie As New System.Web.HttpCookie("dmgforums")
+
+                Dim UserReader As OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Server.HtmlEncode(Request.Cookies("dmgforums")("mukul")) & " AND MEMBER_PASSWORD = '" & Server.HtmlEncode(Request.Cookies("dmgforums")("gupta")) & "'", 1)
+                While (UserReader.Read())
+                    Session("UserID") = UserReader("MEMBER_ID").ToString()
+                    Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
+                    Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
+                    Session("UserLogged") = "1"
+                    aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("mukul") = UserReader("MEMBER_ID").ToString()
+                    aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("gupta") = UserReader("MEMBER_PASSWORD").ToString()
+                    aCookie.Expires = DateTime.Now.AddDays(30)
+                    Response.Cookies.Add(aCookie)
+                End While
+                UserReader.Close()
+
+                If ((Session("UserLevel") = 0) Or (Session("UserLevel") = -1)) Then
+                    aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("mukul") = "-3"
+                    aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Expires = DateTime.Now.AddDays(-1)
+                    Response.Cookies.Add(aCookie)
+                    Session("UserID") = "-1"
+                    Session("UserName") = ""
+                    Session("UserLogged") = "0"
+                    Session("UserLevel") = "0"
+                End If
+            Else
+                If (Session("UserLogged") = "1") Then
+                    Dim UserReader As OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"), 1)
+                    While (UserReader.Read())
+                        Session("UserID") = UserReader("MEMBER_ID").ToString()
+                        Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
+                        Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
+                        Session("UserLogged") = "1"
+                    End While
+                    UserReader.Close()
+
+                    If ((Session("UserLevel") = 0) Or (Session("UserLevel") = -1)) Then
+                        Dim aCookie As New System.Web.HttpCookie("dmgforums")
+                        aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
+                        aCookie.Values("mukul") = "-3"
+                        aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now() & "bbb")
+                        aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now() & "ccc")
+                        aCookie.Expires = DateTime.Now.AddDays(-1)
+                        Response.Cookies.Add(aCookie)
+                        Session("UserID") = "-1"
+                        Session("UserName") = ""
+                        Session("UserLogged") = "0"
+                        Session("UserLevel") = "0"
+                    End If
+                Else
+                    Session("UserID") = "-1"
+                    Session("UserName") = ""
+                    Session("UserLogged") = "0"
+                    Session("UserLevel") = "0"
+                End If
+            End If
+        End Sub
+    End Class
 
 
 	'---------------------------------------------------------------------------------------------------
@@ -1591,178 +1591,178 @@ Namespace DMGForums.Topics
 
 			Database.Write("UPDATE " & Database.DBPrefix & "_REPLIES SET REPLY_MESSAGE = '" & Functions.RepairString(txtMessage.Text) & "', REPLY_SIGNATURE = " & Signature & " WHERE REPLY_ID = " & Request.Querystring("ID"))
 
-			NoItemsDiv.InnerHtml = "Reply Edited Successfully<br /><br /><a href=""topics.aspx?ID=" & txtTopicID.text & """>Click Here</a> To Return To The Thread<br /><br />"
-		End Sub
+            NoItemsDiv.InnerHtml = "Reply Edited Successfully<br /><br /><a href=""topics.aspx?ID=" & txtTopicID.Text & """>Click Aquí</a> para volver atrás<br /><br />"
+        End Sub
 
-		Sub SetSession()
-			if Not Request.Cookies("dmgforums") Is Nothing then
-				Dim aCookie As New System.Web.HttpCookie("dmgforums")
+        Sub SetSession()
+            If Not Request.Cookies("dmgforums") Is Nothing Then
+                Dim aCookie As New System.Web.HttpCookie("dmgforums")
 
-				Dim UserReader as OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Server.HtmlEncode(Request.Cookies("dmgforums")("mukul")) & " AND MEMBER_PASSWORD = '" & Server.HtmlEncode(Request.Cookies("dmgforums")("gupta")) & "'", 1)
-					While(UserReader.Read())
-						Session("UserID") = UserReader("MEMBER_ID").ToString()
-						Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
-						Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
-						Session("UserLogged") = "1"
-						aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
-						aCookie.Values("mukul") = UserReader("MEMBER_ID").ToString()
-						aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
-						aCookie.Values("gupta") = UserReader("MEMBER_PASSWORD").ToString()
-						aCookie.Expires = DateTime.Now.AddDays(30)
-						Response.Cookies.Add(aCookie)
-					End While
-				UserReader.Close()
+                Dim UserReader As OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Server.HtmlEncode(Request.Cookies("dmgforums")("mukul")) & " AND MEMBER_PASSWORD = '" & Server.HtmlEncode(Request.Cookies("dmgforums")("gupta")) & "'", 1)
+                While (UserReader.Read())
+                    Session("UserID") = UserReader("MEMBER_ID").ToString()
+                    Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
+                    Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
+                    Session("UserLogged") = "1"
+                    aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("mukul") = UserReader("MEMBER_ID").ToString()
+                    aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("gupta") = UserReader("MEMBER_PASSWORD").ToString()
+                    aCookie.Expires = DateTime.Now.AddDays(30)
+                    Response.Cookies.Add(aCookie)
+                End While
+                UserReader.Close()
 
-				if ((Session("UserLevel") = 0) or (Session("UserLevel") = -1)) then
-					aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
-					aCookie.Values("mukul") = "-3"
-					aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
-					aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now())
-					aCookie.Expires = DateTime.Now.AddDays(-1)
-					Response.Cookies.Add(aCookie)
-					Session("UserID") = "-1"
-					Session("UserName") = ""
-					Session("UserLogged") = "0"
-					Session("UserLevel") = "0"
-				end if
-			else
-				if (Session("UserLogged") = "1") then
-					Dim UserReader as OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"), 1)
-						While(UserReader.Read())
-							Session("UserID") = UserReader("MEMBER_ID").ToString()
-							Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
-							Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
-							Session("UserLogged") = "1"
-						End While
-					UserReader.Close()
+                If ((Session("UserLevel") = 0) Or (Session("UserLevel") = -1)) Then
+                    aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("mukul") = "-3"
+                    aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now())
+                    aCookie.Expires = DateTime.Now.AddDays(-1)
+                    Response.Cookies.Add(aCookie)
+                    Session("UserID") = "-1"
+                    Session("UserName") = ""
+                    Session("UserLogged") = "0"
+                    Session("UserLevel") = "0"
+                End If
+            Else
+                If (Session("UserLogged") = "1") Then
+                    Dim UserReader As OdbcDataReader = Database.Read("SELECT MEMBER_ID, MEMBER_USERNAME, MEMBER_PASSWORD, MEMBER_LEVEL FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_ID = " & Session("UserID"), 1)
+                    While (UserReader.Read())
+                        Session("UserID") = UserReader("MEMBER_ID").ToString()
+                        Session("UserName") = UserReader("MEMBER_USERNAME").ToString()
+                        Session("UserLevel") = UserReader("MEMBER_LEVEL").ToString()
+                        Session("UserLogged") = "1"
+                    End While
+                    UserReader.Close()
 
-					if ((Session("UserLevel") = 0) or (Session("UserLevel") = -1)) then
-						Dim aCookie As New System.Web.HttpCookie("dmgforums")
-						aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
-						aCookie.Values("mukul") = "-3"
-						aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now() & "bbb")
-						aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now() & "ccc")
-						aCookie.Expires = DateTime.Now.AddDays(-1)
-						Response.Cookies.Add(aCookie)
-						Session("UserID") = "-1"
-						Session("UserName") = ""
-						Session("UserLogged") = "0"
-						Session("UserLevel") = "0"
-					end if
-				else
-					Session("UserID") = "-1"
-					Session("UserName") = ""
-					Session("UserLogged") = "0"
-					Session("UserLevel") = "0"
-				end if
-			end if
-		End Sub
-	End Class
+                    If ((Session("UserLevel") = 0) Or (Session("UserLevel") = -1)) Then
+                        Dim aCookie As New System.Web.HttpCookie("dmgforums")
+                        aCookie.Values("fighter") = Functions.Encrypt(DateTime.Now())
+                        aCookie.Values("mukul") = "-3"
+                        aCookie.Values("dooder") = Functions.Encrypt(DateTime.Now() & "bbb")
+                        aCookie.Values("gupta") = Functions.Encrypt(DateTime.Now() & "ccc")
+                        aCookie.Expires = DateTime.Now.AddDays(-1)
+                        Response.Cookies.Add(aCookie)
+                        Session("UserID") = "-1"
+                        Session("UserName") = ""
+                        Session("UserLogged") = "0"
+                        Session("UserLevel") = "0"
+                    End If
+                Else
+                    Session("UserID") = "-1"
+                    Session("UserName") = ""
+                    Session("UserLogged") = "0"
+                    Session("UserLevel") = "0"
+                End If
+            End If
+        End Sub
+    End Class
 
 
-	'---------------------------------------------------------------------------------------------------
-	' DeleteReply - Codebehind For deletereply.aspx
-	'---------------------------------------------------------------------------------------------------
-	Public Class DeleteReply
-		Inherits System.Web.UI.Page
+    '---------------------------------------------------------------------------------------------------
+    ' DeleteReply - Codebehind For deletereply.aspx
+    '---------------------------------------------------------------------------------------------------
+    Public Class DeleteReply
+        Inherits System.Web.UI.Page
 
-		Public DeleteButton As System.Web.UI.WebControls.Button
-		Public TopicSubject As System.Web.UI.WebControls.Label
-		Public TopicID As System.Web.UI.WebControls.TextBox
-		Public PagePanel As System.Web.UI.WebControls.Panel
-		Public NoItemsDiv As System.Web.UI.HtmlControls.HtmlGenericControl
+        Public DeleteButton As System.Web.UI.WebControls.Button
+        Public TopicSubject As System.Web.UI.WebControls.Label
+        Public TopicID As System.Web.UI.WebControls.TextBox
+        Public PagePanel As System.Web.UI.WebControls.Panel
+        Public NoItemsDiv As System.Web.UI.HtmlControls.HtmlGenericControl
 
-		Public DMGHeader As DMGForums.Global.Header
-		Public DMGFooter As DMGForums.Global.Footer
-		Public DMGLogin As DMGForums.Global.Login
+        Public DMGHeader As DMGForums.Global.Header
+        Public DMGFooter As DMGForums.Global.Footer
+        Public DMGLogin As DMGForums.Global.Login
 
-		Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
-			if Not Page.IsPostBack() then
-				if (Functions.IsInteger(Request.QueryString("ID"))) then
-					Dim AllowModeration as Boolean
-					Dim ModeratorReader as OdbcDataReader = Database.Read("SELECT T.FORUM_ID FROM " & Database.DBPrefix & "_REPLIES R Left Outer Join " & Database.DBPrefix & "_TOPICS T On R.TOPIC_ID = T.TOPIC_ID WHERE R.REPLY_ID = " & Request.Querystring("ID"))
-						While ModeratorReader.Read()
-							AllowModeration = Functions.IsModerator(Session("UserID"), Session("UserLevel"), ModeratorReader("FORUM_ID"))
-						End While
-					ModeratorReader.Close()
+        Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            If Not Page.IsPostBack() Then
+                If (Functions.IsInteger(Request.QueryString("ID"))) Then
+                    Dim AllowModeration As Boolean
+                    Dim ModeratorReader As OdbcDataReader = Database.Read("SELECT T.FORUM_ID FROM " & Database.DBPrefix & "_REPLIES R Left Outer Join " & Database.DBPrefix & "_TOPICS T On R.TOPIC_ID = T.TOPIC_ID WHERE R.REPLY_ID = " & Request.QueryString("ID"))
+                    While ModeratorReader.Read()
+                        AllowModeration = Functions.IsModerator(Session("UserID"), Session("UserLevel"), ModeratorReader("FORUM_ID"))
+                    End While
+                    ModeratorReader.Close()
 
-					if AllowModeration then
-						Dim ReplyReader as OdbcDataReader = Database.Read("SELECT R.REPLY_ID, R.TOPIC_ID, T.TOPIC_SUBJECT, F.FORUM_SHOWHEADERS, F.FORUM_SHOWLOGIN FROM " & Database.DBPrefix & "_REPLIES R Left Outer Join " & Database.DBPrefix & "_TOPICS T On R.TOPIC_ID = T.TOPIC_ID Left Outer Join " & Database.DBPrefix & "_FORUMS F On T.FORUM_ID = F.FORUM_ID WHERE R.REPLY_ID = " & Request.QueryString("ID"))
-							if ReplyReader.HasRows then
-								While(ReplyReader.Read())
-									DeleteButton.CommandArgument = ReplyReader("REPLY_ID")
-									TopicSubject.text = "Topic: " & ReplyReader("TOPIC_SUBJECT").ToString()
-									TopicID.text = ReplyReader("TOPIC_ID")
-									if (ReplyReader("FORUM_SHOWHEADERS") <> 1) then
-										DMGHeader.visible = "false"
-										DMGFooter.visible = "false"
-									end if
-									DMGLogin.ShowLogin() = ReplyReader("FORUM_SHOWLOGIN")
-								End While
-							else
-								PagePanel.visible = "false"
-								NoItemsDiv.InnerHtml = "Invalid Reply ID<br /><br />"
-							end if
-						ReplyReader.close()
-					else
-						PagePanel.visible = "false"
-						NoItemsDiv.InnerHtml = "Access Denied<br /><br />"
-					end if
-				else
-					Response.Redirect("default.aspx")
-				end if
-			end if
-		End Sub
+                    If AllowModeration Then
+                        Dim ReplyReader As OdbcDataReader = Database.Read("SELECT R.REPLY_ID, R.TOPIC_ID, T.TOPIC_SUBJECT, F.FORUM_SHOWHEADERS, F.FORUM_SHOWLOGIN FROM " & Database.DBPrefix & "_REPLIES R Left Outer Join " & Database.DBPrefix & "_TOPICS T On R.TOPIC_ID = T.TOPIC_ID Left Outer Join " & Database.DBPrefix & "_FORUMS F On T.FORUM_ID = F.FORUM_ID WHERE R.REPLY_ID = " & Request.QueryString("ID"))
+                        If ReplyReader.HasRows Then
+                            While (ReplyReader.Read())
+                                DeleteButton.CommandArgument = ReplyReader("REPLY_ID")
+                                TopicSubject.Text = "Topic: " & ReplyReader("TOPIC_SUBJECT").ToString()
+                                TopicID.Text = ReplyReader("TOPIC_ID")
+                                If (ReplyReader("FORUM_SHOWHEADERS") <> 1) Then
+                                    DMGHeader.Visible = "false"
+                                    DMGFooter.Visible = "false"
+                                End If
+                                DMGLogin.ShowLogin() = ReplyReader("FORUM_SHOWLOGIN")
+                            End While
+                        Else
+                            PagePanel.Visible = "false"
+                            NoItemsDiv.InnerHtml = "Invalid Reply ID<br /><br />"
+                        End If
+                        ReplyReader.Close()
+                    Else
+                        PagePanel.Visible = "false"
+                        NoItemsDiv.InnerHtml = "Access Denied<br /><br />"
+                    End If
+                Else
+                    Response.Redirect("default.aspx")
+                End If
+            End If
+        End Sub
 
-		Sub DeleteReply(sender As System.Object, e As System.EventArgs)
-			PagePanel.visible = "false"
-			Dim Replies as Integer = 0
-			Dim ForumPosts as Integer = 0
-			Dim TopicAuthor as String = ""
-			Dim TopicDate as String = ""
-			Dim ForumID as String = ""
-			Dim ReplyConfirmed as Integer = 1
+        Sub DeleteReply(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            PagePanel.Visible = "false"
+            Dim Replies As Integer = 0
+            Dim ForumPosts As Integer = 0
+            Dim TopicAuthor As String = ""
+            Dim TopicDate As String = ""
+            Dim ForumID As String = ""
+            Dim ReplyConfirmed As Integer = 1
 
-			Dim TopicReader as OdbcDataReader = Database.Read("SELECT T.FORUM_ID, T.TOPIC_AUTHOR, T.TOPIC_DATE, T.TOPIC_REPLIES, F.FORUM_POSTS FROM " & Database.DBPrefix & "_TOPICS T LEFT OUTER JOIN " & Database.DBPrefix & "_FORUMS F ON T.FORUM_ID = F.FORUM_ID WHERE T.TOPIC_ID = " & TopicID.text)
-				While TopicReader.Read()
-					Replies = TopicReader("TOPIC_REPLIES")
-					ForumPosts = TopicReader("FORUM_POSTS")
-					TopicAuthor = TopicReader("TOPIC_AUTHOR").ToString()
-					TopicDate = TopicReader("TOPIC_DATE").ToString()
-					ForumID = TopicReader("FORUM_ID").ToString()
-				End While
-			TopicReader.Close()
+            Dim TopicReader As OdbcDataReader = Database.Read("SELECT T.FORUM_ID, T.TOPIC_AUTHOR, T.TOPIC_DATE, T.TOPIC_REPLIES, F.FORUM_POSTS FROM " & Database.DBPrefix & "_TOPICS T LEFT OUTER JOIN " & Database.DBPrefix & "_FORUMS F ON T.FORUM_ID = F.FORUM_ID WHERE T.TOPIC_ID = " & TopicID.Text)
+            While TopicReader.Read()
+                Replies = TopicReader("TOPIC_REPLIES")
+                ForumPosts = TopicReader("FORUM_POSTS")
+                TopicAuthor = TopicReader("TOPIC_AUTHOR").ToString()
+                TopicDate = TopicReader("TOPIC_DATE").ToString()
+                ForumID = TopicReader("FORUM_ID").ToString()
+            End While
+            TopicReader.Close()
 
-			Dim ReplyReader as OdbcDataReader = Database.Read("SELECT REPLY_CONFIRMED FROM " & Database.DBPrefix & "_REPLIES WHERE REPLY_ID = " & sender.CommandArgument)
-				While ReplyReader.Read()
-					ReplyConfirmed = ReplyReader("REPLY_CONFIRMED")
-				End While
-			ReplyReader.Close()
+            Dim ReplyReader As OdbcDataReader = Database.Read("SELECT REPLY_CONFIRMED FROM " & Database.DBPrefix & "_REPLIES WHERE REPLY_ID = " & sender.CommandArgument)
+            While ReplyReader.Read()
+                ReplyConfirmed = ReplyReader("REPLY_CONFIRMED")
+            End While
+            ReplyReader.Close()
 
-			Database.Write("DELETE FROM " & Database.DBPrefix & "_REPLIES WHERE REPLY_ID = " & sender.CommandArgument)
+            Database.Write("DELETE FROM " & Database.DBPrefix & "_REPLIES WHERE REPLY_ID = " & sender.CommandArgument)
 
-			if (ReplyConfirmed = 1) then
-				if Replies = 1 then
-					Database.Write("UPDATE " & Database.DBPrefix & "_TOPICS SET TOPIC_REPLIES = " & Replies - 1 & ", TOPIC_LASTPOST_AUTHOR = " & TopicAuthor & ", TOPIC_LASTPOST_DATE = '" & TopicDate & "' WHERE TOPIC_ID = " & TopicID.text)
-				else
-					Dim TopicLastAuthor as String = ""
-					Dim TopicLastDate as String = ""
-					Dim AuthorReader as OdbcDataReader = Database.Read("SELECT REPLY_AUTHOR, REPLY_DATE FROM " & Database.DBPrefix & "_REPLIES WHERE TOPIC_ID = " & TopicID.text & " and REPLY_CONFIRMED = 1 ORDER BY REPLY_DATE DESC", 1)
-						While AuthorReader.Read()
-							TopicLastAuthor = AuthorReader("REPLY_AUTHOR").ToString()
-							TopicLastDate = AuthorReader("REPLY_DATE").ToString()
-						End While
-					AuthorReader.Close()
-					Database.Write("UPDATE " & Database.DBPrefix & "_TOPICS SET TOPIC_REPLIES = " & Replies - 1 & ", TOPIC_LASTPOST_AUTHOR = " & TopicLastAuthor & ", TOPIC_LASTPOST_DATE = '" & TopicLastDate & "' WHERE TOPIC_ID = " & TopicID.text)
-				end if
-				Functions.UpdateCounts(5, ForumID, 0, 0)
-			else
-				Database.Write("UPDATE " & Database.DBPrefix & "_TOPICS SET TOPIC_UNCONFIRMED_REPLIES = (TOPIC_UNCONFIRMED_REPLIES-1) WHERE TOPIC_ID = " & TopicID.text)
-			end if
+            If (ReplyConfirmed = 1) Then
+                If Replies = 1 Then
+                    Database.Write("UPDATE " & Database.DBPrefix & "_TOPICS SET TOPIC_REPLIES = " & Replies - 1 & ", TOPIC_LASTPOST_AUTHOR = " & TopicAuthor & ", TOPIC_LASTPOST_DATE = '" & TopicDate & "' WHERE TOPIC_ID = " & TopicID.Text)
+                Else
+                    Dim TopicLastAuthor As String = ""
+                    Dim TopicLastDate As String = ""
+                    Dim AuthorReader As OdbcDataReader = Database.Read("SELECT REPLY_AUTHOR, REPLY_DATE FROM " & Database.DBPrefix & "_REPLIES WHERE TOPIC_ID = " & TopicID.Text & " and REPLY_CONFIRMED = 1 ORDER BY REPLY_DATE DESC", 1)
+                    While AuthorReader.Read()
+                        TopicLastAuthor = AuthorReader("REPLY_AUTHOR").ToString()
+                        TopicLastDate = AuthorReader("REPLY_DATE").ToString()
+                    End While
+                    AuthorReader.Close()
+                    Database.Write("UPDATE " & Database.DBPrefix & "_TOPICS SET TOPIC_REPLIES = " & Replies - 1 & ", TOPIC_LASTPOST_AUTHOR = " & TopicLastAuthor & ", TOPIC_LASTPOST_DATE = '" & TopicLastDate & "' WHERE TOPIC_ID = " & TopicID.Text)
+                End If
+                Functions.UpdateCounts(5, ForumID, 0, 0)
+            Else
+                Database.Write("UPDATE " & Database.DBPrefix & "_TOPICS SET TOPIC_UNCONFIRMED_REPLIES = (TOPIC_UNCONFIRMED_REPLIES-1) WHERE TOPIC_ID = " & TopicID.Text)
+            End If
 
-			NoItemsDiv.InnerHtml = "Reply Deleted Successfully<br /><br /><a href=""topics.aspx?ID=" & TopicID.text & """>Click Here</a> To Return To The Thread<br /><br />"
-		End Sub
-	End Class
+            NoItemsDiv.InnerHtml = "Reply Deleted Successfully<br /><br /><a href=""topics.aspx?ID=" & TopicID.Text & """>Click Aquí</a> para volver atrás<br /><br />"
+        End Sub
+    End Class
 
 
 	'---------------------------------------------------------------------------------------------------
@@ -1838,7 +1838,7 @@ Namespace DMGForums.Topics
 					end if
 				end if
 
-				NoItemsDiv.InnerHtml = "Private Message Deleted Successfully<br /><br /><a href=""pm_inbox.aspx"">Click Here</a> To Return To Your Inbox<br /><br />"
+                NoItemsDiv.InnerHtml = "Private Message Deleted Successfully<br /><br /><a href=""pm_inbox.aspx"">Click Aquí</a> To Return To Your Inbox<br /><br />"
 			else
 				Response.Redirect("pm_inbox.aspx")
 			end if
@@ -2054,7 +2054,7 @@ Namespace DMGForums.Topics
 						NumPages += 1
 					end if
 
-				NoItemsDiv.InnerHtml = "Reply Posted Successfully<br /><br /><a href=""pm_topic.aspx?ID=" & Request.Querystring("ID") & "&PAGE=" & NumPages & """>Click Here</a> To Return To The Thread<br /><br />"
+                NoItemsDiv.InnerHtml = "Respuesta Grabada con Éxito<br /><br /><a href=""pm_topic.aspx?ID=" & Request.QueryString("ID") & "&PAGE=" & NumPages & """>Click Aquí</a> para volver atrás<br /><br />"
 			end if
 		End Sub
 	End Class
@@ -2127,7 +2127,7 @@ Namespace DMGForums.Topics
 			if Failure = 0 then
 				PagePanel.visible = "false"
 				Database.Write("INSERT INTO " & Database.DBPrefix & "_PM_TOPICS (TOPIC_FROM, TOPIC_TO, TOPIC_SUBJECT, TOPIC_MESSAGE, TOPIC_DATE, TOPIC_TO_READ, TOPIC_FROM_READ, TOPIC_LASTPOST_AUTHOR, TOPIC_LASTPOST_DATE, TOPIC_REPLIES, TOPIC_SHOWSENDER, TOPIC_SHOWRECEIVER) VALUES (" & Session("UserID") & ", " & MemberID & ", '" & Functions.RepairString(txtSubject.text) & "', '" & Functions.RepairString(txtMessage.text) & "', " & Database.GetTimeStamp() & ", 0, 1, " & Session("UserID") & ", " & Database.GetTimeStamp() & ", 0, " & PMShowSender & ", 1)")
-				NoItemsDiv.InnerHtml = "Private Message Posted Successfully<br /><br /><a href=""pm_inbox.aspx"">Click Here</a> To Return To Your Inbox<br /><br />"
+                NoItemsDiv.InnerHtml = "Private Message Posted Successfully<br /><br /><a href=""pm_inbox.aspx"">Click Aquí</a> To Return To Your Inbox<br /><br />"
 			end if
 		End Sub
 	End Class
@@ -2312,7 +2312,7 @@ Namespace DMGForums.Topics
 			Database.Write("INSERT INTO " & Database.DBPrefix & "_SUBSCRIPTIONS (SUB_MEMBER, SUB_TOPIC, SUB_EMAIL) VALUES (" & SubMember & ", " & SubTopic & ", " & SubEmail & ")")
 
 			PagePanel.visible = "false"
-			NoItemsDiv.InnerHtml = "You Have Subscribed To This Thread<br /><br /><a href=""topics.aspx?ID=" & SubTopic & """>Click Here</a> To Return To The Topic Page<br /><br />"
+            NoItemsDiv.InnerHtml = "You Have Subscribed To This Thread<br /><br /><a href=""topics.aspx?ID=" & SubTopic & """>Click Aquí</a> To Return To The Topic Page<br /><br />"
 		End Sub
 
 		Sub SubmitUnSubscription(sender As System.Object, e As System.EventArgs)
@@ -2321,7 +2321,7 @@ Namespace DMGForums.Topics
 			Database.Write("DELETE FROM " & Database.DBPrefix & "_SUBSCRIPTIONS WHERE SUB_TOPIC = " & SubTopic & " AND SUB_MEMBER = " & SubMember)
 
 			PagePanel.visible = "false"
-			NoItemsDiv.InnerHtml = "You Have Unsubscribed From This Thread<br /><br /><a href=""topics.aspx?ID=" & SubTopic & """>Click Here</a> To Return To The Topic Page<br /><br />"
+            NoItemsDiv.InnerHtml = "You Have Unsubscribed From This Thread<br /><br /><a href=""topics.aspx?ID=" & SubTopic & """>Click Aquí</a> To Return To The Topic Page<br /><br />"
 		End Sub
 
 		Sub CancelUnSubscription(sender As System.Object, e As System.EventArgs)
