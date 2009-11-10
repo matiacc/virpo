@@ -22,7 +22,7 @@
             </td>
             <tr>
                 <td style="text-align: center; font-family: Calibri; font-size: x-large; color: #777777;">
-                    Un espacio dedicado al conocimiento...
+                    Un espacio dedicado al conocimiento...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
                 <tr>
                     <td style="text-align: center">
@@ -36,16 +36,21 @@
                     <td style="text-align: center">
                         &nbsp;<asp:Image ID="Image1" runat="server" Height="179px" ImageUrl="~/images/logos virpo/libros2.png"
                             Width="273px" />
-                        &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
                     <tr>
                         <td style="text-align: center">
-                            <hr />
-                        </td>
+                            <center style="width: 529px; background-color: #333333">
+                    <titulosubventana>
+                    WikiMusic Top 5</titulosubventana>
+                </center></td>
                         <tr>
                             <td style="text-align: left; font-family: Calibri; font-size: x-large; color: #777777;">
-                                TOP 5
                             </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; font-family: Calibri; font-size: x-large; color: #777777;">
+                                &nbsp;</td>
                         </tr>
                         <tr>
                             <td>
