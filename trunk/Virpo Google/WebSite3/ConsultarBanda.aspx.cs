@@ -53,15 +53,13 @@ public partial class ConsultarBanda : System.Web.UI.Page
     private void CargarIntegrantes(int idBanda)
     {
         List<Usuario> usuarios = UsuarioFactory.DevolverIntegrantesaDeBanda(idBanda);
-        string html = "<table align='center'>";
+        string html = "<table align='center'>"; 
 
         for (int i = 0; i < usuarios.Count; i++)
         {
             if (i % 3 == 0)
                 html += "<tr>";
             html += "<td>";
-            //html += "<a href='PerfilPublico.aspx?Id=" + usuarios[i].Id + "' title='" + usuarios[i].NombreUsuario + "'>" +
-            //    "<img src='./ImagenesUsuario/" + usuarios[i].Imagen + "' width='100' border='0' height='70'></a>";
             html += @"<div style='border: 0px solid rgb(192, 192, 192); position: relative; margin-right: 0px; "
                     + "margin-bottom: 0px; float: left;'><a class='blogHeadline' title='" + usuarios[i].Nombre +
                     "' href='PerfilPublico.aspx?Id=" + usuarios[i].Id + "'><img src='./ImagenesUsuario/" + usuarios[i].Imagen + "' style='width:175px; height:175px;'/></a>"
