@@ -28,7 +28,7 @@
                         <asp:Button ID="btnApuntar" runat="server" onclick="btnApuntar_Click" 
                             Text="Apuntar" CssClass="botones" Width="101px" />
                         <asp:Button ID="btnRecomendar" runat="server" CssClass="botones" 
-                            Text="Recomendar" Width="101px" />
+                            Text="Recomendar" Width="101px" onclick="btnRecomendar_Click" />
                         <asp:Button ID="btnEditar" runat="server" CssClass="botones" 
                             onclick="btnEditar_Click" Text="Editar" Width="101px" />
                         <asp:Button ID="btnHistorial" runat="server" CssClass="botones" 
@@ -75,6 +75,7 @@
                 <tr>
                     <td colspan="2">
                         &nbsp;
+                        <asp:Label ID="lblRecomendar" runat="server"></asp:Label>
                     </td>
                 </tr>
                 <tr>
