@@ -27,7 +27,7 @@ public partial class _Default : System.Web.UI.Page
 
             int id = Convert.ToInt32(Request.QueryString["C"]);
             int vers = Convert.ToInt32(Request.QueryString["V"]);
-
+            lblRecomendar.Text = "<a href='javascript:abrirPopup2()' class='estiloLabelCabeceraPeque'>Recomendar Aviso</a>";
             int apun;
             if (Request.QueryString["Z"] != null) // bloque resultado Apuntar
             {
@@ -126,4 +126,8 @@ public partial class _Default : System.Web.UI.Page
         Response.Redirect("HistorialArticuloWiki.aspx?C=" + idArt);
     }
 
+    protected void btnRecomendar_Click(object sender, EventArgs e)
+    {
+        lblRecomendar.Text = "<a href='javascript:abrirPopup2()' class='estiloLabelCabeceraPeque'>Recomendar Aviso</a>";
+    }
 }
