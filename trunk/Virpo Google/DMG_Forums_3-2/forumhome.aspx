@@ -137,7 +137,7 @@
 		</ItemTemplate>
 	</asp:Repeater>
 
-		<asp:PlaceHolder id="StatsPanel" visible="false" runat="server">
+		<%--<asp:PlaceHolder id="StatsPanel" visible="false" runat="server">
 			<table width="97%" align="center" class="ContentBox" cellpadding="5" cellspacing="0">
 			<tr class="HeaderCell">
 			<td align="left">
@@ -176,7 +176,7 @@
 			</table>
 			<br />
 		</asp:PlaceHolder>
-
+--%>
 
 	</asp:Panel>
 

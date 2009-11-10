@@ -238,7 +238,7 @@ Namespace DMGForums.Members
 			Reader = Database.Read("SELECT Count(*) as NumMembers FROM " & Database.DBPrefix & "_MEMBERS WHERE MEMBER_LEVEL <> -1 AND MEMBER_POSTS > 0")
 			While Reader.Read()
 				if (Reader("NumMembers") > 0) then
-					MembersString &= Reader("NumMembers").ToString() & " members have posted.&nbsp;&nbsp;"
+                    MembersString &= Reader("NumMembers").ToString() & " miebros tienen publicados.&nbsp;&nbsp;"
 				end if
 			End While
 			Reader.Close()
