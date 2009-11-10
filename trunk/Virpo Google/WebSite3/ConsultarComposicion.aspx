@@ -17,6 +17,8 @@
                     <titulosubventana>
                     Detalles de la composicion </titulosubventana>
                 </center></td>
+            <td style="height: 14px">
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
@@ -25,6 +27,8 @@
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
             </td>
+            <td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
@@ -33,12 +37,25 @@
             <td>
                 <asp:Label ID="lblTipo" runat="server" Font-Size="Medium"></asp:Label>
             </td>
+            <td>
+        <asp:Label ID="Label8" runat="server" Text="Autor:"></asp:Label>
+            </td>
         </tr>
         <tr>
             <td style="width: 107px">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
+            <td rowspan="7">
+                            <asp:ImageButton ID="ImageButton1" runat="server" Height="89px" 
+                                onclick="ImageButton1_Click" Width="100px" />
+                            <br />
+               
+                
+            
+            
+                <asp:Label ID="lblAutor" runat="server"></asp:Label>
+                            </td>
         </tr>
         <tr>
             <td style="width: 107px">
@@ -89,9 +106,13 @@
             <td>
                 <asp:Label ID="lblInstrumento" runat="server" Font-Size="Medium"></asp:Label>
             </td>
+            <td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
+                &nbsp;</td>
+            <td>
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
@@ -103,9 +124,13 @@
             <td>
                 <asp:Label ID="lblDescripcion" runat="server" Font-Size="Medium"></asp:Label>
             </td>
+            <td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
+                &nbsp;</td>
+            <td>
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
@@ -118,15 +143,21 @@
                 <asp:Button ID="btnFinalizar" runat="server" onclick="Button1_Click" 
                     Text="Si" />
             </td>
+            <td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
+            <td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
+                &nbsp;</td>
+            <td>
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
@@ -163,57 +194,13 @@
                 
                 
                 </td>
+            <td>
+                
+                &nbsp;</td>
         </tr>
         </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
-    <table class="style1">
-        <tr>
-            <td>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-            </td>
-        </tr>
-        <tr>
-            
-            <td colspan="2">
-               
-                
-            
-            
-                <br />
-               
-                
-            
-            
-                <table class="style1">
-                    <tr>
-                        <td>
-        <asp:Label ID="Label8" runat="server" Text="Autor:"></asp:Label>
-                            <br />
-                            <br />
-                            <asp:ImageButton ID="ImageButton1" runat="server" Height="89px" 
-                                onclick="ImageButton1_Click" Width="100px" />
-                            <br />
-                            <br />
-               
-                
-            
-            
-                <asp:Label ID="lblAutor" runat="server"></asp:Label>
-                            <br />
-                            <br />
-                        </td>
-                    </tr>
-                </table>
-                <br />
-            </td>
-        </tr>
-    </table>
-    <p>
-    </p>
+    
 </asp:Content>
 
