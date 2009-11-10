@@ -11,25 +11,61 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <table class="style1">
         <tr>
-            <td>
-                Nombre</td>
-            <td>
-                <asp:TextBox ID="txtNombre" runat="server" Width="241px"></asp:TextBox>
+            <td colspan="2">
+                <center style="width: 529px; background-color: #333333">
+                    <titulosubventana>
+                        Nuevo Grupo de Interés</titulosubventana>
+                </center></td>
+        </tr>
+        <tr>
+            <td class="tabla">
+                &nbsp;</td>
+            <td class="tabla">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="tabla">
+                Nombre:<br />
+                <br />
+            </td>
+            <td class="tabla">
+            <div class="loginboxdiv">
+                <asp:TextBox ID="txtNombre" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                     ControlToValidate="txtNombre" ErrorMessage="*"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
-            <td>
-                Descripción</td>
-            <td>
-                <asp:TextBox ID="txtDescripcion" runat="server" Height="129px" Width="388px"></asp:TextBox>
+            <td class="tabla">
+                &nbsp;</td>
+            <td class="tabla">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="tabla">
+                Descripción:<br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </td>
+            <td class="tabla">
+                <asp:TextBox ID="txtDescripcion" runat="server" Height="129px" Width="282px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td>
-                Tema</td>
-            <td>
+            <td class="tabla">
+                &nbsp;</td>
+            <td class="tabla">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="tabla">
+                Tema:</td>
+            <td class="tabla">
                 <asp:DropDownList ID="ddlTema" runat="server">
                     <asp:ListItem>Instrumento</asp:ListItem>
                     <asp:ListItem>Banda</asp:ListItem>
@@ -42,31 +78,45 @@
             </td>
         </tr>
         <tr>
-            <td>
-                Imagen</td>
-            <td>
+            <td class="tabla">
+                &nbsp;</td>
+            <td class="tabla">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="tabla">
+                Imagen:</td>
+            <td class="tabla">
                 <asp:FileUpload ID="FileUpload1" runat="server" />
             </td>
         </tr>
         <tr>
-            <td>
-                Tags</td>
-            <td>
-                <asp:TextBox ID="txtTags" runat="server" Width="241px"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>
+            <td class="tabla">
                 &nbsp;</td>
-            <td>
+            <td class="tabla">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td>
+            <td class="tabla">
+                Tags:</td>
+            <td class="tabla">
+            <div class="loginboxdiv">
+                <asp:TextBox ID="txtTags" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
+            (separados por comas)</td>
+        </tr>
+        <tr>
+            <td class="tabla">
                 &nbsp;</td>
-            <td>
+            <td class="tabla">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="tabla">
+                &nbsp;</td>
+            <td class="tabla" style="text-align: right">
                 <asp:Button ID="btGuardar" runat="server" onclick="btGuardar_Click" 
-                    Text="Guardar" />
+                    Text="Guardar" CssClass="botones" />
             </td>
         </tr>
     </table>
