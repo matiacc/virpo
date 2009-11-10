@@ -26,7 +26,7 @@ hidden = window.open('popupRecomendar.aspx', 'NewWindow','top=0,left='+winLeft+'
 }
 function abrirPopup3() {
 winLeft = (screen.width - 700)/2;
-hidden = window.open('popupRecomendarWiki.aspx', 'NewWindow','top=0,left='+winLeft+', width=500,scrollbars=0,height=400,status=yes, resizable=no,scrollbars=no');
+hidden = window.open('popupRecomendarWiki.aspx', 'NewWindow','top=0,left='+winLeft+', width=480,scrollbars=0,height=350,status=yes, resizable=no,scrollbars=no');
 //hidden = window.open('popupRecomendar.aspx?dire='+direccion+'', 'NewWindow','top=0,left='+winLeft+', width=500,height=400,status=yes, resizable=no,scrollbars=no');
 }
 function mostrarGif(){
