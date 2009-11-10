@@ -19,12 +19,12 @@
 		</td>
 		<td width="100%" align="center">
 			<font size="<%=Settings.FooterSize%>" color="<%=Settings.FooterFontColor%>">
-				<%=Settings.Copyright%>
+				<%--<%=Settings.Copyright%>--%>
 			</font>
 		</td>
 		<td width="150" align="center" nowrap>
 			<font size="<%=Settings.FooterSize%>" color="<%=Settings.FooterFontColor%>">
-				<%=Settings.DMGVersionText%>
+				<%--<%=Settings.DMGVersionText%>--%>
 			</font>
 		</td>
 		</tr>
