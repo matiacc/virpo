@@ -21,8 +21,9 @@ public partial class ListarUsuarios : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
-
-            MetodosComunes.cargarBandas(ddlMisBandas);
+            Usuario usr = new Usuario();
+            usr=(Usuario)Session["Usuario"];
+            MetodosComunes.cargarMisBandas(ddlMisBandas, int.Parse(usr.Id.ToString()));
             DataTable dt = new DataTable();
             DataRow row;
             dt.Columns.Add("Id");
