@@ -1,7 +1,7 @@
 <%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="Debate.aspx.cs" Inherits="_Default" Title="Página sin título" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div id="menu8">
+    <div id="menu8">
         <ul>
              <li><a href="NuevoGrupo.aspx" title="Nuevo Grupo">Nuevo Grupo</a></li>
             <li><asp:Label ID="lblMisGrupos" runat="server"></asp:Label></li>
@@ -11,7 +11,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-<center style="width: 527px; background-color: #333333"><tituloSubVentana>
+    <center style="width: 527px; background-color: #333333"><tituloSubVentana>
                    Debates</tituloSubVentana></center>
     <table class="tabla" style="width: 531px">
         <tr>
