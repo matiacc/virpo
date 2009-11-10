@@ -155,7 +155,7 @@
     <asp:Button ID="Button3" runat="server" Text="False2" Style="display: none" />
     <asp:Panel ID="Panel1" runat="server" Style="display: none;" CssClass="modalPopup">
         <center>
-            La Banda fue creada con �xito</center>
+            La Banda fue creada con Exito</center>
         <br />
         <br />
         <center>
