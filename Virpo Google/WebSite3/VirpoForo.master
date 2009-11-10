@@ -1,0 +1,107 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="VirpoForo.master.cs" Inherits="musicamania_Virpo" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Virpo - Musica Colaborativa</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="css/estilomusic.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/modalPopUp.css" type="text/css" media="screen" />
+   
+
+
+       
+    </head>
+<body>
+<div id="outer">
+  <div id="wrapper"  style="width:974px;">
+    
+    <form id="form1" runat="server">
+    <div id="nav">
+      <div id="head">
+          <table class="style1">
+              <tr>
+                  <td>
+                       <%--<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="331" height="25" id="Object1" >
+<param name="allowScriptAccess" value="sameDomain" />
+<param name="movie" value="Reproductor/mini_player_mp3.swf?my_mp3=Reproductor/<%# this.mp3_seleccionado %>&amp;my_text=<%# this.mp3_seleccionado_titulo %>&amp;autoplay=<%# this.reproducir %>" />
+<param name="quality" value="high" />
+<param name="wmode" value="transparent">
+<param name="bgcolor" value="#FFFFFF" />
+<embed src="Reproductor/mini_player_mp3.swf?my_mp3=Reproductor/<%# this.mp3_seleccionado %>&amp;my_text=<%# this.mp3_seleccionado_titulo %>&amp;autoplay=<%# this.reproducir %>" quality="high"  bgcolor=#FFFFFF width="331" height="25" name="mini_player_mp3" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+</object>--%>
+                      </td>
+              </tr>
+          </table>
+        </div>
+      <div id="head-pip"></div>
+      <ul>
+      <li id="m8"><a href="inicio.aspx">Inicio</a></li>
+      <li id="m7"><a href="Eventos.aspx">Eventos</a></li>
+        <li id="m1"><a href="GruposDeInteres.aspx">Grupos De Interes</a></li>
+        <li id="m2"><a href="Clasificados.aspx">Clasificados</a></li>
+        <li id="m3"><a href="Wikimusic.aspx">Wikimusic</a></li>
+        <li id="m4"><a href="Proyectos.aspx">Colaboraciones</a></li>
+        <li id="m5"><a href="Bandas.aspx">Bandas</a></li>
+        
+        <%--Link Para Ingresar al foro Lucho
+        <li id="m6"><a href="http://localhost:3392/DMG_Forums_3-2/">Foro</a></li>--%>
+       
+        <%--Link Para Ingresar al foro Pelado--%>
+        
+        <li id="m6"><a href="http://localhost:3736/DMG_Forums_3-2/">Foro</a></li>
+       
+      </ul>
+    </div>
+    <div>
+    
+    <%--<asp:ScriptManager ID="ScriptManager1" runat="server" />--%>
+    <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server"/>--%>
+    <%--<ContentTemplate>--%>
+    <div id="col1">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+       <div id="col2">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+       <div id="col3">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    
+    <%--</ContentTemplate>--%>
+    
+    <%--</asp:UpdatePanel>--%>
+    
+      </div>
+    
+    </form>
+    
+   
+
+    
+    
+    
+    
+          
+              
+                  
+                      <%--<div class="clear">
+                          &nbsp;<div id="copyright">
+                              <div id="copyright-left">
+                                  Copyright © todos los derechos reservados | diseñado por
+                                  <a href="http://www.virpo.com.ar">virpo</a></div>
+                          </div>
+                      </div>--%>
+                  
+        </div>
+    
+  
+
+
+</body>
+</html>
