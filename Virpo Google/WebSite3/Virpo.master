@@ -120,7 +120,7 @@ function mostrarGif(){
        
         <%--Link Para Ingresar al foro Pelado--%>
         
-        <li id="m6"><a href="http://localhost:1439/WebSite3/Foro.aspx">Foro</a></li>
+        <li id="m6"><a href="Foro.aspx">Foro</a></li>
        
       </ul>
       <div id="search" dir="ltr">
