@@ -17,63 +17,37 @@
 <table class="style1">
         <tr>
             <td>
-                Topic</td>
-            <td>
-                &nbsp;</td>
+                <center style="width: 527px; background-color: #333333"><tituloSubVentana>
+                  Nueva respuesta sobre <asp:Label ID="lblTitulo" runat="server"></asp:Label></tituloSubVentana></center></td>
         </tr>
         <tr>
-            <td>
-                <asp:Label ID="lblTitulo" runat="server"></asp:Label>
+            <td class="tabla">
+                
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td>
+            <td class="tabla">
                 Comentario</td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td>
+            <td class="tabla">
                 <asp:TextBox ID="txtComentario" runat="server" Rows="15" TextMode="MultiLine" 
-                    Width="500px"></asp:TextBox>
+                    Width="527px"></asp:TextBox>
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td align="right">
+            <td align="right" class="tabla">
                 <asp:Button ID="btPublicar" runat="server" CssClass="botones" 
                     onclick="btPublicar_Click" Text="Publicar" />
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td>
+            <td class="tabla">
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-           
-            
-           
-            </td>
-            <td>
-                &nbsp;</td>
-        </tr>
-    </table>
+        </table>
                     
            <asp:Button ID="Button2" runat="server" Text="False" Style="display: none;" />
     <asp:Button ID="Button3" runat="server" Text="False2" Style="display: none;"/>
