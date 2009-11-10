@@ -128,7 +128,7 @@
 				<font size="2" color="<%=Settings.FontColor%>">
 				<center><b>
 					<asp:Label id="Message" runat="server" />
-					<asp:Button id="InsertToPage" text="Click Here To Insert Into The Page" visible="false" runat="server" />
+					<asp:Button id="InsertToPage" text="Click Aquí To Insert Into The Page" visible="false" runat="server" />
 					<br /><br />
 					<a href="JavaScript:onClick=window.close()">Close Window</a>
 				</b></center>

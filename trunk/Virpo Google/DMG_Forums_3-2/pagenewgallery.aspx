@@ -82,7 +82,7 @@
 					<center>
 					<font size="3" color="<%=Settings.FontColor%>"><b><asp:Label id="ExistingGallerySuccess" runat="server" /></b></font>					
 					<br /><br />
-					<asp:Button id="InsertExisting" text="Click Here To Insert Into The Page" runat="server" />
+					<asp:Button id="InsertExisting" text="Click Aquí To Insert Into The Page" runat="server" />
 					</center>
 				</asp:PlaceHolder>
 
@@ -114,7 +114,7 @@
 					<center>
 					<font size="3" color="<%=Settings.FontColor%>"><b><asp:Label id="CreateGallerySuccess" runat="server" /></b></font>					
 					<br /><br />
-					<asp:Button id="GalleryAddPhotos" onclick="AddPhotos" text="Click Here To Upload Photos" runat="server" />
+					<asp:Button id="GalleryAddPhotos" onclick="AddPhotos" text="Click Aquí To Upload Photos" runat="server" />
 					</center>
 				</asp:PlaceHolder>
 

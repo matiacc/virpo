@@ -250,7 +250,7 @@
 			<br />
 			<center>
 			<IFRAME src="http://www.dmgdevelopment.com/documents/dmgforumsupdate.asp?Ver=<%=Settings.DMGVersion%>" width="500" height="140" scrolling="no" frameborder="1" align="center" style="border: solid 1px;">
-			[Your browser does not support frames.  To visit the page <A target="_blank" href="http://www.dmgdevelopment.com/documents/dmgforumsupdate.asp?Ver=<%=Settings.DMGVersion%>">click here</A>.]
+			[Your browser does not support frames.  To visit the page <A target="_blank" href="http://www.dmgdevelopment.com/documents/dmgforumsupdate.asp?Ver=<%=Settings.DMGVersion%>">Click Aquí</A>.]
 			</IFRAME>
 			</center>
 			<br /><br />
@@ -969,7 +969,7 @@
 			<tr>
 			<td>
 				<font size="2" color="<%=Settings.TopicsFontColor%>">
-					Full HTML code is allowed in the three large boxes.  You can also reference any global settings variables so that the code in these boxes stays dynamic and changes based on the color and font selections that are made for the rest of the forum.  For a full list of DMG Admin Codes that can be used in the text boxes, <a href="javascript:openHelp('DMGAdminCode.html')">Click Here</a>.
+					Full HTML code is allowed in the three large boxes.  You can also reference any global settings variables so that the code in these boxes stays dynamic and changes based on the color and font selections that are made for the rest of the forum.  For a full list of DMG Admin Codes that can be used in the text boxes, <a href="javascript:openHelp('DMGAdminCode.html')">Click Aquí</a>.
 				</font>
 			</td>
 			</tr>
