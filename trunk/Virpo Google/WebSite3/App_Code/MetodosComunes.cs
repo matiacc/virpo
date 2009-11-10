@@ -197,7 +197,7 @@ public static class MetodosComunes
     }
     public static void cargarRubro(DropDownList ddl)
     {
-        string query = "SELECT * FROM Rubro where idRubroPadre is null";
+        string query = "SELECT * FROM Rubro where idRubroPadre is null order by nombre";
         SqlDataReader dr = BDUtilidades.GetReader(query);
 
         CargarCombo(ddl, dr, "nombre", "id", "- Seleccione -");
