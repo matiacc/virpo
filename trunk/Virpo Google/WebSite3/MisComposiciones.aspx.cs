@@ -157,7 +157,7 @@ public partial class _Default : System.Web.UI.Page
         if (e.CommandName == "E")
         {
             string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text;
-            ComposicionFactory.Eliminar(Convert.ToInt32(id));
+            //ComposicionFactory.Eliminar(Convert.ToInt32(id));
             Response.Redirect("MisComposiciones.aspx");
         }
         if (e.CommandName == "C")
