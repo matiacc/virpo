@@ -48,8 +48,8 @@ namespace CapaNegocio.Factories
 
             string query = "SELECT id, nombre, lugar, ubicacion, fecha, hora, imagen, idMusico, idBanda, descripcion, estado " +
                            "FROM   Evento ";
-            
-                           
+
+
 
             if (!string.IsNullOrEmpty(restriccion))
                 query += restriccion;
@@ -58,7 +58,7 @@ namespace CapaNegocio.Factories
             if (dt != null)
             {
                 List<Evento> eventos = new List<Evento>();
-                
+
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     Evento evento = new Evento();
@@ -73,7 +73,7 @@ namespace CapaNegocio.Factories
                     evento.Banda = BandaFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idBanda"]));
                     evento.Descripcion = dt.Rows[i]["descripcion"].ToString();
                     evento.Estado = dt.Rows[i]["estado"].ToString();
-                    
+
                     eventos.Add(evento);
                 }
                 return eventos;
@@ -84,7 +84,7 @@ namespace CapaNegocio.Factories
             }
         }
 
-
+       
         #region Insertar
         /// <summary>
         /// Alta de un registro sin transaccion
@@ -124,7 +124,7 @@ namespace CapaNegocio.Factories
                     return true;
                 else
                     return false;
-               
+
             }
             catch (Exception ex)
             {
