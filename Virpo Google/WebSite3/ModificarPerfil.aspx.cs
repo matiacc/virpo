@@ -128,7 +128,6 @@ public partial class ModificarPerfil : System.Web.UI.Page
         UsuarioFactory.Modificar(usrModificado);
         Session["Usuario"] = usrModificado;
         Panel1_ModalPopupExtender.Show();
-        //Response.Redirect("Perfil.aspx");
     }
     private string GuardarImagen(out string thumb)
     {

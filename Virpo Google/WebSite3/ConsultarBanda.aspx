@@ -24,38 +24,42 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="2" style="width: 250px">
                 <asp:Image ID="Image1" runat="server" Height="250px" 
                     ImageAlign="Left" Width="250px" />
             </td>
             <td>
-                <table style="width: 100%; height: 249px">
+                <table style="width: 100%; height: 198px">
                     <tr>
-                        <td colspan="2" style="text-align: right">
+                        <td style="text-align: right; width: 125px;">
+                            &nbsp;</td>
+                        <td style="text-align: right">
                             &nbsp;</td>
                     </tr>
                     <tr>
-                        <td colspan="2">
+                        <td style="width: 135px">
+                            &nbsp;</td>
+                        <td>
                             &nbsp;</td>
                     </tr>
                     <tr>
-                        <td style="width: 125px">
+                        <td style="width: 135px">
                             <asp:Label ID="Label4" runat="server" Text="Género:" CssClass="estiloLabel"></asp:Label></td>
                         <td> <asp:Label ID="lblGenero" runat="server" Font-Size="Medium"></asp:Label>
                             </td>
                     </tr>
                     <tr>
-                        <td style="width: 125px">
+                        <td style="width: 135px">
                             <asp:Label ID="Label7" runat="server" Text="Página Web:" 
-                                CssClass="estiloLabel" Width="150px"></asp:Label></td>
+                                CssClass="estiloLabel" Width="100px"></asp:Label></td>
                         <td>
                             <asp:Label ID="lblPaginaWeb" runat="server"></asp:Label></td>
                     </tr>
                      <tr>
-                        <td style="width: 125px">
+                        <td style="width: 135px">
                 
                 <asp:Label ID="Label1" runat="server" Text="Inicio de la Banda:" 
-                    CssClass="estiloLabel"></asp:Label>
+                    CssClass="estiloLabel" Width="120px"></asp:Label>
                             </td>
                         <td>
                 
@@ -63,7 +67,7 @@
                             </td>
                     </tr>
                      <tr>
-                        <td style="width: 125px">
+                        <td style="width: 135px">
                             <asp:Label ID="Label2" runat="server" Text="Localidad:" 
                                 CssClass="estiloLabel"></asp:Label>
                             </td>
@@ -72,7 +76,7 @@
                             </td>
                     </tr>
                      <tr>
-                        <td style="width: 125px">
+                        <td style="width: 135px">
                             <asp:Label ID="lblId" runat="server" Text="Oculto" Visible="False"></asp:Label>
                          </td>
                         <td>
@@ -87,7 +91,7 @@
                 <asp:Button ID="btnModificarBanda" runat="server" 
                     onclick="btnModificarBanda_Click" Text="Modificar" CssClass="botones" />
                 </td>
-            <td style="text-align: left;" colspan="2">
+            <td style="text-align: right;" colspan="2">
                 
                 <asp:Button ID="btnCancelar" runat="server" onclick="btnCancelar_Click" 
                     Text="Cancelar" CssClass="botones" />
@@ -125,7 +129,7 @@
              </td>
         </tr>
          <tr>
-            <td colspan="2">
+            <td colspan="2" style="width: 250px">
                 &nbsp;</td>
             <td style="width: 198px">
                 &nbsp;</td>
@@ -137,7 +141,7 @@
              </td>
         </tr>
          <tr>
-            <td colspan="2">
+            <td colspan="2" style="width: 250px">
                 &nbsp;</td>
             <td style="width: 198px">
                 &nbsp;</td>
@@ -145,8 +149,8 @@
          <tr>
             <td colspan="3">
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-            Height="120px" onrowcommand="GridView1_RowCommand" Width="520px" 
-            CssClass="GridViewStyle" GridLines="None">
+            Height="120px" onrowcommand="GridView1_RowCommand" Width="523px" 
+            CssClass="GridViewStyle" GridLines="None" gr>
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                 <asp:ImageField DataImageUrlField="imagen">
@@ -169,7 +173,7 @@
              </td>
         </tr>
          <tr>
-            <td colspan="2">
+            <td colspan="2" style="width: 250px">
                 &nbsp;</td>
             <td style="width: 198px">
                 &nbsp;</td>

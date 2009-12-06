@@ -31,9 +31,9 @@ public partial class _Default : System.Web.UI.Page
 
 
         }
-       
-        
-        
+
+
+
 
 
     }
@@ -45,9 +45,9 @@ public partial class _Default : System.Web.UI.Page
         GridView1.DataSource = dt;
         GridView1.DataBind();
         GridView1.Columns[0].Visible = false;
-                
-                          
-        
+
+
+
     }
 
 
@@ -63,9 +63,9 @@ public partial class _Default : System.Web.UI.Page
         dt.Columns.Add("Fecha");
         dt.Columns.Add("Lugar");
         dt.Columns.Add("Consultar");
-        
 
-        
+
+
         List<Evento> eventos = EventoFactory.DevolverTodos("");
 
         if (eventos != null)
@@ -76,7 +76,7 @@ public partial class _Default : System.Web.UI.Page
                 row["Id"] = evento.Id;
                 row["Imagen"] = evento.Imagen;
                 row["Nombre"] = evento.Nombre;
-                row["Fecha"] =Convert.ToString(evento.Fecha.Day) + "/" + Convert.ToString(evento.Fecha.Month) + "/" + Convert.ToString(evento.Fecha.Year);
+                row["Fecha"] = Convert.ToString(evento.Fecha.Day) + "/" + Convert.ToString(evento.Fecha.Month) + "/" + Convert.ToString(evento.Fecha.Year);
                 row["Lugar"] = evento.Lugar;
 
                 dt.Rows.Add(row);
