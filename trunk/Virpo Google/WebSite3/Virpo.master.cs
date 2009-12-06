@@ -27,6 +27,8 @@ public partial class musicamania_Virpo : System.Web.UI.MasterPage
             hlNombreUsuario.NavigateUrl = "Perfil.aspx";
             hlinkIniciarSesion.Text = "(Cerrar Sesion)";
             hlinkIniciarSesion.NavigateUrl = "inicio.aspx?Logout=1";
+            
+           
         }
         
     }
