@@ -50,10 +50,10 @@ public partial class ConfirmarInvitacion : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Invitaciones.aspx");
+        Response.Redirect("BandejaDeEntrada.aspx");
     }
     protected void Button4_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Invitaciones.aspx");
+        Response.Redirect("BandejaDeEntrada.aspx");
     }
 }
