@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections;
 using System.Configuration;
 using System.Data;
@@ -21,7 +21,6 @@ public partial class PostsGrupos : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
-
             lblMisGrupos.Text = "<a href='GruposDeInteres.aspx?Id=" + ((Usuario)Session["Usuario"]).Id + "' title='Mis Grupos'>Mis Grupos</a>";
             if (!string.IsNullOrEmpty(Request.QueryString["topic"]))
             {

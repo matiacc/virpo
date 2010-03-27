@@ -124,15 +124,16 @@ function mostrarGif(){
       </ul>
       <div id="search" dir="ltr">
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:HyperLink 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<asp:HyperLink ID="hlBandeja" runat="server" Font-Bold="True" 
+              Font-Size="Medium" ForeColor="#9900CC" NavigateUrl="~/Bandeja.aspx" 
+              Visible="False">@</asp:HyperLink>
+          <asp:HyperLink 
               ID="hlNombreUsuario" runat="server" Font-Bold="True">Bienvenido!</asp:HyperLink>
           &nbsp;<asp:HyperLink ID="hlinkIniciarSesion" runat="server" NavigateUrl="~/Login.aspx">Iniciar 
           Sesion</asp:HyperLink>
-          &nbsp;&nbsp;
-          &nbsp;&nbsp;<br/>
-          <br/>
-          <h2>Buscar
-                    <table class="style1">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <h2>Buscar                     <table class="style1">
                         <tr>
                             <td>
                                 <asp:TextBox ID="txtFiltro" runat="server"></asp:TextBox>

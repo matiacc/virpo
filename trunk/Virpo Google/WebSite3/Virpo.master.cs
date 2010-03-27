@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using CapaNegocio.Entities;
+using CapaNegocio.Factories;
 
 public partial class musicamania_Virpo : System.Web.UI.MasterPage
 {
@@ -27,7 +28,12 @@ public partial class musicamania_Virpo : System.Web.UI.MasterPage
             hlNombreUsuario.NavigateUrl = "Perfil.aspx";
             hlinkIniciarSesion.Text = "(Cerrar Sesion)";
             hlinkIniciarSesion.NavigateUrl = "inicio.aspx?Logout=1";
-            
+            int mensajes = BandejaDeEntradaFactory.HayMensajesEnBandejaDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
+            if (mensajes != 0)
+            {
+                hlBandeja.Visible = true;
+                hlBandeja.ToolTip="Tiene " + mensajes + " mensajes sin leer en la Bandeja de Entrada.";
+            }
            
         }
         
