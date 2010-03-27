@@ -18,7 +18,7 @@ public partial class Invitaciones : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        List<Invitacion> invitaciones = InvitacionFactory.DevolverInvitacionesDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
+        List<BandejaDeEntrada> invitaciones = BandejaDeEntradaFactory.DevolverClasificadosDeBandejaDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
 
         if (invitaciones.Count != 0)
         {
@@ -27,10 +27,10 @@ public partial class Invitaciones : System.Web.UI.Page
         else lblInvitaciones.Text = "Actualmente no posee Invitaciones.";
     }
 
-    private void CargarInvitaciones(List<Invitacion> invita)
+    private void CargarInvitaciones(List<BandejaDeEntrada> invita)
     {
         //List<Invitacion> invitaciones = InvitacionFactory.DevolverInvitacionesDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
-        List<Invitacion> invitaciones = invita;
+        List<BandejaDeEntrada> invitaciones = invita;
         string html = "<table style='width: 100%'>";
 
         for (int i = 0; i < invitaciones.Count; i++)
@@ -38,7 +38,7 @@ public partial class Invitaciones : System.Web.UI.Page
             Banda xbanda=new Banda();
             xbanda = BandaFactory.Devolver(invitaciones[i].IdBanda);
             Usuario usrInvitador = new Usuario();
-            usrInvitador = UsuarioFactory.Devolver(invitaciones[i].UsrInvitador);
+            usrInvitador = UsuarioFactory.Devolver(invitaciones[i].UsrRemitente);
 
             //if (i % 2 == 0)
             html += "<tr>";
@@ -49,10 +49,10 @@ public partial class Invitaciones : System.Web.UI.Page
                     + "<h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; background-color: black; color: rgb(51, 51, 51);'"
                     + " class='transparent_60'>" + xbanda.Nombre + "</h2><h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; color: white;'"
                     + ">" + xbanda.Nombre + "</h2><div style='padding: 5px; margin-top: 0px; width: 190px; position: absolute; left: 0px; bottom: 0px; background-color: black; color: white;'"
-                    + " class='transparent_60'><a style='text-decoration: none; color: rgb(160, 160, 160);' href='PerfilPublico.aspx?Id=" + invitaciones[i].UsrInvitador + "'>Invitado por: " + usrInvitador.NombreUsuario + "</a><br>"
+                    + " class='transparent_60'><a style='text-decoration: none; color: rgb(160, 160, 160);' href='PerfilPublico.aspx?Id=" + invitaciones[i].UsrRemitente + "'>Invitado por: " + usrInvitador.NombreUsuario + "</a><br>"
                     + "<b>" + xbanda.PaginaWeb + "</b></div></div>"
                     + "</td><td>" + usrInvitador.Nombre + " " + usrInvitador.Apellido + " te ha invitado. <br /><br /><br /><br /><br /></td></tr><tr><td colspan='2'><input type='button' value='Aceptar' onclick='aceptar("
-                    + invitaciones[i].Id + "," + invitaciones[i].UsrInvitado + "," + invitaciones[i].IdBanda + ",1)'><input type='button' value='Rechazar' onclick='rechazar(" + invitaciones[i].Id + ",0)'><br /><br /></td></tr>";
+                    + invitaciones[i].Id + "," + invitaciones[i].UsrDestinatario + "," + invitaciones[i].IdBanda + ",1)'><input type='button' value='Rechazar' onclick='rechazar(" + invitaciones[i].Id + ",0)'><br /><br /></td></tr>";
           }
         html += "</table>";
         lblInvitaciones.Text = html;

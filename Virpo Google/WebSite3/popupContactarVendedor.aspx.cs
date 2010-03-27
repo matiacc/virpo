@@ -44,6 +44,14 @@ public partial class popupContactarVendedor : System.Web.UI.Page
         EnviarMail.Mande("Virpo", aviso.Dueño.EMail, asunto , mensaje);
         if (MensajeFactory.Insertar(msj))
         {
+            BandejaDeEntrada bande = new BandejaDeEntrada();
+            bande.UsrDestinatario = aviso.Dueño.Id;
+            bande.UsrRemitente = remitente.Id;
+            bande.Fecha = DateTime.Now;
+            bande.IdBanda = 0;
+            bande.IdAviso = idAviso;
+            BandejaDeEntradaFactory.Insertar(bande);
+
             AlertJS("El mensaje se ha enviado con éxito");
             string cierra = "<script language='javaScript'>" +
                      "window.close();</script>";
