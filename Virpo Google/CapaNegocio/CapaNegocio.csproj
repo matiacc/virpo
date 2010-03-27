@@ -56,7 +56,7 @@
     <Compile Include="Entities\Grupo.cs" />
     <Compile Include="Entities\HistorialWiki.cs" />
     <Compile Include="Entities\Instrumento.cs" />
-    <Compile Include="Entities\Invitacion.cs" />
+    <Compile Include="Entities\BandejaDeEntrada.cs" />
     <Compile Include="Entities\Localidad.cs" />
     <Compile Include="Entities\Mensaje.cs" />
     <Compile Include="Entities\MusicoXBanda.cs" />
@@ -85,7 +85,7 @@
     <Compile Include="Factories\HistorialWikiFactory.cs" />
     <Compile Include="Factories\ImagenClasificadoFactory.cs" />
     <Compile Include="Factories\InstrumentoFactory.cs" />
-    <Compile Include="Factories\InvitacionFactory.cs" />
+    <Compile Include="Factories\BandejaDeEntradaFactory.cs" />
     <Compile Include="Factories\LocalidadFactory.cs" />
     <Compile Include="Factories\MensajeFactory.cs" />
     <Compile Include="Factories\MusicoXBandaFactory.cs" />
