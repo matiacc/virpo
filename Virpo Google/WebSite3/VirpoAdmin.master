@@ -1,0 +1,91 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="VirpoAdmin.master.cs" Inherits="musicamania_Virpo" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Virpo - Musica Colaborativa</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="css/estilomusic.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/modalPopUp.css" type="text/css" media="screen" />
+   
+
+
+       
+        <style type="text/css">
+            .style1
+            {
+                width: 100%;
+            }
+        </style>
+   
+
+
+       
+    </head>
+<body>
+<table class="style1">
+                    <tr>
+                        <td>
+                            <asp:Image ID="Image1" runat="server" Height="150px" 
+                                ImageUrl="~/images/admin cabecera.jpg" Width="800px" />
+                        </td>
+                    </tr>
+                </table>
+<div id="outer">
+  <div id="wrapper"  style="width:974px;">
+    
+    <form id="form1" runat="server">
+    <div>
+    
+    <%--<asp:ScriptManager ID="ScriptManager1" runat="server" />--%>
+    <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server"/>--%>
+    <%--<ContentTemplate>--%>
+    <div id="col1">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+       <div id="col2">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+       <div id="col3">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    
+    <%--</ContentTemplate>--%>
+    
+    <%--</asp:UpdatePanel>--%>
+    
+        
+    
+      </div>
+    
+    </form>
+    
+   
+
+    
+    
+    
+    
+          
+              
+                  
+                      <%--<div class="clear">
+                          &nbsp;<div id="copyright">
+                              <div id="copyright-left">
+                                  Copyright © todos los derechos reservados | diseñado por
+                                  <a href="http://www.virpo.com.ar">virpo</a></div>
+                          </div>
+                      </div>--%>
+                  
+        </div>
+    
+  
+
+
+</body>
+</html>
