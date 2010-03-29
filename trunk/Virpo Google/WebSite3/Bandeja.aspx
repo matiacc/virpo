@@ -127,7 +127,10 @@ location.href=pagina+idinv+"&ace="+ac
                     <ContentTemplate>
                         <asp:GridView ID="gvAvisosClasificados" runat="server" CssClass="GridViewStyle" 
                             AutoGenerateColumns="False" CellPadding="4" 
-    ForeColor="#333333" GridLines="None" >
+    ForeColor="#333333" GridLines="None" 
+                    onselectedindexchanged="gvAvisosClasificados_SelectedIndexChanged" 
+                    AllowPaging="True" onpageindexchanging="gvAvisosClasificados_PageIndexChanging" 
+                    PageSize="10" >
                             <RowStyle BackColor="#CCCCCC" />
                             <Columns>
                                 <asp:BoundField DataField="idBandeja" 
@@ -154,8 +157,8 @@ location.href=pagina+idinv+"&ace="+ac
                                     <HeaderStyle Width="50px" />
                                 </asp:CommandField>
                             </Columns>
-                            <FooterStyle Font-Bold="True" ForeColor="White" />
-                            <PagerStyle ForeColor="White" HorizontalAlign="Center" />
+                            <FooterStyle Font-Bold="True" ForeColor="#660066" />
+                            <PagerStyle ForeColor="#660066" HorizontalAlign="Center" />
                             <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" 
         ForeColor="#333333" />
                             <HeaderStyle BackColor="Black" Font-Bold="True" 
@@ -190,11 +193,11 @@ location.href=pagina+idinv+"&ace="+ac
         </tr>
         <tr>
             <td>
-                &nbsp;</td>
+           
+                </td>
         </tr>
         <tr>
             <td>
-                          
                 &nbsp;</td>
         </tr>
         <tr>
