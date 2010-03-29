@@ -38,7 +38,7 @@ public partial class popupContactarVendedor : System.Web.UI.Page
         msj.Remitente = remitente;
         string asunto = "Virpo: " + txtAsunto.Text;
         //string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/inicio.aspx";
-        string url = "http://127.0.0.1:50753/WebSite3/inicio.aspx";
+        string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/Login.aspx?url=MisAvisosClasificados.aspx";
         string mensaje = "Hola <b>" + aviso.Dueño.Nombre + "</b>, te hicieron una pregunta sobre el aviso que publicaste en Virpo.<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
         mensaje += txtMensaje.Text.Trim();
         EnviarMail.Mande("Virpo", aviso.Dueño.EMail, asunto , mensaje);
