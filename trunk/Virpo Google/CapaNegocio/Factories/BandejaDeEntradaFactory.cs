@@ -47,7 +47,7 @@ namespace CapaNegocio.Factories
         public static List<BandejaDeEntrada> DevolverBandasDeBandejaDeUsuario(int idUsr)
         {
             string query = "SELECT id, idDestinatario, idRemitente, fecha, idBanda " +
-                           "FROM BandejaDeEntrada WHERE idBanda<>0 AND idDestinatario=" + idUsr;
+                           "FROM BandejaDeEntrada WHERE idBanda<>0 AND idDestinatario=" + idUsr + " ORDER BY fecha DESC";
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
             {
@@ -73,7 +73,7 @@ namespace CapaNegocio.Factories
         public static List<BandejaDeEntrada> DevolverClasificadosDeBandejaDeUsuario(int idUsr)
         {
             string query = "SELECT id, idDestinatario, idRemitente, fecha, idAviso " +
-                           "FROM BandejaDeEntrada WHERE idAviso<>0 AND idDestinatario=" + idUsr;
+                           "FROM BandejaDeEntrada WHERE idAviso<>0 AND idDestinatario=" + idUsr + " ORDER BY fecha DESC";
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
             {
