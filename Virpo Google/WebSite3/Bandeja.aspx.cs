@@ -19,7 +19,7 @@ public partial class Bandeja : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         List<BandejaDeEntrada> bandejasB = BandejaDeEntradaFactory.DevolverBandasDeBandejaDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
-        List<BandejaDeEntrada> bandejasC = BandejaDeEntradaFactory.DevolverClasificadosDeBandejaDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
+        
 
         if (bandejasB.Count != 0)
         {
@@ -31,15 +31,15 @@ public partial class Bandeja : System.Web.UI.Page
             //TabContainer1.Height = Unit.Pixel(600);
             TabContainer1.Height = Unit.Pixel(600);
         }
-        if (bandejasC.Count != 0)
-        {
-            CargarGrilla(bandejasC);
-        }
-        else
-        {
-            lblAvisosClasificados.Text = "Actualmente no posee mensajes sobre Avisos Clasificados";
-            //TabContainer1.Height = Unit.Pixel(600);
-        }
+        //if (bandejasC.Count != 0)
+        //{
+            CargarGrilla();
+        //}
+        //else
+        //{
+        //    lblAvisosClasificados.Text = "Actualmente no posee mensajes sobre Avisos Clasificados";
+        //    //TabContainer1.Height = Unit.Pixel(600);
+        //}
     }
 
     private void CargarBandeja(List<BandejaDeEntrada> bandejasB)
@@ -72,29 +72,50 @@ public partial class Bandeja : System.Web.UI.Page
         html += "</table>";
         lblInvitacionesBandas.Text = html;
     }
-    private void CargarGrilla(List<BandejaDeEntrada> BandejasC)
+    private void CargarGrilla()
     {
-        List<BandejaDeEntrada> bandejas = BandejasC;
-        DataTable dt = new DataTable();
-        DataRow row;
-        dt.Columns.Add("idBandeja");
-        dt.Columns.Add("interesado");
-        dt.Columns.Add("fecha");
-        dt.Columns.Add("idAviso");
-        dt.Columns.Add("aviso");    
-        for (int i = 0; i < bandejas.Count; i++)
+        
+        //List<BandejaDeEntrada> bandejasC = BandejaDeEntradaFactory.DevolverClasificadosDeBandejaDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
+        List<BandejaDeEntrada> bandejas = BandejaDeEntradaFactory.DevolverClasificadosDeBandejaDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
+
+        if (bandejas.Count != 0)
         {
-            row = dt.NewRow();
-            row["idBandeja"] = bandejas[i].Id;
-            row["interesado"] = (UsuarioFactory.Devolver(int.Parse(bandejas[i].UsrRemitente.ToString()))).NombreUsuario;
-            row["fecha"] = bandejas[i].Fecha;
-            row["idAviso"] = bandejas[i].IdAviso;
-            row["aviso"] = (AvisoClasificadoFactory.Devolver(int.Parse(bandejas[i].IdAviso.ToString()))).Titulo;
+            DataTable dt = new DataTable();
+            DataRow row;
+            dt.Columns.Add("idBandeja");
+            dt.Columns.Add("interesado");
+            dt.Columns.Add("fecha");
+            dt.Columns.Add("idAviso");
+            dt.Columns.Add("aviso");
+            for (int i = 0; i < bandejas.Count; i++)
+            {
+                row = dt.NewRow();
+                row["idBandeja"] = bandejas[i].Id;
+                row["interesado"] = (UsuarioFactory.Devolver(int.Parse(bandejas[i].UsrRemitente.ToString()))).NombreUsuario;
+                row["fecha"] = bandejas[i].Fecha;
+                row["idAviso"] = bandejas[i].IdAviso;
+                row["aviso"] = (AvisoClasificadoFactory.Devolver(int.Parse(bandejas[i].IdAviso.ToString()))).Titulo;
 
-            dt.Rows.Add(row);
+                dt.Rows.Add(row);
+            }
+
+            gvAvisosClasificados.DataSource = dt;
+            gvAvisosClasificados.DataBind();
         }
+        else
+        {
+            lblAvisosClasificados.Text = "Actualmente no posee mensajes sobre Avisos Clasificados";
+            //TabContainer1.Height = Unit.Pixel(600);
+        }
+    }
+    protected void gvAvisosClasificados_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Response.Redirect("MisAvisosClasificados.aspx");
+    }
+    protected void gvAvisosClasificados_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        gvAvisosClasificados.PageIndex = e.NewPageIndex;
+        CargarGrilla();
 
-        gvAvisosClasificados.DataSource = dt;
-        gvAvisosClasificados.DataBind();
     }
 }
