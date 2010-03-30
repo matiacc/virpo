@@ -40,11 +40,11 @@
       <ul>
       <li id="m8"><a href="inicio.aspx">Inicio</a></li>
       <li id="m7"><a href="Eventos.aspx">Eventos</a></li>
-        <li id="m1"><a href="GruposDeInteres.aspx">Grupos De Interes</a></li>
-        <li id="m2"><a href="Clasificados.aspx">Clasificados</a></li>
-        <li id="m3"><a href="Wikimusic.aspx">Wikimusic</a></li>
-        <li id="m4"><a href="Proyectos.aspx">Proyectos</a></li>
-        <li id="m5"><a href="Bandas.aspx">Bandas</a></li>
+       <li id="m1"><a href="GruposDeInteres.aspx">Grupos De Interes</a></li>
+       <li id="m2"><a href="Clasificados.aspx">Clasificados</a></li>
+       <li id="m3"><a href="Wikimusic.aspx">Wikimusic</a></li>
+       <li id="m4"><a href="Proyectos.aspx">Proyectos</a></li>
+       <li id="m5"><a href="Bandas.aspx">Bandas</a></li>
         
         <%--Link Para Ingresar al foro Lucho
         <li id="m6"><a href="http://localhost:3392/DMG_Forums_3-2/">Foro</a></li>--%>
