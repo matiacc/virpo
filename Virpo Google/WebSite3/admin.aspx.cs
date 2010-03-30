@@ -19,9 +19,9 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
     {
-        if (Login1.UserName.ToUpper() == "ADMIN" && Login1.UserName.ToUpper() == "ADMIN")
+        if (Login1.UserName.ToUpper() == "ADMIN" && Login1.Password.ToUpper() == "ADMIN")
         {
-            Session["admin"] = "Admin";
+            Session["Admin"] = "Admin";
             e.Authenticated = true;
         }  
     }
