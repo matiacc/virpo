@@ -11,9 +11,8 @@ Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <p>
-        nueva noticia</p>
-    <p>
-        <asp:TextBox ID="elm3" runat="server" Height="252px" TextMode="MultiLine" Width="522px"></asp:TextBox>
+        <asp:TextBox ID="elm3" runat="server" Height="366px" TextMode="MultiLine" 
+            Width="493px"></asp:TextBox>
         
         
     </p>
