@@ -11,13 +11,26 @@ Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <p>
-        <asp:TextBox ID="elm3" runat="server" Height="366px" TextMode="MultiLine" 
-            Width="493px"></asp:TextBox>
+    
+        <asp:Label ID="Label1" runat="server" Text="Posicion:"></asp:Label>
+        <asp:DropDownList ID="ddlPosicion" runat="server" Height="23px" Width="122px">
+        </asp:DropDownList>
         
         
     </p>
     <p>
-        &nbsp;</p>
+    
+        <asp:TextBox ID="elm3" runat="server" Height="366px" TextMode="MultiLine" 
+            Width="402px"></asp:TextBox>
+        
+        
+    </p>
+    <p style="text-align: right">
+        <asp:Button ID="btnGuardar" runat="server" CssClass="botones" Text="Guardar" 
+            Width="87px" />
+        <asp:Button ID="btnLimpiar" runat="server" CssClass="botones" Text="Limpiar" 
+            Width="87px" />
+    </p>
     <p>
         &nbsp;</p>
 </asp:Content>

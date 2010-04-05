@@ -15,6 +15,9 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        ddlPosicion.Items.Add("Izquierda");
+        ddlPosicion.Items.Add("Centro");
+        ddlPosicion.Items.Add("Derecha");
+        ddlPosicion.SelectedIndex = 1;
     }
 }
