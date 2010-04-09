@@ -101,6 +101,27 @@ namespace CapaNegocio.Factories
             }
         }
 
+        public static DataTable DevolverMensajesDeAviso(int idAviso)
+        {
+            string query = "SELECT id, remitente, tipo, mensaje, fecha "
+                         + "FROM (SELECT id, (SELECT nombreUsuario FROM Usuario u WHERE u.id=mensaje.idRemitente) AS remitente, 'Pregunta' AS tipo, mensaje, fechaYHoraMsj AS fecha FROM mensaje "
+                         + "WHERE idAviso=" + idAviso
+                         + " UNION ALL "
+                         + "SELECT id, (SELECT nombreUsuario FROM AvisoClasificado a INNER JOIN Usuario u ON a.idMusicoDueño=u.id WHERE a.id=" + idAviso + " ) AS remitente, 'Respuesta' AS tipo, respuesta, fechaYhoraResp AS fecha FROM mensaje "
+                         + "WHERE idAviso=" + idAviso + " AND respuesta IS NOT NULL) mensajes "
+                         + "ORDER BY id DESC, fecha";
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                return dt;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         #region Insertar
         /// <summary>
         /// Alta de un registro sin transaccion
