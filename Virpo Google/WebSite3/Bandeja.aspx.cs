@@ -98,7 +98,6 @@ public partial class Bandeja : System.Web.UI.Page
 
                 dt.Rows.Add(row);
             }
-
             gvAvisosClasificados.DataSource = dt;
             gvAvisosClasificados.DataBind();
         }
@@ -110,7 +109,7 @@ public partial class Bandeja : System.Web.UI.Page
     }
     protected void gvAvisosClasificados_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Response.Redirect("MisAvisosClasificados.aspx");
+        Response.Redirect("ConsultarClasificado.aspx?C=" + gvAvisosClasificados.SelectedRow.Cells[3].Text.ToString());
     }
     protected void gvAvisosClasificados_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {

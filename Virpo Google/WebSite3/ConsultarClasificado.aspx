@@ -131,6 +131,62 @@
                 <asp:Label ID="lblImprimir" runat="server" CssClass="estiloLabel"></asp:Label>
              </td>
         </tr>
+         <tr>
+            <td colspan="2">
+                &nbsp;</td>
+            <td style="width: 198px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+         <tr>
+            <td colspan="4">
+                <center style="width: 538px; background-color: #333333">Preguntas Sobre el Aviso</center></td>
+        </tr>
+         <tr>
+            <td colspan="2">
+                &nbsp;</td>
+            <td style="width: 198px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+         <tr>
+            <td colspan="4">
+            <asp:GridView ID="gvMensajes" runat="server" AutoGenerateColumns="False" 
+                                                            CssClass="GridViewStyle" 
+                    GridLines="None" Width="531px">
+                                                            <Columns>
+                                                                <asp:BoundField DataField="id" ReadOnly="True" HeaderText="Id" 
+                                                                    Visible="False" />
+                                                                <asp:BoundField DataField="remitente" HeaderText="De" />
+<asp:BoundField DataField="tipo" ShowHeader="False"></asp:BoundField>
+                                                                <asp:BoundField DataField="Mensaje" HeaderText="Mensaje" />
+                                                                <asp:BoundField DataField="fecha" HeaderText="Fecha" />
+                                                            </Columns>
+                                                            <RowStyle CssClass="RowStyle" />
+                                                            <EmptyDataRowStyle CssClass="EmptyRowStyle" />
+                                                            <PagerStyle CssClass="PagerStyle" />
+                                                            <SelectedRowStyle CssClass="SelectedRowStyle" />
+                                                            <HeaderStyle CssClass="HeaderStyle" />
+                                                            <EditRowStyle CssClass="EditRowStyle" />
+                                                            <AlternatingRowStyle CssClass="AltRowStyle" />
+                                                        </asp:GridView>
+            
+            </td>
+        </tr>
+         <tr>
+            <td colspan="2">
+                </td>
+            <td style="width: 198px">
+                </td>
+            <td>
+                </td>
+        </tr>
+         <tr>
+            <td colspan="4">
+            </td>
+        </tr>
     </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
