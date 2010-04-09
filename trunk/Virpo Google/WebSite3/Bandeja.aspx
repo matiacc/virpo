@@ -125,12 +125,13 @@ location.href=pagina+idinv+"&ace="+ac
                     <br />
          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
-                        <asp:GridView ID="gvAvisosClasificados" runat="server" CssClass="GridViewStyle" 
+                         <asp:GridView ID="gvAvisosClasificados" runat="server" CssClass="GridViewStyle" 
                             AutoGenerateColumns="False" CellPadding="4" 
     ForeColor="#333333" GridLines="None" 
                     onselectedindexchanged="gvAvisosClasificados_SelectedIndexChanged" 
-                    AllowPaging="True" onpageindexchanging="gvAvisosClasificados_PageIndexChanging" 
-                    PageSize="10" >
+                    AllowPaging="True" 
+                    onpageindexchanging="gvAvisosClasificados_PageIndexChanging" 
+                    DataKeyNames="idAviso" >
                             <RowStyle BackColor="#CCCCCC" />
                             <Columns>
                                 <asp:BoundField DataField="idBandeja" 
@@ -145,8 +146,8 @@ location.href=pagina+idinv+"&ace="+ac
                                     <HeaderStyle Width="150px" HorizontalAlign="Left"/>
                                     <ItemStyle HorizontalAlign="Left" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="idAviso" HeaderText="idAviso" 
-            Visible="False" />
+                                <asp:BoundField DataField="idAviso" HeaderText="" >
+                                </asp:BoundField>
                                 <asp:BoundField DataField="aviso" HeaderText="Titulo del Aviso Clasificado" >
                                     <HeaderStyle Width="400px" HorizontalAlign="Left"/>
                                     <ItemStyle HorizontalAlign="Left" />
@@ -193,8 +194,7 @@ location.href=pagina+idinv+"&ace="+ac
         </tr>
         <tr>
             <td>
-           
-                </td>
+            </td>
         </tr>
         <tr>
             <td>

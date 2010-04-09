@@ -21,11 +21,11 @@ public partial class MisClasificados : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
-            Usuario usuario = new Usuario();
-            usuario = (Usuario)Session["Usuario"];
+            Usuario userRemitente = new Usuario();
+            userRemitente = (Usuario)Session["Usuario"];
 
             List<Mensaje> pendientes = new List<Mensaje>();
-            pendientes = MensajeFactory.HayMensajesSinResponder(usuario.Id);
+            pendientes = MensajeFactory.HayMensajesSinResponder(userRemitente.Id);
             Session["Pendiente"] = pendientes;
             if (pendientes.Count > 0)
             {
@@ -38,7 +38,7 @@ public partial class MisClasificados : System.Web.UI.Page
                 lnkPreguntasPendientes.ForeColor = System.Drawing.Color.Black;
             }
 
-            this.CargarGrillaAvisos(usuario.Id);
+            this.CargarGrillaAvisos(userRemitente.Id);
             GridView1.Columns[0].Visible = false;
         }
     }
@@ -92,29 +92,38 @@ public partial class MisClasificados : System.Web.UI.Page
         int idUserDestinatario = (int)Session["IdUsuarioSeleccionado"];
         Usuario userDestinatario=new Usuario();
         userDestinatario=UsuarioFactory.Devolver(idUserDestinatario);
-        string asunto = "Su mensaje ha sido respondido";
+        string asunto = "Su mensaje sobre el Aviso Clasificado ha sido respondido";
         //string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/MisAvisosClasificados.aspx?Aviso=" + idMsj;
-        //string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/inicio.aspx";
-        string url = "http://127.0.0.1:50753/WebSite3/inicio.aspx";
-        string mensaje = "Han respondido su mensaje. Ingrese a su bandeja de entrada de Virpo: <br /><br /><a href='" + url + " '>Virpo Web</a>";
+        string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/Login.aspx?url=ConsultarClasificado.aspx?C=" + ViewState["IdAviso"].ToString();
+        //string url = "http://127.0.0.1:50753/WebSite3/inicio.aspx";
+        string mensaje = "Han respondido su mensaje sobre el Aviso Clasificado. Ingrese a su bandeja de entrada de Virpo: <br /><br /><a href='" + url + " '>Virpo Web</a>";
         string query = "UPDATE Mensaje " +
                     "SET fechaYhoraResp = '" + DateTime.Now + "', " +
                     "respuesta = '" + txtRespuesta.Text.Trim() + "' " +
                     "WHERE id=" + idMsj;
+        //Insertar en Bandeja de Entrada
+        BandejaDeEntrada bande = new BandejaDeEntrada();
+        bande.UsrDestinatario = userDestinatario.Id;
+        bande.UsrRemitente = ((Usuario)Session["Usuario"]).Id;
+        bande.Fecha = DateTime.Now;
+        bande.IdBanda = 0;
+        bande.IdAviso = int.Parse(ViewState["IdAviso"].ToString());
+        BandejaDeEntradaFactory.Insertar(bande);
+
         int reg = CapaDatos.BDUtilidades.EjecutarNonQuery(query);
         if (reg > 0)
         {
             EnviarMail.Mande("Virpo", userDestinatario.EMail, asunto, mensaje);
             AlertJS("La respuesta se ha enviado con éxito");
-            Panel1.Visible = false;
-            lnkPreguntasPendientes.Text = "No tiene mensajes nuevos";
-            lnkPreguntasPendientes.ForeColor = System.Drawing.Color.Black;
+            //Panel1.Visible = false;
+            //lnkPreguntasPendientes.Text = "No tiene mensajes nuevos";
+            //lnkPreguntasPendientes.ForeColor = System.Drawing.Color.Black;
             if (((List<Mensaje>)Session["Pendiente"]).Count == 1)
                 Session["Pendiente"] = null;
         }
         else
             AlertJS("Hubo un error al intentar enviar la respuesta.\nIntente nuevamente mas tarde.");
-
+        Response.Redirect("MisAvisosClasificados.aspx");
 
     }
     protected void lnkPreguntasPendientes_Click(object sender, EventArgs e)
@@ -170,6 +179,7 @@ public partial class MisClasificados : System.Web.UI.Page
             mensaje = MensajeFactory.Devolver(id);
             Session["IdMsjSeleccionado"] = mensaje.Id;
             Session["IdUsuarioSeleccionado"] = mensaje.Remitente.Id;
+            ViewState["IdAviso"] = mensaje.Aviso.Id.ToString();
             lblUsuario.Text = mensaje.Remitente.NombreUsuario;
             lblPregunta.Text = mensaje.Msj;
             Panel2.Visible = true;
