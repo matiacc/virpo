@@ -6,7 +6,7 @@ Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
         <ul>
             <li><a href="AdminHome.aspx" title="Home Administracion">Home Admin</a></li>
             <li><a href="NoticiaNueva.aspx" title="Nueva Noticia">Nueva Noticia</a></li>
-            <li><a href="AltasYBajas.aspx" title="Altas y Bajas">Altas y Bajas</a></li>
+            <li><a href="BajasNoticias.aspx" title="Bajas">Bajas</a></li>
         </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
@@ -27,9 +27,9 @@ Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
     </p>
     <p style="text-align: right">
         <asp:Button ID="btnGuardar" runat="server" CssClass="botones" Text="Guardar" 
-            Width="87px" />
+            Width="87px" onclick="btnGuardar_Click" />
         <asp:Button ID="btnLimpiar" runat="server" CssClass="botones" Text="Limpiar" 
-            Width="87px" />
+            Width="87px" onclick="btnLimpiar_Click" />
     </p>
     <p>
         &nbsp;</p>
