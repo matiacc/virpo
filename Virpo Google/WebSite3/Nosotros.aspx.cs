@@ -15,13 +15,6 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request.QueryString["Logout"] != null)
-        {
-            Session.Clear();
-
-        }
-        if (Session["Usuario"] != null)
-            PanelRegistrarme.Visible = false;
-        
+                
     }
 }
