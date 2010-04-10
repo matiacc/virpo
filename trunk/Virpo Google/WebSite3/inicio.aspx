@@ -39,6 +39,14 @@
         <asp:Label ID="noti6" runat="server" Text="6"></asp:Label>
     </p>
     <p>
+     <asp:Panel ID="PanelRegistrarme" runat="server">
+              
+          <center><h2>
+              
+              Click 
+              <asp:HyperLink ID="HyperLink1" runat="server" 
+                  ForeColor="#99CCFF" NavigateUrl="~/AltaMusico.aspx">   aquí  </asp:HyperLink>
+              &nbsp;para registrarte </h2></center></asp:Panel>
     </p>
     <p>
         <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
