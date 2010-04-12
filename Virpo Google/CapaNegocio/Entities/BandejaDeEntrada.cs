@@ -13,6 +13,7 @@ namespace CapaNegocio.Entities
         private DateTime fecha;
         private int idBanda;
         private int idAviso;
+        private string avisoMotivo;
 
         #region Propiedades
 
@@ -45,6 +46,11 @@ namespace CapaNegocio.Entities
         {
             get { return idAviso; }
             set { idAviso = value; }
+        }
+        public string AvisoMotivo
+        {
+            get { return avisoMotivo; }
+            set { avisoMotivo = value; }
         }
         #endregion
     }
