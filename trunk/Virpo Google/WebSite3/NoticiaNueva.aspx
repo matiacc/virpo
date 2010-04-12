@@ -6,15 +6,25 @@ Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
         <ul>
             <li><a href="AdminHome.aspx" title="Home Administracion">Home Admin</a></li>
             <li><a href="NoticiaNueva.aspx" title="Nueva Noticia">Nueva Noticia</a></li>
-            <li><a href="BajasNoticias.aspx" title="Bajas">Bajas</a></li>
+            <li><a href="BajasNoticias.aspx" title="Bajas">Modificar &amp; Bajas</a></li>
         </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <p>
+    <p style="text-align: center">
     
         <asp:Label ID="Label1" runat="server" Text="Posicion:"></asp:Label>
-        <asp:DropDownList ID="ddlPosicion" runat="server" Height="23px" Width="122px">
+        <asp:DropDownList ID="ddlPosicion" runat="server" Height="22px" Width="138px" 
+            style="margin-left: 20px">
         </asp:DropDownList>
+        
+        
+    </p>
+    <p style="text-align: right">
+    
+        <asp:Label ID="Label2" runat="server" Text="Descripcion:"></asp:Label>
+        <asp:TextBox ID="txtDesc" runat="server" Width="218px"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+            ControlToValidate="txtDesc" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
         
         
     </p>
@@ -29,7 +39,7 @@ Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
         <asp:Button ID="btnGuardar" runat="server" CssClass="botones" Text="Guardar" 
             Width="87px" onclick="btnGuardar_Click" />
         <asp:Button ID="btnLimpiar" runat="server" CssClass="botones" Text="Limpiar" 
-            Width="87px" onclick="btnLimpiar_Click" />
+            Width="87px" onclick="btnLimpiar_Click" CausesValidation="False" />
     </p>
     <p>
         &nbsp;</p>
