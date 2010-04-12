@@ -104,7 +104,9 @@ public partial class ListarUsuarios : System.Web.UI.Page
                 bande.UsrRemitente = int.Parse(((Usuario)Session["Usuario"]).Id.ToString());
                 bande.Fecha = DateTime.Now;
                 bande.IdBanda = int.Parse(idBanda.ToString());
-                bande.IdAviso =0;
+                bande.IdAviso = 0;
+                bande.AvisoMotivo = "NULL";
+
                 BandejaDeEntradaFactory.Insertar(bande);
             }
             if (enviados != 0)
