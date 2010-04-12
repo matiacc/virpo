@@ -91,7 +91,7 @@ public partial class ListarUsuarios : System.Web.UI.Page
                 //msj.Remitente = remitente;
                 //Tengo que guardar el mensaje en otra tabla, para poder diferenciar los mensajes de clasificados de los de invitaciones a bandas
                 string asunto = "Virpo: Usted ha sido invitado para participar de la nueva comunidad musical!!!";
-                string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/Login.aspx?url=Bandeja.aspx";//Idbanda
+                string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/Login.aspx?url=Bandeja.aspx";
                 //string url = "http://127.0.0.1:50753/WebSite3/Invitaciones.aspx?Id=" + idBanda;//Idbanda
                 string mensaje = "Hola <b>" + destinatario.Nombre + "</b>.<br /><br />Ha sido invitado para formar parte de la banda <b>"+ banda+ "</b>.<br />" +
                                  "Ingrese a su bandeja de entrada de Virpo: <br /><br /><a href='" + url + " '>Virpo Web</a><br /><br />";
