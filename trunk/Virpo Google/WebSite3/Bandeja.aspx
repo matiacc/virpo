@@ -125,19 +125,19 @@ location.href=pagina+idinv+"&ace="+ac
                     <br />
          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
-                         <asp:GridView ID="gvAvisosClasificados" runat="server" CssClass="GridViewStyle" 
+                        <asp:GridView ID="gvAvisosClasificados" runat="server" CssClass="GridViewStyle" 
                             AutoGenerateColumns="False" CellPadding="4" 
     ForeColor="#333333" GridLines="None" 
                     onselectedindexchanged="gvAvisosClasificados_SelectedIndexChanged" 
                     AllowPaging="True" 
                     onpageindexchanging="gvAvisosClasificados_PageIndexChanging" 
-                    DataKeyNames="idAviso" >
+                    DataKeyNames="idBandeja" >
                             <RowStyle BackColor="#CCCCCC" />
                             <Columns>
                                 <asp:BoundField DataField="idBandeja" 
             HeaderText="idBandeja" Visible="False" />
                                 <asp:BoundField DataField="interesado" 
-            HeaderText="Interesado" >
+            HeaderText="De" >
                                     <HeaderStyle Width="100px" HorizontalAlign="Left"/>
                                     <ItemStyle HorizontalAlign="Left" />
                                 </asp:BoundField>
@@ -152,6 +152,7 @@ location.href=pagina+idinv+"&ace="+ac
                                     <HeaderStyle Width="400px" HorizontalAlign="Left"/>
                                     <ItemStyle HorizontalAlign="Left" />
                                 </asp:BoundField>
+                                <asp:BoundField DataField="avisoMotivo" HeaderText="Motivo" />
                                 <asp:CommandField ButtonType="Image" HeaderText="Ver" 
             SelectImageUrl="~/ImagenesSite/lupa3.png" SelectText="" 
             ShowSelectButton="True" >
@@ -169,7 +170,7 @@ location.href=pagina+idinv+"&ace="+ac
                     </ContentTemplate>
                 </asp:UpdatePanel>  
                      <asp:Label ID="lblAvisosClasificados" runat="server"></asp:Label>
-                 </ContentTemplate>
+                    </ContentTemplate>
                 </cc1:TabPanel>
                 </cc1:TabContainer>
                </td>
@@ -194,6 +195,7 @@ location.href=pagina+idinv+"&ace="+ac
         </tr>
         <tr>
             <td>
+             
             </td>
         </tr>
         <tr>

@@ -50,6 +50,7 @@ public partial class popupContactarVendedor : System.Web.UI.Page
             bande.Fecha = DateTime.Now;
             bande.IdBanda = 0;
             bande.IdAviso = idAviso;
+            bande.AvisoMotivo = "Pregunta";
             BandejaDeEntradaFactory.Insertar(bande);
 
             AlertJS("El mensaje se ha enviado con éxito");

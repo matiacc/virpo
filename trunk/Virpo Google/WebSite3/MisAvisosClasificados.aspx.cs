@@ -108,6 +108,7 @@ public partial class MisClasificados : System.Web.UI.Page
         bande.Fecha = DateTime.Now;
         bande.IdBanda = 0;
         bande.IdAviso = int.Parse(ViewState["IdAviso"].ToString());
+        bande.AvisoMotivo = "Respuesta";
         BandejaDeEntradaFactory.Insertar(bande);
 
         int reg = CapaDatos.BDUtilidades.EjecutarNonQuery(query);
