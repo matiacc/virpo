@@ -98,7 +98,7 @@ public partial class ListarUsuarios : System.Web.UI.Page
                 mensaje += "Mensaje:<br /><br />" + txtMensaje.Text.Trim(); ;
                 if (EnviarMail.Mande("Virpo", destinatario.EMail, asunto, mensaje))
                     enviados++;
-                //Registrar las invitaciones en la tabla "Invitacion"
+                //Registrar las invitaciones en la tabla "BandejaDeEntrada"
                 BandejaDeEntrada bande = new BandejaDeEntrada();
                 bande.UsrDestinatario = id;
                 bande.UsrRemitente = int.Parse(((Usuario)Session["Usuario"]).Id.ToString());
