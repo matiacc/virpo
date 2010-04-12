@@ -38,6 +38,7 @@ public partial class _Default : System.Web.UI.Page
     {
         Noticia noticia = new Noticia();
 
+        noticia.Descripcion = txtDesc.Text;
         noticia.Cuerpo = elm3.Text;
         noticia.FechaCreacion = DateTime.Now;
         

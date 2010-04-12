@@ -5,7 +5,7 @@
         <ul>
             <li><a href="AdminHome.aspx" title="Home Administracion">Home Admin</a></li>
             <li><a href="NoticiaNueva.aspx" title="Nueva Noticia">Nueva Noticia</a></li>
-            <li><a href="BajasNoticias.aspx" title="Altas y Bajas">Bajas</a></li>
+            <li><a href="BajasNoticias.aspx" title="Altas y Bajas">Modificar & Bajas</a></li>
         </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
@@ -26,10 +26,11 @@
                                             <HeaderStyle Font-Size="Small" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="FechaCreacion" HeaderText="Fecha" />
-                                        <asp:BoundField DataField="Cuerpo" HeaderText="Noticia" />
+                                        <asp:BoundField DataField="Descripcion" HeaderText="Noticia" />
                                         <asp:BoundField DataField="Posicion" HeaderText="Posicion" />
                                         <asp:BoundField DataField="IdAutor" HeaderText="Autor" />
-                                        <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/lupa3.png"
+                                        <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/eliminar.png" />
+                                        <asp:ButtonField ButtonType="Image" CommandName="M" ImageUrl="~/ImagenesSite/edit.png"
                                             Text="Consultar" />
                                     </Columns>
                                     <RowStyle CssClass="RowStyle" />

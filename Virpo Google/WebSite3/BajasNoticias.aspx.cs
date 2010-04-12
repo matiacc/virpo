@@ -40,7 +40,7 @@ public partial class _Default : System.Web.UI.Page
         DataRow row;
         dt.Columns.Add("Id");
         dt.Columns.Add("FechaCreacion");
-        dt.Columns.Add("Cuerpo");
+        dt.Columns.Add("Descripcion");
         dt.Columns.Add("Posicion");
         dt.Columns.Add("IdAutor");
 
@@ -56,7 +56,7 @@ public partial class _Default : System.Web.UI.Page
                 row = dt.NewRow();
                 row["Id"] = noticia.Id;
                 row["FechaCreacion"] = noticia.FechaCreacion.ToShortDateString();
-                row["Cuerpo"] = noticia.Cuerpo;
+                row["Descripcion"] = noticia.Descripcion;
                 row["Posicion"] = noticia.Posicion;
                 row["IdAutor"] = noticia.IdAutor.Apellido + " " + noticia.IdAutor.Nombre;
                 dt.Rows.Add(row);
@@ -82,6 +82,12 @@ public partial class _Default : System.Web.UI.Page
                 Response.Redirect("BajasNoticias.aspx?&C=1");
             else
                 Response.Redirect("BajasNoticias.aspx?&C=0");
+        }
+
+        if (e.CommandName == "M")
+        {
+            string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;            
+            Response.Redirect("ModificarNoticia.aspx?&M="+id);            
         }
     }
 
