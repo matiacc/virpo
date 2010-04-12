@@ -72,7 +72,7 @@ namespace CapaNegocio.Factories
         }
         public static List<BandejaDeEntrada> DevolverClasificadosDeBandejaDeUsuario(int idUsr)
         {
-            string query = "SELECT id, idDestinatario, idRemitente, fecha, idAviso " +
+            string query = "SELECT id, idDestinatario, idRemitente, fecha, idAviso, avisoMotivo " +
                            "FROM BandejaDeEntrada WHERE idAviso<>0 AND idDestinatario=" + idUsr + " ORDER BY fecha DESC";
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
@@ -86,6 +86,7 @@ namespace CapaNegocio.Factories
                     bande.UsrRemitente = int.Parse(dt.Rows[i]["idRemitente"].ToString());
                     bande.Fecha = Convert.ToDateTime(dt.Rows[i]["fecha"].ToString());
                     bande.IdAviso = int.Parse(dt.Rows[i]["idAviso"].ToString());
+                    bande.AvisoMotivo = dt.Rows[i]["avisoMotivo"].ToString();
 
                     bandejas.Add(bande);
                 }
@@ -116,6 +117,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@fecha", DbType.DateTime, bande.Fecha));
                 parametros.Add(BDUtilidades.crearParametro("@idBanda", DbType.Int32, bande.IdBanda));
                 parametros.Add(BDUtilidades.crearParametro("@idAviso", DbType.Int32, bande.IdAviso));
+                parametros.Add(BDUtilidades.crearParametro("@avisoMotivo", DbType.String, bande.AvisoMotivo));
 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("BandejaDeEntradaInsertar", parametros, tran);
                 if (ok)
