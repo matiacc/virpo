@@ -87,6 +87,8 @@ public partial class Bandeja : System.Web.UI.Page
             dt.Columns.Add("fecha");
             dt.Columns.Add("idAviso");
             dt.Columns.Add("aviso");
+            dt.Columns.Add("avisoMotivo");
+
             for (int i = 0; i < bandejas.Count; i++)
             {
                 row = dt.NewRow();
@@ -95,6 +97,7 @@ public partial class Bandeja : System.Web.UI.Page
                 row["fecha"] = bandejas[i].Fecha;
                 row["idAviso"] = bandejas[i].IdAviso;
                 row["aviso"] = (AvisoClasificadoFactory.Devolver(int.Parse(bandejas[i].IdAviso.ToString()))).Titulo;
+                row["avisoMotivo"] = bandejas[i].AvisoMotivo.ToString();
 
                 dt.Rows.Add(row);
             }
@@ -109,12 +112,20 @@ public partial class Bandeja : System.Web.UI.Page
     }
     protected void gvAvisosClasificados_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Response.Redirect("ConsultarClasificado.aspx?C=" + gvAvisosClasificados.SelectedRow.Cells[3].Text.ToString());
+        if (gvAvisosClasificados.SelectedRow.Cells[5].Text == "Respuesta")
+        {
+    BandejaDeEntradaFactory.Borrar(int.Parse(gvAvisosClasificados.SelectedDataKey.Value.ToString()));
+            Response.Redirect("ConsultarClasificado.aspx?C=" + gvAvisosClasificados.SelectedRow.Cells[3].Text.ToString());
+        }
+        else
+        {
+            BandejaDeEntradaFactory.Borrar(int.Parse(gvAvisosClasificados.SelectedDataKey.Value.ToString()));
+            Response.Redirect("MisAvisosClasificados.aspx");
+        }
     }
     protected void gvAvisosClasificados_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         gvAvisosClasificados.PageIndex = e.NewPageIndex;
         CargarGrilla();
-
     }
 }
