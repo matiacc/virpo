@@ -72,7 +72,7 @@ namespace CapaNegocio.Factories
         }
         public static List<BandejaDeEntrada> DevolverClasificadosDeBandejaDeUsuario(int idUsr)
         {
-            string query = "SELECT id, idDestinatario, idRemitente, fecha, idAviso, avisoMotivo " +
+            string query = "SELECT id, idDestinatario, idRemitente, fecha, idAviso, avisoMotivo, leido " +
                            "FROM BandejaDeEntrada WHERE idAviso<>0 AND idDestinatario=" + idUsr + " ORDER BY fecha DESC";
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
@@ -87,6 +87,34 @@ namespace CapaNegocio.Factories
                     bande.Fecha = Convert.ToDateTime(dt.Rows[i]["fecha"].ToString());
                     bande.IdAviso = int.Parse(dt.Rows[i]["idAviso"].ToString());
                     bande.AvisoMotivo = dt.Rows[i]["avisoMotivo"].ToString();
+                    bande.Leido = dt.Rows[i]["leido"].ToString();
+
+                    bandejas.Add(bande);
+                }
+                return bandejas;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static List<BandejaDeEntrada> DevolverGruposDeBandejaDeUsuario(int idUsr)
+        {
+            string query = "SELECT id, idDestinatario, idRemitente, fecha, idGrupo, leido " +
+                           "FROM BandejaDeEntrada WHERE idGrupo<>0 AND idDestinatario=" + idUsr + " ORDER BY fecha DESC";
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                List<BandejaDeEntrada> bandejas = new List<BandejaDeEntrada>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    BandejaDeEntrada bande = new BandejaDeEntrada();
+                    bande.Id = int.Parse(dt.Rows[i]["id"].ToString());
+                    bande.UsrDestinatario = int.Parse(dt.Rows[i]["idDestinatario"].ToString());
+                    bande.UsrRemitente = int.Parse(dt.Rows[i]["idRemitente"].ToString());
+                    bande.Fecha = Convert.ToDateTime(dt.Rows[i]["fecha"].ToString());
+                    bande.IdGrupo = int.Parse(dt.Rows[i]["idGrupo"].ToString());
+                    bande.Leido = dt.Rows[i]["leido"].ToString();
 
                     bandejas.Add(bande);
                 }
@@ -118,6 +146,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@idBanda", DbType.Int32, bande.IdBanda));
                 parametros.Add(BDUtilidades.crearParametro("@idAviso", DbType.Int32, bande.IdAviso));
                 parametros.Add(BDUtilidades.crearParametro("@avisoMotivo", DbType.String, bande.AvisoMotivo));
+                parametros.Add(BDUtilidades.crearParametro("@idGrupo", DbType.Int32, bande.IdGrupo));
 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("BandejaDeEntradaInsertar", parametros, tran);
                 if (ok)
@@ -130,23 +159,23 @@ namespace CapaNegocio.Factories
                 return false;
             }
         }
-        public static bool Borrar(int idBandeja)
+        public static bool BorrarGrupoBandeja(int idUsr)
         {
-            return Borrar(idBandeja, (SqlTransaction)null);
+            return BorrarGrupoBandeja(idUsr, (SqlTransaction)null);
         }
         /// <summary>
         /// Baja de un registro con transaccion
         /// </summary>
         /// <param name="musico">Objeto Localidad</param>
         /// <returns>true si guardó con éxito</returns>
-        public static bool Borrar(int idBandeja, SqlTransaction tran)
+        public static bool BorrarGrupoBandeja(int idUsr, SqlTransaction tran)
         {
             try
             {
                 List<SqlParameter> parametros = new List<SqlParameter>();
-                parametros.Add(BDUtilidades.crearParametro("@idBandeja", DbType.Int32, idBandeja));
+                parametros.Add(BDUtilidades.crearParametro("@idDestinatario", DbType.Int32, idUsr));
 
-                bool ok = BDUtilidades.ExecuteStoreProcedure("BandejaDeEntradaBorrar", parametros, tran);
+                bool ok = BDUtilidades.ExecuteStoreProcedure("BandejaDeEntradaBorrarGrupo", parametros, tran);
                 if (ok)
                     return true;
                 else
@@ -157,5 +186,68 @@ namespace CapaNegocio.Factories
                 return false;
             }
         }
+
+        public static bool BorrarAvisoBandeja(int idUsr)
+        {
+            return BorrarAvisoBandeja(idUsr, (SqlTransaction)null);
+        }
+        /// <summary>
+        /// Baja de un registro con transaccion
+        /// </summary>
+        /// <param name="musico">Objeto Localidad</param>
+        /// <returns>true si guardó con éxito</returns>
+        public static bool BorrarAvisoBandeja(int idUsr, SqlTransaction tran)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(BDUtilidades.crearParametro("@idDestinatario", DbType.Int32, idUsr));
+
+                bool ok = BDUtilidades.ExecuteStoreProcedure("BandejaDeEntradaBorrarAviso", parametros, tran);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        #region ModificarLeido
+        /// <summary>
+        /// Modificación de un registro sin transaccion
+        /// </summary>
+        /// <returns>true si modificó con éxito</returns>
+        public static bool ModificarLeido(int idBandeja)
+        {
+            return ModificarLeido(idBandeja, (SqlTransaction)null);
+        }
+        /// <summary>
+        /// Modificación de un registro de Bandeja de Entrada con transaccion
+        /// </summary>
+        /// <returns>true si modificó con éxito</returns>
+        public static bool ModificarLeido(int idBandeja, SqlTransaction tran)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(BDUtilidades.crearParametro("@id", DbType.Int32, idBandeja));
+                parametros.Add(BDUtilidades.crearParametro("@leido", DbType.String, "SI"));
+
+                bool ok = BDUtilidades.ExecuteStoreProcedure("BandejaDeEntradaActualizar", parametros, tran);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+        #endregion
     }
 }
