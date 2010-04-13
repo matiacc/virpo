@@ -106,6 +106,7 @@ public partial class ListarUsuarios : System.Web.UI.Page
                 bande.IdBanda = int.Parse(idBanda.ToString());
                 bande.IdAviso = 0;
                 bande.AvisoMotivo = "NULL";
+                bande.IdGrupo = 0;
 
                 BandejaDeEntradaFactory.Insertar(bande);
             }
