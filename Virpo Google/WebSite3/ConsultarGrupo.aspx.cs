@@ -26,6 +26,7 @@ public partial class ConsultarGrupo : System.Web.UI.Page
                 int id = Convert.ToInt32(Request.QueryString["id"]);
                 Grupo grupo = new Grupo();
                 grupo = GrupoFactory.Devolver(id);
+                Session["Grupo"] = grupo;
                 lblDebate.Text = "<a href='Debate.aspx?grupo=" + id + "'>Debates</a>";
 
                 lblProyectos.Text = "<a href='Proyectos.aspx?grupo="+ id +"' title='Proyectos'>Proyectos</a>";
@@ -77,12 +78,24 @@ public partial class ConsultarGrupo : System.Web.UI.Page
         else if (GrupoFactory.UsuarioXGrupoInsertar(((Usuario)Session["Usuario"]).Id, (int)ViewState["idGrupo"]))
             {
                 string asunto = "Virpo: Tu grupo "+ lblNombre.Text +" tiene un nuevo miembro!!!";
-                string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/inicio.aspx";
+                string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/Login.aspx?url=ConsultarGrupo.aspx?id=" + ViewState["idGrupo"].ToString();
                 //string url = "http://127.0.0.1:50753/WebSite3/inicio.aspx";
                 //DEVOLVER NOMBRE Y EMAIL DEL CREADOR
                 string mensaje = "Hola <b>" + lblCreador.Text + "</b>, un Músico se ha unido al grupo <b>" + lblNombre.Text + "</b> que creaste en Virpo.<br /><br />Ingresa al sitio para mas informacion:<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
                 EnviarMail.Mande("Virpo", ViewState["mailCreador"].ToString(), asunto, mensaje);
+
+                //Registrar las Adhesiones al Grupo en la tabla "BandejaDeEntrada"
+                BandejaDeEntrada bande = new BandejaDeEntrada();
+                bande.UsrDestinatario = ((Grupo)Session["Grupo"]).Creador.Id;
+                bande.UsrRemitente = int.Parse(((Usuario)Session["Usuario"]).Id.ToString());
+                bande.Fecha = DateTime.Now;
+                bande.IdBanda = 0;
+                bande.IdAviso = 0;
+                bande.AvisoMotivo = "NULL";
+                bande.IdGrupo = int.Parse(ViewState["idGrupo"].ToString());
                 
+                BandejaDeEntradaFactory.Insertar(bande);
+
                 this.CargarMiembros((int)ViewState["idGrupo"]);
                 Panel1_ModalPopupExtender.Show();
             }
