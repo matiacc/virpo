@@ -54,7 +54,8 @@
                     Width="165px">
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                    ControlToValidate="ddlCategoria" ErrorMessage="Falta Categoria"></asp:RequiredFieldValidator>
+                    ControlToValidate="ddlCategoria" ErrorMessage="Falta Categoria" 
+                    Display="Dynamic"></asp:RequiredFieldValidator>
             </td>
             <td>
             </td>
