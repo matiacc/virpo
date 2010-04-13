@@ -40,7 +40,8 @@ location.href=pagina+idinv+"&ace="+ac
 <%--<head id="Head1" runat="server" />--%>
 <head id="Head1" runat="server" />
 
-                <cc1:TabContainer ID="TabContainer1" runat="server" style="Height: 100%;Width: 750px" >
+                <cc1:TabContainer ID="TabContainer1" runat="server" 
+                    style="Height: 100%;Width: 750px" ActiveTabIndex="1" >
              <%--   
              <cc1:TabContainer ID="TabContainer1" runat="server" CssClass="ajax__myTab" >
                 <style type="text/css" Height="100%";Width="750px">
@@ -121,8 +122,7 @@ location.href=pagina+idinv+"&ace="+ac
                     </HeaderTemplate>
                 
                 <ContentTemplate>
-                    <br />
-                    <br />
+                        <asp:Button ID="btnBorrarAvisosLeidos" runat="server" Text="Borrar Leídos" onclick="btnBorrarAvisosLeidos_Click" />
          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
                         <asp:GridView ID="gvAvisosClasificados" runat="server" CssClass="GridViewStyle" 
@@ -153,6 +153,7 @@ location.href=pagina+idinv+"&ace="+ac
                                     <ItemStyle HorizontalAlign="Left" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="avisoMotivo" HeaderText="Motivo" />
+                                <asp:BoundField DataField="leido" HeaderText="Leído" />
                                 <asp:CommandField ButtonType="Image" HeaderText="Ver" 
             SelectImageUrl="~/ImagenesSite/lupa3.png" SelectText="" 
             ShowSelectButton="True" >
@@ -170,6 +171,55 @@ location.href=pagina+idinv+"&ace="+ac
                     </ContentTemplate>
                 </asp:UpdatePanel>  
                      <asp:Label ID="lblAvisosClasificados" runat="server"></asp:Label>
+                    </ContentTemplate>
+                </cc1:TabPanel>
+                <cc1:TabPanel ID="TabPanel3" runat="server" HeaderText="Bandas" TabIndex="2" >
+                
+                    <HeaderTemplate>
+                        Grupos
+                    </HeaderTemplate>
+                
+                <ContentTemplate>
+                <asp:Button ID="btnBorrarGruposLeidos" runat="server" Text="Borrar Leídos" 
+                            onclick="btnBorrarGruposLeidos_Click" />
+                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                    <ContentTemplate>
+                        <asp:GridView ID="gvGrupos" runat="server" CssClass="GridViewStyle" AutoGenerateColumns="False" CellPadding="4" 
+                        ForeColor="#333333" GridLines="None" onselectedindexchanged="gvGrupos_SelectedIndexChanged" AllowPaging="True" 
+                        onpageindexchanging="gvGrupos_PageIndexChanging" DataKeyNames="idBandeja" >
+                            <RowStyle BackColor="#CCCCCC" />
+                            <Columns>
+                                <asp:BoundField DataField="idBandeja" HeaderText="idBandeja" Visible="False" />
+                                <asp:BoundField DataField="nvoIntegrante" HeaderText="Nuevo Integrante" >
+                                    <HeaderStyle Width="100px" HorizontalAlign="Left"/>
+                                    <ItemStyle HorizontalAlign="Left" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="fecha" HeaderText="Fecha Adhesión" >
+                                    <HeaderStyle Width="150px" HorizontalAlign="Left"/>
+                                    <ItemStyle HorizontalAlign="Left" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="idGrupo" HeaderText="" >
+                                </asp:BoundField>
+                                <asp:BoundField DataField="grupo" HeaderText="Grupo de Interés" >
+                                    <HeaderStyle Width="400px" HorizontalAlign="Left"/>
+                                    <ItemStyle HorizontalAlign="Left" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="leido" HeaderText="Leído" />
+                                <asp:CommandField ButtonType="Image" HeaderText="Ver"  SelectImageUrl="~/ImagenesSite/lupa3.png" SelectText="" 
+                                ShowSelectButton="True" >
+                                    <HeaderStyle Width="50px" />
+                                </asp:CommandField>
+                            </Columns>
+                            <FooterStyle Font-Bold="True" ForeColor="#660066" />
+                            <PagerStyle ForeColor="#660066" HorizontalAlign="Center" />
+                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                            <AlternatingRowStyle BackColor="White" />
+                        </asp:GridView>
+                    </ContentTemplate>
+                </asp:UpdatePanel>  
+                        
+                             <asp:Label ID="lblGrupo" runat="server"></asp:Label>
                     </ContentTemplate>
                 </cc1:TabPanel>
                 </cc1:TabContainer>
@@ -195,7 +245,7 @@ location.href=pagina+idinv+"&ace="+ac
         </tr>
         <tr>
             <td>
-             
+
             </td>
         </tr>
         <tr>
