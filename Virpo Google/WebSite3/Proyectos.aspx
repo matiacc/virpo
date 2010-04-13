@@ -5,6 +5,7 @@
     <div id="menu8">
         <ul>
             <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
+            <li><a href="MisProyectos.aspx?" title="Mis Proyectos">Mis Proyectos</a></li>
             <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
             <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones Terminadas</a></li>
         </ul>
@@ -54,7 +55,9 @@
             </asp:ImageField>
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
             <asp:BoundField DataField="Genero" HeaderText="Genero" SortExpression="Genero" />
-            <asp:BoundField DataField="Creado" HeaderText="Creado" SortExpression="Creado" />
+            <asp:BoundField DataField="Creado" HeaderText="Creado" SortExpression="Creado">
+            <ItemStyle Width="100px" />
+            </asp:BoundField>
             <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/lupa3.png"
                 Text="Consultar" />
         </Columns>
