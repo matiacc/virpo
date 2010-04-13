@@ -33,14 +33,14 @@ tituloSubVentana
 h1 img {
 	display: block;
 }
-img {
+/*img {
 	border-style: none;
     border-color: inherit;
     border-width: 0;
     width: 54px;
     height: 54px;
 	font-family: "Arial Black";
-}
+}*/
 a {
 	color: #333;
 	font-weight: bold;
