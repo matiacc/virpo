@@ -280,6 +280,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@sexo", DbType.String, usr.Sexo));
                 parametros.Add(BDUtilidades.crearParametro("@idLocalidad", DbType.Int32, usr.IdLocalidad));
                 parametros.Add(BDUtilidades.crearParametro("@idInstrumento", DbType.Int32, usr.IdInstrumento));
+                parametros.Add(BDUtilidades.crearParametro("@idTipoUsuario", DbType.Int32, usr.IdTipoUsuario));
                 bool ok = BDUtilidades.ExecuteStoreProcedure("UsuarioActualizar", parametros, tran);
                 if (ok)
                     return true;
