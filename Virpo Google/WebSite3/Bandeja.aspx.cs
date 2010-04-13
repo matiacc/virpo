@@ -34,6 +34,7 @@ public partial class Bandeja : System.Web.UI.Page
         //if (bandejasC.Count != 0)
         //{
             CargarGrilla();
+            CargarGrillaGrupos();
         //}
         //else
         //{
@@ -88,6 +89,7 @@ public partial class Bandeja : System.Web.UI.Page
             dt.Columns.Add("idAviso");
             dt.Columns.Add("aviso");
             dt.Columns.Add("avisoMotivo");
+            dt.Columns.Add("leido");
 
             for (int i = 0; i < bandejas.Count; i++)
             {
@@ -98,6 +100,7 @@ public partial class Bandeja : System.Web.UI.Page
                 row["idAviso"] = bandejas[i].IdAviso;
                 row["aviso"] = (AvisoClasificadoFactory.Devolver(int.Parse(bandejas[i].IdAviso.ToString()))).Titulo;
                 row["avisoMotivo"] = bandejas[i].AvisoMotivo.ToString();
+                row["leido"] = bandejas[i].Leido;
 
                 dt.Rows.Add(row);
             }
@@ -106,7 +109,8 @@ public partial class Bandeja : System.Web.UI.Page
         }
         else
         {
-            lblAvisosClasificados.Text = "Actualmente no posee mensajes sobre Avisos Clasificados";
+            btnBorrarAvisosLeidos.Visible = false;
+            lblAvisosClasificados.Text = "Actualmente no posee mensajes sobre Avisos Clasificados.";
             //TabContainer1.Height = Unit.Pixel(600);
         }
     }
@@ -114,12 +118,12 @@ public partial class Bandeja : System.Web.UI.Page
     {
         if (gvAvisosClasificados.SelectedRow.Cells[5].Text == "Respuesta")
         {
-    BandejaDeEntradaFactory.Borrar(int.Parse(gvAvisosClasificados.SelectedDataKey.Value.ToString()));
+            BandejaDeEntradaFactory.ModificarLeido(int.Parse(gvAvisosClasificados.SelectedDataKey.Value.ToString()));
             Response.Redirect("ConsultarClasificado.aspx?C=" + gvAvisosClasificados.SelectedRow.Cells[3].Text.ToString());
         }
         else
         {
-            BandejaDeEntradaFactory.Borrar(int.Parse(gvAvisosClasificados.SelectedDataKey.Value.ToString()));
+            BandejaDeEntradaFactory.ModificarLeido(int.Parse(gvAvisosClasificados.SelectedDataKey.Value.ToString()));
             Response.Redirect("MisAvisosClasificados.aspx");
         }
     }
@@ -127,5 +131,63 @@ public partial class Bandeja : System.Web.UI.Page
     {
         gvAvisosClasificados.PageIndex = e.NewPageIndex;
         CargarGrilla();
+    }
+    protected void btnBorrarAvisosLeidos_Click(object sender, EventArgs e)
+    {
+        BandejaDeEntradaFactory.BorrarAvisoBandeja(((Usuario)Session["Usuario"]).Id);
+    }
+
+    private void CargarGrillaGrupos()
+    {
+        List<BandejaDeEntrada> bandejas = BandejaDeEntradaFactory.DevolverGruposDeBandejaDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
+
+        if (bandejas.Count != 0)
+        {
+            DataTable dt = new DataTable();
+            DataRow row;
+            dt.Columns.Add("idBandeja");
+            dt.Columns.Add("nvoIntegrante");
+            dt.Columns.Add("fecha");
+            dt.Columns.Add("idGrupo");
+            dt.Columns.Add("grupo");
+            dt.Columns.Add("leido");
+
+            for (int i = 0; i < bandejas.Count; i++)
+            {
+                row = dt.NewRow();
+                row["idBandeja"] = bandejas[i].Id;
+                row["nvoIntegrante"] = (UsuarioFactory.Devolver(int.Parse(bandejas[i].UsrRemitente.ToString()))).NombreUsuario;
+                row["fecha"] = bandejas[i].Fecha;
+                row["idGrupo"] = bandejas[i].IdGrupo;
+                row["grupo"] = (GrupoFactory.Devolver(int.Parse(bandejas[i].IdGrupo.ToString()))).Nombre;
+                row["leido"] = bandejas[i].Leido;
+
+                dt.Rows.Add(row);
+            }
+            gvGrupos.DataSource = dt;
+            gvGrupos.DataBind();
+        }
+        else
+        {
+            btnBorrarGruposLeidos.Visible = false;
+            lblGrupo.Text = "Actualmente no posee mensajes sobre Grupos de Interés.";
+            //TabContainer1.Height = Unit.Pixel(600);
+        }
+
+    }
+    protected void gvGrupos_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        BandejaDeEntradaFactory.ModificarLeido(int.Parse(gvGrupos.SelectedDataKey.Value.ToString()));
+        Response.Redirect("ConsultarGrupo.aspx?id=" + gvGrupos.SelectedRow.Cells[3].Text.ToString());
+
+    }
+    protected void gvGrupos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        gvGrupos.PageIndex = e.NewPageIndex;
+        CargarGrillaGrupos();
+    }
+    protected void btnBorrarGruposLeidos_Click(object sender, EventArgs e)
+    {
+        BandejaDeEntradaFactory.BorrarGrupoBandeja(((Usuario)Session["Usuario"]).Id);
     }
 }
