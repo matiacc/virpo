@@ -19,10 +19,14 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
     {
-        if (Login1.UserName.ToUpper() == "ADMIN" && Login1.Password.ToUpper() == "ADMIN")
+        string roles = Seguridad.ObtenerRoles(Login1.UserName);
+        int existe = CapaNegocio.Factories.UsuarioFactory.DevolverEscalar(Login1.UserName, Login1.Password);
+
+        if ((roles == "Administrador" || roles == "Periodista") && existe != 0)
         {
-            Session["Admin"] = "Admin";
+            Session["UsuarioAdmin"] = CapaNegocio.Factories.UsuarioFactory.Devolver(Login1.UserName);
             e.Authenticated = true;
-        }  
+        }
+        else Login1.FailureText = "Debe ser Administrador o Priodista para poder ingresar.";
     }
 }
