@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div id="menu8">
         <ul>
-            <li><a href="AdminHome.aspx" title="Home Administracion">Home Admin</a></li>
+            <li><a href="AdminHome.aspx" title="Home Administracion">Home</a></li>
             <li><a href="NoticiaNueva.aspx" title="Nueva Noticia">Nueva Noticia</a></li>
             <li><a href="BajasNoticias.aspx" title="Altas y Bajas">Modificar & Bajas</a></li>
         </ul>
