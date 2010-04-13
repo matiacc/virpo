@@ -100,6 +100,8 @@ public partial class Proyectos : System.Web.UI.Page
                 row["Nombre"] = proyecto.Nombre;
                 row["Id"] = proyecto.Id;
                 row["Genero"] = proyecto.Genero;
+                if (string.IsNullOrEmpty(proyecto.Genero))
+                    proyecto.Genero = "N/A";
                 Usuario creador = UsuarioFactory.DevolverCreadorDeProyecto(proyecto.Id);
                 if (creador != null)
                     row["Creado"] = "El " + proyecto.FechaCreacion.ToShortDateString() + " por " + creador.NombreUsuario;
