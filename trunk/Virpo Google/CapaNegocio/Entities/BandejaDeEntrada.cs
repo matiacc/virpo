@@ -14,6 +14,9 @@ namespace CapaNegocio.Entities
         private int idBanda;
         private int idAviso;
         private string avisoMotivo;
+        private int idGrupo;
+        private string leido;
+
 
         #region Propiedades
 
@@ -51,6 +54,16 @@ namespace CapaNegocio.Entities
         {
             get { return avisoMotivo; }
             set { avisoMotivo = value; }
+        }
+        public int IdGrupo
+        {
+            get { return idGrupo; }
+            set { idGrupo = value; }
+        }
+        public string Leido
+        {
+            get { return leido; }
+            set { leido = value; }
         }
         #endregion
     }
