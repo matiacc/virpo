@@ -135,6 +135,7 @@ public partial class Bandeja : System.Web.UI.Page
     protected void btnBorrarAvisosLeidos_Click(object sender, EventArgs e)
     {
         BandejaDeEntradaFactory.BorrarAvisoBandeja(((Usuario)Session["Usuario"]).Id);
+        CargarGrilla();
     }
 
     private void CargarGrillaGrupos()
@@ -189,5 +190,6 @@ public partial class Bandeja : System.Web.UI.Page
     protected void btnBorrarGruposLeidos_Click(object sender, EventArgs e)
     {
         BandejaDeEntradaFactory.BorrarGrupoBandeja(((Usuario)Session["Usuario"]).Id);
+        CargarGrillaGrupos();
     }
 }
