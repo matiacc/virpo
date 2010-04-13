@@ -32,7 +32,7 @@ public partial class Proyecto : System.Web.UI.Page
         {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
-            if (Request.QueryString["Id"] != null)
+            if (!string.IsNullOrEmpty(Request.QueryString["Id"]))
             {
                 int id = Convert.ToInt32(Request.QueryString["Id"]);
                 ViewState.Add("idProyecto", id);
@@ -107,7 +107,7 @@ public partial class Proyecto : System.Web.UI.Page
         {
             Response.Redirect("NuevaComposicion.aspx?idProyecto=" + ViewState["idProyecto"], false);
         }
-        else if (ProyectoFactory.InsertarUsuarioXProyecto(((Usuario)Session["Usuario"]).Id, (int)ViewState["idProyecto"], DateTime.Now))
+        else if (ProyectoFactory.InsertarUsuarioXProyecto(((Usuario)Session["Usuario"]).Id, (int)ViewState["idProyecto"], false))
         {
             string asunto = "Virpo: Un Músico se ha unido a tu proyecto!!!";
             string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/inicio.aspx";

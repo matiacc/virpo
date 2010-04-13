@@ -99,7 +99,12 @@ public partial class Proyectos : System.Web.UI.Page
                 row["Imagen"] = proyecto.Imagen;
                 row["Nombre"] = proyecto.Nombre;
                 row["Id"] = proyecto.Id;
-                row["Creado"] = proyecto.FechaCreacion.ToShortDateString();
+                row["Genero"] = proyecto.Genero;
+                Usuario creador = UsuarioFactory.DevolverCreadorDeProyecto(proyecto.Id);
+                if (creador != null)
+                    row["Creado"] = "El " + proyecto.FechaCreacion.ToShortDateString() + " por " + creador.NombreUsuario;
+                else
+                    row["Creado"] = proyecto.FechaCreacion.ToShortDateString();
                 dt.Rows.Add(row);
             }
             return dt;

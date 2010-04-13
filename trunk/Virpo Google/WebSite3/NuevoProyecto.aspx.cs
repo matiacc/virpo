@@ -83,7 +83,7 @@ public partial class NuevoProyecto : System.Web.UI.Page
             if (ProyectoFactory.Insertar(proyecto))
             {
                 int idProyecto = ProyectoFactory.DevolverIdProyectoCreado(proyecto.FechaCreacion);
-                ProyectoFactory.InsertarUsuarioXProyecto(proyecto.Usuario.Id, idProyecto, DateTime.Now);
+                ProyectoFactory.InsertarUsuarioXProyecto(proyecto.Usuario.Id, idProyecto, true);
                 Response.Redirect("Proyecto.aspx?Id=" + idProyecto);
                 //Context.Server.Transfer("Proyecto.aspx?Id=" + idProyecto,true);
             }

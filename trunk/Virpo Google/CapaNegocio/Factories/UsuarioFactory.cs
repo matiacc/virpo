@@ -197,10 +197,31 @@ namespace CapaNegocio.Factories
             
         }
 
-        //public static List<Musico> DevolverTodos()
-        //{
+        public static Usuario DevolverCreadorDeProyecto(int idProyecto)
+        {
+            string query = "SELECT U.id, U.nombre, U.apellido, U.nombreUsuario, U.imagen " +
+                        "FROM UsuarioXProyecto UP, Usuario U " +
+                        "WHERE UP.idUsuario = U.id " +
+                        "AND UP.idProyecto = " + idProyecto +
+                        " AND UP.esCreador = 'True'";
 
-        //}
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                Usuario usu = new Usuario();
+                usu.Id = Convert.ToInt32(dt.Rows[0]["id"].ToString());
+                usu.Nombre = dt.Rows[0]["nombre"].ToString();
+                usu.Apellido = dt.Rows[0]["apellido"].ToString();
+                usu.NombreUsuario = dt.Rows[0]["nombreUsuario"].ToString();
+                usu.Imagen = dt.Rows[0]["imagen"].ToString();
+
+                return usu;
+            }
+            else
+                return null;
+        
+        }
+
         /// <summary>
         /// Alta de un Musico sin transaccion
         /// </summary>
