@@ -53,6 +53,8 @@ namespace CapaNegocio.Factories
 
             if (!string.IsNullOrEmpty(restriccion))
                 query += restriccion;
+
+            query += " ORDER BY fechaCreacion DESC";
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
             {
@@ -118,6 +120,32 @@ namespace CapaNegocio.Factories
                 return null;
             }
         }
+
+
+        public static Proyecto DevolverProyectoPorComposicion(int idComposicion)
+        {
+            string query = "SELECT P.id, P.nombre,P.descripcion " +
+                         "FROM         ComposicionXProyecto AS UP INNER JOIN "+
+                                       "Proyecto AS P ON UP.idProyecto = P.id "+
+                         "WHERE     (UP.idComposicion = "+ idComposicion +")";
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                Proyecto proyecto = new Proyecto();
+                proyecto.Id = (int)dt.Rows[0]["id"];
+                proyecto.Nombre = dt.Rows[0]["nombre"].ToString();
+                proyecto.Descripcion = dt.Rows[0]["descripcion"].ToString();
+            
+                return proyecto;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        
 
         public static int DevolverIdProyectoCreado(DateTime fecSis)
         {
