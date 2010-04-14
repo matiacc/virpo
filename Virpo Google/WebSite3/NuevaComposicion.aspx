@@ -29,7 +29,7 @@
         </tr>
         <tr>
             <td>
-                Tipo de Conposicion:
+                Tipo de Composición:
             </td>
             <td colspan="2">
                 <asp:RadioButton ID="RadioButton1" runat="server" Text="Pista" GroupName="Tipo" Checked="True" />
@@ -127,7 +127,7 @@
         </tr>
         <tr>
             <td>
-                Descripcion
+                Descripción
             </td>
             <td colspan="2">
                 <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Width="145px"></asp:TextBox>
