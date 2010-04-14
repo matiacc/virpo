@@ -14,12 +14,9 @@ using CapaNegocio.Entities;
 
 public partial class musicamania_Virpo : System.Web.UI.MasterPage
 {
-  
-
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-        
+
     }
 
   
