@@ -16,6 +16,6 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
-            if (Session["Admin"] == null) Response.Redirect("admin.aspx");
+            if (Session["UsuarioAdmin"] == null) Response.Redirect("admin.aspx");
     }
 }
