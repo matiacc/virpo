@@ -36,16 +36,20 @@ public partial class _Default : System.Web.UI.Page
                 //Label1.Visible = false;
                 DataTable dt = this.DatosCancionesTerminadas();
                 GridView1.Columns[5].Visible = true;
-
+                
                 GridView1.DataSource = dt;
                 if (dt.Rows.Count == 0)
                 {
                     Label2.Visible = true;
                     Label2.Text = "No hay canciones terminadas";
                 }
-                pnlReproductor.Visible = true;
-                GridView1.DataBind();
-                GridView1.Columns[5].Visible = false;
+                else
+                {
+                    pnlReproductor.Visible = true;
+                    GridView1.DataBind();
+                    GridView1.Columns[5].Visible = false;
+                    prueba.InnerText = "Canciones Terminadas";
+                }
             }
             else
                 this.CargarComposiciones();
@@ -77,7 +81,8 @@ public partial class _Default : System.Web.UI.Page
         dt.Columns.Add("Instrumento");
         //dt.Columns.Add("Ruta2");
         dt.Columns.Add("Id");
-        
+        dt.Columns.Add("Proyecto");
+
         Usuario usuario = (Usuario)Session["Usuario"];
         String a = "WHERE Composicion.idUsuario = " + Convert.ToString(usuario.Id);
         List<Composicion> composiciones = ComposicionFactory.DevolverTodos(a);
@@ -92,15 +97,18 @@ public partial class _Default : System.Web.UI.Page
                 if (composicion.Instrumento != null)
                     row["Instrumento"] = composicion.Instrumento.Nombre;
                 else
-                    row["Instrumento"] = "Instrumento No definido";
+                    row["Instrumento"] = "N/A";
                 
                 if (composicion.Tipo != null)
                     row["Tipo"] = composicion.Tipo;
                 else
-                    row["Tipo"] = "Tipo No definido";
+                    row["Tipo"] = "N/A";
+                
                 //row["Ruta2"] = "./Composiciones/" + composicion.Audio;
                 row["Id"] = composicion.Id;
-
+                Proyecto proy = ProyectoFactory.DevolverProyectoPorComposicion(composicion.Id);
+                if(proy != null)
+                    row["Proyecto"] = "./Proyecto.aspx?Id="+ proy.Id;
                 dt.Rows.Add(row);
             }
             return dt;
@@ -174,7 +182,13 @@ public partial class _Default : System.Web.UI.Page
             this.Page.DataBind();
             this.CargarComposiciones();
         }
-
+        if (e.CommandName == "Proy")
+        {
+            int id = Convert.ToInt32(GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text);
+            Proyecto proy = ProyectoFactory.DevolverProyectoPorComposicion(id);
+            if (proy != null)
+                Response.Redirect("Proyecto.aspx?Id=" + proy.Id);
+        }
 
 
 

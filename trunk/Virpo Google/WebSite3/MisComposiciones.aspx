@@ -14,8 +14,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
   <center style="width: 529px; background-color: #333333">
-                    <titulosubventana>
-                    Mis Composiciones</titulosubventana>
+                    <titulosubventana><div id="prueba" runat="server">
+                    Mis Composiciones</div></titulosubventana>
                 </center>
     <p>
         &nbsp;<asp:Panel ID="pnlReproductor" runat="server" Height="42px" Visible="False" Width="506px">
@@ -62,6 +62,9 @@
                     SortExpression="Instrumento" />
                 <asp:HyperLinkField DataNavigateUrlFields="Ruta" Text="Descargar" />
                 <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
+                <asp:ButtonField ButtonType="Image" CommandName="Proy" HeaderText="Proyecto"
+                    ImageUrl="~/ImagenesSite/verProyecto.jpg" Text="Proy">
+                </asp:ButtonField>
                 <asp:ButtonField ButtonType="Image" CommandName="E" DataTextField="Ruta" 
                     ImageUrl="~/ImagenesSite/delete.png" Text="Eliminar"/>
                 <asp:ButtonField ButtonType="Image" CommandName="C" 
