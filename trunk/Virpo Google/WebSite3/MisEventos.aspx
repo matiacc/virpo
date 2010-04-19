@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="MisEventos.aspx.cs" Inherits="_Default" Title="Página sin título" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="MisEventos.aspx.cs" 
+Inherits="MisEventos" Title="Página sin título" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div id="menu8">
@@ -10,6 +11,16 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+    <center style="background-color: #333333; width: 523px;">
+        <titulosubventana>
+        MisEventos
+        </titulosubventana>
+        <br />
+       
+      
+    </center>
+
+    <asp:Label ID="lblEventos" runat="server" style="text-align: left"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
 </asp:Content>

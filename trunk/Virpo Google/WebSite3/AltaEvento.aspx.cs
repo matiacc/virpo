@@ -48,13 +48,14 @@ public partial class _Default : System.Web.UI.Page
         
         for (int i = 0; i < 24; i++)
         {
-            ddlHora.Items.Add(Convert.ToString(i));
-	 
+           if(i<10)ddlHora.Items.Add("0"+Convert.ToString(i));
+           else ddlHora.Items.Add(Convert.ToString(i));
+
         }
-        ddlMin.Items.Add(Convert.ToString(00));
-        ddlMin.Items.Add(Convert.ToString(15));
-        ddlMin.Items.Add(Convert.ToString(30));
-        ddlMin.Items.Add(Convert.ToString(45));
+        ddlMin.Items.Add("00");
+        ddlMin.Items.Add("15");
+        ddlMin.Items.Add("30");
+        ddlMin.Items.Add("45");
 
     }
 
@@ -109,7 +110,7 @@ public partial class _Default : System.Web.UI.Page
         Evento evento = new Evento();
         evento.Nombre = txtNombre.Text;
         evento.Lugar = txtLugar.Text;
-        String ubicacion = txtDireccion.Text +", "+txtCiudad.Text + ", Argentina";
+        String ubicacion = txtDireccion.Text +", "+ddlCiudad.SelectedItem +", "+ ddlPaises.SelectedItem;
         evento.Ubicacion = ubicacion;
         evento.Fecha = Calendar1.SelectedDate;
         evento.Hora = Convert.ToDateTime(ddlHora.SelectedItem + ":" + ddlMin.SelectedItem);
@@ -117,11 +118,26 @@ public partial class _Default : System.Web.UI.Page
         evento.Estado = "pendiente";
         evento.Musico = (Usuario)Session["Usuario"];
         Banda banda = new Banda();
-        evento.Imagen = ImageMap1.ImageUrl;
-        banda.Id = Convert.ToInt32(ddlBandas.SelectedValue);
+        if (ImageMap1.ImageUrl == "./ImagenesSite/interrogacion.jpg") evento.Imagen = "./ImagenesEventos/default.jpg";
+        else evento.Imagen = ImageMap1.ImageUrl;
+        if (ddlBandas.SelectedValue == null) banda.Id = -1;
+        else banda.Id = Convert.ToInt32(ddlBandas.SelectedValue);
         evento.Banda = banda;
         EventoFactory.Insertar(evento);
         Response.Redirect("Eventos.aspx");
+        
+
+    }
+
+
+    protected void ddlHora_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+    protected void ddlPaises_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ddlCiudad.Items.Clear();
+        MetodosComunes.cargarLocalidades(ddlCiudad,ddlPaises.SelectedValue);
         
 
     }

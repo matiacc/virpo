@@ -25,111 +25,132 @@
         
         
     </table>
-<table class="tabla">
+<table class="tabla" style="height: 665px">
         <tr>
-            <td>
+            <td style="height: 15px">
                                 &nbsp;</td>
-            <td style="width: 295px">
+            <td style="width: 295px; height: 15px;" colspan="2">
                                 &nbsp;</td>
-            <td style="width: 295px">
+            <td style="width: 295px; height: 15px;">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td>
+            <td style="height: 35px">
                                 <asp:Label ID="Label1" runat="server" Text="Lugar:" CssClass="estiloLabel"></asp:Label>
                             </td>
-            <td style="width: 295px">
+            <td style="width: 295px; height: 35px;" colspan="2">
                                 <asp:Label ID="lblLugar" runat="server"></asp:Label>
                             </td>
-            <td style="width: 295px">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Label ID="Label14" runat="server" Text="Creador:"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Foto Evento:
+            <td style="width: 295px" rowspan="6">
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Image ID="Image1" 
+                    runat="server" BorderColor="#CCCCCC" width="211px" 
+                    Height="208px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </td>
         </tr>
         <tr>
-            <td>
+            <td style="height: 35px">
                                 <asp:Label ID="Label7" runat="server" Text="Fecha:" CssClass="estiloLabel"></asp:Label>
                             </td>
-            <td style="width: 295px">
+            <td style="width: 295px; height: 35px;" colspan="2">
                                 <asp:Label ID="lblFecha" runat="server"></asp:Label>
-                            </td>
-            <td style="width: 295px; text-align: right;" rowspan="4">
-        <asp:ImageButton ID="ImageButton1" runat="server" Height="81px" 
-            onclick="ImageButton1_Click" Width="81px" />
-                    <asp:Image ID="Image1" runat="server" BorderColor="#CCCCCC" width="81px" 
-                    Height="81px" />
-        
                             </td>
         </tr>
         <tr>
-            <td>
+            <td style="height: 35px">
                                 <asp:Label ID="Label8" runat="server" Text="Hora:" CssClass="estiloLabel"></asp:Label>
                             </td>
-            <td style="width: 295px">
+            <td style="width: 295px; height: 35px;" colspan="2">
                                 <asp:Label ID="lblHora" runat="server"></asp:Label>
                             </td>
         </tr>
         <tr>
-            <td>
+            <td style="height: 35px">
                                 <asp:Label ID="Label12" runat="server" Text="País:" CssClass="estiloLabel"></asp:Label>
                             </td>
-            <td style="width: 295px">
+            <td style="width: 295px; height: 35px;" colspan="2">
                                 <asp:Label ID="lblPais" runat="server"></asp:Label>
                             </td>
         </tr>
         <tr>
-            <td>
+            <td style="height: 35px">
                                 <asp:Label ID="Label13" runat="server" Text="Ciudad:" CssClass="estiloLabel"></asp:Label>
                             </td>
-            <td style="width: 295px">
+            <td style="width: 295px; height: 35px;" colspan="2">
                                 <asp:Label ID="lblCiudad" runat="server"></asp:Label>
                             </td>
         </tr>
         <tr>
-            <td>
+            <td style="height: 36px">
                     <asp:Label ID="Label4" runat="server" Text="Dirección:" CssClass="estiloLabel"></asp:Label>
                 </td>
-            <td style="width: 295px">
+            <td style="width: 295px; height: 36px;" colspan="2">
                     <asp:Label ID="lblUbicacion" runat="server"></asp:Label>
                 </td>
-            <td style="width: 295px">
-                    &nbsp;</td>
         </tr>
         <tr>
-            <td>
+            <td style="height: 16px">
                 &nbsp;</td>
-            <td style="width: 295px">
+            <td style="width: 295px; height: 16px;" colspan="2">
                 &nbsp;</td>
-            <td style="width: 295px">
+            <td style="width: 295px; height: 16px;">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td>
+            <td style="height: 17px">
         <asp:Label ID="Label11" runat="server" 
             Text="Ubicación en Mapa:" Width="130px" CssClass="estiloLabel"></asp:Label>
             </td>
-            <td style="width: 295px">
+            <td style="width: 295px; height: 17px;" colspan="2">
                 &nbsp;</td>
-            <td style="width: 295px">
+            <td style="width: 295px; height: 17px;">
+                <asp:Label ID="Label16" runat="server" Text="Musico:"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 16px">
+                &nbsp;</td>
+            <td style="width: 295px; height: 16px;" colspan="2">
+                &nbsp;</td>
+            <td style="width: 295px; height: 16px;">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td>
-                &nbsp;</td>
-            <td style="width: 295px">
-                &nbsp;</td>
-            <td style="width: 295px">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td colspan="3">
+            <td colspan="4" style="height: 315px">
     <cc1:GMap ID="GMap1" runat="server" Width="527px" />
     
             </td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td colspan="4">
                 &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="height: 1px; background-color: #C0C0C0;">
+                
+                  
+                <asp:Label ID="Label15" runat="server" Text="Banda Auspiciante" Font-Size="Small"></asp:Label>
+             
+            </td>
+            <td style="height: 1px">
+                &nbsp;</td>
+            <td colspan="2" style="height: 1px">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                &nbsp;</td>
+            <td colspan="2">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="height: 79px">
+                <asp:Label ID="lblBanda" runat="server"></asp:Label>
+            </td>
+            <td colspan="2" style="height: 79px">
+            
+            <a href="http://www.google.com.ar"><img src="http://gifsanimados.espaciolatino.com/correu12.gif"></a> 
+                <br />
+            </td>
         </tr>
     </table>
         
