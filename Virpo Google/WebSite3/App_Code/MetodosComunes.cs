@@ -157,6 +157,15 @@ public static class MetodosComunes
         CargarCombo(ddl, dr, "nombre", "id", "Seleccione una opción");
         dr.Close();
     }
+    public static void cargarLocalidades(DropDownList ddl, string idPais)
+    {
+        string query = "SELECT L.id, L.nombre FROM Localidad L, Provincia P WHERE P.id = L.idProvincia AND P.idPais = "+ idPais;
+        SqlDataReader dr = BDUtilidades.GetReader(query);
+
+
+        CargarCombo(ddl, dr, "nombre", "id", "Seleccione una opción");
+        dr.Close();
+    }
     public static void cargarLocalidades(DropDownList ddl, int idProvincia)
     {
         string query = "SELECT id, nombre FROM Localidad WHERE idProvincia = " + idProvincia;

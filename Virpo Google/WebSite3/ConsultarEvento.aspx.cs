@@ -42,20 +42,15 @@ public partial class _Default : System.Web.UI.Page
         Usuario u = (Usuario)Session["Usuario"];
 
         idU = evento.Musico.Id;
-
-        if (u.Id != idU)
-        {
-
-            ImageButton1.ImageUrl = "./ImagenesUsuario/" + evento.Musico.Imagen;
-
-
-        }
-
+        /*
+        if (u.Id != idU)ImageButton1.ImageUrl = "./ImagenesUsuario/" + evento.Musico.Imagen;
         else
         {
-            Label14.Visible = false;
+            //Label14.Visible = false;
             ImageButton1.Visible = false;
-        }
+        }*/
+        CargarBanda(evento.Banda);
+
 
 
     }
@@ -94,18 +89,31 @@ public partial class _Default : System.Web.UI.Page
                          
         
     }
-
-
-
-
-
-
-
-
     protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
     {
 
         Response.Redirect("PerfilPublico.aspx?Id=" + idU);
 
     }
+
+    private void CargarBanda(Banda banda)
+    {
+        
+        
+        string html = "<table>";
+            html += "<tr>";
+            html += "<td>";
+            html += @"<div style='border: 0px solid rgb(192, 192, 192); position: relative; margin-right: 15px; "
+            + "margin-bottom: 15px; float: left;'><a class='blogHeadline' title='" + banda.Nombre +
+            "' href='ConsultarBanda.aspx?C=" + banda.Id + "&P=1'><img src='./ImagenesBandas/" + banda.Imagen + "' style='width:150px; height:150px;'/></a>"
+            + "<h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; background-color: black; color: rgb(51, 51, 51);'"
+            + " class='transparent_60'><font size='2'>" + banda.Nombre + "</font></h2><h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; color: white;'"
+            + "><font size='2'>" + banda.Nombre + "</font></h2>";
+            html += "</td>";
+           
+       
+        html += "</table>";
+        lblBanda.Text = html;
+    }
+
 }

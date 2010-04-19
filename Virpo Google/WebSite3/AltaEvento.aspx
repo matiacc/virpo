@@ -67,11 +67,17 @@
             <td style="width: 92px">
                 <asp:Label ID="Label4" runat="server" Text="Pais:"></asp:Label>
             </td>
-            <td style="width: 92px">
+            <td style="width: 92px" rowspan="3">
                 <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                     <ContentTemplate>
                         <asp:DropDownList ID="ddlPaises" runat="server" Width="145px" 
-                            AutoPostBack="True">
+                            AutoPostBack="True" 
+                            onselectedindexchanged="ddlPaises_SelectedIndexChanged">
+                        </asp:DropDownList>
+                        <br />
+                        <br />
+                        <asp:DropDownList ID="ddlCiudad" runat="server" AutoPostBack="True" 
+                            Height="16px" Width="144px">
                         </asp:DropDownList>
                     </ContentTemplate>
                 </asp:UpdatePanel></td>
@@ -79,18 +85,11 @@
         <tr>
             <td style="width: 92px">
                 &nbsp;</td>
-            <td style="width: 92px">
-                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 92px">
                 <asp:Label ID="Label5" runat="server" Text="Ciudad:"></asp:Label>
             </td>
-            <td style="width: 92px">
-            <div class="loginboxdiv">
-                                <asp:TextBox ID="txtCiudad" runat="server" CssClass="loginbox" Width="127px"></asp:TextBox>
-                                </div>
-                                </td>
         </tr>
         <tr>
             <td style="width: 92px">
@@ -151,7 +150,7 @@
                  <table class="style1" style="width: 104%; margin-left: 0px">
                     <tr>
                         <td style="text-align: right; width: 33px">
-                            <asp:DropDownList ID="ddlHora" runat="server" 
+                            <asp:DropDownList ID="ddlHora" runat="server" onselectedindexchanged="ddlHora_SelectedIndexChanged" 
                                 >
                             </asp:DropDownList>
                         </td>
@@ -183,7 +182,7 @@
                     <ContentTemplate>
                         <asp:ImageMap ID="ImageMap1" runat="server" BorderColor="Black" 
                             BorderStyle="Double" BorderWidth="3px" HotSpotMode="PostBack" 
-                            ImageUrl="~/ImagenesSite/interrogacion.jpg">
+                            ImageUrl="./ImagenesSite/interrogacion.jpg">
                         </asp:ImageMap>
                         <br />
                         <br />
