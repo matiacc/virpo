@@ -30,7 +30,7 @@ namespace CapaNegocio.Factories
                 evento.Hora = Convert.ToDateTime(dt.Rows[0]["hora"].ToString());
                 evento.Imagen = dt.Rows[0]["imagen"].ToString();
                 evento.Musico = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[0]["idMusico"]));
-                evento.Banda = BandaFactory.Devolver(Convert.ToInt32(dt.Rows[0]["idBanda"]));
+                if (dt.Rows[0]["idBanda"] != DBNull.Value) evento.Banda = BandaFactory.Devolver(Convert.ToInt32(dt.Rows[0]["idBanda"]));
                 evento.Descripcion = dt.Rows[0]["descripcion"].ToString();
                 evento.Estado = dt.Rows[0]["estado"].ToString();
 
@@ -70,7 +70,8 @@ namespace CapaNegocio.Factories
                     evento.Hora = Convert.ToDateTime(dt.Rows[i]["hora"].ToString());
                     evento.Imagen = dt.Rows[i]["imagen"].ToString();
                     evento.Musico = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idMusico"]));
-                    evento.Banda = BandaFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idBanda"]));
+                    if (dt.Rows[i]["idBanda"] != DBNull.Value) evento.Banda = BandaFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idBanda"]));
+                    
                     evento.Descripcion = dt.Rows[i]["descripcion"].ToString();
                     evento.Estado = dt.Rows[i]["estado"].ToString();
 

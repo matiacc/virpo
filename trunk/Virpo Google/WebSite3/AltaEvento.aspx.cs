@@ -37,8 +37,6 @@ public partial class _Default : System.Web.UI.Page
         }
       
 
-        
-
     }
 
 
@@ -107,6 +105,7 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnGuardar_Click(object sender, EventArgs e)
     {
+        
         Evento evento = new Evento();
         evento.Nombre = txtNombre.Text;
         evento.Lugar = txtLugar.Text;
@@ -115,17 +114,25 @@ public partial class _Default : System.Web.UI.Page
         evento.Fecha = Calendar1.SelectedDate;
         evento.Hora = Convert.ToDateTime(ddlHora.SelectedItem + ":" + ddlMin.SelectedItem);
         evento.Descripcion = txtDescripcion.Text;
-        evento.Estado = "pendiente";
+        evento.Estado = "Pendiente";
         evento.Musico = (Usuario)Session["Usuario"];
-        Banda banda = new Banda();
+        
         if (ImageMap1.ImageUrl == "./ImagenesSite/interrogacion.jpg") evento.Imagen = "./ImagenesEventos/default.jpg";
         else evento.Imagen = ImageMap1.ImageUrl;
-        if (ddlBandas.SelectedValue == null) banda.Id = -1;
-        else banda.Id = Convert.ToInt32(ddlBandas.SelectedValue);
-        evento.Banda = banda;
+        
+        if (ddlBandas.SelectedValue != null || ddlBandas.Enabled != false)        
+        {
+            Banda banda = new Banda();
+            banda.Id = Convert.ToInt32(ddlBandas.SelectedValue);
+            evento.Banda = banda;
+            
+        }
+        
+
+        
         EventoFactory.Insertar(evento);
         Response.Redirect("Eventos.aspx");
-        
+               
 
     }
 
@@ -139,6 +146,16 @@ public partial class _Default : System.Web.UI.Page
         ddlCiudad.Items.Clear();
         MetodosComunes.cargarLocalidades(ddlCiudad,ddlPaises.SelectedValue);
         
+
+    }
+    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+    {
+        if(CheckBox1.Checked == true)ddlBandas.Enabled = true;
+        else ddlBandas.Enabled = false;
+
+    }
+    protected void txtNombre_TextChanged(object sender, EventArgs e)
+    {
 
     }
 }

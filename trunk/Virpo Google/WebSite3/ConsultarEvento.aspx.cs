@@ -29,6 +29,7 @@ public partial class _Default : System.Web.UI.Page
 
         Ubicar(evento.Ubicacion);
 
+        
         Image1.ImageUrl = evento.Imagen;
         lblNombre.Text = evento.Nombre;
         lblLugar.Text = evento.Lugar;
@@ -42,24 +43,26 @@ public partial class _Default : System.Web.UI.Page
         Usuario u = (Usuario)Session["Usuario"];
 
         idU = evento.Musico.Id;
-        /*
-        if (u.Id != idU)ImageButton1.ImageUrl = "./ImagenesUsuario/" + evento.Musico.Imagen;
+
+        if (u.Id != idU) {
+            HpLMusico.Text = evento.Musico.Nombre;
+            HpLMusico.NavigateUrl = "PerfilPublico.aspx?Id=" + idU;
+        }
         else
         {
-            //Label14.Visible = false;
-            ImageButton1.Visible = false;
-        }*/
-        CargarBanda(evento.Banda);
+            lblMusico.Visible = false;
+            HpLMusico.Visible = false;
 
-
+        }
+        if (evento.Banda != null)CargarBanda(evento.Banda);
 
     }
 
     private void setearMapa()
     {
         GMap1.enableDragging = true;
+        GMap1.BorderStyle = BorderStyle.Groove;
         GMap1.Language = "es";
-        //GMap1.enableGKeyboardHandler = true;
         GMapUIOptions options = new GMapUIOptions();
         options.maptypes_hybrid = false;
         options.keyboard = false;
@@ -89,17 +92,10 @@ public partial class _Default : System.Web.UI.Page
                          
         
     }
-    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-    {
-
-        Response.Redirect("PerfilPublico.aspx?Id=" + idU);
-
-    }
+  
 
     private void CargarBanda(Banda banda)
     {
-        
-        
         string html = "<table>";
             html += "<tr>";
             html += "<td>";
@@ -110,9 +106,10 @@ public partial class _Default : System.Web.UI.Page
             + " class='transparent_60'><font size='2'>" + banda.Nombre + "</font></h2><h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; color: white;'"
             + "><font size='2'>" + banda.Nombre + "</font></h2>";
             html += "</td>";
-           
-       
-        html += "</table>";
+            html += "</table>";
+
+            lblTituloBanda.Visible = true;
+
         lblBanda.Text = html;
     }
 
