@@ -33,10 +33,15 @@ public partial class MisEventos : System.Web.UI.Page
 
         List<Evento> eventos = EventoFactory.DevolverTodos(a);
         string html = "<table>";
+        DateTime fhoy = DateTime.Today;
         String fecha;
         for (int i = 0; i < eventos.Count; i++)
         {
             fecha = Convert.ToString(eventos[i].Fecha.Day) + "/" + Convert.ToString(eventos[i].Fecha.Month) + "/" + Convert.ToString(eventos[i].Fecha.Year);
+            if ( fhoy > eventos[i].Fecha) fecha = "<font size='5'>FINALIZADO</font>";
+            
+                  
+
 
             if (i % 2 == 0)
                 html += "<tr>";

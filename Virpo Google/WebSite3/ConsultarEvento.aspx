@@ -17,7 +17,7 @@
             <td>
              
                 <center style="width: 527px; background-color: #333333"><tituloSubVentana>
-                   <asp:Label ID="lblNombre" runat="server" ></asp:Label></tituloSubVentana></center>
+                   <asp:Label ID="lblNombre" runat="server" ForeColor="White" ></asp:Label></tituloSubVentana></center>
                 
                
             </td>
@@ -42,9 +42,10 @@
                                 <asp:Label ID="lblLugar" runat="server"></asp:Label>
                             </td>
             <td style="width: 295px" rowspan="6">
-                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Image ID="Image1" 
-                    runat="server" BorderColor="#CCCCCC" width="211px" 
-                    Height="208px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="http://www.google.com.ar">
+                <asp:Image ID="Image1" runat="server" BorderColor="#CCCCCC" width="211px" Height="208px" BorderStyle="Solid" /></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </td>
         </tr>
         <tr>
@@ -103,7 +104,9 @@
             <td style="width: 295px; height: 17px;" colspan="2">
                 &nbsp;</td>
             <td style="width: 295px; height: 17px;">
-                <asp:Label ID="Label16" runat="server" Text="Musico:"></asp:Label>
+                <asp:Label ID="lblMusico" runat="server" Text="Musico:"></asp:Label>
+                &nbsp;&nbsp;
+                <asp:HyperLink ID="HpLMusico" runat="server">[HpLMusico]</asp:HyperLink>
             </td>
         </tr>
         <tr>
@@ -125,20 +128,18 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="height: 1px; background-color: #C0C0C0;">
-                
-                  
-                <asp:Label ID="Label15" runat="server" Text="Banda Auspiciante" Font-Size="Small"></asp:Label>
+                     
              
-            </td>
-            <td style="height: 1px">
-                &nbsp;</td>
+                
             <td colspan="2" style="height: 1px">
                 &nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">
-                &nbsp;</td>
+                <asp:Label ID="lblTituloBanda" runat="server" ForeColor="Black" 
+                    Font-Bold="True" Font-Size="12pt" Text="Banda Auspiciante" Visible="False"></asp:Label>
+                <br />
+            </td>
             <td colspan="2">
                 &nbsp;</td>
         </tr>
@@ -148,8 +149,7 @@
             </td>
             <td colspan="2" style="height: 79px">
             
-            <a href="http://www.google.com.ar"><img src="http://gifsanimados.espaciolatino.com/correu12.gif"></a> 
-                <br />
+                &nbsp;<br />
             </td>
         </tr>
     </table>

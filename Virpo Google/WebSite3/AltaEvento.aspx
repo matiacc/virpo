@@ -37,15 +37,16 @@
             </td>
             <td style="width: 92px">
             <div class="loginboxdiv">
-                <asp:TextBox ID="txtNombre" runat="server" CssClass="loginbox"></asp:TextBox>
+                <asp:TextBox ID="txtNombre" runat="server" CssClass="loginbox" 
+                    ontextchanged="txtNombre_TextChanged"></asp:TextBox>
                 </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 92px">
-                &nbsp;</td>
-            <td style="width: 92px">
-                &nbsp;</td>
+            <td style="width: 92px; height: 17px;">
+                </td>
+            <td style="width: 92px; height: 17px;">
+                </td>
         </tr>
         <tr>
             <td style="width: 92px">
@@ -58,6 +59,7 @@
             </td>
         </tr>
         <tr>
+            
             <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 92px">
@@ -113,6 +115,7 @@
             <td style="width: 92px">
                 <asp:Label ID="Label14" runat="server" Text="(Ingresar Calle y Número)" 
                     Width="200px"></asp:Label>
+                <br />
             </td>
         </tr>
         <tr>
@@ -215,22 +218,39 @@
         </tr>
         <tr>
             <td style="width: 92px">
-                &nbsp;</td>
+                </td>
             <td style="width: 92px">
-                &nbsp;</td>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 92px">
+                </td>
+            <td style="width: 92px" rowspan="2">
+                <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                    <ContentTemplate>
+                        <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" 
+                            oncheckedchanged="CheckBox1_CheckedChanged" 
+                            Text="Una de mis bandas participa en el evento" Width="100px" />
+                        
+                        <br />
+                        <br />
+                        
+                        <asp:DropDownList ID="ddlBandas" runat="server" AutoPostBack="True" 
+                            Enabled="False" Width="177px" Height="25px">
+                        </asp:DropDownList>
+                        <br />
+                        
+                        
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <td>
+                </td>
+            </td>
         </tr>
         <tr>
             <td style="width: 92px">
                 <asp:Label ID="Label11" runat="server" Text="Banda:"></asp:Label>
-            </td>
-            <td style="width: 92px">
-                <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                    <ContentTemplate>
-                        <asp:DropDownList ID="ddlBandas" runat="server" AutoPostBack="True" 
-                            Width="127px">
-                        </asp:DropDownList>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
             </td>
         </tr>
         <tr>
@@ -243,6 +263,10 @@
             <td style="text-align: right;" colspan="2">
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
                     onclick="btnGuardar_Click" CssClass="botones" OnClientClick="return confirm('Evento Registrado')"/>
+                    <br />
+                    <br />
+
+                    
             </td>
         </tr>
         </table>
