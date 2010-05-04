@@ -21,7 +21,7 @@ public partial class Bandeja : System.Web.UI.Page
         List<BandejaDeEntrada> bandejasB = BandejaDeEntradaFactory.DevolverBandasDeBandejaDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
         
 
-        if (bandejasB.Count != 0)
+        if (bandejasB != null && bandejasB.Count != 0)
         {
             CargarBandeja(bandejasB);
         }
@@ -79,7 +79,7 @@ public partial class Bandeja : System.Web.UI.Page
         //List<BandejaDeEntrada> bandejasC = BandejaDeEntradaFactory.DevolverClasificadosDeBandejaDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
         List<BandejaDeEntrada> bandejas = BandejaDeEntradaFactory.DevolverClasificadosDeBandejaDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
 
-        if (bandejas.Count != 0)
+        if (bandejas !=null && bandejas.Count != 0)
         {
             DataTable dt = new DataTable();
             DataRow row;
@@ -142,7 +142,7 @@ public partial class Bandeja : System.Web.UI.Page
     {
         List<BandejaDeEntrada> bandejas = BandejaDeEntradaFactory.DevolverGruposDeBandejaDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
 
-        if (bandejas.Count != 0)
+        if (bandejas != null && bandejas.Count != 0)
         {
             DataTable dt = new DataTable();
             DataRow row;
