@@ -66,8 +66,13 @@
                 <asp:ButtonField ButtonType="Image" CommandName="Proy" HeaderText="Proyecto"
                     ImageUrl="~/ImagenesSite/go.png" Text="Proy">
                 </asp:ButtonField>
-                <asp:ButtonField ButtonType="Image" CommandName="E" DataTextField="Ruta" 
-                    ImageUrl="~/ImagenesSite/delete.png" Text="Eliminar"/>
+                <asp:TemplateField ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="false" 
+                            CommandName="E" ImageUrl="~/ImagenesSite/delete.png" 
+                            Text="Eliminar" OnClientClick="return confirm('¿Esta seguro de borrar?')"/>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:ButtonField ButtonType="Image" CommandName="C" 
                     ImageUrl="~/ImagenesSite/lupa3.png" Text="Consultar" />
             </Columns>

@@ -35,6 +35,11 @@ public partial class _Default : System.Web.UI.Page
             {
                 //Label1.Visible = false;
                 DataTable dt = this.DatosCancionesTerminadas();
+                
+                //Hacer: si el creador de la cancion es el usuario logueado, mostrar la columna 5
+                //Desde esta pantalla no se pueden eliminar las composiciones, solo desde "Mis Composiciones"
+                GridView1.Columns[7].Visible = false;
+
                 GridView1.Columns[5].Visible = true;
                 
                 GridView1.DataSource = dt;
@@ -148,7 +153,7 @@ public partial class _Default : System.Web.UI.Page
                     row["Tipo"] = "Tipo No definido";
                 //row["Ruta2"] = "./Composiciones/" + composicion.Audio;
                 row["Id"] = composicion.Id;
-
+                
                 dt.Rows.Add(row);
             }
             return dt;
