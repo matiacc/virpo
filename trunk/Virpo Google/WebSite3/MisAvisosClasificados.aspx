@@ -45,7 +45,7 @@
             <asp:TemplateField ShowHeader="False">
                 <ItemTemplate>
                     <asp:ImageButton ID="ImageButton2" runat="server" CausesValidation="False" 
-                        CommandName="Delete" ImageUrl="~/ImagenesSite/delete.png" Text="Eliminar" OnClientClick="return confirm('Seguro de borrar?')" />
+                        CommandName="Delete" ImageUrl="~/ImagenesSite/delete.png" Text="Eliminar" OnClientClick="return confirm('¿Esta seguro de borrar?')" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
