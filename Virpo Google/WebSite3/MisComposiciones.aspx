@@ -7,6 +7,7 @@
         <ul>
             
             <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
+            <li><a href="MisProyectos.aspx?" title="Mis Proyectos">Mis Proyectos</a></li>
             <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
             <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones Terminadas</a></li>
         </ul>
@@ -63,7 +64,7 @@
                 <asp:HyperLinkField DataNavigateUrlFields="Ruta" Text="Descargar" />
                 <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                 <asp:ButtonField ButtonType="Image" CommandName="Proy" HeaderText="Proyecto"
-                    ImageUrl="~/ImagenesSite/verProyecto.jpg" Text="Proy">
+                    ImageUrl="~/ImagenesSite/go.png" Text="Proy">
                 </asp:ButtonField>
                 <asp:ButtonField ButtonType="Image" CommandName="E" DataTextField="Ruta" 
                     ImageUrl="~/ImagenesSite/delete.png" Text="Eliminar"/>

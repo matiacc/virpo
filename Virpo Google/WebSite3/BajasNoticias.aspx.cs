@@ -47,7 +47,7 @@ public partial class _Default : System.Web.UI.Page
 
         List<Noticia> vigentes = NoticiasFactory.DevolverVigentes();
 
-        if (vigentes.Count != 0)
+        if (vigentes != null && vigentes.Count != 0)
         {
             int pos = 0;
             foreach (Noticia noticia in vigentes)
