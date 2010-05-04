@@ -61,10 +61,24 @@
                 </h2>
             </center>
         </asp:Panel>
-        <p>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="nosotros.aspx" title="Que es Virpo">Que es Virpo?</a></li>
-        </p>
+            <p style="text-align: center">
+                &nbsp;<asp:Panel ID="Panel1" runat="server">
+                    <center>
+                        <h3>
+                            &nbsp;Tu negocio tiene un lugar en Virpo,
+                            <asp:HyperLink ID="HyperLink2" runat="server" ForeColor="#99CCFF" NavigateUrl="~/AltaPublicidad.aspx"> 
+                            Publicitá
+                            </asp:HyperLink>
+                           
+                        </h3>
+                    </center>
+                </asp:Panel>
+                <p>
+                    &nbsp; &nbsp;<p>
+                    <li>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="nosotros.aspx" title="Que es Virpo">Que es Virpo?</a></li>
+                </p>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="Server">
     <center style="width: 130px; background-color: #333333">
