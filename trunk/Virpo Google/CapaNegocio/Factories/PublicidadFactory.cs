@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CapaNegocio.Entities;
+using CapaDatos;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace CapaNegocio.Factories
 {
@@ -10,27 +14,31 @@ namespace CapaNegocio.Factories
 
         #region Devolver
 
-        public static Noticia Devolver(int id)
+        public static Publicidad Devolver(int id)
         {
-            string query = "SELECT id, descripcion, cuerpo, fechaCreacion, idAutor, cantVisitas, posicion, esVigente " +
-                        "FROM Noticia " +
+            string query = "SELECT id, entidad, nombreContacto, telContacto, mailContacto, fechaInicio, fechaFin, frecuencia, imagen, consulta, idEstado " +
+                        "FROM Publicidad " +
                         "WHERE id=" + id;
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
 
             if (dt.Rows.Count != 0)
             {
-                Noticia noticia = new Noticia();
-                noticia.Id = id;
-                noticia.Descripcion = dt.Rows[0]["descripcion"].ToString();
-                noticia.Cuerpo = dt.Rows[0]["cuerpo"].ToString();
-                noticia.FechaCreacion = Convert.ToDateTime(dt.Rows[0]["fechaCreacion"].ToString());
-                noticia.IdAutor = (Usuario)UsuarioFactory.Devolver((int)dt.Rows[0]["idAutor"]);
-                noticia.CantVisitas = (int)dt.Rows[0]["cantVisitas"];
-                noticia.Posicion = dt.Rows[0]["posicion"].ToString();
-                noticia.EsVigente = (int)dt.Rows[0]["esVigente"];
+                Publicidad Publicidad = new Publicidad();
 
-                return noticia;
+                Publicidad.Id = id;
+                Publicidad.Entidad = dt.Rows[0]["entidad"].ToString();
+                Publicidad.NombreContacto = dt.Rows[0]["nombreContacto"].ToString();
+                Publicidad.TelContacto = dt.Rows[0]["telContacto"].ToString();
+                Publicidad.MailContacto = dt.Rows[0]["mailContacto"].ToString();
+                Publicidad.FechaInicio = Convert.ToDateTime(dt.Rows[0]["fechaInicio"].ToString());
+                Publicidad.FechaFin = Convert.ToDateTime(dt.Rows[0]["fechaFin"].ToString());
+                Publicidad.Frecuencia = (int)dt.Rows[0]["frecuencia"];
+                Publicidad.Imagen = dt.Rows[0]["imagen"].ToString();
+                Publicidad.Consulta = dt.Rows[0]["consulta"].ToString();
+                Publicidad.IdEstado = (int)dt.Rows[0]["idEstado"];
+
+                return Publicidad;
             }
             else
             {
@@ -40,31 +48,35 @@ namespace CapaNegocio.Factories
         }
 
 
-        public static List<Noticia> DevolverTodos()
+        public static List<Publicidad> DevolverTodos()
         {
-            string query = "SELECT id, descripcion, cuerpo, fechaCreacion, idAutor, cantVisitas, posicion, esVigente " +
-                        "FROM Noticia ";
+            string query = "SELECT id, entidad, nombreContacto, telContacto, mailContacto, fechaInicio, fechaFin, frecuencia, imagen, consulta, idEstado FROM Publicidad ";
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
 
             if (dt != null)
             {
-                List<Noticia> noticias = new List<Noticia>();
+                List<Publicidad> Publicidades = new List<Publicidad>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    Noticia noticia = new Noticia();
-                    noticia.Id = (int)dt.Rows[i]["id"];
-                    noticia.Descripcion = dt.Rows[i]["descripcion"].ToString();
-                    noticia.Cuerpo = dt.Rows[i]["cuerpo"].ToString();
-                    noticia.FechaCreacion = Convert.ToDateTime(dt.Rows[i]["fechaCreacion"].ToString());
-                    noticia.IdAutor = (Usuario)UsuarioFactory.Devolver((int)dt.Rows[i]["idAutor"]);
-                    noticia.CantVisitas = (int)dt.Rows[i]["cantVisitas"];
-                    noticia.Posicion = dt.Rows[i]["posicion"].ToString();
-                    noticia.EsVigente = (int)dt.Rows[i]["esVigente"];
+                    
+                Publicidad Publicidad = new Publicidad();
 
-                    noticias.Add(noticia);
+                Publicidad.Id = id;
+                Publicidad.Entidad = dt.Rows[0]["entidad"].ToString();
+                Publicidad.NombreContacto = dt.Rows[0]["nombreContacto"].ToString();
+                Publicidad.TelContacto = dt.Rows[0]["telContacto"].ToString();
+                Publicidad.MailContacto = dt.Rows[0]["mailContacto"].ToString();
+                Publicidad.FechaInicio = Convert.ToDateTime(dt.Rows[0]["fechaInicio"].ToString());
+                Publicidad.FechaFin = Convert.ToDateTime(dt.Rows[0]["fechaFin"].ToString());
+                Publicidad.Frecuencia = (int)dt.Rows[0]["frecuencia"];
+                Publicidad.Imagen = dt.Rows[0]["imagen"].ToString();
+                Publicidad.Consulta = dt.Rows[0]["consulta"].ToString();
+                Publicidad.IdEstado = (int)dt.Rows[0]["idEstado"];
+
+                Publicidades.Add(Publicidad);
                 }
-                return noticias;
+                return Publicidades;
             }
             else
             {
@@ -73,65 +85,35 @@ namespace CapaNegocio.Factories
 
         }
 
-        public static List<Noticia> DevolverVigentes()
-        {
-            string query = "SELECT id, descripcion, cuerpo, fechaCreacion, idAutor, cantVisitas, posicion, esVigente " +
-                        "FROM Noticia " +
-                        "WHERE esVigente = 1 ORDER BY 3 DESC ";
-
-            DataTable dt = BDUtilidades.EjecutarConsulta(query);
-
-            if (dt != null)
-            {
-                List<Noticia> noticias = new List<Noticia>();
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    Noticia noticia = new Noticia();
-                    noticia.Id = (int)dt.Rows[i]["id"];
-                    noticia.Descripcion = dt.Rows[i]["descripcion"].ToString();
-                    noticia.Cuerpo = dt.Rows[i]["cuerpo"].ToString();
-                    noticia.FechaCreacion = Convert.ToDateTime(dt.Rows[i]["fechaCreacion"].ToString());
-                    noticia.IdAutor = (Usuario)UsuarioFactory.Devolver((int)dt.Rows[i]["idAutor"]);
-                    noticia.CantVisitas = (int)dt.Rows[i]["cantVisitas"];
-                    noticia.Posicion = dt.Rows[i]["posicion"].ToString();
-                    noticia.EsVigente = (int)dt.Rows[i]["esVigente"];
-
-                    noticias.Add(noticia);
-                }
-                return noticias;
-            }
-            else
-            {
-                return null;
-            }
-
-        }
-
+      
         #endregion
 
 
         #region Insertar
 
-        public static bool Insertar(Noticia noticia)
+        public static bool Insertar(Publicidad Publicidad)
         {
-            return Insertar(noticia, (SqlTransaction)null);
+            return Insertar(Publicidad, (SqlTransaction)null);
         }
 
-        public static bool Insertar(Noticia noticia, SqlTransaction tran)
+        public static bool Insertar(Publicidad Publicidad, SqlTransaction tran)
         {
             try
             {
                 List<SqlParameter> parametros = new List<SqlParameter>();
 
-                parametros.Add(BDUtilidades.crearParametro("@descripcion", DbType.String, noticia.Descripcion));
-                parametros.Add(BDUtilidades.crearParametro("@cuerpo", DbType.String, noticia.Cuerpo));
-                parametros.Add(BDUtilidades.crearParametro("@fechaCreacion", DbType.DateTime, noticia.FechaCreacion));
-                parametros.Add(BDUtilidades.crearParametro("@idAutor", DbType.Int32, noticia.IdAutor.Id));
-                parametros.Add(BDUtilidades.crearParametro("@cantVisitas", DbType.Int32, noticia.CantVisitas));
-                parametros.Add(BDUtilidades.crearParametro("@posicion", DbType.String, noticia.Posicion));
-                parametros.Add(BDUtilidades.crearParametro("@esVigente", DbType.Int32, noticia.EsVigente));
+                parametros.Add(BDUtilidades.crearParametro("@entidad", DbType.String, Publicidad.Entidad));
+                parametros.Add(BDUtilidades.crearParametro("@nombreContacto", DbType.String, Publicidad.NombreContacto));
+                parametros.Add(BDUtilidades.crearParametro("@telContacto", DbType.String, Publicidad.TelContacto));
+                parametros.Add(BDUtilidades.crearParametro("@mailContacto", DbType.String, Publicidad.MailContacto));
+                parametros.Add(BDUtilidades.crearParametro("@fechaInicio", DbType.DateTime, Publicidad.FechaInicio));
+                parametros.Add(BDUtilidades.crearParametro("@fechaFin", DbType.DateTime, Publicidad.FechaFin));
+                parametros.Add(BDUtilidades.crearParametro("@frecuencia", DbType.Int32, Publicidad.Frecuencia));
+                parametros.Add(BDUtilidades.crearParametro("@imagen", DbType.String, Publicidad.Imagen));
+                parametros.Add(BDUtilidades.crearParametro("@consulta", DbType.Int32, Publicidad.Consulta));
+                parametros.Add(BDUtilidades.crearParametro("@idEstado", DbType.Int32, Publicidad.IdEstado));
 
-                bool ok = BDUtilidades.ExecuteStoreProcedure("NoticiaInsertar", parametros, tran);
+                bool ok = BDUtilidades.ExecuteStoreProcedure("PublicidadInsertar", parametros, tran);
                 if (ok)
                     return true;
                 else
@@ -147,27 +129,30 @@ namespace CapaNegocio.Factories
 
         #region Modificar
 
-        public static bool Modificar(Noticia noticia)
+        public static bool Modificar(Publicidad Publicidad)
         {
-            return Modificar(noticia, (SqlTransaction)null);
+            return Modificar(Publicidad, (SqlTransaction)null);
         }
 
-        public static bool Modificar(Noticia noticia, SqlTransaction tran)
+        public static bool Modificar(Publicidad Publicidad, SqlTransaction tran)
         {
             try
             {
                 List<SqlParameter> parametros = new List<SqlParameter>();
 
-                parametros.Add(BDUtilidades.crearParametro("@id", DbType.Int32, noticia.Id));
-                parametros.Add(BDUtilidades.crearParametro("@descripcion", DbType.String, noticia.Descripcion));
-                parametros.Add(BDUtilidades.crearParametro("@cuerpo", DbType.String, noticia.Cuerpo));
-                parametros.Add(BDUtilidades.crearParametro("@fechaCreacion", DbType.DateTime, noticia.FechaCreacion));
-                parametros.Add(BDUtilidades.crearParametro("@idAutor", DbType.Int32, noticia.IdAutor.Id));
-                parametros.Add(BDUtilidades.crearParametro("@cantVisitas", DbType.Int32, noticia.CantVisitas));
-                parametros.Add(BDUtilidades.crearParametro("@posicion", DbType.String, noticia.Posicion));
-                parametros.Add(BDUtilidades.crearParametro("@esVigente", DbType.Int32, noticia.EsVigente));
+                parametros.Add(BDUtilidades.crearParametro("@Id", DbType.Int32, Publicidad.Id));
+                parametros.Add(BDUtilidades.crearParametro("@entidad", DbType.String, Publicidad.Entidad));
+                parametros.Add(BDUtilidades.crearParametro("@nombreContacto", DbType.String, Publicidad.NombreContacto));
+                parametros.Add(BDUtilidades.crearParametro("@telContacto", DbType.String, Publicidad.TelContacto));
+                parametros.Add(BDUtilidades.crearParametro("@mailContacto", DbType.String, Publicidad.MailContacto));
+                parametros.Add(BDUtilidades.crearParametro("@fechaInicio", DbType.DateTime, Publicidad.FechaInicio));
+                parametros.Add(BDUtilidades.crearParametro("@fechaFin", DbType.DateTime, Publicidad.FechaFin));
+                parametros.Add(BDUtilidades.crearParametro("@frecuencia", DbType.Int32, Publicidad.Frecuencia));
+                parametros.Add(BDUtilidades.crearParametro("@imagen", DbType.String, Publicidad.Imagen));
+                parametros.Add(BDUtilidades.crearParametro("@consulta", DbType.Int32, Publicidad.Consulta));
+                parametros.Add(BDUtilidades.crearParametro("@idEstado", DbType.Int32, Publicidad.IdEstado));
 
-                bool ok = BDUtilidades.ExecuteStoreProcedure("NoticiaActualizar", parametros, tran);
+                bool ok = BDUtilidades.ExecuteStoreProcedure("PublicidadActualizar", parametros, tran);
                 if (ok)
                     return true;
                 else
@@ -197,7 +182,7 @@ namespace CapaNegocio.Factories
 
                 parametros.Add(BDUtilidades.crearParametro("@id", DbType.Int32, id));
 
-                bool ok = BDUtilidades.ExecuteStoreProcedure("NoticiaBorrar", parametros, tran);
+                bool ok = BDUtilidades.ExecuteStoreProcedure("PublicidadBorrar", parametros, tran);
 
                 if (ok)
                     return true;
