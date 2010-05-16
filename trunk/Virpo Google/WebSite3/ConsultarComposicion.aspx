@@ -8,7 +8,8 @@
             <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
             <li><a href="MisProyectos.aspx?" title="Mis Proyectos">Mis Proyectos</a></li>
             <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
-             <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones Terminadas</a></li>
+             <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones 
+                 Terminadas</a></li>
         </ul>
     </div>
 </asp:Content>
@@ -20,8 +21,6 @@
                     <titulosubventana>
                     Detalles de la composicion </titulosubventana>
                 </center></td>
-            <td style="height: 14px">
-                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
@@ -30,8 +29,6 @@
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
@@ -43,8 +40,6 @@
             <td>
         <asp:Label ID="Label8" runat="server" Text="Autor:"></asp:Label>
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
@@ -53,13 +48,6 @@
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
-            <td rowspan="7">
-                            <br />
-               
-                
-            
-            
-                            </td>
         </tr>
         <tr>
             <td style="width: 107px">
@@ -125,13 +113,9 @@
                     ImageUrl="~/ImagenesSite/play.png" Width="79px" 
                     onclick="ImageButton2_Click" />
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
-                &nbsp;</td>
-            <td>
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
@@ -143,13 +127,9 @@
             <td>
                 <asp:Label ID="lblDescripcion" runat="server" Font-Size="Medium"></asp:Label>
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
-                &nbsp;</td>
-            <td>
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
@@ -162,23 +142,17 @@
                 <asp:Button ID="btnFinalizar" runat="server" onclick="Button1_Click" 
                     Text="Si" />
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
                 &nbsp;</td>
             <td colspan="2">
                 &nbsp;</td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
                 &nbsp;</td>
             <td colspan="2">
-                &nbsp;</td>
-            <td>
                 &nbsp;</td>
         </tr>
         <tr>
@@ -210,9 +184,6 @@
                 
                 
                 </td>
-            <td>
-                
-                &nbsp;</td>
         </tr>
         </table>
 </asp:Content>
