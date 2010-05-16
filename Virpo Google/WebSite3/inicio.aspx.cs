@@ -30,7 +30,7 @@ public partial class _Default : System.Web.UI.Page
             PanelRegistrarme.Visible = false;
         CagarNoticias();
     }
-    public void CagarNoticias()
+ public void CagarNoticias()
     {
  
         List<Noticia> vigentes = new List<Noticia>();
