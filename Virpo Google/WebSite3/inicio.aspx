@@ -7,15 +7,12 @@
                                 . </titulosubventana>
     </center>
     <p style="text-align: center; width: 200px;">
-        <br />
         <asp:Label ID="izq1" runat="server"></asp:Label>
     </p>
     <p style="text-align: center; width: 200px;">
-        <br />
         <asp:Label ID="izq2" runat="server"></asp:Label>
     </p>
     <p style="text-align: center; width: 200px;">
-        <br />
         <asp:Label ID="izq3" runat="server"></asp:Label>
     </p>
 </asp:Content>
@@ -25,28 +22,22 @@
                                  Virpo News</titulosubventana>
     </center>
     <p style="text-align: center; width: 380px;">
-        <br />
         <asp:Label ID="cen1" runat="server"></asp:Label>
     </p>
     <p style="text-align: center; width: 380px;">
-        <br />
         <asp:Label ID="cen2" runat="server"></asp:Label>
     </p>
     <p style="text-align: center; width: 380px;">
-        <br />
         <asp:Label ID="cen3" runat="server"></asp:Label>
         <br />
     </p>
     <p style="text-align: center; width: 380px;">
-        <br />
         <asp:Label ID="cen4" runat="server"></asp:Label>
     </p>
     <p style="text-align: center; width: 380px;">
-        <br />
         <asp:Label ID="cen5" runat="server"></asp:Label>
     </p>
     <p style="text-align: center; width: 380px;">
-        <br />
         <asp:Label ID="cen6" runat="server"></asp:Label>
     </p>
     <p style="text-align: center">
@@ -86,15 +77,12 @@
                                 . </titulosubventana>
     </center>
     <p style="text-align: center">
-        <br />
         <asp:Label ID="der1" runat="server"></asp:Label>
     </p>
     <p style="text-align: center">
-        <br />
         <asp:Label ID="der2" runat="server"></asp:Label>
     </p>
     <p style="text-align: center">
-        <br />
         <asp:Label ID="der3" runat="server"></asp:Label>
     </p>
 </asp:Content>
