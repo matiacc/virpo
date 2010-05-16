@@ -41,6 +41,34 @@ img {
     height: 54px;
 	font-family: "Arial Black";
 }
+
+.imagenizq {
+	border-style: none;
+    border-color: inherit;
+    border-width: 0;
+    width: 200px;
+    height: 200px;
+	font-family: "Arial Black";
+}
+
+.imagencentro {
+	border-style: none;
+    border-color: inherit;
+    border-width: 0;
+    width: 380px;
+    height: 300px;
+	font-family: "Arial Black";
+}
+
+
+.imagender {
+	border-style: none;
+    border-color: inherit;
+    border-width: 0;
+    width: 125px;
+    height: 125px;
+	font-family: "Arial Black";
+}
 a {
 	color: #333;
 	font-weight: bold;
