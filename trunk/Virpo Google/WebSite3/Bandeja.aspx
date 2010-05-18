@@ -41,7 +41,7 @@ location.href=pagina+idinv+"&ace="+ac
 <head id="Head1" runat="server" />
 
                 <cc1:TabContainer ID="TabContainer1" runat="server" 
-                    style="Height: 100%;Width: 750px" ActiveTabIndex="1" >
+                    style="Height: 100%;Width: 750px" ActiveTabIndex="0" >
              <%--   
              <cc1:TabContainer ID="TabContainer1" runat="server" CssClass="ajax__myTab" >
                 <style type="text/css" Height="100%";Width="750px">
