@@ -38,13 +38,13 @@ public partial class MisEventos : System.Web.UI.Page
         for (int i = 0; i < eventos.Count; i++)
         {
             fecha = Convert.ToString(eventos[i].Fecha.Day) + "/" + Convert.ToString(eventos[i].Fecha.Month) + "/" + Convert.ToString(eventos[i].Fecha.Year);
-            if ( fhoy > eventos[i].Fecha) fecha = "<font size='5'>FINALIZADO</font>";
+            if ( fhoy > eventos[i].Fecha) fecha = "<font size='5'; color ='red'>FINALIZADO</font>";
             
                   
 
 
             if (i % 2 == 0)
-                html += "<tr>";
+            html += "<tr>";
             html += "<td>";
             html += @"<div style='border: 0px solid rgb(192, 192, 192); position: relative; margin-right: 15px; "
                     + "margin-bottom: 15px; float: left;'><a class='blogHeadline' title='" + eventos[i].Nombre +

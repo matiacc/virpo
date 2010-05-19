@@ -120,7 +120,7 @@ public partial class _Default : System.Web.UI.Page
         if (ImageMap1.ImageUrl == "./ImagenesSite/interrogacion.jpg") evento.Imagen = "./ImagenesEventos/default.jpg";
         else evento.Imagen = ImageMap1.ImageUrl;
         
-        if (ddlBandas.SelectedValue != null || ddlBandas.Enabled != false)        
+        if (ddlBandas.SelectedValue != "" || ddlBandas.Enabled != false)        
         {
             Banda banda = new Banda();
             banda.Id = Convert.ToInt32(ddlBandas.SelectedValue);

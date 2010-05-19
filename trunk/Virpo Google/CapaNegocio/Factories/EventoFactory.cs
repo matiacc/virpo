@@ -53,6 +53,9 @@ namespace CapaNegocio.Factories
 
             if (!string.IsNullOrEmpty(restriccion))
                 query += restriccion;
+            
+            query += " ORDER BY fecha DESC, hora DESC";
+
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
@@ -114,18 +117,23 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@hora", DbType.DateTime, evento.Hora));
                 parametros.Add(BDUtilidades.crearParametro("@imagen", DbType.String, evento.Imagen));
                 parametros.Add(BDUtilidades.crearParametro("@idMusico", DbType.Int32, evento.Musico.Id));
-                parametros.Add(BDUtilidades.crearParametro("@idBanda", DbType.Int32, evento.Banda.Id));
+                if (evento.Banda == null) {
+
+                    SqlParameter param = new SqlParameter("@idBanda", DbType.Int32);
+                    param.Value = DBNull.Value;
+                    parametros.Add(param);
+                
+                }
+                else parametros.Add(BDUtilidades.crearParametro("@idBanda", DbType.Int32, evento.Banda.Id));
                 parametros.Add(BDUtilidades.crearParametro("@descripcion", DbType.String, evento.Descripcion));
                 parametros.Add(BDUtilidades.crearParametro("@estado", DbType.String, evento.Estado));
 
-                bool ok = true;
+               
                 int idCreado = BDUtilidades.ExecuteStoreProcedureWithOutParameter("EventoInsertar", parametros);
 
-                if (ok)
+                
                     return true;
-                else
-                    return false;
-
+            
             }
             catch (Exception ex)
             {
