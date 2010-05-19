@@ -46,6 +46,8 @@
             <td style="width: 92px; height: 17px;">
                 </td>
             <td style="width: 92px; height: 17px;">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" controlToValidate="txtNombre" 
+                    ErrorMessage="introdusca un nombre porfavor"></asp:RequiredFieldValidator>
                 </td>
         </tr>
         <tr>
@@ -77,7 +79,24 @@
                             onselectedindexchanged="ddlPaises_SelectedIndexChanged">
                         </asp:DropDownList>
                         <br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                            ClientValidationFunction="ValidaDDL" ControlToValidate="ddlPaises" 
+                            ErrorMessage="selecione un pais" ValidateEmptyText="True"></asp:RequiredFieldValidator>
                         <br />
+<script type="text/javascript">
+function ValidaDDL(source, arguments) {
+if (arguments.Value < 1) {
+arguments.IsValid = false;
+
+    }
+
+else {
+
+arguments.IsValid = true;
+
+}
+} 
+</script>
                         <asp:DropDownList ID="ddlCiudad" runat="server" AutoPostBack="True" 
                             Height="16px" Width="144px">
                         </asp:DropDownList>
@@ -97,7 +116,9 @@
             <td style="width: 92px">
                 &nbsp;</td>
             <td style="width: 92px">
-                &nbsp;</td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                ErrorMessage="seleccione una ciudad" ControlToValidate="ddlCiudad" InitialValue="Seleccione una opción"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td style="width: 92px">
