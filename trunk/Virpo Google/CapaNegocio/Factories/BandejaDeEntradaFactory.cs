@@ -243,6 +243,33 @@ namespace CapaNegocio.Factories
                 return false;
             }
         }
+        public static bool BorrarProyectoBandeja(int idUsr)
+        {
+            return BorrarProyectoBandeja(idUsr, (SqlTransaction)null);
+        }
+        /// <summary>
+        /// Baja de un registro con transaccion
+        /// </summary>
+        /// <param name="musico">Objeto Localidad</param>
+        /// <returns>true si guardó con éxito</returns>
+        public static bool BorrarProyectoBandeja(int idUsr, SqlTransaction tran)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(BDUtilidades.crearParametro("@idDestinatario", DbType.Int32, idUsr));
+
+                bool ok = BDUtilidades.ExecuteStoreProcedure("BandejaDeEntradaBorrarProyecto", parametros, tran);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         #region ModificarLeido
         /// <summary>
         /// Modificación de un registro sin transaccion
