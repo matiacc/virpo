@@ -53,6 +53,7 @@ public partial class Proyecto : System.Web.UI.Page
 
                 ViewState.Add("mailCreador", proy.Usuario.EMail);
                 ViewState.Add("nombreCreador", proy.Usuario.Nombre);
+                ViewState.Add("idCreador", proy.Usuario.Id);
                 //Colaboradores
                 this.CargarColaboradores(id);
 
@@ -115,6 +116,19 @@ public partial class Proyecto : System.Web.UI.Page
             //DEVOLVER NOMBRE Y EMAIL DEL CREADOR
             string mensaje = "Hola <b>" + ViewState["nombreCreador"].ToString() + "</b>, un Músico se ha unido a tu proyecto Virpo <b>" + lblNombre.Text + "</b> y pronto comenzará a colaborar.<br /><br />Ingresa al sitio para mas informacion:<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
             EnviarMail.Mande("Virpo", ViewState["mailCreador"].ToString(), asunto, mensaje);
+
+            BandejaDeEntrada bande = new BandejaDeEntrada();
+            bande.UsrDestinatario = (int)ViewState["idCreador"];
+            bande.UsrRemitente = int.Parse(((Usuario)Session["Usuario"]).Id.ToString());
+            bande.Fecha = DateTime.Now;
+            bande.IdBanda = 0;
+            bande.IdAviso = 0;
+            bande.AvisoMotivo = "NULL";
+            bande.IdGrupo = 0;
+            bande.IdProyecto = (int)ViewState["idProyecto"];
+
+            BandejaDeEntradaFactory.Insertar(bande);
+
             btUnirse.Text = "Subir una composicion";
             this.CargarColaboradores((int)ViewState["idProyecto"]);
             Panel1_ModalPopupExtender.Show();

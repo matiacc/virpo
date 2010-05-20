@@ -33,6 +33,7 @@ public partial class Bandeja : System.Web.UI.Page
         }
         //if (bandejasC.Count != 0)
         //{
+            CargarGrillaProyectos();
             CargarGrilla();
             CargarGrillaGrupos();
         //}
@@ -191,5 +192,63 @@ public partial class Bandeja : System.Web.UI.Page
     {
         BandejaDeEntradaFactory.BorrarGrupoBandeja(((Usuario)Session["Usuario"]).Id);
         CargarGrillaGrupos();
+    }
+    //Carga Grilla de Proyectos
+    private void CargarGrillaProyectos()
+    {
+
+        //List<BandejaDeEntrada> bandejasC = BandejaDeEntradaFactory.DevolverProyectosDeBandejaDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
+        List<BandejaDeEntrada> bandejas = BandejaDeEntradaFactory.DevolverProyectosDeBandejaDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
+
+        if (bandejas != null && bandejas.Count != 0)
+        {
+            DataTable dt = new DataTable();
+            DataRow row;
+            dt.Columns.Add("idBandeja");
+            dt.Columns.Add("interesado");
+            dt.Columns.Add("fecha");
+            dt.Columns.Add("idProyecto");
+            dt.Columns.Add("proyecto");
+            //dt.Columns.Add("avisoMotivo");
+            dt.Columns.Add("leido");
+
+            for (int i = 0; i < bandejas.Count; i++)
+            {
+                row = dt.NewRow();
+                row["idBandeja"] = bandejas[i].Id;
+                row["interesado"] = (UsuarioFactory.Devolver(int.Parse(bandejas[i].UsrRemitente.ToString()))).NombreUsuario;
+                row["fecha"] = bandejas[i].Fecha;
+                row["idProyecto"] = bandejas[i].IdProyecto;
+                row["proyecto"] = (ProyectoFactory.Devolver(int.Parse(bandejas[i].IdProyecto.ToString()))).Nombre;
+                //row["avisoMotivo"] = bandejas[i].AvisoMotivo.ToString();
+                row["leido"] = bandejas[i].Leido;
+
+                dt.Rows.Add(row);
+            }
+            gvProyectos.DataSource = dt;
+            gvProyectos.DataBind();
+        }
+        else
+        {
+            btnBorrarProyectosLeidos.Visible = false;
+            lblProyectos.Text = "Actualmente no posee mensajes sobre Proyectos.";
+            //TabContainer1.Height = Unit.Pixel(600);
+        }
+    }
+    protected void gvProyectos_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        BandejaDeEntradaFactory.ModificarLeido(int.Parse(gvProyectos.SelectedDataKey.Value.ToString()));
+        Response.Redirect("Proyecto.aspx?Id=" + gvProyectos.SelectedRow.Cells[3].Text.ToString());
+
+    }
+    protected void gvProyectos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        gvProyectos.PageIndex = e.NewPageIndex;
+        CargarGrillaProyectos();
+    }
+
+    protected void btnBorrarProyectosLeidos_Click(object sender, EventArgs e)
+    {
+
     }
 }

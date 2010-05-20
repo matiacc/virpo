@@ -93,6 +93,7 @@ public partial class ConsultarGrupo : System.Web.UI.Page
                 bande.IdAviso = 0;
                 bande.AvisoMotivo = "NULL";
                 bande.IdGrupo = int.Parse(ViewState["idGrupo"].ToString());
+                bande.IdProyecto = 0;
                 
                 BandejaDeEntradaFactory.Insertar(bande);
 
