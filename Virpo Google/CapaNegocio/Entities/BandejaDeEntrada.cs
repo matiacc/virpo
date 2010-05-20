@@ -15,6 +15,7 @@ namespace CapaNegocio.Entities
         private int idAviso;
         private string avisoMotivo;
         private int idGrupo;
+        private int idProyecto;
         private string leido;
 
 
@@ -59,6 +60,11 @@ namespace CapaNegocio.Entities
         {
             get { return idGrupo; }
             set { idGrupo = value; }
+        }
+        public int IdProyecto
+        {
+            get { return idProyecto; }
+            set { idProyecto = value; }
         }
         public string Leido
         {
