@@ -125,6 +125,34 @@ namespace CapaNegocio.Factories
                 return null;
             }
         }
+        public static List<BandejaDeEntrada> DevolverProyectosDeBandejaDeUsuario(int idUsr)
+        {
+            string query = "SELECT id, idDestinatario, idRemitente, fecha, idProyecto, leido " +
+                           "FROM BandejaDeEntrada WHERE idProyecto<>0 AND idDestinatario=" + idUsr + " ORDER BY fecha DESC";
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                List<BandejaDeEntrada> bandejas = new List<BandejaDeEntrada>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    BandejaDeEntrada bande = new BandejaDeEntrada();
+                    bande.Id = int.Parse(dt.Rows[i]["id"].ToString());
+                    bande.UsrDestinatario = int.Parse(dt.Rows[i]["idDestinatario"].ToString());
+                    bande.UsrRemitente = int.Parse(dt.Rows[i]["idRemitente"].ToString());
+                    bande.Fecha = Convert.ToDateTime(dt.Rows[i]["fecha"].ToString());
+                    bande.IdProyecto = int.Parse(dt.Rows[i]["idProyecto"].ToString());
+                    //bande.AvisoMotivo = dt.Rows[i]["avisoMotivo"].ToString();
+                    bande.Leido = dt.Rows[i]["leido"].ToString();
+
+                    bandejas.Add(bande);
+                }
+                return bandejas;
+            }
+            else
+            {
+                return null;
+            }
+        }
         public static bool Insertar(BandejaDeEntrada bande)
         {
             return Insertar(bande, (SqlTransaction)null);
@@ -147,6 +175,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@idAviso", DbType.Int32, bande.IdAviso));
                 parametros.Add(BDUtilidades.crearParametro("@avisoMotivo", DbType.String, bande.AvisoMotivo));
                 parametros.Add(BDUtilidades.crearParametro("@idGrupo", DbType.Int32, bande.IdGrupo));
+                parametros.Add(BDUtilidades.crearParametro("@idProyecto", DbType.Int32, bande.IdProyecto));
 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("BandejaDeEntradaInsertar", parametros, tran);
                 if (ok)
