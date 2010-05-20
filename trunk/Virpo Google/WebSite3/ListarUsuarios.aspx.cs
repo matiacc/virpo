@@ -107,6 +107,7 @@ public partial class ListarUsuarios : System.Web.UI.Page
                 bande.IdAviso = 0;
                 bande.AvisoMotivo = "NULL";
                 bande.IdGrupo = 0;
+                bande.IdProyecto = 0;
 
                 BandejaDeEntradaFactory.Insertar(bande);
             }
