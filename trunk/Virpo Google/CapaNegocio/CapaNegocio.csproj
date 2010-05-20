@@ -60,6 +60,7 @@
     <Compile Include="Entities\Localidad.cs" />
     <Compile Include="Entities\Mensaje.cs" />
     <Compile Include="Entities\MusicoXBanda.cs" />
+    <Compile Include="Entities\Noticia.cs" />
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\PostGrupo.cs" />
     <Compile Include="Entities\Provincia.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Factories\LocalidadFactory.cs" />
     <Compile Include="Factories\MensajeFactory.cs" />
     <Compile Include="Factories\MusicoXBandaFactory.cs" />
+    <Compile Include="Factories\NoticiasFactory.cs" />
     <Compile Include="Factories\PaisFactory.cs" />
     <Compile Include="Factories\PostGrupoFactory.cs" />
     <Compile Include="Factories\ProvinciaFactory.cs" />
