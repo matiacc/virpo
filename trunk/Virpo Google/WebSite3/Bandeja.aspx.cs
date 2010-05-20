@@ -110,6 +110,7 @@ public partial class Bandeja : System.Web.UI.Page
         }
         else
         {
+            UpdatePanel1.Visible = false;
             btnBorrarAvisosLeidos.Visible = false;
             lblAvisosClasificados.Text = "Actualmente no posee mensajes sobre Avisos Clasificados.";
             //TabContainer1.Height = Unit.Pixel(600);
@@ -171,6 +172,7 @@ public partial class Bandeja : System.Web.UI.Page
         }
         else
         {
+            UpdatePanel2.Visible = false;
             btnBorrarGruposLeidos.Visible = false;
             lblGrupo.Text = "Actualmente no posee mensajes sobre Grupos de Interés.";
             //TabContainer1.Height = Unit.Pixel(600);
@@ -230,6 +232,7 @@ public partial class Bandeja : System.Web.UI.Page
         }
         else
         {
+            UpdatePanel3.Visible = false;
             btnBorrarProyectosLeidos.Visible = false;
             lblProyectos.Text = "Actualmente no posee mensajes sobre Proyectos.";
             //TabContainer1.Height = Unit.Pixel(600);
@@ -249,6 +252,7 @@ public partial class Bandeja : System.Web.UI.Page
 
     protected void btnBorrarProyectosLeidos_Click(object sender, EventArgs e)
     {
-
+        BandejaDeEntradaFactory.BorrarProyectoBandeja(((Usuario)Session["Usuario"]).Id);
+        CargarGrillaProyectos();
     }
 }
