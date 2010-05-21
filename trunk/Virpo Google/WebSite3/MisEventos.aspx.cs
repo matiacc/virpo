@@ -25,7 +25,7 @@ public partial class MisEventos : System.Web.UI.Page
         }
 
     }
-
+//cargar los eventos
     private void CargarMisEventos()
     {
         Usuario usuario = (Usuario)Session["Usuario"];
