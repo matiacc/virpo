@@ -49,6 +49,7 @@
     <Compile Include="Entities\CategoriaArticuloWiki.cs" />
     <Compile Include="Entities\CategoriaMusico.cs" />
     <Compile Include="Entities\Composicion.cs" />
+    <Compile Include="Entities\Denuncia.cs" />
     <Compile Include="Entities\EstadoAvisoClasificado.cs" />
     <Compile Include="Entities\EstadoMensaje.cs" />
     <Compile Include="Entities\Evento.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Factories\CategoriaArticuloWikiFactory.cs" />
     <Compile Include="Factories\CategoriaMusicoFactory.cs" />
     <Compile Include="Factories\ComposicionFactory.cs" />
+    <Compile Include="Factories\DenunciaFactory.cs" />
     <Compile Include="Factories\EstadoAvisoClasificadoFactory.cs" />
     <Compile Include="Factories\EventoFactory.cs" />
     <Compile Include="Factories\GeneroFactory.cs" />
