@@ -37,10 +37,15 @@ public partial class _Default : System.Web.UI.Page
             html += "    <td style='width: 50px' align='center'><a href='PerfilPublico.aspx?Id=" + denuncia.IdDenunciante.ToString() + "'>";
             html += "<img title='" + denuncia.UsrDenunciante + "' src='ImagenesUsuario/" + ((Usuario)UsuarioFactory.Devolver(denuncia.UsrDenunciante)).Imagen + "'/></a>";
             html += "<br />" + denuncia.UsrDenunciante + "</td>";
-            html += "    <td style='width: 479px' align='left'>" + "Nro. de Denuncia: " + denuncia.Id.ToString();
+            html += "    <td style='width: 429px' align='left'>" + "Nro. de Denuncia: " + denuncia.Id.ToString();
             html += "<br />Fecha: " + denuncia.Fecha.ToString();
             html += "<br />Sección: " + denuncia.Tipo;
             html += "<br />Documento Denunciado: <a class='feed-link' href='" + denuncia.Url + "' target='_blank' type='application/atom+xml'>" + denuncia.Descripcion + "</a>";
+            html += "</td>";
+            string leido="";
+            if (denuncia.Leido.ToString() == "NO") leido=denuncia.Leido;
+            html += "<td style='width: 50px' align='center'>" + leido;
+            html += "<br />Leído";
             html += "</td>";
             html += "</tr>";
         }
