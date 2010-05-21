@@ -14,7 +14,7 @@ namespace CapaNegocio.Factories
         public static List<Denuncia> DevolverTodos()
         {
             string query = "SELECT id, idDenunciante, usrDenunciante, url, descripcion, tipo, fecha, idArticuloWiki, idEvento, idGrupo, idProyecto, idComposicion, idBanda, idClasificado, idUsuario, leido " +
-                           "FROM Denuncia";
+                           "FROM Denuncia WHERE leido<>'OK'";
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
             {
@@ -50,7 +50,7 @@ namespace CapaNegocio.Factories
 
         public static int HayDenunciaDeWikiMusic(int id)
         {
-            string query = "SELECT COUNT(id) FROM Denuncia WHERE idArticuloWiki=" + id;
+            string query = "SELECT COUNT(id) FROM Denuncia WHERE leido<>'OK' AND idArticuloWiki=" + id;
             int denuncia = BDUtilidades.EjecutarConsultaEscalar(query);
             return denuncia;
         }
