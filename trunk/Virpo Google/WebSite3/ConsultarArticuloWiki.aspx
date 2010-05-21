@@ -22,18 +22,18 @@
             </td>
         </tr>
         <tr>
-            <td style="text-align: center" abbr="btn" colspan="2">
+            <td style="text-align: left" abbr="btn" colspan="2">
                 <asp:Button ID="btnApuntar" runat="server" OnClick="btnApuntar_Click" Text="Apuntar"
-                    CssClass="botones" Width="101px" />
+                    CssClass="botones" Width="80px" />
                 <asp:Button ID="btnRecomendar" runat="server" CssClass="botones" Text="Recomendar"
                     Width="101px" OnClientClick="javascript:abrirPopup3()" />
                 <asp:Button ID="btnEditar" runat="server" CssClass="botones" OnClick="btnEditar_Click"
-                    Text="Editar" Width="101px" />
+                    Text="Editar" Width="80px" />
                 <asp:Button ID="btnHistorial" runat="server" CssClass="botones" Text="Historial"
-                    Width="101px" OnClick="btnHistorial_Click" />
+                    Width="90px" OnClick="btnHistorial_Click" />
                 <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
-                    Width="101px" />
-            </td>
+                    Width="95px" onclick="btnDenunciar_Click" />
+             </td>
         </tr>
         <tr>
             <td style="text-align: right" colspan="2">
@@ -72,7 +72,6 @@
         </tr>
         <tr>
             <td colspan="2">
-                &nbsp;
             </td>
         </tr>
         <tr>

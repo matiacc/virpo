@@ -11,6 +11,12 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+<center style="width: 529px; background-color: #333333"><tituloSubVentana>
+                  <asp:Label ID="lblTituloDenuncias" runat="server" Text="Denuncias"></asp:Label></tituloSubVentana></center>
+                  
+    <table class="tabla" border="1" style="width:529px;">
+        <asp:Label ID="lblListadoDenuncias" runat="server"></asp:Label>
+    </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
 </asp:Content>

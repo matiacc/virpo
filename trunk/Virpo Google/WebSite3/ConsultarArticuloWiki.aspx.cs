@@ -23,6 +23,14 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            if(DenunciaFactory.HayDenunciaDeWikiMusic(Convert.ToInt32(Request.QueryString["C"])) != 0)
+            {
+                btnDenunciar.Text = "Denunciado";
+                btnDenunciar.ControlStyle.BorderColor = System.Drawing.Color.Red;
+                btnDenunciar.ControlStyle.ForeColor = System.Drawing.Color.Red;
+                btnDenunciar.Enabled = false;
+            }
+            
             ArticuloWiki art = new ArticuloWiki();
 
             int id = Convert.ToInt32(Request.QueryString["C"]);
@@ -52,7 +60,7 @@ public partial class _Default : System.Web.UI.Page
                 {                    
                     Label1.Visible=false;
                     btnApuntar.Visible = false;
-                    btnDenunciar.Visible = false;
+                    //btnDenunciar.Visible = false;
                     btnRecomendar.Visible = false;
                     btnEditar.Visible = false;
 
@@ -128,4 +136,40 @@ public partial class _Default : System.Web.UI.Page
     }
 
 
+
+    protected void btnDenunciar_Click(object sender, EventArgs e)
+    {
+        if (btnDenunciar.Text == "Denunciar")
+        {
+            btnDenunciar.Text = "Denunciado";
+            btnDenunciar.ControlStyle.BorderColor = System.Drawing.Color.Red;
+            btnDenunciar.ControlStyle.ForeColor = System.Drawing.Color.Red;
+            btnDenunciar.Enabled = false;
+
+            Usuario usr = new Usuario();
+            usr = (Usuario)Session["Usuario"];
+            Denuncia denuncia = new Denuncia();
+            denuncia.IdDenunciante = (int)usr.Id;
+            denuncia.UsrDenunciante = usr.NombreUsuario.ToString();
+            denuncia.Url = Request.Url.ToString();
+            denuncia.Descripcion = lblTitulo.Text.ToString();
+            denuncia.Tipo = "Artículo WikiMusic";
+            denuncia.Fecha = DateTime.Now;
+            denuncia.IdArticuloWiki = Convert.ToInt32(Request.QueryString["C"]);
+            denuncia.IdEvento = 0;
+            denuncia.IdGrupo = 0;
+            denuncia.IdProyecto = 0;
+            denuncia.IdComposicion = 0;
+            denuncia.IdBanda = 0;
+            denuncia.IdClasificado = 0;
+            denuncia.IdUsuario = 0;
+
+            bool ok = DenunciaFactory.Insertar(denuncia);
+
+            if (ok)
+            {
+                lblTitulo.Text = "SE GRABO";
+            }
+        }
+    }
 }
