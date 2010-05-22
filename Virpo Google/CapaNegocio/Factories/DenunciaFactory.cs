@@ -103,5 +103,41 @@ namespace CapaNegocio.Factories
             }
         }
         #endregion
+
+        #region ModificarLeida
+        /// <summary>
+        /// Modificación de un registro sin transaccion
+        /// </summary>
+        /// <returns>true si modificó con éxito</returns>
+        public static bool ModificarLeida(int idDenuncia)
+        {
+            return ModificarLeida(idDenuncia, (SqlTransaction)null);
+        }
+        /// <summary>
+        /// Modificación de un registro de Denuncia con transaccion
+        /// </summary>
+        /// <returns>true si modificó con éxito</returns>
+        public static bool ModificarLeida(int idDenuncia, SqlTransaction tran)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(BDUtilidades.crearParametro("@id", DbType.Int32, idDenuncia));
+                parametros.Add(BDUtilidades.crearParametro("@leido", DbType.String, "SI"));
+
+                bool ok = BDUtilidades.ExecuteStoreProcedure("DenunciaActualizarLeido", parametros, tran);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+        #endregion
     }
 }
