@@ -30,7 +30,6 @@ public partial class _Default : System.Web.UI.Page
 
     private void cargarTabla(List<Denuncia> denuncias)
     {
-        //string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/DenunciasLeidas.aspx?id="; ;
         string html = "";
         foreach (Denuncia denuncia in denuncias)
         {

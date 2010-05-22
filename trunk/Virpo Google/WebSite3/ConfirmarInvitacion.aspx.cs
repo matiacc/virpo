@@ -29,7 +29,7 @@ public partial class ConfirmarInvitacion : System.Web.UI.Page
                 mxbanda.FecAgregado = DateTime.Now;
 
                 bool okAlta = MusicoXBandaFactory.Insertar(mxbanda);
-                bool okBaja = BandejaDeEntradaFactory.BorrarGrupoBandeja(int.Parse(Request.QueryString["idI"].ToString()));
+                bool okBaja = BandejaDeEntradaFactory.BorrarBandaBandeja(int.Parse(Request.QueryString["idI"].ToString()));
 
                 if(okAlta && okBaja)
                 {
@@ -38,7 +38,7 @@ public partial class ConfirmarInvitacion : System.Web.UI.Page
             }
             if (Request.QueryString["ace"] == "0")
             {
-                bool okBaja = BandejaDeEntradaFactory.BorrarGrupoBandeja(int.Parse(Request.QueryString["idI"].ToString()));
+                bool okBaja = BandejaDeEntradaFactory.BorrarBandaBandeja(int.Parse(Request.QueryString["idI"].ToString()));
 
                 if (okBaja)
                 {

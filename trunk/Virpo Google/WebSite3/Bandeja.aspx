@@ -8,7 +8,7 @@
 
 <script language="JavaScript" type="text/javascript">
 
-var pagina="http://localhost:3734/WebSite3/ConfirmarInvitacion.aspx?idI="
+var pagina="http://localhost:1521/WebSite3/ConfirmarInvitacion.aspx?idI="
 function aceptar(idinv,idu,idb,ac) 
 {
 location.href=pagina+idinv+"&idU="+idu+"&idB="+idb+"&ace="+ac
