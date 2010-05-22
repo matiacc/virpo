@@ -188,6 +188,34 @@ namespace CapaNegocio.Factories
                 return false;
             }
         }
+
+        public static bool BorrarBandaBandeja(int idBandeja)
+        {
+            return BorrarBandaBandeja(idBandeja, (SqlTransaction)null);
+        }
+        /// <summary>
+        /// Baja de un registro con transaccion
+        /// </summary>
+        /// <param name="musico">Objeto Localidad</param>
+        /// <returns>true si guardó con éxito</returns>
+        public static bool BorrarBandaBandeja(int idBandeja, SqlTransaction tran)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(BDUtilidades.crearParametro("@idBandeja", DbType.Int32, idBandeja));
+
+                bool ok = BDUtilidades.ExecuteStoreProcedure("BandejaDeEntradaBorrarBanda", parametros, tran);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         public static bool BorrarGrupoBandeja(int idUsr)
         {
             return BorrarGrupoBandeja(idUsr, (SqlTransaction)null);
