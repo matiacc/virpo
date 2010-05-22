@@ -160,7 +160,7 @@ public partial class _Default : System.Web.UI.Page
             Denuncia denuncia = new Denuncia();
             denuncia.IdDenunciante = (int)usr.Id;
             denuncia.UsrDenunciante = usr.NombreUsuario.ToString();
-            denuncia.Url = Request.Url.ToString();
+            denuncia.Url = Request.Url.ToString().Substring(Request.Url.ToString().LastIndexOf('/') + 1);
             denuncia.Descripcion = lblTitulo.Text.ToString();
             denuncia.Tipo = "Artículo WikiMusic";
             denuncia.Fecha = DateTime.Now;
