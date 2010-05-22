@@ -30,6 +30,7 @@ public partial class _Default : System.Web.UI.Page
 
     private void cargarTabla(List<Denuncia> denuncias)
     {
+        //string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/DenunciasLeidas.aspx?id="; ;
         string html = "";
         foreach (Denuncia denuncia in denuncias)
         {
@@ -40,7 +41,7 @@ public partial class _Default : System.Web.UI.Page
             html += "    <td style='width: 429px' align='left'>" + "Nro. de Denuncia: " + denuncia.Id.ToString();
             html += "<br />Fecha: " + denuncia.Fecha.ToString();
             html += "<br />Sección: " + denuncia.Tipo;
-            html += "<br />Documento Denunciado: <a class='feed-link' href='" + denuncia.Url + "' target='_blank' type='application/atom+xml'>" + denuncia.Descripcion + "</a>";
+            html += "<br />Documento Denunciado: <a class='feed-link' href='" + denuncia.Url + "&leida=" + denuncia.Id.ToString() + "' AutoPostBack='True' target='_blank' type='application/atom+xml'>" + denuncia.Descripcion + "</a>";
             html += "</td>";
             string leido="";
             if (denuncia.Leido.ToString() == "NO") leido=denuncia.Leido;
