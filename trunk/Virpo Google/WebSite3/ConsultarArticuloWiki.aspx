@@ -12,6 +12,11 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+
+<%--<SCRIPT LANGUAGE="JavaScript">
+window.opener.location.reload();
+</SCRIPT>
+--%>
     <table class="style1">
         <tr>
             <td colspan="2">

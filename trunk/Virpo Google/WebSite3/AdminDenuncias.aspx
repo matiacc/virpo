@@ -11,6 +11,16 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+
+<script language="JavaScript" type="text/javascript">
+
+function leida(url,id) 
+{
+location.href=url+id
+}
+ 
+</script>
+
 <center style="width: 529px; background-color: #333333"><tituloSubVentana>
                   <asp:Label ID="lblTituloDenuncias" runat="server" Text="Denuncias"></asp:Label></tituloSubVentana></center>
                   

@@ -23,7 +23,16 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            if(DenunciaFactory.HayDenunciaDeWikiMusic(Convert.ToInt32(Request.QueryString["C"])) != 0)
+            //Cambia el estado a leido cuando es consultado por la administración de denuncias.
+            if (Request.QueryString["leida"] != null)
+            {
+                DenunciaFactory.ModificarLeida(int.Parse(Request.QueryString["leida"].ToString()));
+                ClientScript.RegisterStartupScript(typeof(String), "RefrescaLeidas", "window.opener.location.reload()", true);
+                
+            }
+            //Fin
+
+            if (DenunciaFactory.HayDenunciaDeWikiMusic(Convert.ToInt32(Request.QueryString["C"])) != 0)
             {
                 btnDenunciar.Text = "Denunciado";
                 btnDenunciar.ControlStyle.BorderColor = System.Drawing.Color.Red;
