@@ -6,7 +6,7 @@ using System.Text;
 namespace CapaNegocio.Entities
 {
    
-    class Publicidad
+    public class Publicidad
     {
         private int id;
         private string entidad;
