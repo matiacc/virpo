@@ -6,7 +6,7 @@
         <ul>
             <li><a href="AdminHome.aspx" title="Home Administracion">Home</a></li>
             <li><a href="NoticiaNueva.aspx" title="Nueva Noticia">Nueva Noticia</a></li>
-            <li><a href="BajasNoticias.aspx" title="Bajas">Modificar & Bajas</a></li>
+            <li><a href="NoticiasBajas.aspx" title="Bajas">Modificar & Bajas</a></li>
         </ul>
     </div>
 </asp:Content>

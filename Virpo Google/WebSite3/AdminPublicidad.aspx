@@ -4,10 +4,9 @@
 <div id="menu8">
         <ul>
             <li><a href="AdminHome.aspx" title="Home Administracion">Home</a></li>
-            <li><a href="AdminPublicidad.aspx" title="Permisos">Solicitudes</a></li>
-            <li><a href="AdminPublicidad.aspx" title="Permisos">Bajas & Modificar</a></li>
-            <li><a href="AdminPublicidad.aspx" title="Permisos">Renovacion</a></li>
-
+            <li><a href="PublicidadSolicitudes.aspx" title="Permisos">Solicitudes</a></li>
+            <li><a href="PublicidadBajas.aspx" title="Permisos">Bajas & Modificar</a></li>
+            <li><a href="PublicidadRenovacion.aspx" title="Permisos">Renovacion</a></li>
         </ul>
     </div>
 </asp:Content>
