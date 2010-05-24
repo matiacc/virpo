@@ -219,7 +219,7 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@fechaFin", DbType.DateTime, publicidad.FechaFin));
                 parametros.Add(BDUtilidades.crearParametro("@frecuencia", DbType.Int32, publicidad.Frecuencia));
                 parametros.Add(BDUtilidades.crearParametro("@imagen", DbType.String, publicidad.Imagen));
-                parametros.Add(BDUtilidades.crearParametro("@consulta", DbType.Int32, publicidad.Consulta));
+                parametros.Add(BDUtilidades.crearParametro("@consulta", DbType.String, publicidad.Consulta));
                 parametros.Add(BDUtilidades.crearParametro("@idEstado", DbType.Int32, publicidad.IdEstado));
 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("PublicidadActualizar", parametros, tran);
