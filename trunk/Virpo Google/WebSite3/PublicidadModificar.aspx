@@ -89,11 +89,26 @@
             <td>
                 &nbsp;</td>
             <td style="text-align: right">
-                <asp:Label ID="lblMeses" runat="server" Text="Meses de Publicidad:"></asp:Label>
+                <asp:Label ID="Label5" runat="server" Text="meses solicitados:"></asp:Label>
             </td>
             <td>
-                <asp:DropDownList ID="ddlMeses" runat="server" Height="22px" Width="43px">
-                </asp:DropDownList>
+                <asp:Label ID="lblMeses" runat="server"></asp:Label>
+            </td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="text-align: right">
+                <asp:Label ID="Label1" runat="server" Text="Vigencia desde:"></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="txtInicio" runat="server" Height="18px" Width="70px"></asp:TextBox>
+                <asp:Label ID="Label4" runat="server" Text="Hasta"></asp:Label>
+                <asp:TextBox ID="txtFin" runat="server" Height="18px" Width="70px"></asp:TextBox>
             </td>
             <td>
                 &nbsp;</td>
@@ -119,7 +134,7 @@
             <td>
                 &nbsp;</td>
             <td style="text-align: right">
-                <asp:Label ID="lblImagen" runat="server" Text="Imagen de Publicidad:"></asp:Label>
+                <asp:Label ID="lblImagen" runat="server" Text="Ruta de la Imagen:"></asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtImagen" runat="server" Width="200px"></asp:TextBox>
@@ -133,7 +148,7 @@
             <td>
                 &nbsp;</td>
             <td style="text-align: right">
-                <asp:Label ID="lblConsulta" runat="server" Text="Dejanos tu Consulta:"></asp:Label>
+                <asp:Label ID="lblConsulta" runat="server" Text="Consulta:"></asp:Label>
             </td>
             <td>
                 &nbsp;</td>
@@ -162,10 +177,10 @@
             <td>
                 &nbsp;</td>
             <td style="text-align: center">
-                <asp:Button ID="btnGuardar" runat="server" CssClass="botones" 
-                    onclick="btnEnviar_Click" Text="Guardar" />
-                <asp:Button ID="btnCancelar" runat="server" CausesValidation="False" 
-                    CssClass="botones" onclick="btnVolver_Click" Text="Cancelar" />
+                <asp:Button ID="btnAlta" runat="server" CssClass="botones" 
+                    onclick="btnAlta_Click" Text="Alta" />
+                <asp:Button ID="btnVolver" runat="server" CssClass="botones" 
+                    onclick="btnVolver_Click" Text="Volver" />
             </td>
             <td>
                 &nbsp;</td>
