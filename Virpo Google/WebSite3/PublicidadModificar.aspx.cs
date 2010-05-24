@@ -27,6 +27,7 @@ public partial class _Default : System.Web.UI.Page
             if (Request.QueryString["I"] != null)
             {
                 int id = Convert.ToInt32(Request.QueryString["I"].ToString());
+                lblId.Text = Convert.ToString(id);
                 Publicidad publi = new Publicidad();
                 publi = PublicidadFactory.Devolver(id);
                 txtEntidad.Text = publi.Entidad;
@@ -71,7 +72,26 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnAlta_Click(object sender, EventArgs e)
     {
-
+        Publicidad publi = new Publicidad();
+        publi = PublicidadFactory.Devolver(Convert.ToInt32(lblId.Text));
+        publi.Entidad = txtEntidad.Text;
+        publi.NombreContacto = txtNombreContacto.Text;
+        publi.TelContacto = txtTelContacto.Text;
+        publi.MailContacto = txtMailContacto.Text;
+        publi.FechaInicio = Convert.ToDateTime(txtInicio.Text);
+        publi.FechaFin = Convert.ToDateTime(txtFin.Text);
+        publi.Imagen = txtImagen.Text;
+        publi.Frecuencia = Convert.ToInt32(ddlFrecuencia.Text);
+        publi.Consulta = txtConsulta.Text;
+        publi.IdEstado = 1;//vigente
+        if (PublicidadFactory.Modificar(publi))
+        {
+            Response.Redirect("AdminPublicidad.aspx?c=1");
+        }
+        else
+        {
+            Response.Redirect("AdminPublicidad.aspx?c=0");
+        }
     }
     protected void btnVolver_Click(object sender, EventArgs e)
     {
