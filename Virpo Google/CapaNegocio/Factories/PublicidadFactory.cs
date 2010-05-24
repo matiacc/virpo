@@ -86,7 +86,7 @@ namespace CapaNegocio.Factories
 
         
 
-        public static List<Publicidad> DevolverPendientes()
+        public static List<Publicidad> DevolverSolicitudes()
         {
             List<Publicidad> lista = DevolverXEstado(0);
             return lista;
@@ -108,6 +108,14 @@ namespace CapaNegocio.Factories
         {
             List<Publicidad> lista = DevolverXEstado(3);
             return lista;
+        }
+
+        public static DataTable DevolverXEstadoDT(int idEstado)
+        {
+            string query = "SELECT id, entidad, nombreContacto, telContacto, mailContacto, fechaInicio, fechaFin, frecuencia, imagen, consulta, idEstado FROM Publicidad WHERE idEstado = " + idEstado;
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            return dt;
         }
 
         public static List<Publicidad> DevolverXEstado(int idEstado)
