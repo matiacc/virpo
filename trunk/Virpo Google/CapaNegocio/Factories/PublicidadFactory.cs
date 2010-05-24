@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace CapaNegocio.Factories
 {
-    class PublicidadFactory
+    public class PublicidadFactory
     {
 
         #region Devolver
@@ -24,21 +24,21 @@ namespace CapaNegocio.Factories
 
             if (dt.Rows.Count != 0)
             {
-                Publicidad Publicidad = new Publicidad();
+                Publicidad publicidad = new Publicidad();
 
-                Publicidad.Id = id;
-                Publicidad.Entidad = dt.Rows[0]["entidad"].ToString();
-                Publicidad.NombreContacto = dt.Rows[0]["nombreContacto"].ToString();
-                Publicidad.TelContacto = dt.Rows[0]["telContacto"].ToString();
-                Publicidad.MailContacto = dt.Rows[0]["mailContacto"].ToString();
-                Publicidad.FechaInicio = Convert.ToDateTime(dt.Rows[0]["fechaInicio"].ToString());
-                Publicidad.FechaFin = Convert.ToDateTime(dt.Rows[0]["fechaFin"].ToString());
-                Publicidad.Frecuencia = (int)dt.Rows[0]["frecuencia"];
-                Publicidad.Imagen = dt.Rows[0]["imagen"].ToString();
-                Publicidad.Consulta = dt.Rows[0]["consulta"].ToString();
-                Publicidad.IdEstado = (int)dt.Rows[0]["idEstado"];
+                publicidad.Id = id;
+                publicidad.Entidad = dt.Rows[0]["entidad"].ToString();
+                publicidad.NombreContacto = dt.Rows[0]["nombreContacto"].ToString();
+                publicidad.TelContacto = dt.Rows[0]["telContacto"].ToString();
+                publicidad.MailContacto = dt.Rows[0]["mailContacto"].ToString();
+                publicidad.FechaInicio = Convert.ToDateTime(dt.Rows[0]["fechaInicio"].ToString());
+                publicidad.FechaFin = Convert.ToDateTime(dt.Rows[0]["fechaFin"].ToString());
+                publicidad.Frecuencia = (int)dt.Rows[0]["frecuencia"];
+                publicidad.Imagen = dt.Rows[0]["imagen"].ToString();
+                publicidad.Consulta = dt.Rows[0]["consulta"].ToString();
+                publicidad.IdEstado = (int)dt.Rows[0]["idEstado"];
 
-                return Publicidad;
+                return publicidad;
             }
             else
             {
@@ -46,7 +46,6 @@ namespace CapaNegocio.Factories
             }
 
         }
-
 
         public static List<Publicidad> DevolverTodos()
         {
@@ -56,27 +55,27 @@ namespace CapaNegocio.Factories
 
             if (dt != null)
             {
-                List<Publicidad> Publicidades = new List<Publicidad>();
+                List<Publicidad> publicidades = new List<Publicidad>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     
-                Publicidad Publicidad = new Publicidad();
+                Publicidad publicidad = new Publicidad();
 
-                Publicidad.Id = id;
-                Publicidad.Entidad = dt.Rows[0]["entidad"].ToString();
-                Publicidad.NombreContacto = dt.Rows[0]["nombreContacto"].ToString();
-                Publicidad.TelContacto = dt.Rows[0]["telContacto"].ToString();
-                Publicidad.MailContacto = dt.Rows[0]["mailContacto"].ToString();
-                Publicidad.FechaInicio = Convert.ToDateTime(dt.Rows[0]["fechaInicio"].ToString());
-                Publicidad.FechaFin = Convert.ToDateTime(dt.Rows[0]["fechaFin"].ToString());
-                Publicidad.Frecuencia = (int)dt.Rows[0]["frecuencia"];
-                Publicidad.Imagen = dt.Rows[0]["imagen"].ToString();
-                Publicidad.Consulta = dt.Rows[0]["consulta"].ToString();
-                Publicidad.IdEstado = (int)dt.Rows[0]["idEstado"];
 
-                Publicidades.Add(Publicidad);
+                publicidad.Entidad = dt.Rows[0]["entidad"].ToString();
+                publicidad.NombreContacto = dt.Rows[0]["nombreContacto"].ToString();
+                publicidad.TelContacto = dt.Rows[0]["telContacto"].ToString();
+                publicidad.MailContacto = dt.Rows[0]["mailContacto"].ToString();
+                publicidad.FechaInicio = Convert.ToDateTime(dt.Rows[0]["fechaInicio"].ToString());
+                publicidad.FechaFin = Convert.ToDateTime(dt.Rows[0]["fechaFin"].ToString());
+                publicidad.Frecuencia = (int)dt.Rows[0]["frecuencia"];
+                publicidad.Imagen = dt.Rows[0]["imagen"].ToString();
+                publicidad.Consulta = dt.Rows[0]["consulta"].ToString();
+                publicidad.IdEstado = (int)dt.Rows[0]["idEstado"];
+
+                publicidades.Add(publicidad);
                 }
-                return Publicidades;
+                return publicidades;
             }
             else
             {
@@ -85,33 +84,96 @@ namespace CapaNegocio.Factories
 
         }
 
-      
+        
+
+        public static List<Publicidad> DevolverPendientes()
+        {
+            List<Publicidad> lista = DevolverXEstado(0);
+            return lista;
+        }
+       
+        public static List<Publicidad> DevolverVigentes()
+        {
+            List<Publicidad> lista = DevolverXEstado(1);
+            return lista;
+        }
+
+        public static List<Publicidad> DevolverRenovaciones()
+        {
+            List<Publicidad> lista = DevolverXEstado(2);
+            return lista;
+        }
+
+        public static List<Publicidad> DevolverBajasPendientes()
+        {
+            List<Publicidad> lista = DevolverXEstado(3);
+            return lista;
+        }
+
+        public static List<Publicidad> DevolverXEstado(int idEstado)
+        {
+            string query = "SELECT id, entidad, nombreContacto, telContacto, mailContacto, fechaInicio, fechaFin, frecuencia, imagen, consulta, idEstado FROM Publicidad WHERE idEstado = " + idEstado; 
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+
+            if (dt != null)
+            {
+                List<Publicidad> publicidades = new List<Publicidad>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+
+                    Publicidad publicidad = new Publicidad();
+
+
+                    publicidad.Entidad = dt.Rows[0]["entidad"].ToString();
+                    publicidad.NombreContacto = dt.Rows[0]["nombreContacto"].ToString();
+                    publicidad.TelContacto = dt.Rows[0]["telContacto"].ToString();
+                    publicidad.MailContacto = dt.Rows[0]["mailContacto"].ToString();
+                    publicidad.FechaInicio = Convert.ToDateTime(dt.Rows[0]["fechaInicio"].ToString());
+                    publicidad.FechaFin = Convert.ToDateTime(dt.Rows[0]["fechaFin"].ToString());
+                    publicidad.Frecuencia = (int)dt.Rows[0]["frecuencia"];
+                    publicidad.Imagen = dt.Rows[0]["imagen"].ToString();
+                    publicidad.Consulta = dt.Rows[0]["consulta"].ToString();
+                    publicidad.IdEstado = (int)dt.Rows[0]["idEstado"];
+
+                    publicidades.Add(publicidad);
+                }
+                return publicidades;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
+
         #endregion
 
 
         #region Insertar
 
-        public static bool Insertar(Publicidad Publicidad)
+        public static bool Insertar(Publicidad publicidad)
         {
-            return Insertar(Publicidad, (SqlTransaction)null);
+            return Insertar(publicidad, (SqlTransaction)null);
         }
 
-        public static bool Insertar(Publicidad Publicidad, SqlTransaction tran)
+        public static bool Insertar(Publicidad publicidad, SqlTransaction tran)
         {
             try
             {
                 List<SqlParameter> parametros = new List<SqlParameter>();
 
-                parametros.Add(BDUtilidades.crearParametro("@entidad", DbType.String, Publicidad.Entidad));
-                parametros.Add(BDUtilidades.crearParametro("@nombreContacto", DbType.String, Publicidad.NombreContacto));
-                parametros.Add(BDUtilidades.crearParametro("@telContacto", DbType.String, Publicidad.TelContacto));
-                parametros.Add(BDUtilidades.crearParametro("@mailContacto", DbType.String, Publicidad.MailContacto));
-                parametros.Add(BDUtilidades.crearParametro("@fechaInicio", DbType.DateTime, Publicidad.FechaInicio));
-                parametros.Add(BDUtilidades.crearParametro("@fechaFin", DbType.DateTime, Publicidad.FechaFin));
-                parametros.Add(BDUtilidades.crearParametro("@frecuencia", DbType.Int32, Publicidad.Frecuencia));
-                parametros.Add(BDUtilidades.crearParametro("@imagen", DbType.String, Publicidad.Imagen));
-                parametros.Add(BDUtilidades.crearParametro("@consulta", DbType.Int32, Publicidad.Consulta));
-                parametros.Add(BDUtilidades.crearParametro("@idEstado", DbType.Int32, Publicidad.IdEstado));
+                parametros.Add(BDUtilidades.crearParametro("@entidad", DbType.String, publicidad.Entidad));
+                parametros.Add(BDUtilidades.crearParametro("@nombreContacto", DbType.String, publicidad.NombreContacto));
+                parametros.Add(BDUtilidades.crearParametro("@telContacto", DbType.String, publicidad.TelContacto));
+                parametros.Add(BDUtilidades.crearParametro("@mailContacto", DbType.String, publicidad.MailContacto));
+                parametros.Add(BDUtilidades.crearParametro("@fechaInicio", DbType.DateTime, publicidad.FechaInicio));
+                parametros.Add(BDUtilidades.crearParametro("@fechaFin", DbType.DateTime, publicidad.FechaFin));
+                parametros.Add(BDUtilidades.crearParametro("@frecuencia", DbType.Int32, publicidad.Frecuencia));
+                parametros.Add(BDUtilidades.crearParametro("@imagen", DbType.String, publicidad.Imagen));
+                parametros.Add(BDUtilidades.crearParametro("@consulta", DbType.String, publicidad.Consulta));
+                parametros.Add(BDUtilidades.crearParametro("@idEstado", DbType.Int32, publicidad.IdEstado));
 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("PublicidadInsertar", parametros, tran);
                 if (ok)
@@ -129,28 +191,28 @@ namespace CapaNegocio.Factories
 
         #region Modificar
 
-        public static bool Modificar(Publicidad Publicidad)
+        public static bool Modificar(Publicidad publicidad)
         {
-            return Modificar(Publicidad, (SqlTransaction)null);
+            return Modificar(publicidad, (SqlTransaction)null);
         }
 
-        public static bool Modificar(Publicidad Publicidad, SqlTransaction tran)
+        public static bool Modificar(Publicidad publicidad, SqlTransaction tran)
         {
             try
             {
                 List<SqlParameter> parametros = new List<SqlParameter>();
 
-                parametros.Add(BDUtilidades.crearParametro("@Id", DbType.Int32, Publicidad.Id));
-                parametros.Add(BDUtilidades.crearParametro("@entidad", DbType.String, Publicidad.Entidad));
-                parametros.Add(BDUtilidades.crearParametro("@nombreContacto", DbType.String, Publicidad.NombreContacto));
-                parametros.Add(BDUtilidades.crearParametro("@telContacto", DbType.String, Publicidad.TelContacto));
-                parametros.Add(BDUtilidades.crearParametro("@mailContacto", DbType.String, Publicidad.MailContacto));
-                parametros.Add(BDUtilidades.crearParametro("@fechaInicio", DbType.DateTime, Publicidad.FechaInicio));
-                parametros.Add(BDUtilidades.crearParametro("@fechaFin", DbType.DateTime, Publicidad.FechaFin));
-                parametros.Add(BDUtilidades.crearParametro("@frecuencia", DbType.Int32, Publicidad.Frecuencia));
-                parametros.Add(BDUtilidades.crearParametro("@imagen", DbType.String, Publicidad.Imagen));
-                parametros.Add(BDUtilidades.crearParametro("@consulta", DbType.Int32, Publicidad.Consulta));
-                parametros.Add(BDUtilidades.crearParametro("@idEstado", DbType.Int32, Publicidad.IdEstado));
+                parametros.Add(BDUtilidades.crearParametro("@Id", DbType.Int32, publicidad.Id));
+                parametros.Add(BDUtilidades.crearParametro("@entidad", DbType.String, publicidad.Entidad));
+                parametros.Add(BDUtilidades.crearParametro("@nombreContacto", DbType.String, publicidad.NombreContacto));
+                parametros.Add(BDUtilidades.crearParametro("@telContacto", DbType.String, publicidad.TelContacto));
+                parametros.Add(BDUtilidades.crearParametro("@mailContacto", DbType.String, publicidad.MailContacto));
+                parametros.Add(BDUtilidades.crearParametro("@fechaInicio", DbType.DateTime, publicidad.FechaInicio));
+                parametros.Add(BDUtilidades.crearParametro("@fechaFin", DbType.DateTime, publicidad.FechaFin));
+                parametros.Add(BDUtilidades.crearParametro("@frecuencia", DbType.Int32, publicidad.Frecuencia));
+                parametros.Add(BDUtilidades.crearParametro("@imagen", DbType.String, publicidad.Imagen));
+                parametros.Add(BDUtilidades.crearParametro("@consulta", DbType.Int32, publicidad.Consulta));
+                parametros.Add(BDUtilidades.crearParametro("@idEstado", DbType.Int32, publicidad.IdEstado));
 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("PublicidadActualizar", parametros, tran);
                 if (ok)
