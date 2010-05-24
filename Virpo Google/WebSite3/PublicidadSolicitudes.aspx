@@ -49,9 +49,9 @@
                 <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False">
                     <HeaderStyle Font-Size="Small" />
                 </asp:BoundField>
-                <asp:BoundField DataField="Entidad" HeaderText="Empresa" />
-                <asp:BoundField DataField="NombreContacto" HeaderText="Contacto" />
-                <asp:BoundField DataField="TelContacto" HeaderText="Telefono" />
+                <asp:BoundField DataField="entidad" HeaderText="Empresa" />
+                <asp:BoundField DataField="nombreContacto" HeaderText="Contacto" />
+                <asp:BoundField DataField="telContacto" HeaderText="Telefono" />
                 <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/lupa3.png"
 
                     Text="Consultar" />

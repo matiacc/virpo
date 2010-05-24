@@ -20,6 +20,10 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        DataTable dt = PublicidadFactory.DevolverXEstadoDT(0);//solicitado
+        GridView1.DataSource = dt;
+        GridView1.DataBind();
+        //GridView1.Columns[0].Visible = false;
 
     }
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
