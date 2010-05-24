@@ -46,4 +46,12 @@ public partial class _Default : System.Web.UI.Page
 
         }
     }
+    protected void btnEnviar_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnVolver_Click(object sender, EventArgs e)
+    {
+
+    }
 }

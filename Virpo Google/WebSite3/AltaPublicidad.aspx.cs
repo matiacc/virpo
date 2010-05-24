@@ -80,17 +80,17 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void ddlMeses_SelectedIndexChanged(object sender, EventArgs e)
     {
-        DateTime inicio = DateTime.Today.AddMonths(1);
-        inicio.Day = 1;
+        //DateTime inicio = DateTime.Today.AddMonths(1);
+        //inicio.Day = 1;
 
-        string mes = inicio.Month;
-        string anio = inicio.Year;
+        //string mes = inicio.Month;
+        //string anio = inicio.Year;
 
-        lblFecIni.Text = inicio.Day + "/" + mes + "/" + anio;
+        //lblFecIni.Text = inicio.Day + "/" + mes + "/" + anio;
 
-        DateTime fin = inicio.AddMonths(Convert.ToInt32(ddlMeses.Text));
-        fin = fin - 1;
+        //DateTime fin = inicio.AddMonths(Convert.ToInt32(ddlMeses.Text));
+        //fin = fin - 1;
 
-        lblFecFin.Text = fin.ToShortTimeString;
+        //lblFecFin.Text = fin.ToShortTimeString;
     }
 }
