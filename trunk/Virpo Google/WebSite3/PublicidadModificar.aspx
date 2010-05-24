@@ -23,7 +23,8 @@
             <td style="height: 20px">
                 </td>
             <td style="height: 20px; text-align: center;" colspan="2">
-                &nbsp;</td>
+                <asp:Label ID="lblId" runat="server" Visible="False"></asp:Label>
+            </td>
             <td style="height: 20px">
                 </td>
             <td style="height: 20px">
