@@ -6,7 +6,7 @@ Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
         <ul>
             <li><a href="AdminHome.aspx" title="Home Administracion">Home</a></li>
             <li><a href="NoticiaNueva.aspx" title="Nueva Noticia">Nueva Noticia</a></li>
-            <li><a href="BajasNoticias.aspx" title="Bajas">Modificar &amp; Bajas</a></li>
+            <li><a href="NoticiasBajas.aspx" title="Bajas">Modificar &amp; Bajas</a></li>
         </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">

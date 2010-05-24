@@ -1,18 +1,22 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="AltaPublicidad.aspx.cs" Inherits="_Default" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/VirpoAdmin.master" AutoEventWireup="true" CodeFile="PublicidadModificar.aspx.cs" Inherits="_Default" Title="Untitled Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<div id="menu8">
+        <ul>
+            <li><a href="AdminHome.aspx" title="Home Administracion">Home</a></li>
+            <li><a href="PublicidadSolicitudes.aspx" title="Permisos">Solicitudes</a></li>
+            <li><a href="PublicidadBajas.aspx" title="Permisos">Bajas &amp; Modificar</a></li>
+            <li><a href="PublicidadRenovacion.aspx" title="Permisos">Renovacion</a></li>
+        </ul>
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-
-    <p>
-        <br />
-    </p>
     <table class="style1">
         <tr>
             <td colspan="5">
                  <center style="width: 529px; background-color: #333333">
-                    <titulosubventana>
-                        Pedido de Publicidad</titulosubventana>
+                     <titulosubventana>
+                        &nbsp;Publicidad</titulosubventana>
                 </center></td>
         </tr>
         <tr>
@@ -26,34 +30,6 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="height: 20px">
-                &nbsp;</td>
-            <td style="height: 20px; text-align: center;" colspan="2">
-                <asp:Label ID="lblMsj" runat="server" Font-Italic="True" 
-                    Text="Dejanos estos datos y nos comunicaremos con vos a la brevedad"></asp:Label>
-                <asp:Label ID="lblOk" runat="server" ForeColor="#009933" 
-                    Text="Su consulta fue enviada con Exito, Desea hacer otra..." Visible="False"></asp:Label>
-                <asp:Label ID="lblMal" runat="server" ForeColor="#CC0000" 
-                    Text="Su consulta no fue enviada, intentelo luego... Gracias" Visible="False"></asp:Label>
-            </td>
-            <td style="height: 20px">
-                &nbsp;</td>
-            <td style="height: 20px">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="height: 20px">
-                &nbsp;</td>
-            <td style="height: 20px">
-                &nbsp;</td>
-            <td style="height: 20px">
-                &nbsp;</td>
-            <td style="height: 20px">
-                &nbsp;</td>
-            <td style="height: 20px">
-                &nbsp;</td>
-        </tr>
-        <tr>
             <td>
                 &nbsp;</td>
             <td style="text-align: right">
@@ -61,8 +37,6 @@
             </td>
             <td>
                 <asp:TextBox ID="txtEntidad" runat="server" Width="200px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                    ControlToValidate="txtEntidad" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
             </td>
             <td>
                 &nbsp;</td>
@@ -77,8 +51,6 @@
             </td>
             <td>
                 <asp:TextBox ID="txtNombreContacto" runat="server" Width="200px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                    ControlToValidate="txtNombreContacto" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
             </td>
             <td>
                 &nbsp;</td>
@@ -93,9 +65,6 @@
             </td>
             <td>
                 <asp:TextBox ID="txtTelContacto" runat="server" Width="200px"></asp:TextBox>
-                <asp:CompareValidator ID="CompareValidator1" runat="server" 
-                    ControlToValidate="txtTelContacto" Display="Dynamic" ErrorMessage="*" 
-                    Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
             </td>
             <td>
                 &nbsp;</td>
@@ -110,8 +79,6 @@
             </td>
             <td>
                 <asp:TextBox ID="txtMailContacto" runat="server" Width="200px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
-                    ControlToValidate="txtMailContacto" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
             </td>
             <td>
                 &nbsp;</td>
@@ -125,25 +92,8 @@
                 <asp:Label ID="lblMeses" runat="server" Text="Meses de Publicidad:"></asp:Label>
             </td>
             <td>
-                <asp:DropDownList ID="ddlMeses" runat="server" Height="22px" Width="43px" 
-                    onselectedindexchanged="ddlMeses_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlMeses" runat="server" Height="22px" Width="43px">
                 </asp:DropDownList>
-            </td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td style="text-align: right">
-                <asp:Label ID="Label1" runat="server" Text="Vigencia:"></asp:Label>
-            </td>
-            <td>
-                <asp:Label ID="lblFecIni" runat="server"></asp:Label>
-                <asp:Label ID="Label3" runat="server" Text="  a  "></asp:Label>
-                <asp:Label ID="lblFecFin" runat="server"></asp:Label>
             </td>
             <td>
                 &nbsp;</td>
@@ -212,10 +162,10 @@
             <td>
                 &nbsp;</td>
             <td style="text-align: center">
-                <asp:Button ID="btnEnviar" runat="server" CssClass="botones" 
-                    onclick="btnEnviar_Click" Text="Enviar" />
-                <asp:Button ID="btnVolver" runat="server" CausesValidation="False" 
-                    CssClass="botones" onclick="btnVolver_Click" Text="Volver" />
+                <asp:Button ID="btnGuardar" runat="server" CssClass="botones" 
+                    onclick="btnEnviar_Click" Text="Guardar" />
+                <asp:Button ID="btnCancelar" runat="server" CausesValidation="False" 
+                    CssClass="botones" onclick="btnVolver_Click" Text="Cancelar" />
             </td>
             <td>
                 &nbsp;</td>
@@ -223,10 +173,6 @@
                 &nbsp;</td>
         </tr>
         </table>
-    <br />
-    <p>
-    </p>
-
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
 </asp:Content>
