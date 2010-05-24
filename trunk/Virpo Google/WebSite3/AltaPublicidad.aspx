@@ -169,20 +169,6 @@
             <td>
                 &nbsp;</td>
             <td style="text-align: right">
-                <asp:Label ID="lblImagen" runat="server" Text="Imagen de Publicidad:"></asp:Label>
-            </td>
-            <td>
-                <asp:TextBox ID="txtImagen" runat="server" Width="200px"></asp:TextBox>
-            </td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td style="text-align: right">
                 <asp:Label ID="lblConsulta" runat="server" Text="Dejanos tu Consulta:"></asp:Label>
             </td>
             <td>

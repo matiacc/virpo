@@ -64,7 +64,7 @@ public partial class _Default : System.Web.UI.Page
         publi.FechaInicio = DateTime.Today;
         publi.FechaFin = DateTime.Today.AddMonths(Convert.ToInt32(ddlMeses.Text));
         publi.Frecuencia = Convert.ToInt32(ddlFrecuencia.Text);
-        publi.Imagen = txtImagen.Text;
+        publi.Imagen = "";
         publi.Consulta = txtConsulta.Text;
         publi.IdEstado = 0; // solicitado
 
@@ -81,16 +81,14 @@ public partial class _Default : System.Web.UI.Page
     protected void ddlMeses_SelectedIndexChanged(object sender, EventArgs e)
     {
         //DateTime inicio = DateTime.Today.AddMonths(1);
-        //inicio.Day = 1;
-
-        //string mes = inicio.Month;
-        //string anio = inicio.Year;
-
-        //lblFecIni.Text = inicio.Day + "/" + mes + "/" + anio;
+        //int mes = inicio.Month;
+        //int anio = inicio.Year;
+        //lblFecIni.Text = "01/" + mes + "/" + anio;
 
         //DateTime fin = inicio.AddMonths(Convert.ToInt32(ddlMeses.Text));
-        //fin = fin - 1;
+        //mes = fin.Month;
+        //anio = fin.Year;
+        //lblFecFin.Text = "01/" + mes + "/" + anio;
 
-        //lblFecFin.Text = fin.ToShortTimeString;
     }
 }
