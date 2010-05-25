@@ -67,14 +67,14 @@ public partial class _Default : System.Web.UI.Page
 
         //guardo la noticia modificada
         if (NoticiasFactory.Modificar(not))
-            Response.Redirect("BajasNoticias.aspx?&C=1");
+            Response.Redirect("NoticiasBajas.aspx?&C=1");
         else
-            Response.Redirect("BajasNoticias.aspx?&C=0");
+            Response.Redirect("NoticiasBajas.aspx?&C=0");
 
     }
 
     protected void btnCancelar_Click(object sender, EventArgs e)
     {
-        Response.Redirect("BajasNoticias.aspx");
+        Response.Redirect("NoticiasBajas.aspx");
     }
 }

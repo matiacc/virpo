@@ -31,8 +31,7 @@
                 <asp:BoundField DataField="Posicion" HeaderText="Posicion" />
                 <asp:BoundField DataField="IdAutor" HeaderText="Autor" />
                 <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/eliminar.png" />
-                <asp:ButtonField ButtonType="Image" CommandName="M" ImageUrl="~/ImagenesSite/edit.png"
-                    Text="Consultar" />
+                <asp:ButtonField ButtonType="Image" CommandName="M" ImageUrl="~/ImagenesSite/edit.png" />
             </Columns>
             <RowStyle CssClass="RowStyle" />
             <EmptyDataRowStyle CssClass="EmptyRowStyle" />
