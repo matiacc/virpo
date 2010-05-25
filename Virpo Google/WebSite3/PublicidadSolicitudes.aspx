@@ -43,8 +43,8 @@
     </table>
     <br />
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
-            AutoGenerateColumns="False" CssClass="HeaderStyle" GridLines="None" OnRowCommand="GridView1_RowCommand"
-            Width="529" PageSize="16">
+            AutoGenerateColumns="False" CssClass="GridViewStyle" GridLines="None" OnRowCommand="GridView1_RowCommand"
+            Width="529" PageSize="10">
             <Columns>
                 <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False">
                     <HeaderStyle Font-Size="Small" />
@@ -52,9 +52,7 @@
                 <asp:BoundField DataField="entidad" HeaderText="Empresa" />
                 <asp:BoundField DataField="nombreContacto" HeaderText="Contacto" />
                 <asp:BoundField DataField="telContacto" HeaderText="Telefono" />
-                <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/lupa3.png"
-
-                    Text="Consultar" />
+                <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/lupa3.png" />
             </Columns>
             <RowStyle CssClass="RowStyle" />
             <EmptyDataRowStyle CssClass="EmptyRowStyle" />

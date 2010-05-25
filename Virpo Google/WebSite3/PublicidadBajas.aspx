@@ -28,43 +28,29 @@
             <td>
                 &nbsp;</td>
         </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
     </table>
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
+            AutoGenerateColumns="False" CssClass="GridViewStyle" GridLines="None" OnRowCommand="GridView1_RowCommand"
+            Width="529" PageSize="10">
+            <Columns>
+                <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False">
+                    <HeaderStyle Font-Size="Small" />
+                </asp:BoundField>
+                <asp:BoundField DataField="entidad" HeaderText="Empresa" />
+                <asp:BoundField DataField="fechaInicio" HeaderText="Inicio" />
+                <asp:BoundField DataField="fechaFin" HeaderText="Fin" />
+                <asp:BoundField DataField="frecuencia" HeaderText="Frecuencia" />
+                <asp:ButtonField ButtonType="Image" CommandName="E" ImageUrl="~/ImagenesSite/eliminar.png" />
+                <asp:ButtonField ButtonType="Image" CommandName="M" ImageUrl="~/ImagenesSite/edit.png" />
+            </Columns>
+            <RowStyle CssClass="RowStyle" />
+            <EmptyDataRowStyle CssClass="EmptyRowStyle" />
+            <PagerStyle CssClass="PagerStyle" />
+            <SelectedRowStyle CssClass="SelectedRowStyle" />
+            <HeaderStyle CssClass="HeaderStyle" />
+            <EditRowStyle CssClass="EditRowStyle" />
+            <AlternatingRowStyle CssClass="AltRowStyle" />
+        </asp:GridView>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
 </asp:Content>

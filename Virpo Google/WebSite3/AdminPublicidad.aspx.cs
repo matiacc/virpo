@@ -17,7 +17,15 @@ public partial class _Default : System.Web.UI.Page
     {
         if (Request.QueryString["c"]!= null)
         {
-
+            int c =Convert.ToInt32(Request.QueryString["c"]);
+            if (c == 1)
+            {
+                lblOk.Visible = true;
+            } 
+            if (c ==0)
+            {
+                lblMal.Visible = true;
+            }
         }
     }
 }

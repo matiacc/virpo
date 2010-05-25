@@ -19,6 +19,28 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Page.IsPostBack)
+        {
+            DataTable dt = PublicidadFactory.DevolverXEstadoDT(1);//solicitado
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+            GridView1.Columns[0].Visible = false;
+        }
 
+
+    }
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+
+        if (e.CommandName == "E")
+        {
+            string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
+            Response.Redirect("PublicidadModificar.aspx?&I=" + id);
+        }
+        if (e.CommandName == "M")
+        {
+            string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
+            Response.Redirect("PublicidadModificar.aspx?&I=" + id);
+        }
     }
 }
