@@ -11,7 +11,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="Server">
     <p>
-        Se loguea y pasa a
-        <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/AdminHome.aspx">AdminHome.aspx</asp:LinkButton>
+<%--        Se loguea y pasa a
+        <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/AdminHome.aspx">AdminHome.aspx</asp:LinkButton>--%>
     </p>
 </asp:Content>
