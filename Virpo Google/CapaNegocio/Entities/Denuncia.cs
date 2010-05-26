@@ -14,6 +14,8 @@ namespace CapaNegocio.Entities
         private string tipo;
         private DateTime fecha;
         private string descripcion;
+        private int idDocDenunciado;
+        private string tabla;
         private int idArticuloWiki;
         private int idEvento;
         private int idGrupo;
@@ -58,6 +60,16 @@ namespace CapaNegocio.Entities
         {
             get { return descripcion; }
             set { descripcion = value; }
+        }
+        public int IdDocDenunciado
+        {
+            get { return idDocDenunciado; }
+            set { idDocDenunciado = value; }
+        }
+        public string Tabla
+        {
+            get { return tabla; }
+            set { tabla = value; }
         }
         public int IdArticuloWiki
         {
