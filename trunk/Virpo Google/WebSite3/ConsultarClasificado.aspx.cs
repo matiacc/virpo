@@ -22,6 +22,22 @@ public partial class ConsultarClasificado : System.Web.UI.Page
         {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
+            //Cambia el estado a leido cuando es consultado por la administración de denuncias.
+            if (Request.QueryString["leida"] != null)
+            {
+                DenunciaFactory.ModificarLeida(int.Parse(Request.QueryString["leida"].ToString()));
+                ClientScript.RegisterStartupScript(typeof(String), "RefrescaDenunciasLeidas", "window.opener.location.reload()", true);
+            }
+            //Fin
+
+            if (DenunciaFactory.HayDenuncia(Convert.ToInt32(Request.QueryString["C"]), "AvisoClasificado") != 0)
+            {
+                btnDenunciar.Text = "Denunciado";
+                btnDenunciar.ControlStyle.BorderColor = System.Drawing.Color.Red;
+                btnDenunciar.ControlStyle.ForeColor = System.Drawing.Color.Red;
+                btnDenunciar.Enabled = false;
+            }
+
             int id = Convert.ToInt32(Request.QueryString["C"]);
             lblContactar.Text = "<a href='javascript:abrirPopup(" + id + ")' class='estiloLabelCabeceraPeque'>Contactar con el vendedor</a>";
             Session["urlClasificado"] = Request.Url.ToString();
@@ -62,5 +78,29 @@ public partial class ConsultarClasificado : System.Web.UI.Page
     {
         gvMensajes.DataSource = MensajeFactory.DevolverMensajesDeAviso(idAviso);
         gvMensajes.DataBind();
+    }
+    protected void btnDenunciar_Click(object sender, EventArgs e)
+    {
+        if (btnDenunciar.Text == "Denunciar")
+        {
+            btnDenunciar.Text = "Denunciado";
+            btnDenunciar.ControlStyle.BorderColor = System.Drawing.Color.Red;
+            btnDenunciar.ControlStyle.ForeColor = System.Drawing.Color.Red;
+            btnDenunciar.Enabled = false;
+
+            Usuario usr = new Usuario();
+            usr = (Usuario)Session["Usuario"];
+            Denuncia denuncia = new Denuncia();
+            denuncia.IdDenunciante = (int)usr.Id;
+            denuncia.UsrDenunciante = usr.NombreUsuario.ToString();
+            denuncia.Url = Request.Url.ToString().Substring(Request.Url.ToString().LastIndexOf('/') + 1);
+            denuncia.Descripcion = lblTitulo.Text.ToString();
+            denuncia.Tipo = "Avisos Clasificados";
+            denuncia.Fecha = DateTime.Now;
+            denuncia.IdDocDenunciado = Convert.ToInt32(Request.QueryString["C"]);
+            denuncia.Tabla = "AvisoClasificado";
+
+            bool ok = DenunciaFactory.Insertar(denuncia);
+        }
     }
 }

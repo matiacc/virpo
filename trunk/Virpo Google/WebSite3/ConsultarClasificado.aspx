@@ -181,6 +181,8 @@
             <td style="width: 198px">
                 </td>
             <td>
+                <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
+                    Width="95px" onclick="btnDenunciar_Click" />
                 </td>
         </tr>
          <tr>

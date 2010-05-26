@@ -8,11 +8,17 @@
             <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
             <li><a href="MisProyectos.aspx?" title="Mis Proyectos">Mis Proyectos</a></li>
              <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
-             <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones Terminadas</a></li>
+             <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones 
+                 Terminadas</a></li>
         </ul>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+
+<SCRIPT LANGUAGE="JavaScript">
+window.opener.location.reload();
+</SCRIPT>
+
     <table class="tabla">
         <tr>
             <td colspan="3">
@@ -118,7 +124,7 @@
             <td colspan="3" align="center" style="height: 20px; font-size: large;">
                 <center style="width: 529px; background-color: #333333">
                     <titulosubventana>
-                   Composiciones 
+                    Composiciones 
                 <asp:Label ID="Label7" runat="server"></asp:Label>
                     </titulosubventana>
                 </center>
@@ -151,8 +157,10 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3" align="center">
+            <td colspan="3" align="right">
                 &nbsp;
+                <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
+                    Width="95px" onclick="btnDenunciar_Click" />
             </td>
         </tr>
         <tr>

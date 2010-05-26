@@ -27,12 +27,11 @@ public partial class _Default : System.Web.UI.Page
             if (Request.QueryString["leida"] != null)
             {
                 DenunciaFactory.ModificarLeida(int.Parse(Request.QueryString["leida"].ToString()));
-                ClientScript.RegisterStartupScript(typeof(String), "RefrescaLeidas", "window.opener.location.reload()", true);
-                
+                ClientScript.RegisterStartupScript(typeof(String), "RefrescaDenunciasLeidas", "window.opener.location.reload()", true);
             }
             //Fin
 
-            if (DenunciaFactory.HayDenunciaDeWikiMusic(Convert.ToInt32(Request.QueryString["C"])) != 0)
+            if (DenunciaFactory.HayDenuncia(Convert.ToInt32(Request.QueryString["C"]), "ArticuloWiki") != 0)
             {
                 btnDenunciar.Text = "Denunciado";
                 btnDenunciar.ControlStyle.BorderColor = System.Drawing.Color.Red;
@@ -164,21 +163,10 @@ public partial class _Default : System.Web.UI.Page
             denuncia.Descripcion = lblTitulo.Text.ToString();
             denuncia.Tipo = "Artículo WikiMusic";
             denuncia.Fecha = DateTime.Now;
-            denuncia.IdArticuloWiki = Convert.ToInt32(Request.QueryString["C"]);
-            denuncia.IdEvento = 0;
-            denuncia.IdGrupo = 0;
-            denuncia.IdProyecto = 0;
-            denuncia.IdComposicion = 0;
-            denuncia.IdBanda = 0;
-            denuncia.IdClasificado = 0;
-            denuncia.IdUsuario = 0;
+            denuncia.IdDocDenunciado = Convert.ToInt32(Request.QueryString["C"]);
+            denuncia.Tabla = "ArticuloWiki";
 
             bool ok = DenunciaFactory.Insertar(denuncia);
-
-            if (ok)
-            {
-                lblTitulo.Text = "SE GRABO";
-            }
         }
     }
 }
