@@ -32,13 +32,6 @@ namespace CapaNegocio.Factories
                     denuncia.Fecha = Convert.ToDateTime(dt.Rows[i]["fecha"].ToString());
                     denuncia.IdDocDenunciado = (int)dt.Rows[i]["idDocDenunciado"];
                     denuncia.Tabla = dt.Rows[i]["tabla"].ToString();
-                    //denuncia.IdEvento = (int)dt.Rows[i]["idEvento"];
-                    //denuncia.IdGrupo = (int)dt.Rows[i]["idGrupo"];
-                    //denuncia.IdProyecto = (int)dt.Rows[i]["idProyecto"];
-                    //denuncia.IdComposicion = (int)dt.Rows[i]["idComposicion"];
-                    //denuncia.IdBanda = (int)dt.Rows[i]["idBanda"];
-                    //denuncia.IdClasificado = (int)dt.Rows[i]["idClasificado"];
-                    //denuncia.IdUsuario = (int)dt.Rows[i]["idUsuario"];
                     denuncia.Leido = dt.Rows[i]["leido"].ToString();
                     denuncias.Add(denuncia);
                 }
@@ -70,13 +63,6 @@ namespace CapaNegocio.Factories
                     denuncia.Fecha = Convert.ToDateTime(dt.Rows[i]["fecha"].ToString());
                     denuncia.IdDocDenunciado = (int)dt.Rows[i]["idDocDenunciado"];
                     denuncia.Tabla = dt.Rows[i]["tabla"].ToString();
-                    //denuncia.IdEvento = (int)dt.Rows[i]["idEvento"];
-                    //denuncia.IdGrupo = (int)dt.Rows[i]["idGrupo"];
-                    //denuncia.IdProyecto = (int)dt.Rows[i]["idProyecto"];
-                    //denuncia.IdComposicion = (int)dt.Rows[i]["idComposicion"];
-                    //denuncia.IdBanda = (int)dt.Rows[i]["idBanda"];
-                    //denuncia.IdClasificado = (int)dt.Rows[i]["idClasificado"];
-                    //denuncia.IdUsuario = (int)dt.Rows[i]["idUsuario"];
                     denuncia.Leido = dt.Rows[i]["leido"].ToString();
                     denuncias.Add(denuncia);
                 }
@@ -168,14 +154,6 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@fecha", DbType.DateTime, denuncia.Fecha));
                 parametros.Add(BDUtilidades.crearParametro("@idDocDenunciado", DbType.Int32, denuncia.IdDocDenunciado));
                 parametros.Add(BDUtilidades.crearParametro("@tabla", DbType.String, denuncia.Tabla));
-                //parametros.Add(BDUtilidades.crearParametro("@idArticuloWiki", DbType.Int32, denuncia.IdArticuloWiki));
-                //parametros.Add(BDUtilidades.crearParametro("@idEvento", DbType.Int32, denuncia.IdEvento));
-                //parametros.Add(BDUtilidades.crearParametro("@idGrupo", DbType.Int32, denuncia.IdGrupo));
-                //parametros.Add(BDUtilidades.crearParametro("@idProyecto", DbType.Int32, denuncia.IdProyecto));
-                //parametros.Add(BDUtilidades.crearParametro("@idComposicion", DbType.Int32, denuncia.IdComposicion));
-                //parametros.Add(BDUtilidades.crearParametro("@idBanda", DbType.Int32, denuncia.IdBanda));
-                //parametros.Add(BDUtilidades.crearParametro("@idClasificado", DbType.Int32, denuncia.IdClasificado));
-                //parametros.Add(BDUtilidades.crearParametro("@idUsuario", DbType.Int32, denuncia.IdUsuario));
                 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("DenunciaInsertar", parametros, tran);
                 if (ok)
