@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,8 @@ namespace CapaNegocio.Factories
 
         public static List<Denuncia> DevolverTodos()
         {
-            string query = "SELECT id, idDenunciante, usrDenunciante, url, descripcion, tipo, fecha, idArticuloWiki, idEvento, idGrupo, idProyecto, idComposicion, idBanda, idClasificado, idUsuario, leido " +
-                           "FROM Denuncia WHERE leido<>'OK'";
+            string query = "SELECT id, idDenunciante, usrDenunciante, url, descripcion, tipo, fecha, idDocDenunciado, tabla, leido " +
+                           "FROM Denuncia WHERE leido<>'OK' ORDER BY fecha";
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
             {
@@ -29,14 +30,15 @@ namespace CapaNegocio.Factories
                     denuncia.Descripcion=dt.Rows[i]["descripcion"].ToString();
                     denuncia.Tipo=dt.Rows[i]["tipo"].ToString();
                     denuncia.Fecha = Convert.ToDateTime(dt.Rows[i]["fecha"].ToString());
-                    denuncia.IdArticuloWiki = (int)dt.Rows[i]["idArticuloWiki"];
-                    denuncia.IdEvento = (int)dt.Rows[i]["idEvento"];
-                    denuncia.IdGrupo = (int)dt.Rows[i]["idGrupo"];
-                    denuncia.IdProyecto = (int)dt.Rows[i]["idProyecto"];
-                    denuncia.IdComposicion = (int)dt.Rows[i]["idComposicion"];
-                    denuncia.IdBanda = (int)dt.Rows[i]["idBanda"];
-                    denuncia.IdClasificado = (int)dt.Rows[i]["idClasificado"];
-                    denuncia.IdUsuario = (int)dt.Rows[i]["idUsuario"];
+                    denuncia.IdDocDenunciado = (int)dt.Rows[i]["idDocDenunciado"];
+                    denuncia.Tabla = dt.Rows[i]["tabla"].ToString();
+                    //denuncia.IdEvento = (int)dt.Rows[i]["idEvento"];
+                    //denuncia.IdGrupo = (int)dt.Rows[i]["idGrupo"];
+                    //denuncia.IdProyecto = (int)dt.Rows[i]["idProyecto"];
+                    //denuncia.IdComposicion = (int)dt.Rows[i]["idComposicion"];
+                    //denuncia.IdBanda = (int)dt.Rows[i]["idBanda"];
+                    //denuncia.IdClasificado = (int)dt.Rows[i]["idClasificado"];
+                    //denuncia.IdUsuario = (int)dt.Rows[i]["idUsuario"];
                     denuncia.Leido = dt.Rows[i]["leido"].ToString();
                     denuncias.Add(denuncia);
                 }
@@ -48,9 +50,91 @@ namespace CapaNegocio.Factories
             }
         }
 
-        public static int HayDenunciaDeWikiMusic(int id)
+        public static List<Denuncia> DevolverTodos(string tabla)
         {
-            string query = "SELECT COUNT(id) FROM Denuncia WHERE leido<>'OK' AND idArticuloWiki=" + id;
+            string query = "SELECT id, idDenunciante, usrDenunciante, url, descripcion, tipo, fecha, idDocDenunciado, tabla, leido " +
+                           "FROM Denuncia WHERE leido<>'OK' AND tabla='" + tabla + "' ORDER BY fecha";
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                List<Denuncia> denuncias = new List<Denuncia>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Denuncia denuncia = new Denuncia();
+                    denuncia.Id = (int)dt.Rows[i]["id"];
+                    denuncia.IdDenunciante = (int)dt.Rows[i]["idDenunciante"];
+                    denuncia.UsrDenunciante = dt.Rows[i]["usrDenunciante"].ToString();
+                    denuncia.Url = dt.Rows[i]["url"].ToString();
+                    denuncia.Descripcion = dt.Rows[i]["descripcion"].ToString();
+                    denuncia.Tipo = dt.Rows[i]["tipo"].ToString();
+                    denuncia.Fecha = Convert.ToDateTime(dt.Rows[i]["fecha"].ToString());
+                    denuncia.IdDocDenunciado = (int)dt.Rows[i]["idDocDenunciado"];
+                    denuncia.Tabla = dt.Rows[i]["tabla"].ToString();
+                    //denuncia.IdEvento = (int)dt.Rows[i]["idEvento"];
+                    //denuncia.IdGrupo = (int)dt.Rows[i]["idGrupo"];
+                    //denuncia.IdProyecto = (int)dt.Rows[i]["idProyecto"];
+                    //denuncia.IdComposicion = (int)dt.Rows[i]["idComposicion"];
+                    //denuncia.IdBanda = (int)dt.Rows[i]["idBanda"];
+                    //denuncia.IdClasificado = (int)dt.Rows[i]["idClasificado"];
+                    //denuncia.IdUsuario = (int)dt.Rows[i]["idUsuario"];
+                    denuncia.Leido = dt.Rows[i]["leido"].ToString();
+                    denuncias.Add(denuncia);
+                }
+                return denuncias;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static Denuncia Devolver(int id)
+        {
+            string query = "SELECT id, idDenunciante, usrDenunciante, url, descripcion, tipo, fecha, idDocDenunciado, tabla, leido " +
+                           "FROM Denuncia WHERE leido<>'OK' AND id=" + id;
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            Denuncia denuncia = new Denuncia();
+            denuncia.Id = (int)dt.Rows[0]["id"];
+            denuncia.IdDenunciante = (int)dt.Rows[0]["idDenunciante"];
+            denuncia.UsrDenunciante = dt.Rows[0]["usrDenunciante"].ToString();
+            denuncia.Url = dt.Rows[0]["url"].ToString();
+            denuncia.Descripcion = dt.Rows[0]["descripcion"].ToString();
+            denuncia.Tipo = dt.Rows[0]["tipo"].ToString();
+            denuncia.Fecha = Convert.ToDateTime(dt.Rows[0]["fecha"].ToString());
+            denuncia.IdDocDenunciado = (int)dt.Rows[0]["idDocDenunciado"];
+            denuncia.Tabla = dt.Rows[0]["tabla"].ToString();
+            denuncia.Leido = dt.Rows[0]["leido"].ToString();
+
+            return denuncia;
+        }
+
+        public static ArrayList DevolverTablas()
+        {
+            string query = "SELECT tabla " +
+                           "FROM Denuncia WHERE leido<>'OK' GROUP BY tabla";
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                ArrayList tablas = new ArrayList();
+                
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    string tabla = dt.Rows[i]["tabla"].ToString();
+
+                    tablas.Add(tabla);
+                }
+                return tablas;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static int HayDenuncia(int id, string tabla)
+        {
+            string query = "SELECT COUNT(id) FROM Denuncia WHERE leido<>'OK' AND tabla='" + tabla + "' AND idDocDenunciado=" + id;
             int denuncia = BDUtilidades.EjecutarConsultaEscalar(query);
             return denuncia;
         }
@@ -82,14 +166,16 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@descripcion", DbType.String, denuncia.Descripcion));
                 parametros.Add(BDUtilidades.crearParametro("@tipo", DbType.String, denuncia.Tipo));
                 parametros.Add(BDUtilidades.crearParametro("@fecha", DbType.DateTime, denuncia.Fecha));
-                parametros.Add(BDUtilidades.crearParametro("@idArticuloWiki", DbType.Int32, denuncia.IdArticuloWiki));
-                parametros.Add(BDUtilidades.crearParametro("@idEvento", DbType.Int32, denuncia.IdEvento));
-                parametros.Add(BDUtilidades.crearParametro("@idGrupo", DbType.Int32, denuncia.IdGrupo));
-                parametros.Add(BDUtilidades.crearParametro("@idProyecto", DbType.Int32, denuncia.IdProyecto));
-                parametros.Add(BDUtilidades.crearParametro("@idComposicion", DbType.Int32, denuncia.IdComposicion));
-                parametros.Add(BDUtilidades.crearParametro("@idBanda", DbType.Int32, denuncia.IdBanda));
-                parametros.Add(BDUtilidades.crearParametro("@idClasificado", DbType.Int32, denuncia.IdClasificado));
-                parametros.Add(BDUtilidades.crearParametro("@idUsuario", DbType.Int32, denuncia.IdUsuario));
+                parametros.Add(BDUtilidades.crearParametro("@idDocDenunciado", DbType.Int32, denuncia.IdDocDenunciado));
+                parametros.Add(BDUtilidades.crearParametro("@tabla", DbType.String, denuncia.Tabla));
+                //parametros.Add(BDUtilidades.crearParametro("@idArticuloWiki", DbType.Int32, denuncia.IdArticuloWiki));
+                //parametros.Add(BDUtilidades.crearParametro("@idEvento", DbType.Int32, denuncia.IdEvento));
+                //parametros.Add(BDUtilidades.crearParametro("@idGrupo", DbType.Int32, denuncia.IdGrupo));
+                //parametros.Add(BDUtilidades.crearParametro("@idProyecto", DbType.Int32, denuncia.IdProyecto));
+                //parametros.Add(BDUtilidades.crearParametro("@idComposicion", DbType.Int32, denuncia.IdComposicion));
+                //parametros.Add(BDUtilidades.crearParametro("@idBanda", DbType.Int32, denuncia.IdBanda));
+                //parametros.Add(BDUtilidades.crearParametro("@idClasificado", DbType.Int32, denuncia.IdClasificado));
+                //parametros.Add(BDUtilidades.crearParametro("@idUsuario", DbType.Int32, denuncia.IdUsuario));
                 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("DenunciaInsertar", parametros, tran);
                 if (ok)
@@ -139,5 +225,39 @@ namespace CapaNegocio.Factories
 
         }
         #endregion
+
+        public static bool BorrarDenuncia(int idDenuncia)
+        {
+            return BorrarDenuncia(idDenuncia, (SqlTransaction)null);
+        }
+        /// <summary>
+        /// Baja de un registro con transaccion
+        /// </summary>
+        /// <param name="musico">Objeto Localidad</param>
+        /// <returns>true si guardó con éxito</returns>
+        public static bool BorrarDenuncia(int idDenuncia, SqlTransaction tran)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(BDUtilidades.crearParametro("@id", DbType.Int32, idDenuncia));
+
+                bool ok = BDUtilidades.ExecuteStoreProcedure("DenunciaBorrar", parametros, tran);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public static bool BorrarDocumentoDenunciado(string tabla, int id)
+        {
+            string query = "DELETE " + tabla + " WHERE id=" + id;
+            if (BDUtilidades.EjecutarNonQuery(query) != 0) return true;
+            else return false;
+        }
     }
 }
