@@ -16,14 +16,6 @@ namespace CapaNegocio.Entities
         private string descripcion;
         private int idDocDenunciado;
         private string tabla;
-        private int idArticuloWiki;
-        private int idEvento;
-        private int idGrupo;
-        private int idProyecto;
-        private int idComposicion;
-        private int idBanda;
-        private int idClasificado;
-        private int idUsuario;
         private string leido;
         
         public int Id
@@ -70,46 +62,6 @@ namespace CapaNegocio.Entities
         {
             get { return tabla; }
             set { tabla = value; }
-        }
-        public int IdArticuloWiki
-        {
-            get { return idArticuloWiki; }
-            set { idArticuloWiki = value; }
-        }
-        public int IdEvento
-        {
-            get { return idEvento; }
-            set { idEvento = value; }
-        }
-        public int IdGrupo
-        {
-            get { return idGrupo; }
-            set { idGrupo = value; }
-        }
-        public int IdProyecto
-        {
-            get { return idProyecto; }
-            set { idProyecto = value; }
-        }
-        public int IdComposicion
-        {
-            get { return idComposicion; }
-            set { idComposicion = value; }
-        }
-        public int IdBanda
-        {
-            get { return idBanda; }
-            set { idBanda = value; }
-        }
-        public int IdClasificado
-        {
-            get { return idClasificado; }
-            set { idClasificado = value; }
-        }
-        public int IdUsuario
-        {
-            get { return idUsuario; }
-            set { idUsuario = value; }
         }
         public string Leido
         {
