@@ -175,8 +175,16 @@
          <tr>
             <td colspan="2" style="width: 250px">
                 &nbsp;</td>
-            <td style="width: 198px">
+            <td style="width: 198px" align="right">
+                </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="width: 250px">
                 &nbsp;</td>
+            <td style="width: 198px" align="right">
+                <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
+                    Width="95px" onclick="btnDenunciar_Click" />
+                </td>
         </tr>
     </table>
 </asp:Content>

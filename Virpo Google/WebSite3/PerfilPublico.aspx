@@ -113,6 +113,19 @@
         </td>
     </tr>
     </table>
+    <table style="width: 529px">
+    <tr align="right">
+       <td>
+       </td>
+     </tr>
+      <tr>
+        <td align="right">
+           <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
+                    Width="95px" onclick="btnDenunciar_Click" />
+                
+        </td>
+      </tr>
+    </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
 </asp:Content>

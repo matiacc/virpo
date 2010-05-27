@@ -23,9 +23,30 @@ public partial class ConfirmarDenuncia : System.Web.UI.Page
             {
                 Denuncia denuncia = new Denuncia();
                 denuncia = DenunciaFactory.Devolver(int.Parse(Request.QueryString["idD"].ToString()));
-                
+                bool okBajaDoc;
                 bool okBajaDen = DenunciaFactory.BorrarDenuncia(int.Parse(Request.QueryString["idD"].ToString())) ;
-                bool okBajaDoc = DenunciaFactory.BorrarDocumentoDenunciado(denuncia.Tabla, denuncia.IdDocDenunciado);
+                switch (denuncia.Tabla)
+                {
+                    case "Proyecto":
+                        okBajaDoc = ProyectoFactory.Eliminar(int.Parse(denuncia.IdDocDenunciado.ToString()));
+                        break;
+
+                    case "Banda":
+                        okBajaDoc = BandaFactory.Eliminar(int.Parse(denuncia.IdDocDenunciado.ToString()));
+                        break;
+
+                    case "Grupo":
+                        okBajaDoc = GrupoFactory.Eliminar(int.Parse(denuncia.IdDocDenunciado.ToString()));
+                        break;
+
+                    case "Usuario":
+                        okBajaDoc = UsuarioFactory.Eliminar(int.Parse(denuncia.IdDocDenunciado.ToString()));
+                        break;
+
+                    default: 
+                        okBajaDoc = DenunciaFactory.BorrarDocumentoDenunciado(denuncia.Tabla, denuncia.IdDocDenunciado);
+                        break;
+                }
 
                 if (okBajaDen && okBajaDoc)
                 {
