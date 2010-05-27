@@ -3,10 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div id="menu8">
         <ul>
-            <li><a href="AdminHome.aspx" title="Home Administracion">Home</a></li>
-            <li><a href="PublicidadSolicitudes.aspx" title="Permisos">Solicitudes</a></li>
-            <li><a href="PublicidadBajas.aspx" title="Permisos">Bajas &amp; Modificar</a></li>
-            <li><a href="PublicidadRenovacion.aspx" title="Permisos">Renovacion</a></li>
+            <li><a href="AdminHome.aspx" title="Vuelve al Home Administracion">Home</a></li>
+            <li><a href="PublicidadSolicitudes.aspx" title="Pedidos de Publicidad">Solicitudes</a></li>
+            <li><a href="PublicidadBajas.aspx" title="Publicidades Vigentes">Bajas &amp; Modificar</a></li>
+            <li><a href="PublicidadRenovacion.aspx" title="Publicidades Vencidas">Renovacion</a></li>
+            <li><a href="PublicidadEjecutarBajas.aspx" title="Publicidades a Eliminar">Ejecutar Bajas</a></li>
         </ul>
     </div>
 </asp:Content>
