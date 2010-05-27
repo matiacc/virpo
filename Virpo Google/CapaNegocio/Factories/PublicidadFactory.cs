@@ -266,5 +266,9 @@ namespace CapaNegocio.Factories
         }
         #endregion
 
+        public static void CalcularVencimientos(DateTime fecha)
+        { 
+           
+        }
     }
 }
