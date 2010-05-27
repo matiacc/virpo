@@ -164,5 +164,26 @@ namespace CapaNegocio.Factories
             else
                 return false;
         }
+        #region Eliminar
+        public static bool Eliminar(int id)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(BDUtilidades.crearParametro("@id", DbType.Int32, id));
+
+                bool ok = BDUtilidades.ExecuteStoreProcedure("GrupoBorrar", parametros);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        #endregion
     }
 }
