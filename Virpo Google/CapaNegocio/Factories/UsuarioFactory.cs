@@ -316,6 +316,28 @@ namespace CapaNegocio.Factories
         }
         #endregion
 
+        #region Eliminar
+        public static bool Eliminar(int id)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(BDUtilidades.crearParametro("@id", DbType.Int32, id));
+
+                bool ok = BDUtilidades.ExecuteStoreProcedure("UsuarioBorrar", parametros);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        #endregion
+
         public static bool CambiarPassword(int id, string pass)
         {
             try
