@@ -15,9 +15,9 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request.QueryString["c"]!= null)
+        if (Request.QueryString["C"]!= null)
         {
-            int c =Convert.ToInt32(Request.QueryString["c"]);
+            int c =Convert.ToInt32(Request.QueryString["C"]);
             if (c == 1)
             {
                 lblOk.Visible = true;
