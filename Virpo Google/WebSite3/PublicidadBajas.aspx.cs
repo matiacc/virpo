@@ -21,26 +21,51 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            DataTable dt = PublicidadFactory.DevolverXEstadoDT(1);//solicitado
+            DataTable dt = PublicidadFactory.DevolverXEstadoDT(1);//Vigente
             GridView1.DataSource = dt;
             GridView1.DataBind();
             GridView1.Columns[0].Visible = false;
+            if (Request.QueryString["C"] != null)
+            {
+                int c = Convert.ToInt32(Request.QueryString["C"]);
+                if (c == 1)
+                {
+                    lblOk.Visible = true;
+                }
+                if (c == 0)
+                {
+                    lblMal.Visible = true;
+                }
+            }
         }
 
 
     }
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
+        string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
+        int ID = Convert.ToInt32(GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
+        Publicidad publi = new Publicidad();
+        publi = PublicidadFactory.Devolver(ID);
 
         if (e.CommandName == "E")
         {
-            string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
-            Response.Redirect("PublicidadModificar.aspx?&I=" + id);
+            publi.Consulta = "Baja Forzada";
+            publi.IdEstado = 3;
+            if (PublicidadFactory.Modificar(publi))
+            {
+                Response.Redirect("AdminPublicidad.aspx?&C=1");
+            }
+            else
+            {
+                Response.Redirect("AdminPublicidad.aspx?&C=0");
+            }
+            
         }
         if (e.CommandName == "M")
         {
-            string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
-            Response.Redirect("PublicidadModificar.aspx?&I=" + id);
+           
+            Response.Redirect("PublicidadModificar.aspx?I=" + id + "&EP=1");
         }
     }
 }
