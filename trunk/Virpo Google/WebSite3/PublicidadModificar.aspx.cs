@@ -23,6 +23,28 @@ public partial class _Default : System.Web.UI.Page
         {
             int frec = 0;
             int mes = 0;
+
+            if (Request.QueryString["EP"] != null)
+            {
+                int ep = Convert.ToInt32(Request.QueryString["EP"].ToString());
+                switch (ep)
+                {
+                    case 0:     
+                        break;
+                    case 1: btnAlta.Text = "Guardar";
+                        //txtInicio.Enabled = false;
+                        //txtFin.Enabled = false;
+                        //ddlFrecuencia.Enabled = false;
+                        lblConsulta.Text = "Observacion:";
+                        break;
+                    case 2: btnAlta.Text = "Renovar";
+                        lblConsulta.Text = "Observacion:";
+                        break;
+                    case 3: btnAlta.Text = "Renovar";
+                        lblConsulta.Text = "Observacion:";
+                        break;
+                } 
+            }
                       
             if (Request.QueryString["I"] != null)
             {
@@ -36,8 +58,6 @@ public partial class _Default : System.Web.UI.Page
                 txtMailContacto.Text = publi.MailContacto;
                 txtImagen.Text = publi.Imagen;
                 txtConsulta.Text = publi.Consulta;
-                
-                
                 
                 frec = publi.Frecuencia;
                 mes = publi.FechaInicio.Month;
@@ -55,16 +75,24 @@ public partial class _Default : System.Web.UI.Page
                     }
                 }
                 ddlFrecuencia.SelectedIndex = frec;
-
                
                 mes = publi.FechaFin.Month - publi.FechaInicio.Month;// cant de meses(resultados positivos
-                if (mes<0)//esto es para q los resultados negativos indiquen la cant de meses
+                if (mes<=0)//esto es para q los resultados negativos indiquen la cant de meses
                 {
                     mes = mes + 12;
                 }
                 lblMeses.Text = Convert.ToString(mes);
-                txtInicio.Text = DateTime.Today.ToShortDateString();
-                txtFin.Text = DateTime.Today.AddMonths(mes).ToShortDateString();
+                if (btnAlta.Text.CompareTo("Alta")==0)
+                {
+                    txtInicio.Text = DateTime.Today.ToShortDateString();
+                    txtFin.Text = DateTime.Today.AddMonths(mes).ToShortDateString();
+                }
+                else
+	            {
+                    txtInicio.Text = Convert.ToString(publi.FechaInicio);
+                    txtFin.Text = Convert.ToString(publi.FechaFin);
+	            }
+                
             }            
         }
     }
@@ -82,19 +110,62 @@ public partial class _Default : System.Web.UI.Page
         publi.FechaFin = Convert.ToDateTime(txtFin.Text);
         publi.Imagen = txtImagen.Text;
         publi.Frecuencia = Convert.ToInt32(ddlFrecuencia.Text);
-        publi.Consulta = txtConsulta.Text;
-        publi.IdEstado = 1;//vigente
+        publi.Consulta = "";
+        publi.IdEstado = 1;
+
         if (PublicidadFactory.Modificar(publi))
         {
-            Response.Redirect("AdminPublicidad.aspx?c=1");
+            if (Request.QueryString["EP"] != null)
+            {
+                int ep = Convert.ToInt32(Request.QueryString["EP"].ToString());
+                switch (ep)
+                {
+                    case 0: Response.Redirect("PublicidadSolicitudes.aspx?C=1");
+                        break;
+                    case 1: Response.Redirect("PublicidadBajas.aspx?C=1");
+                        break;
+                    case 2: Response.Redirect("PublicidadRenovacion.aspx?C=1");
+                        break;
+                    case 3: Response.Redirect("PublicidadEjecutarBajas.aspx?C=1");
+                        break;
+                }
+            }
         }
         else
         {
-            Response.Redirect("AdminPublicidad.aspx?c=0");
+            if (Request.QueryString["EP"] != null)
+            {
+                int ep = Convert.ToInt32(Request.QueryString["EP"].ToString());
+                switch (ep)
+                {
+                    case 0: Response.Redirect("PublicidadSolicitudes.aspx?C=0");
+                        break;
+                    case 1: Response.Redirect("PublicidadBajas.aspx?C=0");
+                        break;
+                    case 2: Response.Redirect("PublicidadRenovacion.aspx?C=0");
+                        break;
+                    case 3: Response.Redirect("PublicidadEjecutarBajas.aspx?C=0");
+                        break;
+                }
+            }
         }
     }
     protected void btnVolver_Click(object sender, EventArgs e)
     {
-        Response.Redirect("PublicidadSolicitudes.aspx");
+        if (Request.QueryString["EP"] != null)
+        {
+            int ep = Convert.ToInt32(Request.QueryString["EP"].ToString());
+            switch (ep)
+            {
+                case 0: Response.Redirect("PublicidadSolicitudes.aspx");
+                    break;
+                case 1: Response.Redirect("PublicidadBajas.aspx");
+                    break;
+                case 2: Response.Redirect("PublicidadRenovacion.aspx");
+                    break;
+                case 3: Response.Redirect("PublicidadEjecutarBajas.aspx");
+                    break;
+            }
+        }
     }
 }
