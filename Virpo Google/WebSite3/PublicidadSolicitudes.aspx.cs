@@ -25,18 +25,28 @@ public partial class _Default : System.Web.UI.Page
             DataTable dt = PublicidadFactory.DevolverXEstadoDT(0);//solicitado
             GridView1.DataSource = dt;
             GridView1.DataBind();
-            GridView1.Columns[0].Visible = false;            
+            GridView1.Columns[0].Visible = false;
+            if (Request.QueryString["C"] != null)
+            {
+                int c = Convert.ToInt32(Request.QueryString["C"]);
+                if (c == 1)
+                {
+                    lblOk.Visible = true;
+                }
+                if (c == 0)
+                {
+                    lblMal.Visible = true;
+                }
+            }
         }
-        
-
     }
+
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-
         if (e.CommandName == "C")
         {
             string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
-            Response.Redirect("PublicidadModificar.aspx?&I="+id);
+            Response.Redirect("PublicidadModificar.aspx?I=" + id + "&EP=0");
         }
     }
 }
