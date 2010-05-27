@@ -12,6 +12,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
 
+<SCRIPT LANGUAGE="JavaScript">
+window.opener.location.reload();
+</SCRIPT>
+
     <table class="style1">
         <tr>
             <td>
@@ -25,7 +29,8 @@
         
         
     </table>
-<table class="tabla" style="height: 665px">
+
+<table class="tabla" style="height: 665px; width: 527px">
         <tr>
             <td style="height: 15px">
                                 &nbsp;</td>
@@ -118,9 +123,8 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td colspan="4" style="height: 315px">
-    <cc1:GMap ID="GMap1" runat="server" Width="527px" />
-    
+            <td colspan="4" >
+             <cc1:GMap ID="GMap1" runat="server" Width="527px" />
             </td>
         </tr>
         <tr>
@@ -151,6 +155,14 @@
             
                 &nbsp;<br />
             </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="height: 35px">
+                </td>
+            <td colspan="2" style="height: 35px" align="right">
+                <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
+                    Width="95px" onclick="btnDenunciar_Click" />
+                &nbsp;</td>
         </tr>
     </table>
         

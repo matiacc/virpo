@@ -20,6 +20,24 @@ public partial class ConsultarGrupo : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            //Cambia el estado a leido cuando es consultado por la administración de denuncias.
+            if (Request.QueryString["leida"] != null)
+            {
+                DenunciaFactory.ModificarLeida(int.Parse(Request.QueryString["leida"].ToString()));
+                ClientScript.RegisterStartupScript(typeof(String), "RefrescaDenunciasLeidas", "window.opener.location.reload()", true);
+            }
+            //Fin
+
+            if (Request.QueryString["id"] != null)
+            {
+                if (DenunciaFactory.HayDenuncia(Convert.ToInt32(Request.QueryString["id"]), "Grupo") != 0)
+                {
+                    btnDenunciar.Text = "Denunciado";
+                    btnDenunciar.ControlStyle.BorderColor = System.Drawing.Color.Red;
+                    btnDenunciar.ControlStyle.ForeColor = System.Drawing.Color.Red;
+                    btnDenunciar.Enabled = false;
+                }
+            }
 
             if (Request.QueryString["Id"] != null)
             {
@@ -133,5 +151,29 @@ public partial class ConsultarGrupo : System.Web.UI.Page
                          message +
                         "')</SCRIPT>";
         ClientScript.RegisterStartupScript(this.GetType(), "buscar", jscript);
+    }
+    protected void btnDenunciar_Click(object sender, EventArgs e)
+    {
+        if (btnDenunciar.Text == "Denunciar")
+        {
+            btnDenunciar.Text = "Denunciado";
+            btnDenunciar.ControlStyle.BorderColor = System.Drawing.Color.Red;
+            btnDenunciar.ControlStyle.ForeColor = System.Drawing.Color.Red;
+            btnDenunciar.Enabled = false;
+
+            Usuario usr = new Usuario();
+            usr = (Usuario)Session["Usuario"];
+            Denuncia denuncia = new Denuncia();
+            denuncia.IdDenunciante = (int)usr.Id;
+            denuncia.UsrDenunciante = usr.NombreUsuario.ToString();
+            denuncia.Url = Request.Url.ToString().Substring(Request.Url.ToString().LastIndexOf('/') + 1);
+            denuncia.Descripcion = lblDescripcion.Text.ToString();
+            denuncia.Tipo = "Grupos de Interés";
+            denuncia.Fecha = DateTime.Now;
+            denuncia.IdDocDenunciado = Convert.ToInt32(Request.QueryString["id"]);
+            denuncia.Tabla = "Grupo";
+
+            bool ok = DenunciaFactory.Insertar(denuncia);
+        }
     }
 }

@@ -20,6 +20,23 @@ public partial class ConsultarBanda : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            //Cambia el estado a leido cuando es consultado por la administración de denuncias.
+            if (Request.QueryString["leida"] != null)
+            {
+                DenunciaFactory.ModificarLeida(int.Parse(Request.QueryString["leida"].ToString()));
+                ClientScript.RegisterStartupScript(typeof(String), "RefrescaDenunciasLeidas", "window.opener.location.reload()", true);
+            }
+            //Fin
+
+            if (DenunciaFactory.HayDenuncia(Convert.ToInt32(Request.QueryString["C"]), "Banda") != 0)
+            {
+                btnDenunciar.Text = "Denunciado";
+                btnDenunciar.ControlStyle.BorderColor = System.Drawing.Color.Red;
+                btnDenunciar.ControlStyle.ForeColor = System.Drawing.Color.Red;
+                btnDenunciar.Enabled = false;
+            }
+
+
             Banda banda = BandaFactory.Devolver(Convert.ToInt32(Request.QueryString["C"]));
             if (Convert.ToInt32(Request.QueryString["P"]) == 1) btnModificarBanda.Visible = false;
             lblId.Text = banda.Id.ToString();
@@ -125,6 +142,30 @@ public partial class ConsultarBanda : System.Web.UI.Page
         {
             string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text;
             Response.Redirect("ConsultarEvento.aspx?E=" + id);
+        }
+    }
+    protected void btnDenunciar_Click(object sender, EventArgs e)
+    {
+        if (btnDenunciar.Text == "Denunciar")
+        {
+            btnDenunciar.Text = "Denunciado";
+            btnDenunciar.ControlStyle.BorderColor = System.Drawing.Color.Red;
+            btnDenunciar.ControlStyle.ForeColor = System.Drawing.Color.Red;
+            btnDenunciar.Enabled = false;
+
+            Usuario usr = new Usuario();
+            usr = (Usuario)Session["Usuario"];
+            Denuncia denuncia = new Denuncia();
+            denuncia.IdDenunciante = (int)usr.Id;
+            denuncia.UsrDenunciante = usr.NombreUsuario.ToString();
+            denuncia.Url = Request.Url.ToString().Substring(Request.Url.ToString().LastIndexOf('/') + 1);
+            denuncia.Descripcion = lblNombre.Text.ToString();
+            denuncia.Tipo = "Bandas";
+            denuncia.Fecha = DateTime.Now;
+            denuncia.IdDocDenunciado = Convert.ToInt32(Request.QueryString["C"]);
+            denuncia.Tabla = "Banda";
+
+            bool ok = DenunciaFactory.Insertar(denuncia);
         }
     }
 }

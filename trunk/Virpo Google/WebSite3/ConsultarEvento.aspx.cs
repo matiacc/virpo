@@ -21,7 +21,26 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //Cambia el estado a leido cuando es consultado por la administración de denuncias.
+        if (Request.QueryString["leida"] != null)
+        {
+            DenunciaFactory.ModificarLeida(int.Parse(Request.QueryString["leida"].ToString()));
+            ClientScript.RegisterStartupScript(typeof(String), "RefrescaDenunciasLeidas", "window.opener.location.reload()", true);
+            GMap1.Visible = false;
+        }
+        //Fin
 
+        if (Request.QueryString["E"] != null)
+        {
+            if (DenunciaFactory.HayDenuncia(Convert.ToInt32(Request.QueryString["E"]), "Evento") != 0)
+            {
+                btnDenunciar.Text = "Denunciado";
+                btnDenunciar.ControlStyle.BorderColor = System.Drawing.Color.Red;
+                btnDenunciar.ControlStyle.ForeColor = System.Drawing.Color.Red;
+                btnDenunciar.Enabled = false;
+            }
+        }
+        
         int id = Convert.ToInt32(Request.QueryString["E"]);
         Evento evento = EventoFactory.Devolver(id);
         
@@ -113,4 +132,28 @@ public partial class _Default : System.Web.UI.Page
         lblBanda.Text = html;
     }
 
+    protected void btnDenunciar_Click(object sender, EventArgs e)
+    {
+        if (btnDenunciar.Text == "Denunciar")
+        {
+            btnDenunciar.Text = "Denunciado";
+            btnDenunciar.ControlStyle.BorderColor = System.Drawing.Color.Red;
+            btnDenunciar.ControlStyle.ForeColor = System.Drawing.Color.Red;
+            btnDenunciar.Enabled = false;
+
+            Usuario usr = new Usuario();
+            usr = (Usuario)Session["Usuario"];
+            Denuncia denuncia = new Denuncia();
+            denuncia.IdDenunciante = (int)usr.Id;
+            denuncia.UsrDenunciante = usr.NombreUsuario.ToString();
+            denuncia.Url = Request.Url.ToString().Substring(Request.Url.ToString().LastIndexOf('/') + 1);
+            denuncia.Descripcion = lblNombre.Text.ToString();
+            denuncia.Tipo = "Eventos";
+            denuncia.Fecha = DateTime.Now;
+            denuncia.IdDocDenunciado = Convert.ToInt32(Request.QueryString["E"]);
+            denuncia.Tabla = "Evento";
+
+            bool ok = DenunciaFactory.Insertar(denuncia);
+        }
+    }
 }

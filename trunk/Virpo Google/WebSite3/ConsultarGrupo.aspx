@@ -13,6 +13,11 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+
+<SCRIPT LANGUAGE="JavaScript">
+window.opener.location.reload();
+</SCRIPT>
+
     <table class="tabla">
         <tr>
         <td colspan="3" style="text-align: center; background-color: #333333">
@@ -119,6 +124,20 @@
                 <asp:Button ID="btUnirme" runat="server" Text="Unirme al Grupo!" 
                     onclick="btUnirme_Click" CssClass="botones" />
 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center" style="text-align: right">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center" style="text-align: right">
+            
+                <br />
+                <br />
+                <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
+                    Width="95px" onclick="btnDenunciar_Click" />
+            
             </td>
         </tr>
     </table>
