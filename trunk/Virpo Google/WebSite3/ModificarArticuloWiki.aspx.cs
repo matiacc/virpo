@@ -78,8 +78,17 @@ public partial class _Default : System.Web.UI.Page
 
         //resultado ---------- ver de mandar mails
         if (ArticuloWikiFactory.Modificar(articuloNuevo) && HistorialWikiFactory.Insertar(versionAnterior))
-            Response.Redirect("Wikimusic.aspx?Z=1");
+            Panel1_ModalPopupExtender.Show();
         else
-            Response.Redirect("Wikimusic.aspx?Z=0");
+            Panel2_ModalPopupExtender.Show();
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Wikimusic.aspx");
+    }
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Wikimusic.aspx");
     }
 }

@@ -98,6 +98,42 @@
             </td>
         </tr>
     </table>
+<table>
+        <tr>
+            <td>
+        <asp:Button ID="Button2" runat="server" Text="False" Style="display: none;" />
+        <asp:Button ID="Button3" runat="server" Text="False2" Style="display: none;"/>
+        <asp:Panel ID="Panel1" runat="server" Style="display: none;" CssClass="modalPopup">
+            <center>El Documento fue modificado con éxito.</center>
+        <br />
+        <br />
+        
+        <center><asp:Button ID="Button1" runat="server" Text="OK" OnClick="Button1_Click" CssClass="botones" />
+    </center></asp:Panel>
+    <cc1:ModalPopupExtender ID="Panel1_ModalPopupExtender" BackgroundCssClass="modalBackground"
+        runat="server" DynamicServicePath="" Enabled="True" TargetControlID="Button2"
+        PopupControlID="Panel1" OkControlID="Button3">
+    </cc1:ModalPopupExtender>
+            </td>
+        </tr>
+        <tr>
+            <td>
+        <asp:Button ID="Button5" runat="server" Text="False" Style="display: none;" />
+        <asp:Button ID="Button6" runat="server" Text="False2" Style="display: none;"/>
+        <asp:Panel ID="Panel2" runat="server" Style="display: none;" CssClass="modalPopup">
+            <center>El Documento no fue modificado, intente nuevamente.</center>
+        <br />
+        <br />
+        
+        <center><asp:Button ID="Button4" runat="server" Text="OK" OnClick="Button4_Click" CssClass="botones" />
+    </center></asp:Panel>
+    <cc1:ModalPopupExtender ID="Panel2_ModalPopupExtender" BackgroundCssClass="modalBackground"
+        runat="server" DynamicServicePath="" Enabled="True" TargetControlID="Button5"
+        PopupControlID="Panel2" OkControlID="Button6">
+    </cc1:ModalPopupExtender>
+            </td>
+        </tr>
+    </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="Server">
 </asp:Content>
