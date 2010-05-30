@@ -15,15 +15,8 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)
-        {
-            if (Request.QueryString["z"] != null)
-            {
-                int bandera = int.Parse(Request.QueryString["z"].ToString());
-                if (bandera == 1) lblOk.Visible = true;
-                if (bandera == 0) lblMal.Visible = true;
-            }
-
-        }
+        //if (!Page.IsPostBack)
+        //{
+        //}
     }
 }

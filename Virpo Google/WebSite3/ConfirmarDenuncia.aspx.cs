@@ -43,6 +43,30 @@ public partial class ConfirmarDenuncia : System.Web.UI.Page
                         okBajaDoc = UsuarioFactory.Eliminar(int.Parse(denuncia.IdDocDenunciado.ToString()));
                         break;
 
+                    case "ArticuloWiki":
+                        string version = denuncia.Url.Remove(denuncia.Url.LastIndexOf("&"));
+                        int vers = int.Parse(version.Substring(version.LastIndexOf("=") + 1));
+                        int id = denuncia.IdDocDenunciado;
+                        if (HistorialWikiFactory.Eliminar(id, vers))
+                        {
+                            okBajaDoc = true;
+                        }
+                        else
+                        {
+                            if (ArticuloWikiFactory.Eliminar(id, vers))
+                            {
+                                ArticuloWiki art = ArticuloWikiFactory.Devolver(id);
+                                HistorialWikiFactory.Eliminar(art.Id, art.Version);
+                                okBajaDoc = true;
+                            }
+                            else
+                            {
+                                okBajaDoc = false;
+                            }
+
+                        }
+                        break;
+
                     default: 
                         okBajaDoc = DenunciaFactory.BorrarDocumentoDenunciado(denuncia.Tabla, denuncia.IdDocDenunciado);
                         break;
