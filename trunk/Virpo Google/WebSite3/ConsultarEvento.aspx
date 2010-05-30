@@ -12,10 +12,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
 
-<SCRIPT LANGUAGE="JavaScript">
-window.opener.location.reload();
-</SCRIPT>
-
     <table class="style1">
         <tr>
             <td>
@@ -29,8 +25,7 @@ window.opener.location.reload();
         
         
     </table>
-
-<table class="tabla" style="height: 665px; width: 527px">
+<table class="tabla" style="height: 665px">
         <tr>
             <td style="height: 15px">
                                 &nbsp;</td>
@@ -123,13 +118,16 @@ window.opener.location.reload();
                 &nbsp;</td>
         </tr>
         <tr>
-            <td colspan="4" >
-             <cc1:GMap ID="GMap1" runat="server" Width="527px" />
+            <td colspan="4" style="height: 315px">
+    <cc1:GMap ID="GMap1" runat="server" Width="527px" />
+    
             </td>
         </tr>
         <tr>
             <td colspan="4">
-                &nbsp;</td>
+                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                </asp:ScriptManager>
+            </td>
         </tr>
         <tr>
                      
@@ -157,14 +155,42 @@ window.opener.location.reload();
             </td>
         </tr>
         <tr>
-            <td colspan="2" style="height: 35px">
-                </td>
-            <td colspan="2" style="height: 35px" align="right">
-                <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
-                    Width="95px" onclick="btnDenunciar_Click" />
-                &nbsp;</td>
+            <td colspan="4" style="height: 11px">
+                <br />
+            </td>
         </tr>
+        <asp:Label ID="Label2" runat="server"></asp:Label>
     </table>
+    
+    
+      
+     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <fieldset>
+                <legend>Comentarios</legend>
+                <table class="tabla" border="1" style="width:529px;">
+                <asp:Label ID="lblTabla" runat="server" Text="Panel created."></asp:Label><br />
+                </table>
+                </fieldset>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <table class="tabla" style="height: 100px">
+            <tr>
+            <td align="left" style="height: 53px">
+                
+                <asp:TextBox ID="txtComentario" runat="server" Height="55px" Width="529px"></asp:TextBox>
+                
+        </tr>
+        
+         <tr>
+            <td align="right" class="tabla">
+                <asp:Button ID="btPublicar" runat="server" CssClass="botones" 
+                    onclick="btPublicar_Click" Text="Publicar" />
+            </td>
+        </tr>
+        
+        </table>
+    
         
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
