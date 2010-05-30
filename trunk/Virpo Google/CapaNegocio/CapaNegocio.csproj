@@ -48,6 +48,7 @@
     <Compile Include="Entities\Banda.cs" />
     <Compile Include="Entities\CategoriaArticuloWiki.cs" />
     <Compile Include="Entities\CategoriaMusico.cs" />
+    <Compile Include="Entities\ComentarioEvento.cs" />
     <Compile Include="Entities\Composicion.cs" />
     <Compile Include="Entities\Denuncia.cs" />
     <Compile Include="Entities\EstadoAvisoClasificado.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Factories\BandaFactory.cs" />
     <Compile Include="Factories\CategoriaArticuloWikiFactory.cs" />
     <Compile Include="Factories\CategoriaMusicoFactory.cs" />
+    <Compile Include="Factories\ComentarioEventoFactory.cs" />
     <Compile Include="Factories\ComposicionFactory.cs" />
     <Compile Include="Factories\DenunciaFactory.cs" />
     <Compile Include="Factories\EstadoAvisoClasificadoFactory.cs" />
