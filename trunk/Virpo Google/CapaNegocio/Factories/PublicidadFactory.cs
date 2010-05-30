@@ -266,14 +266,14 @@ namespace CapaNegocio.Factories
         }
         #endregion
 
-        public static Boolean CalcularVencimientos(DateTime fecha)
+        public static int CalcularVencimientos(DateTime fecha)
         {
-            fecha.AddDays(7);
-            string FECHA =  fecha.ToShortDateString().Remove(10);
-            string query = "UPDATE publicidad SET isEstado=2 WHERE idEstado = 1 and fechaFin <= "+FECHA;
+            fecha = fecha.AddDays(7);
 
-            DataTable dt = BDUtilidades.EjecutarConsulta(query);
-            return dt;
+            string FECHA = "'"+ fecha.Year +"/"+fecha.Month+"/"+fecha.Day+ "'";
+            
+            string query = "UPDATE Publicidad SET idEstado = 2 WHERE idEstado = 1 and fechaFin <= "+FECHA;
+            return BDUtilidades.EjecutarNonQuery(query);
         }
     }
 }
