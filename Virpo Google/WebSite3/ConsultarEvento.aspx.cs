@@ -18,30 +18,13 @@ using System.Collections.Generic;
 public partial class _Default : System.Web.UI.Page
 {
     int idU;
+    int id;
+    List<ComentarioEvento> comentarios;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //Cambia el estado a leido cuando es consultado por la administración de denuncias.
-        if (Request.QueryString["leida"] != null)
-        {
-            DenunciaFactory.ModificarLeida(int.Parse(Request.QueryString["leida"].ToString()));
-            ClientScript.RegisterStartupScript(typeof(String), "RefrescaDenunciasLeidas", "window.opener.location.reload()", true);
-            GMap1.Visible = false;
-        }
-        //Fin
-
-        if (Request.QueryString["E"] != null)
-        {
-            if (DenunciaFactory.HayDenuncia(Convert.ToInt32(Request.QueryString["E"]), "Evento") != 0)
-            {
-                btnDenunciar.Text = "Denunciado";
-                btnDenunciar.ControlStyle.BorderColor = System.Drawing.Color.Red;
-                btnDenunciar.ControlStyle.ForeColor = System.Drawing.Color.Red;
-                btnDenunciar.Enabled = false;
-            }
-        }
-        
-        int id = Convert.ToInt32(Request.QueryString["E"]);
+        ScriptManager1.RegisterAsyncPostBackControl(btPublicar);
+        id = Convert.ToInt32(Request.QueryString["E"]);
         Evento evento = EventoFactory.Devolver(id);
         
         setearMapa();
@@ -74,6 +57,10 @@ public partial class _Default : System.Web.UI.Page
 
         }
         if (evento.Banda != null)CargarBanda(evento.Banda);
+
+      
+        comentarios = ComentarioEventoFactory.DevolverTodosPorEvento(Convert.ToString(evento.Id));
+        CargarTabla(comentarios);
 
     }
 
@@ -108,6 +95,7 @@ public partial class _Default : System.Web.UI.Page
             GMap1.addShowMapBlowUp(mBlowUp);
             GMap1.setCenter(ubicacion, 15);
             
+            
                          
         
     }
@@ -115,22 +103,16 @@ public partial class _Default : System.Web.UI.Page
 
     private void CargarBanda(Banda banda)
     {
-        //string html = "<table>";
-        //    html += "<tr>";
-        //    html += "<td>";
-        //    html += @"<div style='border: 0px solid rgb(192, 192, 192); position: relative; margin-right: 15px; "
-        //    + "margin-bottom: 15px; float: left;'><a class='blogHeadline' title='" + banda.Nombre +
-        //    "' href='ConsultarBanda.aspx?C=" + banda.Id + "&P=1'><img src='./ImagenesBandas/" + banda.Imagen + "' style='width:150px; height:150px;'/></a>"
-        //    + "<h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; background-color: black; color: rgb(51, 51, 51);'"
-        //    + " class='transparent_60'><font size='2'>" + banda.Nombre + "</font></h2><h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; color: white;'"
-        //    + "><font size='2'>" + banda.Nombre + "</font></h2>";
-        //    html += "</td>";
-        //    html += "</table>";
-
-            string html = "<table>";
+        
+        string html = "<table>";
             html += "<tr>";
             html += "<td>";
-            html += "<a class='estiloLabel' title='" + banda.Nombre + "' href='ConsultarBanda.aspx?C=" + banda.Id + "&P=1'>"+ banda.Nombre +"</a>";
+            html += @"<div style='border: 0px solid rgb(192, 192, 192); position: relative; margin-right: 15px; "
+            + "margin-bottom: 15px; float: left;'><a class='blogHeadline' title='" + banda.Nombre +
+            "' href='ConsultarBanda.aspx?C=" + banda.Id + "&P=1'><img src='./ImagenesBandas/" + banda.Imagen + "' style='width:150px; height:150px;'/></a>"
+            + "<h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; background-color: black; color: rgb(51, 51, 51);'"
+            + " class='transparent_60'><font size='2'>" + banda.Nombre + "</font></h2><h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; color: white;'"
+            + "><font size='2'>" + banda.Nombre + "</font></h2>";
             html += "</td>";
             html += "</table>";
 
@@ -139,28 +121,56 @@ public partial class _Default : System.Web.UI.Page
         lblBanda.Text = html;
     }
 
-    protected void btnDenunciar_Click(object sender, EventArgs e)
+    private void CargarTabla(List<ComentarioEvento> comentarios)
     {
-        if (btnDenunciar.Text == "Denunciar")
+        string html = "";
+   
+        foreach (ComentarioEvento comentario in comentarios)
         {
-            btnDenunciar.Text = "Denunciado";
-            btnDenunciar.ControlStyle.BorderColor = System.Drawing.Color.Red;
-            btnDenunciar.ControlStyle.ForeColor = System.Drawing.Color.Red;
-            btnDenunciar.Enabled = false;
+            
+            html += "<tr>";
+            html += "    <td colspan='2' align='right'>" + comentario.FechaCreacion.ToLongDateString() + "</td>";
+            html += "</tr>";
+            html += "<tr>";
+            html += "    <td style='width: 50px' align='center'><a href='PerfilPublico.aspx?Id=" + comentario.Creador.Id + "'>";
+            html += "<img title='" + comentario.Creador.NombreUsuario + "' src='ImagenesUsuario/" + comentario.Creador.Imagen + "'/></a>";
+            html += "<br />" + comentario.Creador.NombreUsuario + "</td>";
+            html += "    <td style='width: 250px'>" + comentario.Comentario + "</td>";
+            html += "</tr>";
+        }
+        
+        lblTabla.Text = html;
+    }
 
-            Usuario usr = new Usuario();
-            usr = (Usuario)Session["Usuario"];
-            Denuncia denuncia = new Denuncia();
-            denuncia.IdDenunciante = (int)usr.Id;
-            denuncia.UsrDenunciante = usr.NombreUsuario.ToString();
-            denuncia.Url = Request.Url.ToString().Substring(Request.Url.ToString().LastIndexOf('/') + 1);
-            denuncia.Descripcion = lblNombre.Text.ToString();
-            denuncia.Tipo = "Eventos";
-            denuncia.Fecha = DateTime.Now;
-            denuncia.IdDocDenunciado = Convert.ToInt32(Request.QueryString["E"]);
-            denuncia.Tabla = "Evento";
+    /*</asp:UpdatePanel>
+        
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server" >
+            <ContentTemplate>
+                <fieldset>
+                <asp:Label ID="lblTabla" runat="server"></asp:Label>
+                </fieldset>
+            </ContentTemplate>
+        </asp:UpdatePanel>*/
 
-            bool ok = DenunciaFactory.Insertar(denuncia);
+
+
+    protected void btPublicar_Click(object sender, EventArgs e)
+    {
+        ComentarioEvento coment = new ComentarioEvento();
+        coment.Comentario = txtComentario.Text.Trim();
+        coment.Creador = (Usuario)Session["Usuario"];
+        coment.FechaCreacion = DateTime.Now;
+        coment.IdEvento = id;
+        comentarios.Add(coment);
+        CargarTabla(comentarios);
+        txtComentario.Text = "";
+        if (ComentarioEventoFactory.Insertar(coment))
+        {
+           // Panel1_ModalPopupExtender.Show();
         }
     }
+  
+
+
+
 }
