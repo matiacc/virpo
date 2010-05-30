@@ -21,6 +21,7 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            int ok = PublicidadFactory.CalcularVencimientos(DateTime.Now);
             DataTable dt = PublicidadFactory.DevolverXEstadoDT(2);//renovacion
             GridView1.DataSource = dt;
             GridView1.DataBind();
