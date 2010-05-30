@@ -117,7 +117,7 @@
         <tr>
             <td>
                 <asp:Label ID="Label6" runat="server" Text="Video:"></asp:Label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="txtVideo" runat="server"></asp:TextBox>
             </td>
             <td>
