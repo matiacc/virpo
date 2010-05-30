@@ -222,6 +222,25 @@ namespace CapaNegocio.Factories
         
         }
 
+        public static DataTable DevolverBusqueda(string nomUsuario)
+        {
+            string query = "SELECT u.id, u.nombre, u.apellido, u.nombreUsuario, '~/ImagenesUsuario/' + imagen AS imagen, u.eMail, u.idTipoUsuario, " + 
+                           "t.nombre AS tipoUsuario, u.idInstrumento " + 
+                           "FROM Usuario u INNER JOIN TipoUsuario t ON u.idTipoUsuario = t.id " +
+                           "WHERE nombreUsuario LIKE '%" + nomUsuario + "%' " + 
+                           "ORDER BY nombreUsuario";
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                return dt;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         /// <summary>
         /// Alta de un Musico sin transaccion
         /// </summary>
@@ -348,6 +367,27 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@password", DbType.String, pass));
                 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("CambiarPassword", parametros);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+        public static bool ActualizarRol(string nombreUsuario, int idTipoUsuario)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(BDUtilidades.crearParametro("@nombreUsuario", DbType.String, nombreUsuario));
+                parametros.Add(BDUtilidades.crearParametro("@idTipoUsuario", DbType.Int32, idTipoUsuario));
+
+                bool ok = BDUtilidades.ExecuteStoreProcedure("UsuarioActualizarRol", parametros);
                 if (ok)
                     return true;
                 else
