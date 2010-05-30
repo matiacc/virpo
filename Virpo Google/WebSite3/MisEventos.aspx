@@ -13,7 +13,7 @@ Inherits="MisEventos" Title="Página sin título" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <center style="background-color: #333333; width: 523px;">
         <titulosubventana>
-        MisEventos
+        Mis Eventos
         </titulosubventana>
         <br />
        
