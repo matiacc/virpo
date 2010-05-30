@@ -35,15 +35,19 @@ public class Seguridad
         
         if (usu.IdTipoUsuario == 1)
         {
-            return "Musico";
+            return "Músico";
         }
         else
         {
-            if (usu.IdTipoUsuario == 2)
+            if (usu.IdTipoUsuario == 0)
             {
-                return "Comercio";
+                return "Administrador";
             }
-            else return "Administrador";
+            else if (usu.IdTipoUsuario == 2)
+            {
+                return "Periodista";
+            }
+            else return "Inactivo";
         }
     }
 }

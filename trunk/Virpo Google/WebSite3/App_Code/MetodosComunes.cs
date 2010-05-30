@@ -221,7 +221,17 @@ public static class MetodosComunes
         dr.Close();
 
     }
-    
+
+    public static void cargarRoles(DropDownList ddl)
+    {
+        string query = "SELECT id, nombre FROM TipoUsuario";
+        SqlDataReader dr = BDUtilidades.GetReader(query);
+
+
+        CargarCombo(ddl, dr, "nombre", "id");
+        dr.Close();
+
+    }
 
     //Carga de ListBox
 
