@@ -252,7 +252,7 @@ arguments.IsValid = true;
                     <ContentTemplate>
                         <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" 
                             oncheckedchanged="CheckBox1_CheckedChanged" 
-                            Text="Una de mis bandas participa en el evento" Width="100px" />
+                            Text="Una de mis bandas participa en el evento" Width="241px" />
                         
                         <br />
                         <br />
