@@ -6,8 +6,6 @@
         <ul>
             <li><a href="AdminUsuarios.aspx" title="Usuarios">Usuarios</a></li>
             <li><a href="AdminDenuncias.aspx" title="Denuncias">Denuncias</a></li>
-            <li><a href="AdminEventos.aspx" title="Eventos">Eventos</a></li>
-            <li><a href="AdminProyectos.aspx" title="Proyectos">Proyectos</a></li>
             <li><a href="AdminNoticias.aspx" title="Noticias">Noticias</a></li>   
             <li><a href="AdminPublicidad.aspx" title="Publicidad">Publicidad</a></li>         
         </ul>
