@@ -20,7 +20,7 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            if (Session["UsuarioAdmin"] == null) Response.Redirect("admin.aspx");
+    
             List<Denuncia> denuncias = new List<Denuncia>();
             denuncias = DenunciaFactory.DevolverTodos();
             if (denuncias.Count > 0)

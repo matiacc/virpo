@@ -5,6 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div id="menu8">
         <ul>
+            <li><a href="AdminHome.aspx" title="Home Administración">Home</a></li>
             <li><a href="AdminDenuncias.aspx" title="Denuncias">Denuncias</a></li>
             <li><a href="AdminEventos.aspx" title="Eventos">Eventos</a></li>
             <li><a href="AdminProyectos.aspx" title="Proyectos">Proyectos</a></li>
