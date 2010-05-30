@@ -53,9 +53,16 @@ public partial class _Default : System.Web.UI.Page
         noticia.EsVigente = 1;
 
         if (NoticiasFactory.Insertar(noticia))
-        Response.Redirect("AdminNoticias.aspx?Z=1");
+            Panel1_ModalPopupExtender.Show();
         else
-        Response.Redirect("AdminNoticias.aspx?Z=0");
-           
+            Panel2_ModalPopupExtender.Show();          
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("AdminNoticias.aspx");
+    }
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("AdminNoticias.aspx");
     }
 }
