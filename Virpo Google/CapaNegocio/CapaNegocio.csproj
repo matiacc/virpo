@@ -66,6 +66,7 @@
     <Compile Include="Entities\PostGrupo.cs" />
     <Compile Include="Entities\Provincia.cs" />
     <Compile Include="Entities\Proyecto.cs" />
+    <Compile Include="Entities\Publicidad.cs" />
     <Compile Include="Entities\RangoPosteo.cs" />
     <Compile Include="Entities\Rubro.cs" />
     <Compile Include="Entities\TipoAviso.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Factories\PostGrupoFactory.cs" />
     <Compile Include="Factories\ProvinciaFactory.cs" />
     <Compile Include="Factories\ProyectoFactory.cs" />
+    <Compile Include="Factories\PublicidadFactory.cs" />
     <Compile Include="Factories\RangoPosteoFactory.cs" />
     <Compile Include="Factories\RubroFactory.cs" />
     <Compile Include="Factories\TipoAvisoFactory.cs" />
