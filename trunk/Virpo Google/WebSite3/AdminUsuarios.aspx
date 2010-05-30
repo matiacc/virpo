@@ -10,10 +10,6 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <asp:Label ID="lblOk" runat="server" Style="color: #009900" Text="La Transacción se realizó con exito"
-                            Visible="False"></asp:Label>
-                        <asp:Label ID="lblMal" runat="server" Style="color: #CC3300" Text="La Transacción no se realizó"
-                            Visible="False"></asp:Label>
                     </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
 </asp:Content>
