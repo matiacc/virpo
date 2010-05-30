@@ -3,8 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <center style="width: 222px; background-color: #333333">
-        <titulosubventana>
-                                . </titulosubventana>
+        <titulosubventana> &nbsp</titulosubventana>
     </center>
     <p style="text-align: center; width: 200px;">
         <asp:Label ID="izq1" runat="server"></asp:Label>
@@ -19,7 +18,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <center style="width: 400px; background-color: #333333">
         <titulosubventana>
-                                 Virpo News</titulosubventana>
+                          ::: Virpo News :::&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</titulosubventana>
     </center>
     <p style="text-align: center; width: 380px;">
         <asp:Label ID="cen1" runat="server"></asp:Label>
@@ -74,7 +73,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="Server">
     <center style="width: 130px; background-color: #333333">
         <titulosubventana>
-                                . </titulosubventana>
+                                &nbsp</titulosubventana>
     </center>
     <p style="text-align: center">
         <asp:Label ID="der1" runat="server"></asp:Label>
