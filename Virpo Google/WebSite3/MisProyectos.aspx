@@ -15,10 +15,10 @@
     <table class="style1">
         <tr>
             <td colspan="2">
-                <center style="background-color: #333333">
-                    <titulosubventana>
-                    Proyectos creados por mi</titulosubventana>
-                </center></td>
+            <center style="width: 529px; background-color: #333333">
+                    <tituloSubVentana>
+                    Mis Proyectos</tituloSubVentana></center>
+                </td>
         </tr>
         <tr>
             <td>
@@ -68,9 +68,9 @@
         </tr>
         <tr>
             <td colspan="2">
-                <center style="background-color: #333333">
-                    <titulosubventana>
-                    Proyectos en los que colaboro</titulosubventana></td>
+                <center style="width: 529px; background-color: #333333">
+                    <tituloSubVentana>
+                    Proyectos en los que colaboro</tituloSubVentana></center></td>
             
         </tr>
         <tr>
