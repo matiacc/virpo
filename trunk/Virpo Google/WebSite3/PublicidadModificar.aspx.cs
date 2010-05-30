@@ -14,6 +14,10 @@ using CapaDatos;
 using CapaNegocio.Entities;
 using CapaNegocio.Factories;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Net;
 
 public partial class _Default : System.Web.UI.Page
 {
@@ -55,10 +59,8 @@ public partial class _Default : System.Web.UI.Page
                 txtEntidad.Text = publi.Entidad;
                 txtNombreContacto.Text = publi.NombreContacto;
                 txtTelContacto.Text = publi.TelContacto;
-                txtMailContacto.Text = publi.MailContacto;
-                txtImagen.Text = publi.Imagen;
-                txtConsulta.Text = publi.Consulta;
-                
+                txtMailContacto.Text = publi.MailContacto;                
+                txtConsulta.Text = publi.Consulta;  
                 frec = publi.Frecuencia;
                 mes = publi.FechaInicio.Month;
 
@@ -74,8 +76,7 @@ public partial class _Default : System.Web.UI.Page
                         frec = i;
                     }
                 }
-                ddlFrecuencia.SelectedIndex = frec;
-               
+                ddlFrecuencia.SelectedIndex = frec;               
                 mes = publi.FechaFin.Month - publi.FechaInicio.Month;// cant de meses(resultados positivos
                 if (mes<=0)//esto es para q los resultados negativos indiquen la cant de meses
                 {
@@ -92,11 +93,22 @@ public partial class _Default : System.Web.UI.Page
                     txtInicio.Text = Convert.ToString(publi.FechaInicio);
                     txtFin.Text = Convert.ToString(publi.FechaFin);
 	            }
-                
-            }            
-        }
+                if (publi.Imagen != "")
+                {
+                    imgPubli.ImageUrl =publi.Imagen;
+                }
+                else
+                {
+                    imgPubli.ImageUrl = "~/ImagenesPublicidad/Sin Imagen.jpg";    
+                }   
+            }
+            if (Request.QueryString["FN"] != null)
+            {
+                string nombre = Request.QueryString["FN"].ToString();
+                imgPubli.ImageUrl = "~/Temp/" + nombre;
+            }
+        }        
     }
-
 
     protected void btnAlta_Click(object sender, EventArgs e)
     {
@@ -106,12 +118,49 @@ public partial class _Default : System.Web.UI.Page
         publi.NombreContacto = txtNombreContacto.Text;
         publi.TelContacto = txtTelContacto.Text;
         publi.MailContacto = txtMailContacto.Text;
+
         publi.FechaInicio = Convert.ToDateTime(txtInicio.Text);
-        publi.FechaFin = Convert.ToDateTime(txtFin.Text);
-        publi.Imagen = txtImagen.Text;
+        publi.FechaFin = Convert.ToDateTime( txtFin.Text);
+        
         publi.Frecuencia = Convert.ToInt32(ddlFrecuencia.Text);
         publi.Consulta = "";
         publi.IdEstado = 1;
+
+        try
+        {
+            if (publi.Imagen != imgPubli.ImageUrl && publi.Imagen!="")//para que borre la foto anterior. si hay. la segunda condicion es por si es la primera imagen que se va a guardar, en tal caso no hay que eliminar nada
+            {
+                File.Delete(Server.MapPath(@".") + publi.Imagen.Substring(1));
+            }
+        }
+        catch (Exception)
+        {
+        }
+
+        if (imgPubli.ImageUrl.Remove(7) == "~/Temp/") // bloque de imagen. si hay una imagen nueva para guardar
+        {
+            string nombre = imgPubli.ImageUrl.Substring(7);
+            string origen =  Server.MapPath(@"./Temp/") + nombre;
+            string destino = Server.MapPath(@"./ImagenesPublicidad/") + nombre;
+            
+            try
+            {
+                File.Move(origen, destino);
+            }
+            catch (System.IO.IOException)//si entra es por que el nombre ya existe, y lo cambia
+            {
+                string extension = imgPubli.ImageUrl.Substring(imgPubli.ImageUrl.Length - 4);
+                string  rdm = (new Random()).Next(99999).ToString();               
+                
+                int corteExtension = nombre.Length - 4;
+                nombre = nombre.Remove(corteExtension);
+                nombre = nombre + rdm + extension;
+                string destino2 = Server.MapPath(@"./ImagenesPublicidad/") + nombre;
+                File.Move(origen, destino2);            
+            }            
+
+            publi.Imagen = "~/ImagenesPublicidad/" + nombre;
+        }        
 
         if (PublicidadFactory.Modificar(publi))
         {
@@ -150,8 +199,14 @@ public partial class _Default : System.Web.UI.Page
             }
         }
     }
+
     protected void btnVolver_Click(object sender, EventArgs e)
     {
+        if (imgPubli.ImageUrl.Remove(7) == "~/Temp/")//para que borre de la carpeta Temp las fotos que no va a guardar
+        {
+            File.Delete(Server.MapPath(@"./Temp/") + imgPubli.ImageUrl.Substring(7));
+        }
+
         if (Request.QueryString["EP"] != null)
         {
             int ep = Convert.ToInt32(Request.QueryString["EP"].ToString());
@@ -168,4 +223,24 @@ public partial class _Default : System.Web.UI.Page
             }
         }
     }
+
+    protected void btnCargar_Click(object sender, EventArgs e)
+    {
+        if (upPublicidad.HasFile)
+        {
+            if (imgPubli.ImageUrl.Remove(7) == "~/Temp/")//para que borre de la carpeta Temp las fotos que no va a guardar
+            {
+                File.Delete(Server.MapPath(@"./Temp/") + imgPubli.ImageUrl.Substring(7));
+            }
+
+            upPublicidad.PostedFile.SaveAs(Server.MapPath(@"./Temp/") + upPublicidad.FileName);
+            if (Request.QueryString["EP"] != null && Request.QueryString["I"] != null)
+            {
+
+                string ep = Request.QueryString["EP"].ToString();
+                string id = Request.QueryString["I"].ToString();
+                Response.Redirect("PublicidadModificar.aspx?I=" + id + "&EP=" + ep + "&FN=" + upPublicidad.FileName);
+            }      
+        }             
+    }   
 }
