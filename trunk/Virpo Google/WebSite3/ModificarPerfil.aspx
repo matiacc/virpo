@@ -5,10 +5,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
                      
-                      <div id="menu8">
+           <div id="menu8">
         <ul>
+            <li><a href="Bandeja.aspx" title="Bandeja De Entrada">Bandeja De Entrada</a></li>
             <li><a href="ModificarPerfil.aspx" title="Modificar Perfil">Modificar Perfil</a></li>
-            <li><a href="CambiarPassword.aspx" title="Modificar Perfil">Cambiar Contraseña</a></li>
+            <li><a href="CambiarPassword.aspx" title="Cambiar Contraseña">Cambiar Contraseña</a></li>
         </ul>
     </div>
 </asp:Content>
