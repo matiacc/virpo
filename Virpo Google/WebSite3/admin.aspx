@@ -10,18 +10,14 @@
     </p>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <table style="width: 158%">
+    <table style="width: 93%">
         <tr>
-            <td style="width: 94px">
-                &nbsp;</td>
             <td style="width: 275px">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 94px">
-                &nbsp;</td>
             <td style="width: 275px">
             <center style="text-align: right">
                 <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate" 
@@ -34,16 +30,12 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 94px">
-                &nbsp;</td>
             <td style="width: 275px; text-align: center;">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 94px">
-                &nbsp;</td>
             <td style="width: 275px">
                 &nbsp;</td>
             <td>
