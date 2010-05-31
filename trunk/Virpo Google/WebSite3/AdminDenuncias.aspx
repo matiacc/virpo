@@ -26,7 +26,7 @@ location.href=pagina+idDen+"&baj="+baj
  
 </script>
 
-<center style="width: 574px; background-color: #333333"><tituloSubVentana>
+<center style="width: 532px; background-color: #333333"><tituloSubVentana>
                   <asp:Label ID="lblTituloDenuncias" runat="server" Text="Denuncias"></asp:Label></tituloSubVentana></center>
                   
 
@@ -51,7 +51,7 @@ location.href=pagina+idDen+"&baj="+baj
 <head id="Head1" runat="server" />
 
                <cc1:TabContainer ID="TabContainer1" runat="server" 
-                    style="Height: 100%;Width: 567px" ActiveTabIndex="0" >
+                    style="Height: 100%;Width: 532px" ActiveTabIndex="0" >
 
                 <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="Todas" TabIndex="0" >
                 
@@ -101,7 +101,7 @@ location.href=pagina+idDen+"&baj="+baj
                 <cc1:TabPanel ID="TabPanel3" runat="server" HeaderText="WikiMusic" TabIndex="3" >
                 
                     <HeaderTemplate>
-                        WikiMusic
+                        Wiki
                     </HeaderTemplate>
                 
                 <ContentTemplate>
