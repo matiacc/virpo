@@ -62,26 +62,48 @@
             {
                 width: 100%;
             }
+            .style2
+            {
+                font-size: 38pt;
+                height: 90px;
+                font-family: Verdana;
+                color: #FFFFFF;
+            }
         </style>
    
 
 
        
     </head>
-<body>
-<table class="style1">
-                    <tr>
-                        <td>
-                            <asp:Image ID="Image1" runat="server" Height="150px" 
-                                ImageUrl="~/images/admin cabecera.jpg" Width="800px" />
-                        </td>
-                    </tr>
-                </table>
 <div id="outer">
-  <div id="wrapper"  style="width:974px;">
+  <div id="wrapper">
     
     <form id="form1" runat="server">
-    <div>
+    <div id="nav">
+      <div id="head">
+          <table class="style1">
+              <tr>
+                  <td>
+                       <%--<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="331" height="25" id="Object1" >
+<param name="allowScriptAccess" value="sameDomain" />
+<param name="movie" value="Reproductor/mini_player_mp3.swf?my_mp3=Reproductor/<%# this.mp3_seleccionado %>&amp;my_text=<%# this.mp3_seleccionado_titulo %>&amp;autoplay=<%# this.reproducir %>" />
+<param name="quality" value="high" />
+<param name="wmode" value="transparent">
+<param name="bgcolor" value="#FFFFFF" />
+<embed src="Reproductor/mini_player_mp3.swf?my_mp3=Reproductor/<%# this.mp3_seleccionado %>&amp;my_text=<%# this.mp3_seleccionado_titulo %>&amp;autoplay=<%# this.reproducir %>" quality="high"  bgcolor=#FFFFFF width="331" height="25" name="mini_player_mp3" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+</object>--%>
+                      </td>
+              </tr>
+          </table>
+        </div>
+      <div id="head-pip"></div>
+      <div id="search" dir="ltr">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="style2">Admin</span></div>
+    </div>
+    <div id="body">
     
     <%--<asp:ScriptManager ID="ScriptManager1" runat="server" />--%>
     <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server"/>--%>
@@ -102,8 +124,6 @@
     <%--</ContentTemplate>--%>
     
     <%--</asp:UpdatePanel>--%>
-    
-        
     
       </div>
     
@@ -131,5 +151,4 @@
   
 
 
-</body>
 </html>
