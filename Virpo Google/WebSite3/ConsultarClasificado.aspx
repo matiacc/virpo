@@ -178,10 +178,108 @@
         </tr>
          <tr>
             <td colspan="2">
+                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                </asp:ScriptManager>
                 </td>
             <td style="width: 198px">
                 </td>
             <td>
+                &nbsp;</td>
+        </tr>
+         <tr>
+            <td colspan="4">
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <table class="style1">
+                       
+                            <tr>
+                                <td>
+                                    <asp:Panel ID="Panel1" runat="server">
+                                    Mensajes Nuevos
+                                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" 
+                                            CssClass="GridViewStyle" GridLines="None" onrowcommand="GridView2_RowCommand" 
+                                            Width="531px">
+                                            <Columns>
+                                                <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False" />
+                                                <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                                                <asp:BoundField DataField="De" HeaderText="De" />
+                                                <asp:BoundField DataField="Mensaje" HeaderText="Mensaje" />
+                                                <asp:ButtonField ButtonType="Image" CommandName="Consultar" 
+                                                    ImageUrl="~/ImagenesSite/lupa3.png" Text="Consultar">
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                </asp:ButtonField>
+                                                <asp:TemplateField ShowHeader="False">
+                                            <ItemTemplate>
+                                                <asp:ImageButton ID="ImageButton2" runat="server" CausesValidation="False" 
+                                                    CommandName="Delete" ImageUrl="~/ImagenesSite/delete.png" Text="Eliminar" OnClientClick="return confirm('¿Esta seguro de borrar?')" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                            </Columns>
+                                            <RowStyle CssClass="RowStyle" />
+                                            <EmptyDataRowStyle CssClass="EmptyRowStyle" />
+                                            <PagerStyle CssClass="PagerStyle" />
+                                            <SelectedRowStyle CssClass="SelectedRowStyle" />
+                                            <HeaderStyle CssClass="HeaderStyle" />
+                                            <EditRowStyle CssClass="EditRowStyle" />
+                                            <AlternatingRowStyle CssClass="AltRowStyle" />
+                                        </asp:GridView>
+                                    </asp:Panel>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <asp:Panel ID="Panel2" runat="server" Visible="False">
+                                    <table class="style1">
+                                    
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    &nbsp;</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Label ID="Label9" runat="server" CssClass="estiloLabel" Text="Usuario"></asp:Label>
+                                                                </td>
+                                                                <td>
+                                                                    <asp:Label ID="lblUsuario" runat="server"></asp:Label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Label ID="Label10" runat="server" CssClass="estiloLabel" Text="Pregunta"></asp:Label>
+                                                                </td>
+                                                                <td>
+                                                                    <asp:Label ID="lblPregunta" runat="server"></asp:Label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Label ID="Label11" runat="server" CssClass="estiloLabel" Text="Respuesta"></asp:Label>
+                                                                </td>
+                                                                <td>
+                                                                    <asp:TextBox ID="txtRespuesta" runat="server" Height="60px" 
+                                                                        TextMode="MultiLine" Width="445px"></asp:TextBox>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right">
+                                                                    &nbsp;</td>
+                                                                <td style="text-align: right"><img alt="" src="./ImagenesSite/cargando.gif" id="loading" style="display:none"/>&nbsp;&nbsp;
+                                                                    <asp:Button ID="btResponder" runat="server" onclick="btResponder_Click" OnClientClick="mostrarGif();"
+                                                                        Text="Responder" />
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                    </asp:Panel>
+                                </td>
+                            </tr>
+                        </table>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                </td>
+        </tr>
+         <tr>
+            <td colspan="4">
                 &nbsp;</td>
         </tr>
          <tr>

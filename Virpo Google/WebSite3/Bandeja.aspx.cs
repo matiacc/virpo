@@ -127,7 +127,8 @@ public partial class Bandeja : System.Web.UI.Page
         else
         {
             BandejaDeEntradaFactory.ModificarLeido(int.Parse(gvAvisosClasificados.SelectedDataKey.Value.ToString()));
-            Response.Redirect("MisAvisosClasificados.aspx");
+            Response.Redirect("ConsultarClasificado.aspx?C=" + gvAvisosClasificados.SelectedRow.Cells[3].Text.ToString());
+            //Response.Redirect("MisAvisosClasificados.aspx");
         }
     }
     protected void gvAvisosClasificados_PageIndexChanging(object sender, GridViewPageEventArgs e)

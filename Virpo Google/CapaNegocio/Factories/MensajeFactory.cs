@@ -101,6 +101,35 @@ namespace CapaNegocio.Factories
             }
         }
 
+        public static List<Mensaje> MensajesNuevos(int idAviso)
+        {
+            string query = "SELECT men.id, men.idAviso, men.idRemitente, men.fechaYHoraMsj, men.mensaje " +
+                           "FROM Mensaje men " +
+                           "WHERE men.idAviso = "+ idAviso +
+                           " AND respuesta is null ";
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                List<Mensaje> mensajes = new List<Mensaje>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Mensaje mensaje = new Mensaje();
+                    mensaje.Id = (int)dt.Rows[i]["id"];
+                    mensaje.Aviso = AvisoClasificadoFactory.Devolver((int)dt.Rows[i]["idAviso"]);
+                    mensaje.Remitente = UsuarioFactory.Devolver((int)dt.Rows[i]["idRemitente"]);
+                    mensaje.Fecha = Convert.ToDateTime(dt.Rows[i]["fechaYHoraMsj"]);
+                    mensaje.Msj = dt.Rows[i]["mensaje"].ToString();
+                    mensajes.Add(mensaje);
+                }
+                return mensajes;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public static DataTable DevolverMensajesDeAviso(int idAviso)
         {
             string query = "SELECT id, remitente, tipo, mensaje, fecha "
@@ -109,7 +138,7 @@ namespace CapaNegocio.Factories
                          + " UNION ALL "
                          + "SELECT id, (SELECT nombreUsuario FROM AvisoClasificado a INNER JOIN Usuario u ON a.idMusicoDueño=u.id WHERE a.id=" + idAviso + " ) AS remitente, 'Respuesta' AS tipo, respuesta, fechaYhoraResp AS fecha FROM mensaje "
                          + "WHERE idAviso=" + idAviso + " AND respuesta IS NOT NULL) mensajes "
-                         + "ORDER BY id DESC, fecha";
+                         + "ORDER BY fecha";
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
