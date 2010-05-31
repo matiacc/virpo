@@ -30,6 +30,8 @@ public partial class _Default : System.Web.UI.Page
             if (Request.QueryString["rank"] != null)
             {
                 restriccion = "order by visitas desc";
+                tdTitulo.InnerHtml = @"<center style='width: 527px; background-color: #333333'><tituloSubVentana>
+                    Avisos Más Visitados</tituloSubVentana></center>";
             }
             DataTable dt = this.DatosClasificados(restriccion);
             GridView1.DataSource = dt;

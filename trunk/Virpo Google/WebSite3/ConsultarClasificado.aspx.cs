@@ -61,7 +61,7 @@ public partial class ConsultarClasificado : System.Web.UI.Page
             lblRubro.Text = aviso.Rubro.Nombre;
             lblTitulo.Text = aviso.Titulo;
             lblUbicacion.Text = aviso.Ubicacion;
-            lblVendedor.Text = aviso.Dueño.NombreUsuario;
+            lblVendedor.Text = "<a href='PerfilPublico.aspx?Id=" + aviso.Dueño.Id + "'>" + aviso.Dueño.NombreUsuario + "</a>";
             lblVisitas.Text = AvisoClasificadoFactory.IncrementarVisita(aviso.Id).ToString();
             lblImprimir.Text = "<a href='javascript:window.print();'>Imprimir</a>";
 

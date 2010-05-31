@@ -5,6 +5,7 @@
         <ul>
             <li><a href="AltaClasificado.aspx" title="About">Nuevo Clasificado</a></li>
             <li><a href="MisAvisosClasificados.aspx" title="Services">Mis Avisos Clasificados</a></li>
+            <li><a href="Clasificados.aspx?rank=1" title="Mas visitados">Más visitados</a></li>
         </ul>
     </div>
 </asp:Content>
