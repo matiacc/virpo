@@ -3,6 +3,13 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+ <div id="menu8">
+        <ul>
+            <li><a href="Bandeja.aspx" title="Bandeja De Entrada">Bandeja De Entrada</a></li>
+            <li><a href="ModificarPerfil.aspx" title="Modificar Perfil">Modificar Perfil</a></li>
+            <li><a href="CambiarPassword.aspx" title="Cambiar Contraseña">Cambiar Contraseña</a></li>
+        </ul>
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
 
@@ -41,7 +48,7 @@ location.href=pagina+idinv+"&ace="+ac
 <head id="Head1" runat="server" />
 
                <cc1:TabContainer ID="TabContainer1" runat="server" 
-                    style="Height: 100%;Width: 750px" ActiveTabIndex="0" >
+                    style="Height: 100%;Width: 523px" ActiveTabIndex="0" >
              <%--   
              <cc1:TabContainer ID="TabContainer1" runat="server" CssClass="ajax__myTab" >
                 <style type="text/css" Height="100%";Width="750px">
