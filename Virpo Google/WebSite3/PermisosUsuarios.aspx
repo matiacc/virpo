@@ -33,7 +33,7 @@
         <tr>
             <td style="width: 40%">
                 <asp:Label ID="lblNombreDeUsuario" runat="server" 
-                    Text="Ingrese Nombre de Usuario:"></asp:Label>
+                    Text="Ingrese Nombre de Usuario:" CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="width: 40%">
                 <asp:TextBox ID="txtNombreUsr" runat="server" Width="185px"></asp:TextBox>
@@ -44,6 +44,14 @@
                 <asp:Button ID="btnBuscarUsr" runat="server" OnClick="btnBuscarUsr_Click" Style="height: 26px"
                     Text="Buscar" CssClass="botones" Width="100px" />
             </td>
+        </tr>
+        <tr>
+            <td style="width: 40%">
+                &nbsp;</td>
+            <td style="width: 40%">
+                &nbsp;</td>
+            <td style="width: 20%">
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 40%">
@@ -96,7 +104,8 @@
                     <table class="style1">
                         <tr>
                             <td style="width: 60px">
-                                <asp:Label ID="lblUsuario" runat="server" Text="Usuario:"></asp:Label>
+                                <asp:Label ID="lblUsuario" runat="server" Text="Usuario:" 
+                                    CssClass="estiloLabel"></asp:Label>
                             </td>
                             <td style="width: 128px">
                                 <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
@@ -104,7 +113,7 @@
                             <td style="width: 74px">
                                 &nbsp;</td>
                             <td style="width: 87px">
-                                <asp:Label ID="lblRol" runat="server" Text="Nuevo Rol:"></asp:Label>
+                                <asp:Label ID="lblRol" runat="server" Text="Nuevo Rol:" CssClass="estiloLabel"></asp:Label>
                             </td>
                             <td>
                                 <asp:DropDownList ID="ddlRol" runat="server" Width="150px">
