@@ -3,7 +3,7 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div id="menu8">
+    <div id="menu8">
         <ul>
             <li><a href="NuevoGrupo.aspx" title="Nuevo Grupo">Nuevo Grupo</a></li>
             <li><asp:Label ID="lblMisGrupos" runat="server"></asp:Label></li>
@@ -14,7 +14,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
 
-<SCRIPT LANGUAGE="JavaScript">
+    <SCRIPT LANGUAGE="JavaScript">
 window.opener.location.reload();
 </SCRIPT>
 
@@ -47,12 +47,6 @@ window.opener.location.reload();
                     onclick="btUnirme_Click" CssClass="botones" Width="120px" />
 
                 </td>
-        </tr>
-        <tr>
-            <td colspan="3" style="text-align: right">
-               
-                
-                &nbsp;</td>
         </tr>
         <tr>
             <td colspan="3">
