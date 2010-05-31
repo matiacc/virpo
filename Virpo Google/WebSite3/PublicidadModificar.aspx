@@ -81,6 +81,9 @@
                 <asp:TextBox ID="txtInicio" runat="server" Height="18px" Width="68px"></asp:TextBox>
                 <asp:Label ID="Label4" runat="server" Text="Hasta"></asp:Label>
                 <asp:TextBox ID="txtFin" runat="server" Height="18px" Width="68px"></asp:TextBox>
+                &nbsp;<br />
+                <asp:Label ID="lblAlertaFecha" runat="server" ForeColor="#CC0000" 
+                    Text="Debe cambiar la fecha fin" Visible="False"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -116,12 +119,17 @@
             <td>
                 <asp:TextBox ID="txtConsulta" runat="server" Height="111px" 
                     TextMode="MultiLine" Width="227px"></asp:TextBox>
+                <br />
+                <asp:Label ID="lblAlertaObservacion" runat="server" ForeColor="#CC0000" 
+                    Text="Debe ingresar una observación" Visible="False"></asp:Label>
             </td>
         </tr>
         <tr>
             <td>
                 &nbsp;</td>
             <td style="text-align: right; ">
+                <asp:Button ID="btnBaja" runat="server" CssClass="botones" 
+                    onclick="btnBaja_Click" Text="Baja" Visible="False" />
                 <asp:Button ID="btnAlta" runat="server" CssClass="botones" 
                     onclick="btnAlta_Click" Text="Alta" />
                 <asp:Button ID="btnVolver" runat="server" CssClass="botones" 

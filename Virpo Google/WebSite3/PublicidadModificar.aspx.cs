@@ -28,6 +28,20 @@ public partial class _Default : System.Web.UI.Page
             int frec = 0;
             int mes = 0;
 
+            if (Request.QueryString["A"] != null)
+            {
+                int a = Convert.ToInt32(Request.QueryString["A"].ToString());
+                if (a==1)
+                {
+                    lblAlertaFecha.Visible = true;
+                }
+                if (a == 2)
+                {
+                    lblAlertaFecha.Visible = true;
+                }
+                
+            }
+
             if (Request.QueryString["EP"] != null)
             {
                 int ep = Convert.ToInt32(Request.QueryString["EP"].ToString());
@@ -43,9 +57,12 @@ public partial class _Default : System.Web.UI.Page
                         break;
                     case 2: btnAlta.Text = "Renovar";
                         lblConsulta.Text = "Observacion:";
+                        btnBaja.Visible = true;
                         break;
                     case 3: btnAlta.Text = "Renovar";
                         lblConsulta.Text = "Observacion:";
+                        btnBaja.Visible = true;
+                        btnBaja.Text = "Eliminar";
                         break;
                 } 
             }
@@ -160,10 +177,12 @@ public partial class _Default : System.Web.UI.Page
             }            
 
             publi.Imagen = "~/ImagenesPublicidad/" + nombre;
-        }        
-
+        }
+        
         if (PublicidadFactory.Modificar(publi))
         {
+            
+            
             if (Request.QueryString["EP"] != null)
             {
                 int ep = Convert.ToInt32(Request.QueryString["EP"].ToString());
@@ -173,7 +192,21 @@ public partial class _Default : System.Web.UI.Page
                         break;
                     case 1: Response.Redirect("PublicidadBajas.aspx?C=1");
                         break;
-                    case 2: Response.Redirect("PublicidadRenovacion.aspx?C=1");
+                    case 2:
+                        if (btnBaja.Visible && publi.FechaFin <= DateTime.Now.AddDays(7))
+                        {
+                            lblAlertaFecha.Visible = true;
+                            if (Request.QueryString["EP"] != null && Request.QueryString["I"] != null)
+                            {                                
+                                string id = Request.QueryString["I"].ToString();
+                                Response.Redirect("PublicidadModificar.aspx?I=" + id + "&EP=" + ep + "&A=1");
+                            }
+                        }
+                        else
+                        {
+                            Response.Redirect("PublicidadRenovacion.aspx?C=1");
+                        }
+                        
                         break;
                     case 3: Response.Redirect("PublicidadEjecutarBajas.aspx?C=1");
                         break;
@@ -236,11 +269,55 @@ public partial class _Default : System.Web.UI.Page
             upPublicidad.PostedFile.SaveAs(Server.MapPath(@"./Temp/") + upPublicidad.FileName);
             if (Request.QueryString["EP"] != null && Request.QueryString["I"] != null)
             {
-
                 string ep = Request.QueryString["EP"].ToString();
                 string id = Request.QueryString["I"].ToString();
                 Response.Redirect("PublicidadModificar.aspx?I=" + id + "&EP=" + ep + "&FN=" + upPublicidad.FileName);
             }      
         }             
-    }   
+    }
+    protected void btnBaja_Click(object sender, EventArgs e)
+    {
+        Publicidad publi = new Publicidad();
+        int ID = Convert.ToInt32(lblId.Text);
+        publi = PublicidadFactory.Devolver(ID);
+
+        if (btnBaja.Text=="Baja")
+        {
+            publi.Consulta = txtConsulta.Text;
+            publi.IdEstado = 3; // listo para eliminar
+            if (publi.Consulta!= "")
+            {
+                if (PublicidadFactory.Modificar(publi))
+                    {
+                        Response.Redirect("PublicidadRenovacion.aspx?C=1");
+                    }
+                else
+                    {
+                        Response.Redirect("PublicidadRenovacion.aspx?C=0");
+                    } 
+            }
+            else
+            {
+                if (Request.QueryString["EP"] != null && Request.QueryString["I"] != null)
+                {
+                    string ep = Request.QueryString["EP"].ToString();
+                    string id = Request.QueryString["I"].ToString();
+                    Response.Redirect("PublicidadModificar.aspx?I=" + id + "&EP=" + ep + "&A=2");
+                }   
+            }
+            
+        }
+        
+        if (btnBaja.Text == "Eliminar")
+        {
+            if (PublicidadFactory.Eliminar(ID))
+            {
+                Response.Redirect("PublicidadEjecutarBajas.aspx?C=1");
+            }
+            else
+            {
+                Response.Redirect("PublicidadEjecutarBajas.aspx?C=0");
+            }
+        }
+    }
 }
