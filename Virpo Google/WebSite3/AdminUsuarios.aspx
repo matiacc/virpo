@@ -10,6 +10,10 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+  <center style="width: 532px; background-color: #333333">
+                    <titulosubventana>
+                        Administrar Usuarios</titulosubventana>
+                </center>
                     </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
 </asp:Content>
