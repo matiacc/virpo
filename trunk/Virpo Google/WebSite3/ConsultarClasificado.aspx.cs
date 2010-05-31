@@ -162,13 +162,6 @@ public partial class ConsultarClasificado : System.Web.UI.Page
         }
     }
 
-
-    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
-    {
-        string id = GridView2.Rows[e.RowIndex].Cells[0].Text;
-        AvisoClasificadoFactory.Eliminar(Convert.ToInt32(id));
-        Response.Redirect("ConsultarClasificado.aspx?C="+ Session["idAviso"]);
-    }
     protected void btResponder_Click(object sender, EventArgs e)
     {
         int idMsj = (int)Session["IdMsjSeleccionado"];
@@ -213,5 +206,9 @@ public partial class ConsultarClasificado : System.Web.UI.Page
                          message +
                         "')</SCRIPT>";
         ClientScript.RegisterClientScriptBlock(this.GetType(), "buscar", jscript);
+    }
+    protected void GridView2_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        //TODO: Borrar mensaje, borrar label Mensajes Nuevos
     }
 }
