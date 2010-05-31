@@ -49,6 +49,7 @@
                 <asp:BoundField DataField="entidad" HeaderText="Empresa" />
                 <asp:BoundField DataField="nombreContacto" HeaderText="Contacto" />
                 <asp:BoundField DataField="Consulta" HeaderText="Motivo" />
+                <asp:ButtonField ButtonType="Image" CommandName="E" ImageUrl="~/ImagenesSite/delete.png" />
                 <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/lupa3.png" />
             </Columns>
             <RowStyle CssClass="RowStyle" />

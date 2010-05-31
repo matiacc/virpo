@@ -44,11 +44,25 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-
+        string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
         if (e.CommandName == "C")
         {
-            string id = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text;
+            
             Response.Redirect("PublicidadModificar.aspx?I=" + id + "&EP=3");
+        }
+        
+        if (e.CommandName == "E")
+        {
+            int ID= Convert.ToInt32(id);
+
+            if (PublicidadFactory.Eliminar(ID))
+            {
+                Response.Redirect("PublicidadEjecutarBajas.aspx?c=1");
+            }
+            else
+            {
+                Response.Redirect("PublicidadEjecutarBajas.aspx?c=0");    
+            }            
         }
     }
 }
