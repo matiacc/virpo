@@ -198,7 +198,7 @@
                                     Mensajes Nuevos
                                         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" 
                                             CssClass="GridViewStyle" GridLines="None" onrowcommand="GridView2_RowCommand" 
-                                            Width="531px">
+                                            Width="531px" onrowdeleting="GridView2_RowDeleting">
                                             <Columns>
                                                 <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False" />
                                                 <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
