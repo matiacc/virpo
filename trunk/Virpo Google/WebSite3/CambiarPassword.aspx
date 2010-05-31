@@ -3,7 +3,7 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
- <div id="menu8">
+    <div id="menu8">
         <ul>
             <li><a href="Bandeja.aspx" title="Bandeja De Entrada">Bandeja De Entrada</a></li>
             <li><a href="ModificarPerfil.aspx" title="Modificar Perfil">Modificar Perfil</a></li>
@@ -12,7 +12,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-<center style="width: 529px; background-color: #333333">
+    <center style="width: 529px; background-color: #333333">
                     <tituloSubVentana>
                     Cambiar Contraseña</tituloSubVentana></center>
     <table class="tabla" style="width: 132%">
@@ -46,6 +46,7 @@
             </td>
             <td colspan="2" style="height: 39px; text-align: left">
                 <asp:Label ID="lblNomUsuario" runat="server"></asp:Label>
+                
             </td>
         </tr>
         <tr>
