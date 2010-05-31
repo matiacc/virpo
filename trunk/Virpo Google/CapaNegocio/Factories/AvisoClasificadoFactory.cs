@@ -19,7 +19,7 @@ namespace CapaNegocio.Factories
                            "WHERE id=" + id;
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
-            if (dt != null)
+            if (dt != null && dt.Rows.Count > 0)
             {
                 AvisoClasificado aviso = new AvisoClasificado();
                 aviso.Id = id;
