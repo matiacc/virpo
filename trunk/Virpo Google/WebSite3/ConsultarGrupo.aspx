@@ -40,10 +40,25 @@ window.opener.location.reload();
                 &nbsp;</td>
         </tr>
         <tr>
+            <td colspan="3" style="text-align: right">
+               
+                
+                <asp:Button ID="btUnirme" runat="server" Text="Unirme!" 
+                    onclick="btUnirme_Click" CssClass="botones" Width="120px" />
+
+                </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: right">
+               
+                
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td colspan="3">
                
                 
-                <asp:Label ID="lblDescripcion" runat="server" CssClass="estiloLabel"></asp:Label>
+                <asp:Label ID="lblDescripcion" runat="server" CssClass="estiloLabelCabecera2"></asp:Label>
                 </td>
         </tr>
         <tr>
@@ -58,10 +73,16 @@ window.opener.location.reload();
             <td>
                 <asp:Label ID="lblCreador" runat="server"></asp:Label>
             </td>
-            <td rowspan="6" style="text-align: right">
+            <td rowspan="9" style="text-align: right">
                 <asp:Image ID="imgGrupo"  runat="server" style="height:120px" Width="120px"/>
                 <br />
             </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td>
@@ -72,7 +93,19 @@ window.opener.location.reload();
         </tr>
         <tr>
             <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
                  Miembros (<asp:Label ID="lblCantMiembros" runat="server"></asp:Label>)</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                 &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -116,31 +149,17 @@ window.opener.location.reload();
         <tr>
             <td colspan="3" align="center" style="text-align: right">
 
+                <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
+                    Width="120px" onclick="btnDenunciar_Click" />
+            
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center" style="text-align: right">
+
                 &nbsp;</td>
         </tr>
-        <tr>
-            <td colspan="3" align="center" style="text-align: right">
-
-                <asp:Button ID="btUnirme" runat="server" Text="Unirme al Grupo!" 
-                    onclick="btUnirme_Click" CssClass="botones" />
-
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3" align="center" style="text-align: right">
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3" align="center" style="text-align: right">
-            
-                <br />
-                <br />
-                <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
-                    Width="95px" onclick="btnDenunciar_Click" />
-            
-            </td>
-        </tr>
-    </table>
+        </table>
                  <asp:Button ID="Button2" runat="server" Text="False" Style="display: none;" />
     <asp:Button ID="Button3" runat="server" Text="False2" Style="display: none;"/>
     <asp:Panel ID="Panel1" runat="server" Style="display: none;" CssClass="modalPopup">
