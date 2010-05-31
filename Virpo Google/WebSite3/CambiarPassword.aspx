@@ -114,14 +114,14 @@
         </tr>
         <tr>
             <td style="height: 33px; width: 171px;">
+                <asp:Button ID="btnVolver" runat="server" OnClick="btnVolver_Click" Text="Volver"
+                    CausesValidation="False" CssClass="botones" Width="100px" />
+            </td>
+            <td style="height: 33px; text-align: right;">
                 &nbsp;</td>
             <td style="height: 33px; text-align: right;">
                 <asp:Button ID="btnCambia" runat="server" Text="Aceptar" 
                     OnClick="btnCambia_Click" CssClass="botones" Width="100px" />
-            </td>
-            <td style="height: 33px; text-align: right;">
-                <asp:Button ID="btnVolver" runat="server" OnClick="btnVolver_Click" Text="Volver"
-                    CausesValidation="False" CssClass="botones" Width="100px" />
             </td>
         </tr>
     </table>
