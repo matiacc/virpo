@@ -31,55 +31,66 @@
                 </td>
         </tr>
         <tr>
-            <td style="text-align: right">
-                <asp:Label ID="lblEmpresa" runat="server" Text="Empresa a Publicitar:"></asp:Label>
+            <td style="text-align: left; width: 182px;">
+                <asp:Label ID="lblEmpresa" runat="server" Text="Empresa:" 
+                    CssClass="estiloLabel" Width="110px"></asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtEntidad" runat="server" Width="227px"></asp:TextBox>
             </td>
             <td rowspan="11">
                 <asp:ImageButton ID="imgPubli" runat="server" Height="385px" Width="145px" />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
             </td>
         </tr>
         <tr>
-            <td style="text-align: right">
-                <asp:Label ID="lblContacto" runat="server" Text="Nombre del Contacto:"></asp:Label>
+            <td style="text-align: left; width: 182px;">
+                <asp:Label ID="lblContacto" runat="server" Text="Nombre:" 
+                    CssClass="estiloLabel" Width="110px"></asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtNombreContacto" runat="server" Width="227px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td style="text-align: right">
-                <asp:Label ID="lblTel" runat="server" Text="Telefono de Contacto:"></asp:Label>
+            <td style="text-align: left; width: 182px;">
+                <asp:Label ID="lblTel" runat="server" Text="Telefono:" 
+                    CssClass="estiloLabel" Width="120px"></asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtTelContacto" runat="server" Width="227px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td style="text-align: right">
-                <asp:Label ID="lblMail" runat="server" Text="Mail de Contacto:"></asp:Label>
+            <td style="text-align: left; width: 182px;">
+                <asp:Label ID="lblMail" runat="server" Text="Mail:" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtMailContacto" runat="server" Width="227px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td style="text-align: right">
-                <asp:Label ID="Label5" runat="server" Text="meses solicitados:"></asp:Label>
+            <td style="text-align: left; width: 182px;">
+                <asp:Label ID="Label5" runat="server" Text="Meses:" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
             <td>
-                <asp:Label ID="lblMeses" runat="server"></asp:Label>
+                <asp:Label ID="lblMeses" runat="server" CssClass="estiloLabel"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td style="text-align: right">
-                <asp:Label ID="Label1" runat="server" Text="Vigencia desde:"></asp:Label>
+            <td style="text-align: left; width: 182px;">
+                <asp:Label ID="Label1" runat="server" Text="Vigencia desde:" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="text-align: left">
                 <asp:TextBox ID="txtInicio" runat="server" Height="18px" Width="68px"></asp:TextBox>
-                <asp:Label ID="Label4" runat="server" Text="Hasta"></asp:Label>
+                <asp:Label ID="Label4" runat="server" Text=" Hasta " CssClass="estiloLabel"></asp:Label>
                 <asp:TextBox ID="txtFin" runat="server" Height="18px" Width="68px"></asp:TextBox>
                 &nbsp;<br />
                 <asp:Label ID="lblAlertaFecha" runat="server" ForeColor="#CC0000" 
@@ -87,8 +98,9 @@
             </td>
         </tr>
         <tr>
-            <td style="text-align: right">
-                <asp:Label ID="lblFrec" runat="server" Text="Frecuencia de Aparicion:"></asp:Label>
+            <td style="text-align: left; width: 182px;">
+                <asp:Label ID="lblFrec" runat="server" Text="Frecuencia de Aparicion:" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
             <td>
                 <asp:DropDownList ID="ddlFrecuencia" runat="server" Height="22px" Width="43px">
@@ -96,17 +108,19 @@
             </td>
         </tr>
         <tr>
-            <td style="text-align: right">
-                <asp:Label ID="lblImagen" runat="server" Text="Ruta de la Imagen:"></asp:Label>
+            <td style="width: 182px;">
+                <asp:Label ID="lblImagen" runat="server" Text="Imagen:" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
             <td>
-                <asp:FileUpload ID="upPublicidad" runat="server" Width="225px" Height="26px"/>
+                <asp:FileUpload ID="upPublicidad" runat="server" Width="256px" Height="26px"/>
                 <br />
             </td>
         </tr>
         <tr>
-            <td style="height: 26px; text-align: right;">
-                <asp:Label ID="lblConsulta" runat="server" Text="Consulta:"></asp:Label>
+            <td style="height: 26px; text-align: left; width: 182px;">
+                <asp:Label ID="lblConsulta" runat="server" Text="Consulta:" 
+                    CssClass="estiloLabel"></asp:Label>
                 </td>
             <td style="height: 26px;">
                 <asp:Button ID="btnPrevisualizar" runat="server" onclick="btnCargar_Click" 
@@ -114,7 +128,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 182px">
                 &nbsp;</td>
             <td>
                 <asp:TextBox ID="txtConsulta" runat="server" Height="111px" 
@@ -125,7 +139,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 182px">
                 &nbsp;</td>
             <td style="text-align: right; ">
                 <asp:Button ID="btnBaja" runat="server" CssClass="botones" 
