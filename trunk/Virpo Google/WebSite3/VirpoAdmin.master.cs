@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using CapaNegocio.Entities;
+using CapaNegocio.Factories;
 
 public partial class musicamania_Virpo : System.Web.UI.MasterPage
 {
