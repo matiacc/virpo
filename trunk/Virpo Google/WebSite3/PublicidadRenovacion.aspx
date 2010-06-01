@@ -13,7 +13,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-     <center style="width: 532px; background-color: #333333">
+     <center style="width: 530px; background-color: #333333">
                      <titulosubventana>Renovar Publicidad</titulosubventana>
                 </center>
     <table class="style1">

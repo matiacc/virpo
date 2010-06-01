@@ -1,48 +1,59 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/VirpoAdmin.master" AutoEventWireup="true" CodeFile="PublicidadSolicitudes.aspx.cs" Inherits="_Default" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/VirpoAdmin.master" AutoEventWireup="true"
+    CodeFile="PublicidadSolicitudes.aspx.cs" Inherits="_Default" Title="Untitled Page" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div id="menu8">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div id="menu8">
         <ul>
             <li><a href="AdminHome.aspx" title="Vuelve al Home Administracion">Home</a></li>
             <li><a href="PublicidadSolicitudes.aspx" title="Pedidos de Publicidad">Solicitudes</a></li>
             <li><a href="PublicidadBajas.aspx" title="Publicidades Vigentes">Bajas &amp; Modificar</a></li>
             <li><a href="PublicidadRenovacion.aspx" title="Publicidades Vencidas">Renovacion</a></li>
-            <li><a href="PublicidadEjecutarBajas.aspx" title="Publicidades a Eliminar">Ejecutar 
+            <li><a href="PublicidadEjecutarBajas.aspx" title="Publicidades a Eliminar">Ejecutar
                 Bajas</a></li>
         </ul>
     </div>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+    <center style="width: 530px; background-color: #333333">
+                     <titulosubventana>Solicitudes</titulosubventana>
+                </center>
     <table class="style1">
+    
+    <table class="style1">
+    
+        
         <tr>
-            <td colspan="5">
-                solicitudes</td>
         </tr>
         <tr>
             <td colspan="5">
-        <asp:Label ID="lblOk" runat="server" ForeColor="#009900" 
-            Text="Se Realizó el Alta con Exito..." Visible="False"></asp:Label>
-        <asp:Label ID="lblMal" runat="server" ForeColor="#CC0000" 
-            Text="Error al Procesar la Transacción..." Visible="False"></asp:Label>
+                <asp:label id="lblOk" runat="server" forecolor="#009900" text="Se Realizó el Alta con Exito..."
+                    visible="False"></asp:label>
+                <asp:label id="lblMal" runat="server" forecolor="#CC0000" text="Error al Procesar la Transacción..."
+                    visible="False"></asp:label>
             </td>
         </tr>
         <tr>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
         </tr>
     </table>
     <br />
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
-            AutoGenerateColumns="False" CssClass="GridViewStyle" GridLines="None" OnRowCommand="GridView1_RowCommand"
-            Width="529" PageSize="10">
+    <asp:gridview id="GridView1" runat="server" allowpaging="True" allowsorting="True"
+        autogeneratecolumns="False" cssclass="GridViewStyle" gridlines="None" onrowcommand="GridView1_RowCommand"
+        width="529" pagesize="10">
             <Columns>
                 <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False">
                     <HeaderStyle Font-Size="Small" />
@@ -59,7 +70,7 @@
             <HeaderStyle CssClass="HeaderStyle" />
             <EditRowStyle CssClass="EditRowStyle" />
             <AlternatingRowStyle CssClass="AltRowStyle" />
-        </asp:GridView>
-        </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
+        </asp:gridview>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="Server">
 </asp:Content>
