@@ -12,9 +12,13 @@ Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
         </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+<center style="width: 532px; background-color: #333333">
+                    <titulosubventana>
+                        Nueva Noticia</titulosubventana>
+                </center>
     <p style="text-align: center">
     
-        <asp:Label ID="Label1" runat="server" Text="Posicion:"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Posicion:" CssClass="estiloLabel"></asp:Label>
         <asp:DropDownList ID="ddlPosicion" runat="server" Height="22px" Width="138px" 
             style="margin-left: 20px">
         </asp:DropDownList>
@@ -23,7 +27,8 @@ Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
     </p>
     <p style="text-align: right">
     
-        <asp:Label ID="Label2" runat="server" Text="Descripcion:"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Text="Descripcion:  " 
+            CssClass="estiloLabel"></asp:Label>
         <asp:TextBox ID="txtDesc" runat="server" Width="218px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
             ControlToValidate="txtDesc" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
