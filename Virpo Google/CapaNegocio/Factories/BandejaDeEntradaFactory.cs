@@ -13,7 +13,7 @@ namespace CapaNegocio.Factories
     {
         public static int HayMensajesEnBandejaDeUsuario(int idUsr)
         {
-            string query = "SELECT COUNT(id) FROM BandejaDeEntrada WHERE idDestinatario=" + idUsr;
+            string query = "SELECT COUNT(id) FROM BandejaDeEntrada WHERE leido='NO' AND idDestinatario=" + idUsr;
             int mensajes = BDUtilidades.EjecutarConsultaEscalar(query);
             return mensajes;
         }
