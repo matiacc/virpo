@@ -293,8 +293,8 @@ namespace CapaNegocio.Factories
             }
             rdm = new Random().Next(todasFrec.Count);
             int idExistente = todasFrec[rdm].Id;
-            Publicidad publi = Devolver(idExistente);
-            return publi;
+            Publicidad publii = Devolver(idExistente);
+            return publii;
         }
     }
 
