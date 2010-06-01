@@ -13,13 +13,12 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+     <center style="width: 532px; background-color: #333333">
+                     <titulosubventana>Renovar Publicidad</titulosubventana>
+                </center>
     <table class="style1">
         <tr>
-            <td colspan="5">
-                renovaciones</td>
-        </tr>
-        <tr>
-            <td colspan="5">
+            <td>
         <asp:Label ID="lblOk" runat="server" ForeColor="#009900" 
             Text="Se Renovó con Exito..." Visible="False"></asp:Label>
         <asp:Label ID="lblMal" runat="server" ForeColor="#CC0000" 
@@ -29,40 +28,8 @@
         <tr>
             <td>
                 &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
         </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-    </table>
+        </table>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
             AutoGenerateColumns="False" CssClass="GridViewStyle" GridLines="None" OnRowCommand="GridView1_RowCommand"
             Width="529" PageSize="10">
