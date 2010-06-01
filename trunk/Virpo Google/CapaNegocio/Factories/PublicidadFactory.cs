@@ -275,5 +275,28 @@ namespace CapaNegocio.Factories
             string query = "UPDATE Publicidad SET idEstado = 2 WHERE idEstado = 1 and fechaFin <= "+FECHA;
             return BDUtilidades.EjecutarNonQuery(query);
         }
+
+        public static Publicidad DevolverAleatoria()
+        {
+            List<Publicidad> todas = DevolverTodos();
+            List<Publicidad> todasFrec = new List<Publicidad>();
+            int rdm;
+            int frec;
+            foreach (Publicidad  publi in todas)//cargo la lista en base a la frecuencia
+            {
+                frec = 0; 
+                while (publi.Frecuencia > frec)
+                {
+                    todasFrec.Add(publi);
+                    frec++;
+                }                               
+            }
+            rdm = new Random().Next(todasFrec.Count);
+            int idExistente = todasFrec[rdm].Id;
+            Publicidad publi = Devolver(idExistente);
+            return publi;
+        }
     }
+
+    
 }
