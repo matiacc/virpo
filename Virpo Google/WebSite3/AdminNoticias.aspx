@@ -11,7 +11,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-     <center style="width: 532px; background-color: #333333">
+     <center style="width: 530px; background-color: #333333">
                     <titulosubventana>
                         Administrar Noticias</titulosubventana>
                 </center>
