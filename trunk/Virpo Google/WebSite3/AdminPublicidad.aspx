@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/VirpoAdmin.master" AutoEventWireup="true" CodeFile="AdminPublicidad.aspx.cs" Inherits="_Default" Title="Untitled Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div id="menu8">
+    <div id="menu8">
         <ul>
             <li><a href="AdminHome.aspx" title="Vuelve al Home Administracion">Home</a></li>
             <li><a href="PublicidadSolicitudes.aspx" title="Pedidos de Publicidad">Solicitudes</a></li>
@@ -12,19 +12,21 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-<center style="width: 532px; background-color: #333333">
+    <center style="width: 530px; background-color: #333333">
                     <titulosubventana>
                         Administrar Publicidad</titulosubventana>
-                </center>
+                </center>    
     <p>
-        <br />
-    </p>
+    <asp:Image ID="imgAdminPubli" runat="server" Height="255px" Width="530px" 
+            ImageUrl="~/ImagenesSite/Publicidad.JPG" />
+    <p>
     <p>
         <asp:Label ID="lblOk" runat="server" ForeColor="#009900" 
             Text="La Transacción fue Exitosa..." Visible="False"></asp:Label>
         <asp:Label ID="lblMal" runat="server" ForeColor="#CC0000" 
-            Text="Error al Procesar la Transacción..." Visible="False"></asp:Label>
+            Text="Error al Procesar la Transacción..." Visible="False"></asp:Label>        
     </p>
+    <br />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
 </asp:Content>
