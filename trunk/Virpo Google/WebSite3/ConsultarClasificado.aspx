@@ -142,7 +142,9 @@
         </tr>
          <tr>
             <td colspan="4">
-                <center style="width: 538px; background-color: #333333">Preguntas Sobre el Aviso</center></td>
+                <center style="width: 532px; background-color: #333333">
+                     <titulosubventana>Preguntas sobre el aviso</titulosubventana>
+                </center></td>
         </tr>
          <tr>
             <td colspan="2">
