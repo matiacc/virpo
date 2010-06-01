@@ -13,11 +13,10 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+<center style="width: 532px; background-color: #333333">
+                     <titulosubventana>Ejecutar Bajas</titulosubventana>
+                </center>
 <table class="style1">
-        <tr>
-            <td colspan="5">
-                ejecutar bajas</td>
-        </tr>
         <tr>
             <td colspan="5">
         <asp:Label ID="lblOk" runat="server" ForeColor="#009900" 
