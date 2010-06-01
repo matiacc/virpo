@@ -26,7 +26,7 @@ public partial class popupContactarVendedor : System.Web.UI.Page
         Usuario remitente = new Usuario();
         remitente = (Usuario)Session["Usuario"];
 
-        AvisoClasificado aviso = (AvisoClasificado)Session["Aviso"];
+        AvisoClasificado aviso = AvisoClasificadoFactory.Devolver(Convert.ToInt32(Session["idAviso"]));
         //Usuario destinatario = UsuarioFactory.Devolver(aviso.Dueño.Id);
         
         Mensaje msj = new Mensaje();

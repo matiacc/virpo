@@ -71,7 +71,8 @@
                     Text="Mensaje"></asp:Label>
             </td>
             <td class="style6">
-                <asp:TextBox ID="txtMensaje" runat="server" Height="157px" Width="408px"></asp:TextBox>
+                <asp:TextBox ID="txtMensaje" runat="server" Height="157px" Width="408px" 
+                    TextMode="MultiLine"></asp:TextBox>
             </td>
         </tr>
         <tr>

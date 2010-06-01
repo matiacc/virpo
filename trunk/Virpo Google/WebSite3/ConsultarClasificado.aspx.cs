@@ -44,7 +44,7 @@ public partial class ConsultarClasificado : System.Web.UI.Page
             Session["urlClasificado"] = Request.Url.ToString();
             lblRecomendar.Text = "<a href='javascript:abrirPopup2()' class='estiloLabelCabeceraPeque'>Recomendar Aviso</a>";
             AvisoClasificado aviso = AvisoClasificadoFactory.Devolver(id);
-            Session["Aviso"] = aviso;
+            Session["idVendedor"] = aviso.Dueño.Id;
             lblDescripcion.Text = aviso.Descripcion;
             lblFin.Text = aviso.FechaFin.ToShortDateString();
             lblInicio.Text = aviso.FechaInicio.ToShortDateString();
@@ -69,12 +69,22 @@ public partial class ConsultarClasificado : System.Web.UI.Page
             CargarMensajes(id);
         }
         //No se muestra contactar con el vendedor si el aviso consultado es publicado por el que se logueo
-        if (Session["Aviso"] != null)
-            if (((AvisoClasificado)Session["Aviso"]).Dueño.Id == ((Usuario)Session["Usuario"]).Id)
+        if (Session["idVendedor"] != null)
+            if (Convert.ToInt32((Session["idVendedor"])) == ((Usuario)Session["Usuario"]).Id)
             {
                 lblContactar.Visible = false;
                 //Muestro la grilla de mensajes nuevos al creador del anuncio
-                this.CargarGrillaMensajesNuevos(((AvisoClasificado)Session["Aviso"]).Id);
+                this.CargarGrillaMensajesNuevos((Convert.ToInt32(Session["idAviso"])));
+                lblMensajesNuevos.Visible = true;
+                if (GridView2.Rows.Count == 0)
+                {
+                    lblMensajesNuevos.Text = "No tiene mensajes nuevos";
+                }
+                else
+                {
+                    lblMensajesNuevos.CssClass = "estiloLabelCabeceraPeque";
+                    lblMensajesNuevos.Text = "Tiene mensajes Nuevos";
+                }
             }
 
     }
@@ -147,18 +157,34 @@ public partial class ConsultarClasificado : System.Web.UI.Page
     }
     protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)
     {
+        
         if (e.CommandName == "Consultar")
         {
-            int id = Convert.ToInt32(GridView2.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text);
-            Mensaje mensaje = new Mensaje();
-            mensaje = MensajeFactory.Devolver(id);
-            Session["IdMsjSeleccionado"] = mensaje.Id;
-            Session["IdUsuarioSeleccionado"] = mensaje.Remitente.Id;
-            ViewState["IdAviso"] = mensaje.Aviso.Id.ToString();
-            lblUsuario.Text = mensaje.Remitente.NombreUsuario;
-            lblPregunta.Text = mensaje.Msj;
-            Panel2.Visible = true;
-            Panel2.Focus();
+            try
+            {
+                int id = Convert.ToInt32(GridView2.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text);
+                Mensaje mensaje = new Mensaje();
+                mensaje = MensajeFactory.Devolver(id);
+                Session["IdMsjSeleccionado"] = mensaje.Id;
+                Session["IdUsuarioSeleccionado"] = mensaje.Remitente.Id;
+                ViewState["IdAviso"] = mensaje.Aviso.Id.ToString();
+                lblUsuario.Text = mensaje.Remitente.NombreUsuario;
+                lblPregunta.Text = mensaje.Msj;
+                Panel2.Visible = true;
+                Panel2.Focus();
+            }
+            catch { }
+        }
+        else if (GridView2.Rows.Count > 0 && e.CommandName == "Borrar")
+        {
+            try
+            {
+                int id = Convert.ToInt32(GridView2.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text);
+                MensajeFactory.Eliminar(Convert.ToInt32(id));
+                Response.Redirect("ConsultarClasificado.aspx?C=" + Session["idAviso"]);
+            }
+            catch {}
+            CargarMensajes(Convert.ToInt32(Session["idAviso"]));
         }
     }
 
@@ -207,8 +233,10 @@ public partial class ConsultarClasificado : System.Web.UI.Page
                         "')</SCRIPT>";
         ClientScript.RegisterClientScriptBlock(this.GetType(), "buscar", jscript);
     }
-    protected void GridView2_RowDeleting(object sender, GridViewDeleteEventArgs e)
-    {
-        //TODO: Borrar mensaje, borrar label Mensajes Nuevos
-    }
+    //protected void GridView2_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    //{
+    //    string id = GridView2.Rows[e.RowIndex].Cells[0].Text;
+    //    AvisoClasificadoFactory.Eliminar(Convert.ToInt32(id));
+    //    Response.Redirect("ConsultarClasificado.aspx?C=" + Session["idAviso"]);
+    //}
 }
