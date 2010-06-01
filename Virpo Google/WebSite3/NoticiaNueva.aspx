@@ -10,6 +10,7 @@ Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
             <li><a href="NoticiaNueva.aspx" title="Nueva Noticia">Nueva Noticia</a></li>
             <li><a href="NoticiasBajas.aspx" title="Bajas">Modificar &amp; Bajas</a></li>
         </ul>
+        </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
 <center style="width: 532px; background-color: #333333">
