@@ -111,7 +111,7 @@ public partial class _Default : System.Web.UI.Page
                 
                 //row["Ruta2"] = "./Composiciones/" + composicion.Audio;
                 row["Id"] = composicion.Id;
-                Proyecto proy = ProyectoFactory.DevolverProyectoPorComposicion(composicion.Id);
+               CapaNegocio.Entities.Proyecto proy = ProyectoFactory.DevolverProyectoPorComposicion(composicion.Id);
                 if(proy != null)
                     row["Proyecto"] = "./Proyecto.aspx?Id="+ proy.Id;
                 dt.Rows.Add(row);

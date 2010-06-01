@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="ConsultarClasificado.aspx.cs" Inherits="ConsultarClasificado" Title="Página sin título" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="ConsultarClasificado.aspx.cs" Inherits="ConsultarClasificado" Title="Página sin título"%>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div id="menu8">
@@ -71,7 +73,7 @@
                 <asp:Label ID="Label5" runat="server" Text="Vendedor:" CssClass="estiloLabel"></asp:Label>
                             </td>
                         <td>
-                <asp:Label ID="lblVendedor" runat="server" CssClass="estiloLabelCabeceraPeque"></asp:Label>
+                <asp:Label ID="lblVendedor" runat="server"></asp:Label>
                             </td>
                     </tr>
                 </table>
@@ -180,7 +182,7 @@
         </tr>
          <tr>
             <td colspan="2">
-                <asp:ScriptManager ID="ScriptManager1" runat="server">
+               <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
                 </td>
             <td style="width: 198px">
@@ -193,16 +195,18 @@
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
                         <table class="style1">
-                       
+                       <tr><td>
+                           <asp:Label ID="lblMensajesNuevos" runat="server" Visible="False"></asp:Label></td></tr>
                             <tr>
                                 <td>
                                     <asp:Panel ID="Panel1" runat="server">
-                                    Mensajes Nuevos
+                                     
                                         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" 
                                             CssClass="GridViewStyle" GridLines="None" onrowcommand="GridView2_RowCommand" 
-                                            Width="531px" onrowdeleting="GridView2_RowDeleting">
+                                            Width="531px">
                                             <Columns>
-                                                <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False" />
+                                                <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False" >
+                                                </asp:BoundField>
                                                 <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
                                                 <asp:BoundField DataField="De" HeaderText="De" />
                                                 <asp:BoundField DataField="Mensaje" HeaderText="Mensaje" />
@@ -210,12 +214,8 @@
                                                     ImageUrl="~/ImagenesSite/lupa3.png" Text="Consultar">
                                                     <ItemStyle HorizontalAlign="Center" />
                                                 </asp:ButtonField>
-                                                <asp:TemplateField ShowHeader="False">
-                                            <ItemTemplate>
-                                                <asp:ImageButton ID="ImageButton2" runat="server" CausesValidation="False" 
-                                                    CommandName="Delete" ImageUrl="~/ImagenesSite/delete.png" Text="Eliminar" OnClientClick="return confirm('¿Esta seguro de borrar?')" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
+                                                <asp:ButtonField ButtonType="Image" CommandName="Borrar" 
+                                                    ImageUrl="~/ImagenesSite/delete.png" Text="Borrar" />
                                             </Columns>
                                             <RowStyle CssClass="RowStyle" />
                                             <EmptyDataRowStyle CssClass="EmptyRowStyle" />
