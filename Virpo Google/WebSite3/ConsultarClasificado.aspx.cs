@@ -66,8 +66,9 @@ public partial class ConsultarClasificado : System.Web.UI.Page
             lblVisitas.Text = AvisoClasificadoFactory.IncrementarVisita(aviso.Id).ToString();
             lblImprimir.Text = "<a href='javascript:window.print();'>Imprimir</a>";
 
-            CargarMensajes(id);
+            
         }
+        CargarMensajes(Convert.ToInt32(Session["idAviso"]));
         //No se muestra contactar con el vendedor si el aviso consultado es publicado por el que se logueo
         if (Session["idVendedor"] != null)
             if (Convert.ToInt32((Session["idVendedor"])) == ((Usuario)Session["Usuario"]).Id)
@@ -181,10 +182,12 @@ public partial class ConsultarClasificado : System.Web.UI.Page
             {
                 int id = Convert.ToInt32(GridView2.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text);
                 MensajeFactory.Eliminar(Convert.ToInt32(id));
-                Response.Redirect("ConsultarClasificado.aspx?C=" + Session["idAviso"]);
+                Server.Transfer("ConsultarClasificado.aspx?C=" + Session["idAviso"].ToString());
+                //Response.Redirect("ConsultarClasificado.aspx?C=" + Session["idAviso"].ToString(),false);
             }
             catch {}
-            CargarMensajes(Convert.ToInt32(Session["idAviso"]));
+            // No se puede evaluar la expresión porque el código está optimizado o existe un marco nativo en la parte superior de la pila de llamadas.
+            //CargarMensajes(Convert.ToInt32(Session["idAviso"]));
         }
     }
 

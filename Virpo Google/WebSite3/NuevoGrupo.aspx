@@ -53,7 +53,8 @@
                 <br />
             </td>
             <td class="tabla">
-                <asp:TextBox ID="txtDescripcion" runat="server" Height="129px" Width="282px"></asp:TextBox>
+                <asp:TextBox ID="txtDescripcion" runat="server" Height="129px" Width="282px" 
+                    TextMode="MultiLine"></asp:TextBox>
             </td>
         </tr>
         <tr>
