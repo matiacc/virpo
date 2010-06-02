@@ -67,13 +67,21 @@ public partial class _Default : System.Web.UI.Page
 
         //guardo la noticia modificada
         if (NoticiasFactory.Modificar(not))
-            Response.Redirect("NoticiasBajas.aspx?&C=1");
+            Panel1_ModalPopupExtender.Show();
         else
-            Response.Redirect("NoticiasBajas.aspx?&C=0");
+            Panel2_ModalPopupExtender.Show();
 
     }
 
     protected void btnCancelar_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("NoticiasBajas.aspx");
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("NoticiasBajas.aspx");
+    }
+    protected void Button4_Click(object sender, EventArgs e)
     {
         Response.Redirect("NoticiasBajas.aspx");
     }
