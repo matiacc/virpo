@@ -38,7 +38,7 @@
             <td>
                 <asp:TextBox ID="txtEntidad" runat="server" Width="227px"></asp:TextBox>
             </td>
-            <td rowspan="11">
+            <td rowspan="12">
                 <asp:ImageButton ID="imgPubli" runat="server" Height="385px" Width="145px" />
                 <br />
                 <br />
@@ -103,8 +103,17 @@
                     CssClass="estiloLabel"></asp:Label>
             </td>
             <td>
-                <asp:DropDownList ID="ddlFrecuencia" runat="server" Height="22px" Width="43px">
+                <asp:DropDownList ID="ddlFrecuencia" runat="server" Height="22px" Width="55px">
                 </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left; width: 182px;">
+                <asp:Label ID="lblUrl" runat="server" Text="Url:" 
+                    CssClass="estiloLabel"></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="txtUrl" runat="server" Width="227px"></asp:TextBox>
             </td>
         </tr>
         <tr>

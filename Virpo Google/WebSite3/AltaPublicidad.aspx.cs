@@ -84,7 +84,24 @@ public partial class _Default : System.Web.UI.Page
         publi.IdEstado = 0; // solicitado
         publi.Impresiones = 0;
         publi.Clicks = 0;
-        publi.Url=txtUrl.Text;
+        if (txtUrl.Text.Length>7)
+        {
+           if (txtUrl.Text.Trim().Remove(7) != "http://")
+            {
+                publi.Url = "http://" + txtUrl.Text.Trim();
+            }
+            else
+            {
+                publi.Url = txtUrl.Text.Trim();
+            } 
+        }
+        else
+        {
+            publi.Url = "";
+        }
+        
+        
+        
         publi.Disposicion = 1;
 
         if (PublicidadFactory.Insertar(publi))

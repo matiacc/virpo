@@ -80,11 +80,12 @@ public partial class _Default : System.Web.UI.Page
                 txtConsulta.Text = publi.Consulta;  
                 frec = publi.Frecuencia;
                 mes = publi.FechaInicio.Month;
+                
 
-                ddlFrecuencia.Items.Add("1");
-                ddlFrecuencia.Items.Add("2");
-                ddlFrecuencia.Items.Add("4");
-                ddlFrecuencia.Items.Add("8");
+                ddlFrecuencia.Items.Add("1000");
+                ddlFrecuencia.Items.Add("2000");
+                ddlFrecuencia.Items.Add("4000");
+                ddlFrecuencia.Items.Add("8000");
                 for (int i = 0; i < 4; i++)
                 {
                     ddlFrecuencia.SelectedIndex = i;
@@ -113,11 +114,14 @@ public partial class _Default : System.Web.UI.Page
                 if (publi.Imagen != "")
                 {
                     imgPubli.ImageUrl =publi.Imagen;
+                    imgPubli.PostBackUrl = publi.Url;
                 }
                 else
                 {
                     imgPubli.ImageUrl = "~/ImagenesPublicidad/Sin Imagen.jpg";    
-                }   
+                }
+                txtUrl.Text = publi.Url.ToString();
+
             }
             if (Request.QueryString["FN"] != null)
             {
@@ -142,6 +146,22 @@ public partial class _Default : System.Web.UI.Page
         publi.Frecuencia = Convert.ToInt32(ddlFrecuencia.Text);
         publi.Consulta = "";
         publi.IdEstado = 1;
+
+        if (txtUrl.Text.Length > 7)
+        {
+            if (txtUrl.Text.Trim().Remove(7) != "http://")
+            {
+                publi.Url = "http://" + txtUrl.Text.Trim();
+            }
+            else
+            {
+                publi.Url = txtUrl.Text.Trim();
+            }
+        }
+        else
+        {
+            publi.Url = "";
+        }
 
         try
         {
