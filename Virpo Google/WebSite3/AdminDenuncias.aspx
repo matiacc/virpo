@@ -61,7 +61,7 @@ location.href=pagina+idDen+"&baj="+baj
                 
                 <ContentTemplate>
                 
-                    <table class="tabla" border="1" style="width:550px;">
+                    <table class="tabla" border="1" style="width:100%;">
                           <asp:Label ID="lblListadoDenuncias" runat="server"></asp:Label>
                     </table>   
                              
@@ -76,7 +76,7 @@ location.href=pagina+idDen+"&baj="+baj
                 
                 <ContentTemplate>
                 
-                    <table class="tabla" border="1" style="width:507px;">
+                    <table class="tabla" border="1" style="width:100%;">
                           <asp:Label ID="lblDenunciasComposiciones" runat="server"></asp:Label>
                     </table>   
                              
@@ -91,7 +91,7 @@ location.href=pagina+idDen+"&baj="+baj
                 
                 <ContentTemplate>
                 
-                    <table class="tabla" border="1" style="width:550px;">
+                    <table class="tabla" border="1" style="width:100%;">
                           <asp:Label ID="lblDenunciasProyectos" runat="server"></asp:Label>
                     </table>   
                              
@@ -106,7 +106,7 @@ location.href=pagina+idDen+"&baj="+baj
                 
                 <ContentTemplate>
                 
-                    <table class="tabla" border="1" style="width:550px;">
+                    <table class="tabla" border="1" style="width:100%;">
                           <asp:Label ID="lblDenunciasWikiMusic" runat="server"></asp:Label>
                     </table>   
                              
@@ -121,7 +121,7 @@ location.href=pagina+idDen+"&baj="+baj
                 
                 <ContentTemplate>
                 
-                    <table class="tabla" border="1" style="width:550px;">
+                    <table class="tabla" border="1" style="width:100%;">
                           <asp:Label ID="lblDenunciasClasificados" runat="server"></asp:Label>
                     </table>   
                              
@@ -136,7 +136,7 @@ location.href=pagina+idDen+"&baj="+baj
                 
                 <ContentTemplate>
                 
-                    <table class="tabla" border="1" style="width:550px;">
+                    <table class="tabla" border="1" style="width:100%;">
                           <asp:Label ID="lblDenunciasBandas" runat="server"></asp:Label>
                     </table>   
                              
@@ -151,7 +151,7 @@ location.href=pagina+idDen+"&baj="+baj
                 
                 <ContentTemplate>
                 
-                    <table class="tabla" border="1" style="width:550px;">
+                    <table class="tabla" border="1" style="width:100%;">
                           <asp:Label ID="lblDenunciasGrupos" runat="server"></asp:Label>
                     </table>   
                              
@@ -166,7 +166,7 @@ location.href=pagina+idDen+"&baj="+baj
                 
                 <ContentTemplate>
                 
-                    <table class="tabla" border="1" style="width:550px;">
+                    <table class="tabla" border="1" style="width:100%;">
                           <asp:Label ID="lblDenunciasEventos" runat="server"></asp:Label>
                     </table>   
                              
@@ -181,7 +181,7 @@ location.href=pagina+idDen+"&baj="+baj
                 
                 <ContentTemplate>
                 
-                    <table class="tabla" border="1" style="width:550px;">
+                    <table class="tabla" border="1" style="width:100%;">
                           <asp:Label ID="lblDenunciasUsuarios" runat="server"></asp:Label>
                     </table>   
                              
