@@ -6,7 +6,8 @@
             <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
             <li><a href="MisProyectos.aspx?" title="Mis Proyectos">Mis Proyectos</a></li>
             <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
-            <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones Terminadas</a></li>
+            <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones 
+                Terminadas</a></li>
             <li><a href="EditoresDeAudio.aspx" title="Editores de Audio">Editores de Audio</a></li>
         </ul>
     </div>
@@ -32,8 +33,8 @@
             <td>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
         AutoGenerateColumns="False" CssClass="GridViewStyle" GridLines="None" OnRowCommand="GridView1_RowCommand"
-        Width="527px" OnPageIndexChanging="GridView1_PageIndexChanging" OnSorting="GridView1_Sorting"
-        PageSize="5">
+        Width="527px" OnPageIndexChanging="GridView1_PageIndexChanging" 
+                    OnSorting="GridView1_Sorting">
         <Columns>
             <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False">
                 <HeaderStyle Font-Size="Small" />
@@ -75,7 +76,13 @@
         </tr>
         <tr>
             <td>
-                <asp:Label ID="lblResultadosGrilla2" runat="server" Text="No estás colaborando en ningún proyecto musical"
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label ID="lblResultadosGrilla2" runat="server" Text="Aún no estás colaborando en ningún proyecto musical"
                     Visible="False"></asp:Label>
             </td>
             <td>

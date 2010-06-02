@@ -69,7 +69,7 @@ public partial class Proyecto : System.Web.UI.Page
                 lblGenero.Text = proy.Genero;
                 Image1.ImageUrl = ResolveUrl(proy.Imagen);
                 lblLicencia.Text = proy.Licencia;
-                lblUsuario.Text = proy.Usuario.NombreUsuario;
+                lblUsuario.Text = "<a href='PerfilPublico.aspx?Id=" + proy.Usuario.Id + "' title='" + proy.Usuario.NombreUsuario + "'>" + proy.Usuario.NombreUsuario + "</a>";
 
                 ViewState.Add("mailCreador", proy.Usuario.EMail);
                 ViewState.Add("nombreCreador", proy.Usuario.Nombre);
