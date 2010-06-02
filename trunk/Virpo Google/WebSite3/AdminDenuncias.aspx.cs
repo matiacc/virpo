@@ -93,7 +93,7 @@ public partial class _Default : System.Web.UI.Page
             html += "<br />Sección: " + denuncia.Tipo;
             html += "<br />Documento Denunciado: <a class='feed-link' href='" + denuncia.Url + "&leida=" + denuncia.Id.ToString() + "' target='_blank' type='application/atom+xml'>" + denuncia.Descripcion + "</a>";
             html += "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;";
-            html += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;";
+            html += "&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;";
             html += "&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<input type='button' value='Dar de Baja' onClick='baja(" + denuncia.Id + ",1);'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp";
             html += "      <input type='button' value='Ignorar' onClick='ignorar(" + denuncia.Id + ",0);'>";
             html += "</td>";
@@ -112,21 +112,21 @@ public partial class _Default : System.Web.UI.Page
         foreach (Denuncia denuncia in denuncias)
         {
             html += "<tr>";
-            html += "    <td style='width: 50px' align='center'><a href='PerfilPublico.aspx?Id=" + denuncia.IdDenunciante.ToString() + "'>";
+            html += "    <td style='width: 10%' align='center'><a href='PerfilPublico.aspx?Id=" + denuncia.IdDenunciante.ToString() + "'>";
             html += "<img title='" + denuncia.UsrDenunciante + "' src='ImagenesUsuario/" + ((Usuario)UsuarioFactory.Devolver(denuncia.UsrDenunciante)).Imagen + "'/></a>";
             html += "<br />" + denuncia.UsrDenunciante + "</td>";
-            html += "    <td style='width: 429px' align='left'>" + "Nro. de Denuncia: " + denuncia.Id.ToString();
+            html += "    <td style='width: 80%' align='left'>" + "Nro. de Denuncia: " + denuncia.Id.ToString();
             html += "<br />Fecha: " + denuncia.Fecha.ToString();
             html += "<br />Sección: " + denuncia.Tipo;
             html += "<br />Documento Denunciado: <a class='feed-link' href='" + denuncia.Url + "&leida=" + denuncia.Id.ToString() + "' target='_blank' type='application/atom+xml'>" + denuncia.Descripcion + "</a>";
             html += "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;";
-            html += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;";
+            html += "&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;";
             html += "&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<input type='button' value='Dar de Baja' onClick='baja(" + denuncia.Id + ",1);'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp";
             html += "      <input type='button' value='Ignorar' onClick='ignorar(" + denuncia.Id + ",0);'>";
             html += "</td>";
             string leido = "";
             if (denuncia.Leido.ToString() == "NO") leido = denuncia.Leido;
-            html += "<td style='width: 50px' align='center'>" + leido;
+            html += "<td style='width: 10%' align='center'>" + leido;
             html += "<br />Leído";
             html += "</td>";
             html += "</tr>";
