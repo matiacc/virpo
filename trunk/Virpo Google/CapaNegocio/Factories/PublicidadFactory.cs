@@ -193,7 +193,10 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@imagen", DbType.String, publicidad.Imagen));
                 parametros.Add(BDUtilidades.crearParametro("@consulta", DbType.String, publicidad.Consulta));
                 parametros.Add(BDUtilidades.crearParametro("@idEstado", DbType.Int32, publicidad.IdEstado));
-
+                parametros.Add(BDUtilidades.crearParametro("@impresiones", DbType.Int32, publicidad.Impresiones));
+                parametros.Add(BDUtilidades.crearParametro("@clicks", DbType.Int32, publicidad.Clicks));
+                parametros.Add(BDUtilidades.crearParametro("@url", DbType.String, publicidad.Url));
+                parametros.Add(BDUtilidades.crearParametro("@disposicion", DbType.Int32, publicidad.Disposicion));
                 bool ok = BDUtilidades.ExecuteStoreProcedure("PublicidadInsertar", parametros, tran);
                 if (ok)
                     return true;
