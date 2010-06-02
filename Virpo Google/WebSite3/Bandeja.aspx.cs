@@ -49,7 +49,7 @@ public partial class Bandeja : System.Web.UI.Page
         //List<Invitacion> invitaciones = InvitacionFactory.DevolverInvitacionesDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
         List<BandejaDeEntrada> bandejas = bandejasB;
         //string pagina = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/ConfirmarInvitacion.aspx?idI=";
-        string html = "<table class='tabla' border='1' style='width: 529px'>";
+        string html = "<table class='tabla' border='1' style='width: 505px'>";
 
         for (int i = 0; i < bandejas.Count; i++)
         {
