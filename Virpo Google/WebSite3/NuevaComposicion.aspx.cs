@@ -28,6 +28,7 @@ public partial class NuevaComposicion : System.Web.UI.Page
 
             MetodosComunes.cargarTipoInstrumentos(ddlTipo);
             MetodosComunes.cargarTonalidades(ddlTonalidad);
+            //trInstrumentos.Visible = false;
         }
 
     }
@@ -97,4 +98,16 @@ public partial class NuevaComposicion : System.Web.UI.Page
     {
         Response.Redirect("Proyecto.aspx?Id=" + ViewState["idProyecto"].ToString());
     }
+     //protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
+     //{
+     //    trInstrumento.Visible = true;
+     //    trInstrumento2.Visible = true;
+     //    trInstrumentos.Visible = false;
+     //}
+     //protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
+     //{
+     //    trInstrumento.Visible = false;
+     //    trInstrumento2.Visible = false;
+     //    trInstrumentos.Visible = true;
+     //}
 }

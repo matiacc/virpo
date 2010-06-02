@@ -10,6 +10,7 @@
              <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
              <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones 
                  Terminadas</a></li>
+                 <li><a href="EditoresDeAudio.aspx" title="Editores de Audio">Editores de Audio</a></li>
         </ul>
     </div>
 </asp:Content>

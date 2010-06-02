@@ -18,7 +18,7 @@
             <td colspan="2">
                 <center style="width: 529px; background-color: #333333">
                     <tituloSubVentana>
-                    Crear Proyecto</tituloSubVentana></center>
+                    Nuevo Proyecto</tituloSubVentana></center>
             </td>
         </tr>
         <tr>

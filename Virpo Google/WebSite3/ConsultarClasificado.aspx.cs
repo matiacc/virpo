@@ -182,12 +182,15 @@ public partial class ConsultarClasificado : System.Web.UI.Page
             {
                 int id = Convert.ToInt32(GridView2.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[0].Text);
                 MensajeFactory.Eliminar(Convert.ToInt32(id));
-                //Server.Transfer("ConsultarClasificado.aspx?C=" + Session["idAviso"].ToString());
-                //Response.Redirect("ConsultarClasificado.aspx?C=" + Session["idAviso"].ToString(),false);
+                //Server.Transfer("ConsultarClasificado.aspx?C=" + Session["idAviso"].ToString(), false);
+                //Response.Redirect("ConsultarClasificado.aspx?C=" + Session["idAviso"].ToString(),true);
+                //ClientScript.RegisterStartupScript(typeof(String), "RefrescaDenunciasLeidas", "window.opener.location.reload()", true);
             }
             catch {}
             // No se puede evaluar la expresión porque el código está optimizado o existe un marco nativo en la parte superior de la pila de llamadas.
-            CargarMensajes(Convert.ToInt32(Session["idAviso"]));
+            //gvMensajes.DataSource = null;
+            //gvMensajes.DataBind();
+            //CargarMensajes(Convert.ToInt32(Session["idAviso"]));
         }
     }
 

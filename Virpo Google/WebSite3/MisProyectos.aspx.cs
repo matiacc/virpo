@@ -23,6 +23,10 @@ public partial class MisProyectos : System.Web.UI.Page
             DataTable dt2 = this.DatosProyectos(false);
             GridView2.DataSource = dt2;
             GridView2.DataBind();
+            if (GridView2.Rows.Count == 0)
+                lblResultadosGrilla2.Visible = true;
+            else
+                lblResultadosGrilla2.Visible = false;
 
             ViewState.Add("SortExpression", "Creado");
             ViewState.Add("SortDirection", "DESC");
