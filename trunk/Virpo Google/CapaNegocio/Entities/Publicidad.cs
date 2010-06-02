@@ -19,8 +19,12 @@ namespace CapaNegocio.Entities
         private string imagen;
         private string consulta;
         private int idEstado;
+        private int impresiones;
+        private int clicks;
+        private string url;
+        private int disposicion;
 
-                
+                        
         public int Id
         {
             get { return id; }
@@ -87,5 +91,29 @@ namespace CapaNegocio.Entities
             set { idEstado = value; }
         }
 
+        public int Impresiones
+        {
+            get { return impresiones; }
+            set { impresiones = value; }
+        }
+
+        public int Clicks
+        {
+            get { return clicks; }
+            set { clicks = value; }
+        }
+
+        public string Url
+        {
+            get { return url; }
+            set { url = value; }
+        }
+
+
+        public int Disposicion
+        {
+            get { return disposicion; }
+            set { disposicion = value; }
+        }
     }
 }
