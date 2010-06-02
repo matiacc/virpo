@@ -7,7 +7,8 @@
         <ul>
             <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
             <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
-             <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones Terminadas</a></li>
+             <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones 
+                 Terminadas</a></li>
         </ul>
     </div>
 </asp:Content>
@@ -17,7 +18,7 @@
             <td colspan="3">
                 <center style="width: 529px; background-color: #333333">
                     <titulosubventana>
-                    Subir Composicion</titulosubventana>
+                    Subir Composición</titulosubventana>
                 </center>
             </td>
         </tr>
@@ -130,7 +131,8 @@
                 Descripción
             </td>
             <td colspan="2">
-                <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Width="145px"></asp:TextBox>
+                <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" 
+                    Width="238px"></asp:TextBox>
             </td>
         </tr>
         <tr>
