@@ -186,7 +186,7 @@
             </td>
             <td>
                 <asp:Button ID="btnPrevisualizar" runat="server" onclick="btnCargar_Click" 
-                    Text="Cargar" Width="229px" CssClass="botones" />
+                    Text="Cargar" Width="229px" CssClass="botones" CausesValidation="False" />
             </td>
             <td>
                 &nbsp;</td>
