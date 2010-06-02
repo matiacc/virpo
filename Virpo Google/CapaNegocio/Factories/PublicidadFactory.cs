@@ -11,12 +11,11 @@ namespace CapaNegocio.Factories
 {
     public class PublicidadFactory
     {
-
         #region Devolver
 
         public static Publicidad Devolver(int id)
         {
-            string query = "SELECT id, entidad, nombreContacto, telContacto, mailContacto, fechaInicio, fechaFin, frecuencia, imagen, consulta, idEstado " +
+            string query = "SELECT id, entidad, nombreContacto, telContacto, mailContacto, fechaInicio, fechaFin, frecuencia, imagen, consulta, idEstado, impresiones, clicks, url, disposicion " +
                         "FROM Publicidad " +
                         "WHERE id=" + id;
 
@@ -37,6 +36,10 @@ namespace CapaNegocio.Factories
                 publicidad.Imagen = dt.Rows[0]["imagen"].ToString();
                 publicidad.Consulta = dt.Rows[0]["consulta"].ToString();
                 publicidad.IdEstado = (int)dt.Rows[0]["idEstado"];
+                publicidad.Impresiones = (int)dt.Rows[0]["impresiones"];
+                publicidad.Clicks = (int)dt.Rows[0]["clicks"];
+                publicidad.Url = dt.Rows[0]["url"].ToString();
+                publicidad.Disposicion = (int)dt.Rows[0]["Disposicion"];
 
                 return publicidad;
             }
@@ -49,7 +52,7 @@ namespace CapaNegocio.Factories
 
         public static List<Publicidad> DevolverTodos()
         {
-            string query = "SELECT id, entidad, nombreContacto, telContacto, mailContacto, fechaInicio, fechaFin, frecuencia, imagen, consulta, idEstado FROM Publicidad ";
+            string query = "SELECT id, entidad, nombreContacto, telContacto, mailContacto, fechaInicio, fechaFin, frecuencia, imagen, consulta, idEstado, impresiones, clicks, url, disposicion FROM Publicidad ";
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
 
@@ -62,16 +65,20 @@ namespace CapaNegocio.Factories
                 Publicidad publicidad = new Publicidad();
 
 
-                publicidad.Entidad = dt.Rows[0]["entidad"].ToString();
-                publicidad.NombreContacto = dt.Rows[0]["nombreContacto"].ToString();
-                publicidad.TelContacto = dt.Rows[0]["telContacto"].ToString();
-                publicidad.MailContacto = dt.Rows[0]["mailContacto"].ToString();
-                publicidad.FechaInicio = Convert.ToDateTime(dt.Rows[0]["fechaInicio"].ToString());
-                publicidad.FechaFin = Convert.ToDateTime(dt.Rows[0]["fechaFin"].ToString());
-                publicidad.Frecuencia = (int)dt.Rows[0]["frecuencia"];
-                publicidad.Imagen = dt.Rows[0]["imagen"].ToString();
-                publicidad.Consulta = dt.Rows[0]["consulta"].ToString();
-                publicidad.IdEstado = (int)dt.Rows[0]["idEstado"];
+                publicidad.Entidad = dt.Rows[i]["entidad"].ToString();
+                publicidad.NombreContacto = dt.Rows[i]["nombreContacto"].ToString();
+                publicidad.TelContacto = dt.Rows[i]["telContacto"].ToString();
+                publicidad.MailContacto = dt.Rows[i]["mailContacto"].ToString();
+                publicidad.FechaInicio = Convert.ToDateTime(dt.Rows[i]["fechaInicio"].ToString());
+                publicidad.FechaFin = Convert.ToDateTime(dt.Rows[i]["fechaFin"].ToString());
+                publicidad.Frecuencia = (int)dt.Rows[i]["frecuencia"];
+                publicidad.Imagen = dt.Rows[i]["imagen"].ToString();
+                publicidad.Consulta = dt.Rows[i]["consulta"].ToString();
+                publicidad.IdEstado = (int)dt.Rows[i]["idEstado"];
+                publicidad.Impresiones = (int)dt.Rows[i]["impresiones"];
+                publicidad.Clicks = (int)dt.Rows[i]["clicks"];
+                publicidad.Url = dt.Rows[i]["url"].ToString();
+                publicidad.Disposicion = (int)dt.Rows[i]["Disposicion"];
 
                 publicidades.Add(publicidad);
                 }
@@ -112,7 +119,7 @@ namespace CapaNegocio.Factories
 
         public static DataTable DevolverXEstadoDT(int idEstado)
         {
-            string query = "SELECT id, entidad, nombreContacto, telContacto, mailContacto, fechaInicio, fechaFin, frecuencia, imagen, consulta, idEstado FROM Publicidad WHERE idEstado = " + idEstado;
+            string query = "SELECT id, entidad, nombreContacto, telContacto, mailContacto, fechaInicio, fechaFin, frecuencia, imagen, consulta, idEstado, impresiones, clicks, url, disposicion FROM Publicidad WHERE idEstado = " + idEstado;
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             return dt;
@@ -120,7 +127,7 @@ namespace CapaNegocio.Factories
 
         public static List<Publicidad> DevolverXEstado(int idEstado)
         {
-            string query = "SELECT id, entidad, nombreContacto, telContacto, mailContacto, fechaInicio, fechaFin, frecuencia, imagen, consulta, idEstado FROM Publicidad WHERE idEstado = " + idEstado; 
+            string query = "SELECT id, entidad, nombreContacto, telContacto, mailContacto, fechaInicio, fechaFin, frecuencia, imagen, consulta, idEstado, impresiones, clicks, url, disposicion FROM Publicidad WHERE idEstado = " + idEstado; 
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
 
@@ -133,16 +140,20 @@ namespace CapaNegocio.Factories
                     Publicidad publicidad = new Publicidad();
 
 
-                    publicidad.Entidad = dt.Rows[0]["entidad"].ToString();
-                    publicidad.NombreContacto = dt.Rows[0]["nombreContacto"].ToString();
-                    publicidad.TelContacto = dt.Rows[0]["telContacto"].ToString();
-                    publicidad.MailContacto = dt.Rows[0]["mailContacto"].ToString();
-                    publicidad.FechaInicio = Convert.ToDateTime(dt.Rows[0]["fechaInicio"].ToString());
-                    publicidad.FechaFin = Convert.ToDateTime(dt.Rows[0]["fechaFin"].ToString());
-                    publicidad.Frecuencia = (int)dt.Rows[0]["frecuencia"];
-                    publicidad.Imagen = dt.Rows[0]["imagen"].ToString();
-                    publicidad.Consulta = dt.Rows[0]["consulta"].ToString();
-                    publicidad.IdEstado = (int)dt.Rows[0]["idEstado"];
+                    publicidad.Entidad = dt.Rows[i]["entidad"].ToString();
+                    publicidad.NombreContacto = dt.Rows[i]["nombreContacto"].ToString();
+                    publicidad.TelContacto = dt.Rows[i]["telContacto"].ToString();
+                    publicidad.MailContacto = dt.Rows[i]["mailContacto"].ToString();
+                    publicidad.FechaInicio = Convert.ToDateTime(dt.Rows[i]["fechaInicio"].ToString());
+                    publicidad.FechaFin = Convert.ToDateTime(dt.Rows[i]["fechaFin"].ToString());
+                    publicidad.Frecuencia = (int)dt.Rows[i]["frecuencia"];
+                    publicidad.Imagen = dt.Rows[i]["imagen"].ToString();
+                    publicidad.Consulta = dt.Rows[i]["consulta"].ToString();
+                    publicidad.IdEstado = (int)dt.Rows[i]["idEstado"];
+                    publicidad.Impresiones = (int)dt.Rows[i]["impresiones"];
+                    publicidad.Clicks = (int)dt.Rows[i]["clicks"];
+                    publicidad.Url = dt.Rows[i]["url"].ToString();
+                    publicidad.Disposicion = (int)dt.Rows[i]["Disposicion"];
 
                     publicidades.Add(publicidad);
                 }
@@ -221,6 +232,10 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@imagen", DbType.String, publicidad.Imagen));
                 parametros.Add(BDUtilidades.crearParametro("@consulta", DbType.String, publicidad.Consulta));
                 parametros.Add(BDUtilidades.crearParametro("@idEstado", DbType.Int32, publicidad.IdEstado));
+                parametros.Add(BDUtilidades.crearParametro("@impresiones", DbType.Int32, publicidad.Impresiones));
+                parametros.Add(BDUtilidades.crearParametro("@clicks", DbType.Int32, publicidad.Clicks));
+                parametros.Add(BDUtilidades.crearParametro("@url", DbType.String, publicidad.Url));
+                parametros.Add(BDUtilidades.crearParametro("@disposicion", DbType.Int32, publicidad.Disposicion));
 
                 bool ok = BDUtilidades.ExecuteStoreProcedure("PublicidadActualizar", parametros, tran);
                 if (ok)
@@ -291,11 +306,7 @@ namespace CapaNegocio.Factories
                     frec++;
                 }                               
             }
-            rdm = new Random().Next(todasFrec.Count);
-            int idExistente = todasFrec[rdm].Id;
-            Publicidad publii = Devolver(idExistente);
-            return publii;
-        }
+
     }
 
     
