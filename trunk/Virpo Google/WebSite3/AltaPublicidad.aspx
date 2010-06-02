@@ -28,7 +28,7 @@
         <tr>
             <td style="height: 20px">
                 &nbsp;</td>
-            <td style="height: 20px; text-align: center;" colspan="2">
+            <td style="height: 20px; text-align: center;" colspan="3">
                 <asp:Label ID="lblMsj" runat="server" Font-Italic="True" 
                     Text="Dejanos estos datos y nos comunicaremos con vos a la brevedad"></asp:Label>
                 <asp:Label ID="lblOk" runat="server" ForeColor="#009933" 
@@ -36,8 +36,6 @@
                 <asp:Label ID="lblMal" runat="server" ForeColor="#CC0000" 
                     Text="Su consulta no fue enviada, intentelo luego... Gracias" Visible="False"></asp:Label>
             </td>
-            <td style="height: 20px">
-                &nbsp;</td>
             <td style="height: 20px">
                 &nbsp;</td>
         </tr>
@@ -60,12 +58,15 @@
                 <asp:Label ID="lblEmpresa" runat="server" Text="Empresa a Publicitar:"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtEntidad" runat="server" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="txtEntidad" runat="server" Width="227px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                     ControlToValidate="txtEntidad" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
             </td>
-            <td>
-                &nbsp;</td>
+            <td rowspan="12">
+                <asp:ImageButton ID="imgPubli" runat="server" Height="430px" Width="145px" />
+                <br />
+                <br />
+            </td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -76,12 +77,10 @@
                 <asp:Label ID="lblContacto" runat="server" Text="Nombre del Contacto:"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtNombreContacto" runat="server" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="txtNombreContacto" runat="server" Width="227px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                     ControlToValidate="txtNombreContacto" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
             </td>
-            <td>
-                &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -92,13 +91,11 @@
                 <asp:Label ID="lblTel" runat="server" Text="Telefono de Contacto:"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtTelContacto" runat="server" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="txtTelContacto" runat="server" Width="227px"></asp:TextBox>
                 <asp:CompareValidator ID="CompareValidator1" runat="server" 
                     ControlToValidate="txtTelContacto" Display="Dynamic" ErrorMessage="*" 
                     Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
             </td>
-            <td>
-                &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -109,12 +106,10 @@
                 <asp:Label ID="lblMail" runat="server" Text="Mail de Contacto:"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtMailContacto" runat="server" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="txtMailContacto" runat="server" Width="227px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                     ControlToValidate="txtMailContacto" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
             </td>
-            <td>
-                &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -125,12 +120,10 @@
                 <asp:Label ID="lblMeses" runat="server" Text="Meses de Publicidad:"></asp:Label>
             </td>
             <td>
-                <asp:DropDownList ID="ddlMeses" runat="server" Height="22px" Width="43px" 
+                <asp:DropDownList ID="ddlMeses" runat="server" Height="22px" Width="55px" 
                     onselectedindexchanged="ddlMeses_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
-            <td>
-                &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -147,6 +140,17 @@
             </td>
             <td>
                 &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="text-align: right">
+                <asp:Label ID="lblFrec" runat="server" Text="Impresiones:"></asp:Label>
+            </td>
+            <td>
+                <asp:DropDownList ID="ddlFrecuencia" runat="server" Height="22px" Width="55px">
+                </asp:DropDownList>
+            </td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -154,14 +158,23 @@
             <td>
                 &nbsp;</td>
             <td style="text-align: right">
-                <asp:Label ID="lblFrec" runat="server" Text="Frecuencia de Aparicion:"></asp:Label>
+                <asp:Label ID="Label5" runat="server" Text="Sitio Web:"></asp:Label>
             </td>
             <td>
-                <asp:DropDownList ID="ddlFrecuencia" runat="server" Height="22px" Width="43px">
-                </asp:DropDownList>
+                <asp:TextBox ID="txtUrl" runat="server" Width="227px"></asp:TextBox>
             </td>
             <td>
                 &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="text-align: right">
+                <asp:Label ID="Label4" runat="server" Text="Imagen:"></asp:Label>
+            </td>
+            <td>
+                <asp:FileUpload ID="upPublicidad" runat="server" Width="227px" Height="26px"/>
+            </td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -172,9 +185,9 @@
                 <asp:Label ID="lblConsulta" runat="server" Text="Dejanos tu Consulta:"></asp:Label>
             </td>
             <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
+                <asp:Button ID="btnPrevisualizar" runat="server" onclick="btnCargar_Click" 
+                    Text="Cargar" Width="229px" CssClass="botones" />
+            </td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -184,11 +197,9 @@
             <td>
                 &nbsp;</td>
             <td>
-                <asp:TextBox ID="txtConsulta" runat="server" Height="111px" 
-                    TextMode="MultiLine" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="txtConsulta" runat="server" Height="124px" 
+                    TextMode="MultiLine" Width="227px"></asp:TextBox>
             </td>
-            <td>
-                &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -203,8 +214,6 @@
                 <asp:Button ID="btnVolver" runat="server" CausesValidation="False" 
                     CssClass="botones" onclick="btnVolver_Click" Text="Volver" />
             </td>
-            <td>
-                &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
