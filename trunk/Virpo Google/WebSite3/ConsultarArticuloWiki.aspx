@@ -10,17 +10,24 @@
             <li><a href="ConsultarArticuloWiki.aspx?A=1" title="Novedades">Novedades</a></li>
         </ul>
     </div>
+    
+    <p style="height: 385px; width: 208px; text-align: right">
+    <asp:ImageButton ID="imgPubli1" runat="server" Height="385px" Width="145px" 
+            onclick="imgPubli1_Click" />
+    </p>
+    <div style="text-align: right">
+        
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-
-<%--<SCRIPT LANGUAGE="JavaScript">
+    <%--<SCRIPT LANGUAGE="JavaScript">
 window.opener.location.reload();
 </SCRIPT>
 --%>
     <table class="style1">
         <tr>
             <td colspan="2">
-                <center style="width: 529px; background-color: #333333">
+                <center style="width: 523px; background-color: #333333">
                     <titulosubventana>
                                 WikiMusic</titulosubventana>
                 </center>
@@ -37,8 +44,8 @@ window.opener.location.reload();
                 <asp:Button ID="btnHistorial" runat="server" CssClass="botones" Text="Historial"
                     Width="90px" OnClick="btnHistorial_Click" />
                 <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
-                    Width="95px" onclick="btnDenunciar_Click" />
-             </td>
+                    Width="95px" OnClick="btnDenunciar_Click" />
+            </td>
         </tr>
         <tr>
             <td style="text-align: right" colspan="2">
@@ -87,4 +94,6 @@ window.opener.location.reload();
     </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="Server">
+    <asp:ImageButton ID="imgPubli2" runat="server" Height="385px" 
+        Width="145px" onclick="imgPubli2_Click" />
 </asp:Content>

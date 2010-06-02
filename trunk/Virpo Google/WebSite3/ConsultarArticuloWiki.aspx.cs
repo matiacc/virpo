@@ -91,7 +91,7 @@ public partial class _Default : System.Web.UI.Page
                 ArticuloWikiFactory.Modificar(art);                  // suma visitas  
 	            
             }
-
+            
             lblId.Text = Convert.ToString(art.Id);
 
             lblvers.Text = Convert.ToString(art.Version);
@@ -101,6 +101,12 @@ public partial class _Default : System.Web.UI.Page
             lblCat.Text = art.IdCat.Nombre;            
 
             lblContenido.Text = art.Cuerpo;
+
+           
+            Publicidad publi1 = (Publicidad)PublicidadFactory.DevolverAleatoria();            
+                     
+            imgPubli1.ImageUrl = publi1.Imagen;
+        
         }
     }
 
@@ -168,5 +174,13 @@ public partial class _Default : System.Web.UI.Page
 
             bool ok = DenunciaFactory.Insertar(denuncia);
         }
+    }
+    protected void imgPubli1_Click(object sender, ImageClickEventArgs e)
+    {
+
+    }
+    protected void imgPubli2_Click(object sender, ImageClickEventArgs e)
+    {
+
     }
 }
