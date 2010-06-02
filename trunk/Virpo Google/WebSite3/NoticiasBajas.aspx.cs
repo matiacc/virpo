@@ -31,6 +31,7 @@ public partial class _Default : System.Web.UI.Page
             DataTable dt = this.DatosNoticiasVigentes();
             GridView1.DataSource = dt;
             GridView1.DataBind();
+            GridView1.Columns[0].Visible = false;
         }
     }
 
@@ -60,6 +61,7 @@ public partial class _Default : System.Web.UI.Page
                 row["Posicion"] = noticia.Posicion;
                 row["IdAutor"] = noticia.IdAutor.Apellido + " " + noticia.IdAutor.Nombre;
                 dt.Rows.Add(row);
+
             }
             return dt;
         }

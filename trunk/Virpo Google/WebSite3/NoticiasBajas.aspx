@@ -11,8 +11,10 @@
         </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-    <p>
-        altas y bajas</p>
+    <center style="width: 529px; background-color: #333333">
+                    <titulosubventana>
+                        Modificar y Eliminar Noticias</titulosubventana>
+                </center>
     <p style="width: 466px">
         <asp:Label ID="lblMal" runat="server" Style="color: #CC3300" Text="La Transacción no se realizó"
             Visible="False"></asp:Label>
