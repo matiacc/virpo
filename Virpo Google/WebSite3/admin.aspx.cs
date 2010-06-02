@@ -22,6 +22,11 @@ public partial class _Default : System.Web.UI.Page
                 if (Request.QueryString["e"].ToString() == "1") Login1.FailureText = "Debe ser Administrador o Priodista para poder ingresar.";
             }
         }
+        if (Request.QueryString["Logout"] != null)
+        {
+            Session.Clear();
+
+        }
     }
     protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
     {        
