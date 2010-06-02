@@ -13,6 +13,10 @@ using System.Xml.Linq;
 using CapaNegocio.Entities;
 using CapaNegocio.Factories;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Net;
 
 public partial class _Default : System.Web.UI.Page
 {
@@ -34,10 +38,10 @@ public partial class _Default : System.Web.UI.Page
                     lblOk.Visible = true;
                 }
             }
-            ddlFrecuencia.Items.Add("1");
-            ddlFrecuencia.Items.Add("2");
-            ddlFrecuencia.Items.Add("4");
-            ddlFrecuencia.Items.Add("8");
+            ddlFrecuencia.Items.Add("1000");
+            ddlFrecuencia.Items.Add("2000");
+            ddlFrecuencia.Items.Add("4000");
+            ddlFrecuencia.Items.Add("8000");
             ddlFrecuencia.SelectedIndex =0;
 
             ddlMeses.Items.Add("1");
@@ -46,6 +50,17 @@ public partial class _Default : System.Web.UI.Page
             ddlMeses.Items.Add("12");
             ddlMeses.SelectedIndex = 0;
 
+               
+                
+            if (Request.QueryString["FN"] != null)
+            {
+                string nombre = Request.QueryString["FN"].ToString();
+                imgPubli.ImageUrl = "~/Temp/" + nombre;
+            }
+            else
+            {
+                imgPubli.ImageUrl = "~/ImagenesPublicidad/Publique Aqui.jpg";
+            }
         }
     }
     protected void btnVolver_Click(object sender, EventArgs e)
@@ -67,6 +82,10 @@ public partial class _Default : System.Web.UI.Page
         publi.Imagen = "";
         publi.Consulta = txtConsulta.Text;
         publi.IdEstado = 0; // solicitado
+        publi.Impresiones = 0;
+        publi.Clicks = 0;
+        publi.Url=txtUrl.Text;
+        publi.Disposicion = 1;
 
         if (PublicidadFactory.Insertar(publi))
         {
@@ -90,5 +109,24 @@ public partial class _Default : System.Web.UI.Page
         //anio = fin.Year;
         //lblFecFin.Text = "01/" + mes + "/" + anio;
 
+    }
+    protected void imgPubli_Click(object sender, ImageClickEventArgs e)
+    {
+
+    }
+    protected void btnCargar_Click(object sender, EventArgs e)
+    {
+        if (upPublicidad.HasFile)
+        {
+            if (imgPubli.ImageUrl.Remove(7) == "~/Temp/")//para que borre de la carpeta Temp las fotos que no va a guardar
+            {
+                File.Delete(Server.MapPath(@"./Temp/") + imgPubli.ImageUrl.Substring(7));
+            }
+
+            upPublicidad.PostedFile.SaveAs(Server.MapPath(@"./Temp/") + upPublicidad.FileName);
+            
+            Response.Redirect("AltaPublicidad.aspx?&FN=" + upPublicidad.FileName);
+            
+        }
     }
 }
