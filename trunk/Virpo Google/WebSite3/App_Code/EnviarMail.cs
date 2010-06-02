@@ -33,10 +33,21 @@ public class EnviarMail
 
         mail.To.Add(para);
         mail.Subject = asunto;
-        //mail.Body = "<HTML><BODY><B>";
-        mail.Body = mensaje;
-        //mail.Body += "</B></BODY></HTML>";
         mail.IsBodyHtml = true;
+        //mail.Body = "<HTML><BODY><B>";
+        mail.Body = "<table align='center'>";
+        mail.Body += "<tr>";
+        mail.Body += "  <td>";
+        mail.Body += "<img src='http://i47.tinypic.com/153r04m.png' alt='Virpo Web' />";
+        mail.Body += "  </td>";
+        mail.Body += "<tr>";
+        mail.Body += "  <td>";
+        mail.Body += mensaje;
+        mail.Body += "  </td>";
+        mail.Body += "</tr>";
+        mail.Body += "</table>";
+        //mail.Body += "</B></BODY></HTML>";
+        
         mail.Priority = MailPriority.Normal;
         SmtpClient smtpMail = new SmtpClient(smtpServer);
         smtpMail.Port = 25;

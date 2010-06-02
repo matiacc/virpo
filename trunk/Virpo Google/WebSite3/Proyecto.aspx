@@ -116,7 +116,7 @@ window.opener.location.reload();
             </td>
         </tr>
         <tr>
-            <td colspan="3" align="center" style="height: 20px">
+            <td colspan="3" align="left" style="height: 20px" id="tdProyecto" runat="server">
                 &nbsp;
             </td>
         </tr>

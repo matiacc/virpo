@@ -61,6 +61,7 @@ public partial class Proyecto : System.Web.UI.Page
                 //if(proy.Usuario.Id == ((Usuario)Session["Usuario"]).Id)
                 if (ProyectoFactory.EsIntegrante(((Usuario)Session["Usuario"]).Id, id))
                     btUnirse.Text = "Subir una composicion";
+                                    
 
                 lblNombre.Text = proy.Nombre;
                 lblDescripcion.Text = proy.Descripcion;
@@ -78,9 +79,13 @@ public partial class Proyecto : System.Web.UI.Page
 
                 //Composiciones
                 this.CargarComposiciones((int)ViewState["idProyecto"]);
-
+                
             }
         }
+        if (btUnirse.Text == "Subir una composicion")
+            tdProyecto.InnerHtml = "";
+        else
+            tdProyecto.InnerHtml = "<br>Debés unirte al Proyecto para subir una composición.<br>";
     }
     private void CargarComposiciones(int idProyecto)
     {
