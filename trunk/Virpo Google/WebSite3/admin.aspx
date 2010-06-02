@@ -22,8 +22,8 @@
             <center style="text-align: right">
                 <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate" 
                      DestinationPageUrl="~/AdminHome.aspx" BorderPadding="4" Width="357px" 
-                    BackColor="#4B7EA9" BorderColor="#000099" BorderStyle="Solid" BorderWidth="1px" 
-                    CssClass="botones" Font-Size="Smaller" ForeColor="White">
+                    BackColor="Silver" BorderColor="#000099" BorderStyle="Solid" BorderWidth="1px" 
+                    CssClass="botones" Font-Size="Smaller" ForeColor="Black">
         </asp:Login></center>
             </td>
             <td>
