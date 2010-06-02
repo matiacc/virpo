@@ -297,16 +297,19 @@ namespace CapaNegocio.Factories
             List<Publicidad> todasFrec = new List<Publicidad>();
             int rdm;
             int frec;
-            foreach (Publicidad  publi in todas)//cargo la lista en base a la frecuencia
+            foreach (Publicidad publi in todas)//cargo la lista en base a la frecuencia
             {
-                frec = 0; 
+                frec = 0;
                 while (publi.Frecuencia > frec)
                 {
                     todasFrec.Add(publi);
                     frec++;
-                }                               
+                }
             }
-
+            rdm = new Random().Next(todasFrec.Count);
+            Publicidad p = (Publicidad)todasFrec[rdm];
+            return p;
+        }
     }
 
     
