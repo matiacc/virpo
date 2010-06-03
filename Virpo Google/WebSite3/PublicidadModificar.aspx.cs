@@ -344,6 +344,16 @@ public partial class _Default : System.Web.UI.Page
 
         if (btnBaja.Text == "Eliminar")
         {
+            //try
+            //{
+            //    if (publi.Imagen != "")
+            //    {
+            //        File.Delete(Server.MapPath(@".") + publi.Imagen.Substring(1));
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //}
             if (PublicidadFactory.Eliminar(ID))
             {
                 Response.Redirect("PublicidadEjecutarBajas.aspx?C=2");
