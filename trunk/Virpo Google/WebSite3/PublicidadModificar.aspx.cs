@@ -37,7 +37,7 @@ public partial class _Default : System.Web.UI.Page
                 }
                 if (a == 2)
                 {
-                    lblAlertaFecha.Visible = true;
+                    lblAlertaObservacion.Visible = true;
                 }
                 
             }
@@ -309,7 +309,7 @@ public partial class _Default : System.Web.UI.Page
             {
                 if (PublicidadFactory.Modificar(publi))
                     {
-                        Response.Redirect("PublicidadRenovacion.aspx?C=1");
+                        Response.Redirect("PublicidadRenovacion.aspx?C=2");
                     }
                 else
                     {

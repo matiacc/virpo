@@ -20,14 +20,16 @@
     <table class="style1">
         <tr>
             <td>
-                </td>
-        </tr>
-        <tr>
-            <td>
         <asp:Label ID="lblOk" runat="server" ForeColor="#009900" 
             Text="La Transacción fue Exitosa..." Visible="False"></asp:Label>
         <asp:Label ID="lblMal" runat="server" ForeColor="#CC0000" 
             Text="Error al Procesar la Transacción..." Visible="False"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label ID="lblVacio" runat="server" ForeColor="#0033CC" 
+                    Text="No hay Publicidades Vigentes..." Visible="False"></asp:Label>
             </td>
         </tr>
     </table>

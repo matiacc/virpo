@@ -18,7 +18,7 @@
                 </center>
 <table class="style1">
         <tr>
-            <td colspan="5">
+            <td>
         <asp:Label ID="lblOk" runat="server" ForeColor="#009900" 
             Text="Se Eliminó con Exito..." Visible="False"></asp:Label>
         <asp:Label ID="lblMal" runat="server" ForeColor="#CC0000" 
@@ -29,15 +29,13 @@
         </tr>
         <tr>
             <td>
-                &nbsp;</td>
+               </td>
+        </tr>
+        <tr>
             <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
+                <asp:Label ID="lblVacio" runat="server" ForeColor="#0033CC" 
+                    Text="No hay Publicidades Pendientes de Eliminar..." Visible="False"></asp:Label>
+            </td>
         </tr>
     </table>
  <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"

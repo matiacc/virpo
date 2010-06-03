@@ -26,6 +26,12 @@ public partial class _Default : System.Web.UI.Page
             GridView1.DataSource = dt;
             GridView1.DataBind();
             GridView1.Columns[0].Visible = false;
+
+            if (dt.Rows.Count == 0)
+            {
+                lblVacio.Visible = true;
+            }
+
             if (Request.QueryString["C"] != null)
             {
                 int c = Convert.ToInt32(Request.QueryString["C"]);

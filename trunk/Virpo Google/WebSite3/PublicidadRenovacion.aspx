@@ -23,11 +23,15 @@
             Text="Se Renovó con Exito..." Visible="False"></asp:Label>
         <asp:Label ID="lblMal" runat="server" ForeColor="#CC0000" 
             Text="Error al Procesar la Transacción..." Visible="False"></asp:Label>
+                <asp:Label ID="lblOk2" runat="server" ForeColor="#009900" 
+                    Text="Se dio de Baja con Exito..." Visible="False"></asp:Label>
             </td>
         </tr>
         <tr>
             <td>
-                &nbsp;</td>
+                <asp:Label ID="lblVacio" runat="server" ForeColor="#0033CC" 
+                    Text="No hay Renovaciones Pendientes..." Visible="False"></asp:Label>
+            </td>
         </tr>
         </table>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
