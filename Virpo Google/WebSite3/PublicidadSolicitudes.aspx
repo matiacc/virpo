@@ -25,6 +25,8 @@
                         Visible="False"></asp:Label>
                     <asp:Label ID="lblMal" runat="server" ForeColor="#CC0000" Text="Error al Procesar la Transacción..."
                         Visible="False"></asp:Label>
+                    <asp:Label ID="lblOk2" runat="server" ForeColor="#009900" 
+                        Text="Se Rechazó la Solicitud con Exito..." Visible="False"></asp:Label>
                 </td>
             </tr>
             <tr>

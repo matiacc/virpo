@@ -34,14 +34,19 @@ public partial class _Default : System.Web.UI.Page
             if (Request.QueryString["C"] != null)
             {
                 int c = Convert.ToInt32(Request.QueryString["C"]);
-                if (c == 1)
-                {
-                    lblOk.Visible = true;
-                }
                 if (c == 0)
                 {
                     lblMal.Visible = true;
                 }
+                if (c == 1)
+                {
+                    lblOk.Visible = true;
+                }
+                if (c == 2)
+                {
+                    lblOk2.Visible = true;
+                }
+                
             }
         }
 
@@ -60,11 +65,11 @@ public partial class _Default : System.Web.UI.Page
             publi.IdEstado = 3;
             if (PublicidadFactory.Modificar(publi))
             {
-                Response.Redirect("AdminPublicidad.aspx?&C=1");
+                Response.Redirect("PublicidadBajas.aspx?&C=2");
             }
             else
             {
-                Response.Redirect("AdminPublicidad.aspx?&C=0");
+                Response.Redirect("PublicidadBajas.aspx?&C=0");
             }
             
         }
