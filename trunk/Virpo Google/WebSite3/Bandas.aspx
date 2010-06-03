@@ -13,10 +13,10 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-    <center style="background-color: #333333; width: 523px;">
-        <titulosubventana>
-        Bandas
-        </titulosubventana>
+<center style="width: 529px; background-color: #333333">
+                    <titulosubventana>
+                        Bandas</titulosubventana>
+                </center>
         <br />
         
     </center>
