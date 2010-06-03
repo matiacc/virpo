@@ -229,7 +229,20 @@ public partial class _Default : System.Web.UI.Page
                         }
                         
                         break;
-                    case 3: Response.Redirect("PublicidadEjecutarBajas.aspx?C=2");
+                    case 3: 
+                            if (btnBaja.Visible && publi.FechaFin <= DateTime.Now.AddDays(7))
+                            {
+                                lblAlertaFecha.Visible = true;
+                                if (Request.QueryString["EP"] != null && Request.QueryString["I"] != null)
+                                {
+                                    string id = Request.QueryString["I"].ToString();
+                                    Response.Redirect("PublicidadModificar.aspx?I=" + id + "&EP=" + ep + "&A=1");
+                                }
+                            }
+                            else
+                            {
+                                Response.Redirect("PublicidadEjecutarBajas.aspx?C=2");
+                            }
                         break;
                 }
             }
