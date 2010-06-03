@@ -78,8 +78,7 @@ public partial class _Default : System.Web.UI.Page
         publi.MailContacto = txtMailContacto.Text;
         publi.FechaInicio = DateTime.Today;
         publi.FechaFin = DateTime.Today.AddMonths(Convert.ToInt32(ddlMeses.Text));
-        publi.Frecuencia = Convert.ToInt32(ddlFrecuencia.Text);
-        publi.Imagen = "";
+        publi.Frecuencia = Convert.ToInt32(ddlFrecuencia.Text);        
         publi.Consulta = txtConsulta.Text;
         publi.IdEstado = 0; // solicitado
         publi.Impresiones = 0;
@@ -98,11 +97,36 @@ public partial class _Default : System.Web.UI.Page
         else
         {
             publi.Url = "";
-        }
-        
-        
-        
+        }           
         publi.Disposicion = 1;
+
+        if (imgPubli.ImageUrl.Remove(7) == "~/Temp/") // bloque de imagen. si hay una imagen nueva para guardar
+        {
+            string nombre = imgPubli.ImageUrl.Substring(7);
+            string origen = Server.MapPath(@"./Temp/") + nombre;
+            string destino = Server.MapPath(@"./ImagenesPublicidad/") + nombre;
+
+            try
+            {
+                File.Move(origen, destino);
+            }
+            catch (System.IO.IOException)//si entra es por que el nombre ya existe, y lo cambia
+            {
+                string extension = imgPubli.ImageUrl.Substring(imgPubli.ImageUrl.Length - 4);
+                string rdm = (new Random()).Next(99999).ToString();
+
+                int corteExtension = nombre.Length - 4;
+                nombre = nombre.Remove(corteExtension);
+                nombre = nombre + rdm + extension;
+                string destino2 = Server.MapPath(@"./ImagenesPublicidad/") + nombre;
+                File.Move(origen, destino2);
+            }     
+            publi.Imagen = "~/ImagenesPublicidad/" + nombre;
+        }
+        else
+        {
+            publi.Imagen = "";
+        }
 
         if (PublicidadFactory.Insertar(publi))
         {

@@ -62,7 +62,7 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                     ControlToValidate="txtEntidad" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
             </td>
-            <td rowspan="12">
+            <td rowspan="11">
                 <asp:ImageButton ID="imgPubli" runat="server" Height="430px" Width="145px" />
                 <br />
                 <br />
@@ -131,21 +131,7 @@
             <td>
                 &nbsp;</td>
             <td style="text-align: right">
-                <asp:Label ID="Label1" runat="server" Text="Vigencia:"></asp:Label>
-            </td>
-            <td>
-                <asp:Label ID="lblFecIni" runat="server"></asp:Label>
-                <asp:Label ID="Label3" runat="server" Text="  a  "></asp:Label>
-                <asp:Label ID="lblFecFin" runat="server"></asp:Label>
-            </td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td style="text-align: right">
-                <asp:Label ID="lblFrec" runat="server" Text="Impresiones:"></asp:Label>
+                <asp:Label ID="lblFrec" runat="server" Text="Impresiones Diarias :"></asp:Label>
             </td>
             <td>
                 <asp:DropDownList ID="ddlFrecuencia" runat="server" Height="22px" Width="55px">
