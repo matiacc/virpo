@@ -24,6 +24,7 @@
         <tr>
             <td colspan="2">
                 &nbsp;</td>
+     &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 129px; height: 20px;">
@@ -92,12 +93,11 @@
                 </asp:DropDownList>
             </td>
         </tr>
-        <tr>
-            <td style="width: 129px">
-                <asp:Label ID="Label5" runat="server" CssClass="estiloLabel" Text="Tipo:"></asp:Label>
-            </td>
+        <tr visible="false">
+            <td style="width: 129px" visible="false">
+                &nbsp;</td>
             <td style="width: 291px">
-                <asp:DropDownList ID="ddlTipo" runat="server" Width="143px">
+                <asp:DropDownList ID="ddlTipo" runat="server" Width="143px" Visible="False">
                     <asp:ListItem Value="0">Publico</asp:ListItem>
                     <asp:ListItem Value="1">Privado</asp:ListItem>
                 </asp:DropDownList>
@@ -116,8 +116,7 @@
                                     <asp:RadioButton ID="RadioButton1" runat="server" Text="Atribución 2.5" 
                                         GroupName="Licencia" Checked="True" CssClass="estiloLabelpeque" />
                                         &nbsp;<a href="http://creativecommons.org/licenses/by/2.5/ar/" 
-                                        target="_blank" style="color: #EF1818"><span style="font-size: xx-small">+</span></a>
-                                    <br />
+                                        target="_blank" style="color: #EF1818"><span style="font-size: xx-small">+                               <br />
                                     
                                     <asp:RadioButton ID="RadioButton2" runat="server" 
                                         Text="Atribución-No Comercial 2.5" GroupName="Licencia" 
