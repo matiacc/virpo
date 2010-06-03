@@ -47,7 +47,8 @@ public partial class _Default : System.Web.UI.Page
                 int ep = Convert.ToInt32(Request.QueryString["EP"].ToString());
                 switch (ep)
                 {
-                    case 0:     
+                    case 0: btnBaja.Visible = true;
+                        btnBaja.Text = "Rechazar";
                         break;
                     case 1: btnAlta.Text = "Guardar";
                         //txtInicio.Enabled = false;
@@ -327,12 +328,24 @@ public partial class _Default : System.Web.UI.Page
             }
             
         }
-        
+
         if (btnBaja.Text == "Eliminar")
         {
             if (PublicidadFactory.Eliminar(ID))
             {
-                Response.Redirect("PublicidadEjecutarBajas.aspx?C=1");
+                Response.Redirect("PublicidadEjecutarBajas.aspx?C=2");
+            }
+            else
+            {
+                Response.Redirect("PublicidadEjecutarBajas.aspx?C=0");
+            }
+        }
+
+        if (btnBaja.Text == "Rechazar")
+        {
+            if (PublicidadFactory.Eliminar(ID))
+            {
+                Response.Redirect("PublicidadSolicitudes.aspx?C=2");
             }
             else
             {
