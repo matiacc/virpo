@@ -12,6 +12,10 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+   <center style="width: 529px; background-color: #333333">
+                    <titulosubventana>
+                        Mis Bandas</titulosubventana>
+                </center>
     
     <asp:Label ID="lblBandas" runat="server" style="text-align: left"></asp:Label>
     
