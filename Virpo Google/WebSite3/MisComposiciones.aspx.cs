@@ -33,14 +33,7 @@ public partial class _Default : System.Web.UI.Page
 
             if (Request.QueryString["fin"] != null)
             {
-                //Label1.Visible = false;
                 DataTable dt = this.DatosCancionesTerminadas();
-                
-                //Hacer: si el creador de la cancion es el usuario logueado, mostrar la columna 5
-                //Desde esta pantalla no se pueden eliminar las composiciones, solo desde "Mis Composiciones"
-                GridView1.Columns[7].Visible = false;
-
-                GridView1.Columns[5].Visible = true;
                 
                 GridView1.DataSource = dt;
                 if (dt.Rows.Count == 0)
@@ -53,26 +46,33 @@ public partial class _Default : System.Web.UI.Page
                     pnlReproductor.Visible = true;
                     GridView1.DataBind();
                     GridView1.Columns[5].Visible = false;
+                    GridView1.Columns[8].Visible = false;
                     prueba.InnerText = "Canciones Terminadas";
                 }
             }
             else
                 this.CargarComposiciones();
-            
         }
     }
 
     private void CargarComposiciones()
     {
         DataTable dt = this.DatosComposiciones();
-        GridView1.Columns[5].Visible = true;
         
         GridView1.DataSource = dt;
-        if (dt.Rows.Count==0) Label2.Visible = true;
-        pnlReproductor.Visible = true;
         GridView1.DataBind();
+        if (dt.Rows.Count == 0)
+        {
+            Label2.Visible = true;
+            pnlReproductor.Visible = false;
+        }
+        else
+        {
+            pnlReproductor.Visible = true;
+            Label2.Visible = false;
+        }
         GridView1.Columns[5].Visible = false;
-
+        GridView1.Columns[8].Visible = false;
     }
 
 
@@ -84,7 +84,7 @@ public partial class _Default : System.Web.UI.Page
         dt.Columns.Add("Nombre");
         dt.Columns.Add("Tipo");
         dt.Columns.Add("Instrumento");
-        //dt.Columns.Add("Ruta2");
+        dt.Columns.Add("Ruta2");
         dt.Columns.Add("Id");
         dt.Columns.Add("Proyecto");
 
@@ -109,7 +109,7 @@ public partial class _Default : System.Web.UI.Page
                 else
                     row["Tipo"] = "N/A";
                 
-                //row["Ruta2"] = "./Composiciones/" + composicion.Audio;
+                row["Ruta2"] = composicion.Audio;
                 row["Id"] = composicion.Id;
                CapaNegocio.Entities.Proyecto proy = ProyectoFactory.DevolverProyectoPorComposicion(composicion.Id);
                 if(proy != null)
@@ -129,7 +129,7 @@ public partial class _Default : System.Web.UI.Page
         dt.Columns.Add("Nombre");
         dt.Columns.Add("Tipo");
         dt.Columns.Add("Instrumento");
-        //dt.Columns.Add("Ruta2");
+        dt.Columns.Add("Ruta2");
         dt.Columns.Add("Id");
 
         string restriccion = "WHERE tipo = 'Finalizada'";
@@ -151,7 +151,7 @@ public partial class _Default : System.Web.UI.Page
                     row["Tipo"] = composicion.Tipo;
                 else
                     row["Tipo"] = "Tipo No definido";
-                //row["Ruta2"] = "./Composiciones/" + composicion.Audio;
+                row["Ruta2"] = composicion.Audio;
                 row["Id"] = composicion.Id;
                 
                 dt.Rows.Add(row);
@@ -159,20 +159,10 @@ public partial class _Default : System.Web.UI.Page
             return dt;
         }
         return null;
-
-
-
     }
-
   
     protected void GridView1_RowCommand1(object sender, GridViewCommandEventArgs e)
     {
-        if (e.CommandName == "E")
-        {
-            string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text;
-            //ComposicionFactory.Eliminar(Convert.ToInt32(id));
-            Response.Redirect("MisComposiciones.aspx");
-        }
         if (e.CommandName == "C")
         {
             string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text;
@@ -180,7 +170,7 @@ public partial class _Default : System.Web.UI.Page
         }
         if (e.CommandName == "P")
         {
-            this.mp3_seleccionado = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[4].Text;
+            this.mp3_seleccionado = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[8].Text;
             this.mp3_seleccionado_titulo = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[1].Text;
             this.reproducir = "yes";
 
@@ -194,9 +184,6 @@ public partial class _Default : System.Web.UI.Page
             if (proy != null)
                 Response.Redirect("Proyecto.aspx?Id=" + proy.Id);
         }
-
-
-
     }
     
 }

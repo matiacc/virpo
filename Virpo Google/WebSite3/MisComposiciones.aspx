@@ -9,7 +9,8 @@
             <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
             <li><a href="MisProyectos.aspx?" title="Mis Proyectos">Mis Proyectos</a></li>
             <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
-            <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones Terminadas</a></li>
+            <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones 
+                Finalizadas</a></li>
             <li><a href="EditoresDeAudio.aspx" title="Editores de Audio">Editores de Audio</a></li>
         </ul>
     </div>
@@ -17,7 +18,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
   <center style="width: 529px; background-color: #333333">
                     <titulosubventana><div id="prueba" runat="server">
-                    Mis Composiciones</div></titulosubventana>
+                        Mis Composiciones</div></titulosubventana>
                 </center>
     <p>
         &nbsp;<asp:Panel ID="pnlReproductor" runat="server" Height="42px" Visible="False" Width="506px">
@@ -45,7 +46,7 @@
     </p>
     <p>
         <asp:Label ID="Label2" runat="server" ForeColor="Red" 
-            Text="NO SE ENCONTRARON PISTAS Y/O CANCIONES REGISTRADAS POR USTED" 
+            Text="No se encontraron pistas y/o canciones registradas por usted." 
             Visible="False"></asp:Label>
             
             
@@ -67,15 +68,9 @@
                 <asp:ButtonField ButtonType="Image" CommandName="Proy" HeaderText="Proyecto"
                     ImageUrl="~/ImagenesSite/go.png" Text="Proy">
                 </asp:ButtonField>
-                <asp:TemplateField ShowHeader="False">
-                    <ItemTemplate>
-                        <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="false" 
-                            CommandName="E" ImageUrl="~/ImagenesSite/delete.png" 
-                            Text="Eliminar" OnClientClick="return confirm('¿Esta seguro de borrar?')"/>
-                    </ItemTemplate>
-                </asp:TemplateField>
                 <asp:ButtonField ButtonType="Image" CommandName="C" 
                     ImageUrl="~/ImagenesSite/lupa3.png" Text="Consultar" />
+                <asp:BoundField DataField="Ruta2" />
             </Columns>
             <RowStyle CssClass="RowStyle" />
                     <EmptyDataRowStyle CssClass="EmptyRowStyle" />

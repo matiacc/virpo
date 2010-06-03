@@ -9,7 +9,7 @@
             <li><a href="MisProyectos.aspx?" title="Mis Proyectos">Mis Proyectos</a></li>
             <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
             <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones 
-                Terminadas</a></li>
+                Finalizadas</a></li>
             <li><a href="EditoresDeAudio.aspx" title="Editores de Audio">Editores de Audio</a></li>
         </ul>
     </div>
@@ -20,7 +20,7 @@
             <td colspan="3">
                 <center style="width: 529px; background-color: #333333">
                     <titulosubventana>
-                    Subir Composición</titulosubventana>
+                    Nueva Composición</titulosubventana>
                 </center>
             </td>
         </tr>
@@ -86,6 +86,8 @@
             <td colspan="2">
                 <asp:DropDownList ID="ddlTonalidad" runat="server" Width="145px">
                 </asp:DropDownList>
+                <asp:Label ID="lblTonalidad" runat="server" ForeColor="#FF3300" Text="*" 
+                    Visible="False"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -96,30 +98,30 @@
                 &nbsp;
             </td>
         </tr>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
         <tr>
             <td>
                 Tipo Instrumento
             </td>
-            <td rowspan="2" colspan="2">
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
-                        <asp:DropDownList ID="ddlTipo" runat="server" OnSelectedIndexChanged="ddlTipo_SelectedIndexChanged"
-                            AutoPostBack="True" Width="145px">
-                        </asp:DropDownList>
-                        <br>
-                            <br></br>
-                            <asp:DropDownList ID="ddlInstrumento" runat="server">
-                            </asp:DropDownList>
-                        </br>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+            <td>
+                <asp:DropDownList ID="ddlTipo" runat="server" OnSelectedIndexChanged="ddlTipo_SelectedIndexChanged"
+                    AutoPostBack="True" Width="145px">
+                </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td>
+            <td id="tdInstrumento" runat="server">
                 Instrumento
             </td>
-        </tr>
+            <td>
+            <asp:DropDownList ID="ddlInstrumento" runat="server">
+                            </asp:DropDownList>
+            </td>
+        </tr>  
+           </ContentTemplate>
+     </asp:UpdatePanel>                  
+                   
         <tr>
             <td>
                 &nbsp;

@@ -294,6 +294,28 @@ namespace CapaNegocio.Factories
                 return false;
             }
         }
+
+        public static bool EliminarComposicionXProyecto(int idComposicion, int idProyecto)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+
+                parametros.Add(BDUtilidades.crearParametro("@idComposicion", DbType.Int32, idComposicion));
+                parametros.Add(BDUtilidades.crearParametro("@idProyecto", DbType.Int32, idProyecto));
+
+                bool ok = BDUtilidades.ExecuteStoreProcedure("ComposicionXProyectoBorrar", parametros);
+                if (ok)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                //LogError.Write(ex, "p_guardar_musico");
+                return false;
+            }
+        }
         #endregion
     }
 }

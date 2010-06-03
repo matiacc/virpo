@@ -7,7 +7,7 @@
             <li><a href="MisProyectos.aspx?" title="Mis Proyectos">Mis Proyectos</a></li>
             <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
             <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones 
-                Terminadas</a></li>
+                Finalizadas</a></li>
             <li><a href="EditoresDeAudio.aspx" title="Editores de Audio">Editores de Audio</a></li>
         </ul>
     </div>
@@ -34,7 +34,7 @@
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
         AutoGenerateColumns="False" CssClass="GridViewStyle" GridLines="None" OnRowCommand="GridView1_RowCommand"
         Width="527px" OnPageIndexChanging="GridView1_PageIndexChanging" 
-                    OnSorting="GridView1_Sorting">
+                    OnSorting="GridView1_Sorting" onrowdeleting="GridView1_RowDeleting">
         <Columns>
             <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False">
                 <HeaderStyle Font-Size="Small" />
@@ -48,6 +48,13 @@
             </asp:BoundField>
             <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/lupa3.png"
                 Text="Consultar" />
+            <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="false" 
+                                    CommandName="Delete" ImageUrl="~/ImagenesSite/delete.png"  OnClientClick="return confirm('¿Esta seguro de borrar?')"
+                                    Text="Borrar" />
+                            </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
         <RowStyle CssClass="RowStyle" />
         <EmptyDataRowStyle CssClass="EmptyRowStyle" />
@@ -73,12 +80,6 @@
                     <tituloSubVentana>
                     Proyectos en los que colaboro</tituloSubVentana></center></td>
             
-        </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
             <td>

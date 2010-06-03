@@ -58,8 +58,8 @@
                 <asp:Label ID="lblNombre" runat="server" Font-Size="Medium"></asp:Label>
             </td>
             <td rowspan="5">
-                            <asp:ImageButton ID="ImageButton1" runat="server" Height="89px" 
-                                onclick="ImageButton1_Click" Width="100px" />
+                            <asp:ImageButton ID="ImageButton1" runat="server" Height="54px" 
+                                onclick="ImageButton1_Click" Width="54px" />
                             <br />
                
                 
@@ -154,7 +154,7 @@
             <td style="width: 107px">
                 &nbsp;</td>
             <td colspan="2">
-                &nbsp;</td>
+                <a id="aVolver" runat="server">Volver</a></td>
         </tr>
         <tr>
             <td style="width: 107px">
