@@ -17,16 +17,16 @@ Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
                     <titulosubventana>
                         Nueva Noticia</titulosubventana>
                 </center>
-    <p style="text-align: center">
+    <p style="text-align: left">
     
-        <asp:Label ID="Label1" runat="server" Text="Posicion:" CssClass="estiloLabel"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Posicion: " CssClass="estiloLabel"></asp:Label>
         <asp:DropDownList ID="ddlPosicion" runat="server" Height="22px" Width="138px" 
-            style="margin-left: 20px">
+            style="margin-left: 25px">
         </asp:DropDownList>
         
         
     </p>
-    <p style="text-align: right">
+    <p style="text-align: left">
     
         <asp:Label ID="Label2" runat="server" Text="Descripcion:  " 
             CssClass="estiloLabel"></asp:Label>
@@ -43,7 +43,7 @@ Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
         
         
     </p>
-    <p style="text-align: right">
+    <p style="text-align: right; width: 507px;">
         <asp:Button ID="btnGuardar" runat="server" CssClass="botones" Text="Guardar" 
             Width="87px" onclick="btnGuardar_Click" />
         <asp:Button ID="btnLimpiar" runat="server" CssClass="botones" Text="Limpiar" 
