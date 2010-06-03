@@ -40,19 +40,20 @@ window.opener.location.reload();
                 &nbsp;</td>
         </tr>
         <tr>
+            <td colspan="3" style="text-align: left">
+               
+                
+                <asp:Label ID="lblDescripcion" runat="server" CssClass="estiloLabelCabecera2"></asp:Label>
+
+                </td>
+        </tr>
+        <tr>
             <td colspan="3" style="text-align: right">
                
                 
                 <asp:Button ID="btUnirme" runat="server" Text="Unirme!" 
                     onclick="btUnirme_Click" CssClass="botones" Width="120px" />
 
-                </td>
-        </tr>
-        <tr>
-            <td colspan="3">
-               
-                
-                <asp:Label ID="lblDescripcion" runat="server" CssClass="estiloLabelCabecera2"></asp:Label>
                 </td>
         </tr>
         <tr>
