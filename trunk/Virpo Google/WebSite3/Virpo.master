@@ -125,8 +125,8 @@ function mostrarGif(){
       <div id="search" dir="ltr">
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;<asp:HyperLink ID="hlBandeja" runat="server" NavigateUrl="~/Bandeja.aspx" 
-              Visible="False"><img src="ImagenesSite/mail3.png" alt="email" class="imagenmail"/></asp:HyperLink>
+<asp:HyperLink ID="hlBandeja" runat="server" NavigateUrl="~/Bandeja.aspx" 
+              Visible="True"><img id="imgMail" runat="server" src="ImagenesSite/sinmensajes.png" alt="email" class="imagenmail"/></asp:HyperLink>
           <asp:HyperLink 
               ID="hlNombreUsuario" runat="server" Font-Bold="True">Bienvenido!</asp:HyperLink>
           &nbsp;<asp:HyperLink ID="hlinkIniciarSesion" runat="server" NavigateUrl="~/Login.aspx">Iniciar 

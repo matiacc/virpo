@@ -23,6 +23,7 @@ public partial class musicamania_Virpo : System.Web.UI.MasterPage
     {
         if (Session["Usuario"] != null)
         {
+            hlBandeja.Visible = true;
             hlNombreUsuario.Text = ((Usuario)Session["Usuario"]).Nombre;
             hlNombreUsuario.ForeColor = System.Drawing.Color.DarkOrange;
             hlNombreUsuario.NavigateUrl = "Perfil.aspx";
@@ -31,11 +32,16 @@ public partial class musicamania_Virpo : System.Web.UI.MasterPage
             int mensajes = BandejaDeEntradaFactory.HayMensajesEnBandejaDeUsuario(int.Parse(((Usuario)Session["Usuario"]).Id.ToString()));
             if (mensajes != 0)
             {
-                hlBandeja.Visible = true;
-                hlBandeja.ToolTip="Tiene " + mensajes + " mensajes sin leer en la Bandeja de Entrada.";
+                //hlBandeja.Visible = true;
+                imgMail.Src = "ImagenesSite/conmensajes.png";
+                hlBandeja.ToolTip = "Tiene " + mensajes + " mensajes sin leer en la Bandeja de Entrada.";
             }
-           
+            else
+                imgMail.Src = "ImagenesSite/sinmensajes.png";
+
         }
+        else
+            hlBandeja.Visible = false;
         
     }
 
