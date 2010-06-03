@@ -9,7 +9,7 @@
             <li><a href="MisProyectos.aspx?" title="Mis Proyectos">Mis Proyectos</a></li>
              <li><a href="MisComposiciones.aspx" title="Mis Composiciones">Mis Composiciones</a></li>
              <li><a href="MisComposiciones.aspx?fin=1" title="Canciones Finalizadas">Canciones 
-                 Terminadas</a></li>
+                 Finalizadas</a></li>
                  <li><a href="EditoresDeAudio.aspx" title="Editores de Audio">Editores de Audio</a></li>
         </ul>
     </div>
@@ -25,7 +25,7 @@ window.opener.location.reload();
             <td colspan="3">
                 <center style="width: 529px; background-color: #333333">
                     <titulosubventana>
-                    Estas en el Proyecto 
+                    Proyecto: 
                 <asp:Label ID="lblNombre" runat="server"></asp:Label>
                     </titulosubventana>
                 </center>
@@ -137,10 +137,12 @@ window.opener.location.reload();
                 se ha cargado ninguna composicion</asp:Label>
             </td>
         </tr>
+        <div id="grid">
         <tr>
             <td colspan="3" align="center">
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand"
-                    GridLines="Horizontal" BorderStyle="Dotted">
+                    GridLines="Horizontal" BorderStyle="Dotted" 
+                    onrowdeleting="GridView1_RowDeleting">
                     <Columns>
                         <asp:ButtonField ButtonType="Image" CommandName="P" DataTextField="Ruta" ImageUrl="~/ImagenesSite/play.png"
                             Text="Play" />
@@ -153,10 +155,18 @@ window.opener.location.reload();
                         <asp:ButtonField ButtonType="Image" CommandName="C" 
                             ImageUrl="~/ImagenesSite/lupa3.png" Text="Modificar" />
                         <asp:BoundField DataField="Id" />
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="false" 
+                                    CommandName="Delete" ImageUrl="~/ImagenesSite/delete.png"  OnClientClick="return confirm('¿Esta seguro de borrar?')"
+                                    Text="Borrar" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
             </td>
         </tr>
+        </div>
         <tr>
             <td colspan="3" align="right">
                 &nbsp;

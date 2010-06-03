@@ -57,6 +57,9 @@ public partial class Proyecto : System.Web.UI.Page
                 ViewState.Add("idProyecto", id);
                 CapaNegocio.Entities.Proyecto proy = ProyectoFactory.Devolver(id);
 
+                //Oculto la columna Borrar si el usuario logueado no es el creador del proyecto
+                if (((Usuario)Session["Usuario"]).Id != proy.Usuario.Id)
+                    GridView1.Columns[GridView1.Columns.Count - 1].Visible = false;
                 //Texto del boton
                 //if(proy.Usuario.Id == ((Usuario)Session["Usuario"]).Id)
                 if (ProyectoFactory.EsIntegrante(((Usuario)Session["Usuario"]).Id, id))
@@ -172,17 +175,25 @@ public partial class Proyecto : System.Web.UI.Page
         if (e.CommandName == "C")
         {
             string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[8].Text;
-            Response.Redirect("ConsultarComposicion.aspx?C=" + id);
+            Response.Redirect("ConsultarComposicion.aspx?C=" + id + "&P=" + ViewState["idProyecto"]);
         }
+        else if (e.CommandName == "Delete")
+        {
+            //string id = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[GridView1.Columns.Count - 1].Text;
+            //ComposicionFactory.Eliminar(Convert.ToInt32(id));
+            //Response.Redirect("Proyecto.aspx?Id=" + ViewState["idProyecto"]);
+        }
+        else
+        {
+            this.mp3_seleccionado = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text;
+            this.mp3_seleccionado_titulo = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[1].Text;
 
-        this.mp3_seleccionado = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text;
-        this.mp3_seleccionado_titulo = GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[1].Text;
-
-        //string value = "Reproductor/mini_player_mp3.swf?my_mp3=Composiciones/" + mp3_seleccionado + "&amp;my_text=" + mp3_seleccionado_titulo + "&amp;autoplay=yes";
-        //ClientScript.RegisterExpandoAttribute("movie", "value", value);
-        this.reproducir = "yes";
-        this.Page.DataBind();
-        this.CargarComposiciones((int)ViewState["idProyecto"]);
+            //string value = "Reproductor/mini_player_mp3.swf?my_mp3=Composiciones/" + mp3_seleccionado + "&amp;my_text=" + mp3_seleccionado_titulo + "&amp;autoplay=yes";
+            //ClientScript.RegisterExpandoAttribute("movie", "value", value);
+            this.reproducir = "yes";
+            this.Page.DataBind();
+            this.CargarComposiciones((int)ViewState["idProyecto"]);
+        }
     }
     private DataTable DatosComposiciones(int id)
     {
@@ -247,5 +258,16 @@ public partial class Proyecto : System.Web.UI.Page
 
             bool ok = DenunciaFactory.Insertar(denuncia);
         }
+    }
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        try
+        {
+            string id = GridView1.Rows[e.RowIndex].Cells[GridView1.Columns.Count - 2].Text;
+            ComposicionFactory.Eliminar(Convert.ToInt32(id));
+            ProyectoFactory.EliminarComposicionXProyecto(Convert.ToInt32(id), Convert.ToInt32(ViewState["idProyecto"]));
+            Response.Redirect("Proyecto.aspx?Id=" + ViewState["idProyecto"] + "#grid");
+        }
+        catch {}
     }
 }

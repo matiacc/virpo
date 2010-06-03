@@ -28,6 +28,7 @@ public partial class NuevaComposicion : System.Web.UI.Page
 
             MetodosComunes.cargarTipoInstrumentos(ddlTipo);
             MetodosComunes.cargarTonalidades(ddlTonalidad);
+            ddlInstrumento.Items.Add("Seleccione el Tipo");
             //trInstrumentos.Visible = false;
         }
 
@@ -41,12 +42,24 @@ public partial class NuevaComposicion : System.Web.UI.Page
         if(RadioButton1.Checked)
             composicion.Tipo = "Pista";
         if (RadioButton2.Checked)
-            composicion.Tipo = "Cancion NO terminada";
+            composicion.Tipo = "Cancion No Terminada";
         
         composicion.Tempo = txtTempo.Text;
         composicion.Usuario = (Usuario)Session["Usuario"];
-        composicion.Tonalidad = TonalidadFactory.Devolver(Convert.ToInt32(ddlTonalidad.SelectedValue));
-        composicion.Instrumento = InstrumentoFactory.Devolver(Convert.ToInt32(ddlInstrumento.SelectedValue));
+        if (ddlTonalidad.SelectedIndex == 0)
+        {
+            lblTonalidad.Visible = true;
+            return;
+        }
+        else
+        {
+            composicion.Tonalidad = TonalidadFactory.Devolver(Convert.ToInt32(ddlTonalidad.SelectedValue));
+            lblTonalidad.Visible = false;
+        }
+        if (ddlTipo.Text != "5")
+            composicion.Instrumento = InstrumentoFactory.Devolver(Convert.ToInt32(ddlInstrumento.SelectedValue));
+        else
+            composicion.Instrumento = InstrumentoFactory.Devolver(7);
 
         string path = FileUpload1.PostedFile.FileName;
         if(!this.CargarAudio(path))
@@ -91,8 +104,24 @@ public partial class NuevaComposicion : System.Web.UI.Page
     }
     protected void ddlTipo_SelectedIndexChanged(object sender, EventArgs e)
     {
-        ddlInstrumento.Items.Clear();
-        MetodosComunes.cargarInstrumentos(ddlInstrumento, ddlTipo.SelectedValue);
+        if (ddlTipo.SelectedIndex > 0)
+        {
+            if (ddlTipo.Text != "5")
+            {
+                tdInstrumento.Visible = true;
+                ddlInstrumento.Visible = true;
+                ddlInstrumento.Items.Clear();
+                MetodosComunes.cargarInstrumentos(ddlInstrumento, ddlTipo.SelectedValue);
+            }
+            else
+            {
+                RadioButton2.Checked = true;
+                tdInstrumento.Visible = false;
+                ddlInstrumento.Visible = false;
+            }
+        }
+        else
+            ddlInstrumento.Items.Clear();
     }
      protected void btnCancelar_Click(object sender, EventArgs e)
     {

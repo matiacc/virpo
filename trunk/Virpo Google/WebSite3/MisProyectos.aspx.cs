@@ -177,6 +177,16 @@ public partial class MisProyectos : System.Web.UI.Page
         }
     }
 
-    
-    
+
+
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        try
+        {
+            string id = GridView1.Rows[e.RowIndex].Cells[0].Text;
+            ProyectoFactory.Eliminar(Convert.ToInt32(id));
+            Response.Redirect("MisProyectos.aspx");
+        }
+        catch { }
+    }
 }

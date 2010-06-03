@@ -27,18 +27,26 @@ public partial class _Default : System.Web.UI.Page
         mp3_seleccionado_titulo = "";
         reproducir = "no";
 
-       
-
-
+        if (!Page.IsPostBack)
+        {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
+            //Id de Proyecto.. para volver
+            if (!string.IsNullOrEmpty(Request.QueryString["P"]))
+            {
+                int idProyecto = Convert.ToInt32(Request.QueryString["P"]);
+                ViewState.Add("idProyecto", idProyecto);
+                aVolver.HRef = "Proyecto.aspx?Id=" + idProyecto;
+            }
+            else
+                aVolver.HRef = "javascript:history.back();";
 
             int id = Convert.ToInt32(Request.QueryString["C"]);
             Composicion comp = ComposicionFactory.Devolver(id);
 
             if (comp.Tipo == "Finalizada") lblTipo.ForeColor = Color.Red; ;
-                
-                lblTipo.Text = comp.Tipo;
- 
+
+            lblTipo.Text = comp.Tipo;
+
             if (comp.Nombre != null)
                 lblNombre.Text = comp.Nombre;
             else
@@ -52,54 +60,36 @@ public partial class _Default : System.Web.UI.Page
             lblTonalidad.Text = comp.Tonalidad.Nombre;
             lblInstrumento.Text = comp.Instrumento.Nombre;
             lblTempo.Text = comp.Tempo;
-            
 
-       
+            Usuario u = (Usuario)Session["Usuario"];
 
-        Usuario u = (Usuario)Session["Usuario"];
+            idU = comp.Usuario.Id;
 
-        idU = comp.Usuario.Id;
+            if (u.Id != idU)
+            {
 
-        if (u.Id != idU)
-        {
+                ImageButton1.ImageUrl = "./ImagenesUsuario/" + comp.Usuario.ImagenThumb;
+                lblAutor.Text = comp.Usuario.NombreUsuario;
 
-            ImageButton1.ImageUrl = "./ImagenesUsuario/" + comp.Usuario.Imagen;
-            lblAutor.Text = comp.Usuario.NombreUsuario;
+            }
+            else
+            {
+                Label8.Visible = false;
+                ImageButton1.Visible = false;
 
+            }
+            if (u.Id != ComposicionFactory.DevolverIdMusicoProyecto(comp.Id) || comp.Tipo == "Finalizada")
+            {
+                Label9.Visible = false;
+                btnFinalizar.Visible = false;
+            }
         }
-        else
-        {
-            Label8.Visible = false;
-            ImageButton1.Visible = false;
-            
-        }
-        if (u.Id!= ComposicionFactory.DevolverIdMusicoProyecto(comp.Id) || comp.Tipo =="Finalizada")
-        {
-            Label9.Visible = false;
-            btnFinalizar.Visible = false;
-            
-        }
-
-
-
-
-
+//        aVolver.HRef = "Proyecto.aspx?Id=" + ViewState["idProyecto"];
     }
-
-    
-
-
-
-
-
-
 
     protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
     {
-        
-
         Response.Redirect("PerfilPublico.aspx?Id=" +idU);
-
     }
     protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
     {
@@ -111,16 +101,11 @@ public partial class _Default : System.Web.UI.Page
         this.reproducir = "yes";
         this.Page.DataBind();
         pnlReproductor.Visible = true;
-
-
-
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-
         int id = Convert.ToInt32(Request.QueryString["C"]);
         ComposicionFactory.Finalizar(id);
-        Response.Redirect("ConsultarComposicion.aspx?C=" + id);
-
+        Response.Redirect("ConsultarComposicion.aspx?C=" + id + "&P=" + ViewState["idProyecto"]);
     }
 }
