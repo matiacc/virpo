@@ -228,7 +228,7 @@ public partial class _Default : System.Web.UI.Page
                         }
                         
                         break;
-                    case 3: Response.Redirect("PublicidadEjecutarBajas.aspx?C=1");
+                    case 3: Response.Redirect("PublicidadEjecutarBajas.aspx?C=2");
                         break;
                 }
             }
