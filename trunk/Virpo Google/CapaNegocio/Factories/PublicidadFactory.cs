@@ -293,21 +293,33 @@ namespace CapaNegocio.Factories
             string query = "UPDATE Publicidad SET idEstado = 2 WHERE idEstado = 1 and fechaFin <= "+FECHA;
             return BDUtilidades.EjecutarNonQuery(query);
         }
+        public static int ActualizarVencidas(DateTime fecha)
+        {
+            string FECHA = "'" + fecha.Year + "/" + fecha.Month + "/" + fecha.Day + "'";
 
+            string query = "UPDATE Publicidad SET idEstado = 3, consulta = 'Vencida sin Acuerdo' WHERE idEstado = 2 and fechaFin <= " + FECHA;
+            return BDUtilidades.EjecutarNonQuery(query);
+        }
         public static Publicidad DevolverAleatoria()
         {
             List<Publicidad> todas = DevolverTodos();
             List<Publicidad> todasFrec = new List<Publicidad>();
             int rdm;
+            int acotada=0;
             int frec;
             foreach (Publicidad publi in todas)//cargo la lista en base a la frecuencia
             {
                 frec = 0;
-                while (publi.Frecuencia > frec)
+                if (publi.IdEstado == 1 || publi.IdEstado == 2)// vigente o renovar
                 {
-                    todasFrec.Add(publi);
-                    frec++;
+                    acotada = publi.Frecuencia / 1000;
+                    while ( acotada > frec)
+                        {
+                         todasFrec.Add(publi);
+                         frec++;
+                        } 
                 }
+                
             }
             rdm = new Random().Next(todasFrec.Count);
             Publicidad p = (Publicidad)todasFrec[rdm];
