@@ -102,10 +102,10 @@ public partial class _Default : System.Web.UI.Page
 
             lblContenido.Text = art.Cuerpo;
 
-           
-            Publicidad publi1 = (Publicidad)PublicidadFactory.DevolverAleatoria();            
-                     
+            //bloque publicidad
+            Publicidad publi1 = (Publicidad)PublicidadFactory.DevolverAleatoria(); 
             imgPubli1.ImageUrl = publi1.Imagen;
+            imgPubli1.PostBackUrl = publi1.Url;
         
         }
     }

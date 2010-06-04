@@ -7,7 +7,8 @@
             <li><a href="PublicidadSolicitudes.aspx" title="Pedidos de Publicidad">Solicitudes</a></li>
             <li><a href="PublicidadBajas.aspx" title="Publicidades Vigentes">Bajas &amp; Modificar</a></li>
             <li><a href="PublicidadRenovacion.aspx" title="Publicidades Vencidas">Renovacion</a></li>
-            <li><a href="PublicidadEjecutarBajas.aspx" title="Publicidades a Eliminar">Ejecutar Bajas</a></li>
+            <li><a href="PublicidadEjecutarBajas.aspx" title="Publicidades a Eliminar">Ejecutar 
+                Bajas</a></li>
         </ul>
     </div>
 </asp:Content>
@@ -16,10 +17,6 @@
                     <titulosubventana>
                         Administrar Publicidad</titulosubventana>
                 </center>    
-    <p>
-    <asp:Image ID="imgAdminPubli" runat="server" Height="255px" Width="530px" 
-            ImageUrl="~/ImagenesSite/Publicidad.JPG" />
-    <p>
     <p>
         <asp:Label ID="lblOk" runat="server" ForeColor="#009900" 
             Text="La Transacción fue Exitosa..." Visible="False"></asp:Label>
