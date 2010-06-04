@@ -65,6 +65,10 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void btnVolver_Click(object sender, EventArgs e)
     {
+        if (imgPubli.ImageUrl.Remove(7) == "~/Temp/")//para que borre de la carpeta Temp las fotos que no va a guardar
+        {
+            File.Delete(Server.MapPath(@"./Temp/") + imgPubli.ImageUrl.Substring(7));
+        }
         Response.Redirect("inicio.aspx");
     }
 

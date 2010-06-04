@@ -14,6 +14,10 @@ using CapaDatos;
 using CapaNegocio.Entities;
 using CapaNegocio.Factories;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Net;
 
 public partial class _Default : System.Web.UI.Page
 {
@@ -21,6 +25,7 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            int ok = PublicidadFactory.ActualizarVencidas(DateTime.Now);
             DataTable dt = PublicidadFactory.DevolverXEstadoDT(3);//pendiente de baja
             GridView1.DataSource = dt;
             GridView1.DataBind();
@@ -64,6 +69,17 @@ public partial class _Default : System.Web.UI.Page
         if (e.CommandName == "E")
         {
             int ID= Convert.ToInt32(id);
+            Publicidad publi = PublicidadFactory.Devolver(ID);
+            try
+            {
+                if (publi.Imagen != "")
+                {
+                    File.Delete(Server.MapPath(@".") + publi.Imagen.Substring(1));
+                }
+            }
+            catch (Exception)
+            {
+            }
 
             if (PublicidadFactory.Eliminar(ID))
             {

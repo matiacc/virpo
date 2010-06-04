@@ -56,7 +56,7 @@
                     ControlToValidate="txtEntidad" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
             </td>
             <td rowspan="11">
-                <asp:ImageButton ID="imgPubli" runat="server" Height="430px" Width="145px" />
+                <asp:ImageButton ID="imgPubli" runat="server" Height="520px" Width="195px" />
                 <br />
                 <br />
             </td>
@@ -83,9 +83,8 @@
             </td>
             <td>
                 <asp:TextBox ID="txtTelContacto" runat="server" Width="227px"></asp:TextBox>
-                <asp:CompareValidator ID="CompareValidator1" runat="server" 
-                    ControlToValidate="txtTelContacto" Display="Dynamic" ErrorMessage="*" 
-                    Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+                    ControlToValidate="txtTelContacto" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
             </td>
             <td>
                 &nbsp;</td>

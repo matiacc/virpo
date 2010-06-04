@@ -12,7 +12,7 @@
     </div>
     
     <p style="height: 385px; width: 208px; text-align: right">
-    <asp:ImageButton ID="imgPubli1" runat="server" Height="385px" Width="145px" 
+    <asp:ImageButton ID="imgPubli1" runat="server" Height="520px" Width="195px" 
             onclick="imgPubli1_Click" />
     </p>
     <div style="text-align: right">

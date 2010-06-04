@@ -35,11 +35,12 @@
                 <asp:Label ID="lblEmpresa" runat="server" Text="Empresa:" 
                     CssClass="estiloLabel" Width="110px"></asp:Label>
             </td>
-            <td>
+            <td style="width: 266px">
                 <asp:TextBox ID="txtEntidad" runat="server" Width="227px"></asp:TextBox>
             </td>
             <td rowspan="12">
-                <asp:ImageButton ID="imgPubli" runat="server" Height="385px" Width="145px" />
+                <asp:ImageButton ID="imgPubli" runat="server" Height="520px" Width="195px" 
+                    target='_blank'/>
                 <br />
                 <br />
                 <br />
@@ -52,7 +53,7 @@
                 <asp:Label ID="lblContacto" runat="server" Text="Nombre:" 
                     CssClass="estiloLabel" Width="110px"></asp:Label>
             </td>
-            <td>
+            <td style="width: 266px">
                 <asp:TextBox ID="txtNombreContacto" runat="server" Width="227px"></asp:TextBox>
             </td>
         </tr>
@@ -61,7 +62,7 @@
                 <asp:Label ID="lblTel" runat="server" Text="Telefono:" 
                     CssClass="estiloLabel" Width="120px"></asp:Label>
             </td>
-            <td>
+            <td style="width: 266px">
                 <asp:TextBox ID="txtTelContacto" runat="server" Width="227px"></asp:TextBox>
             </td>
         </tr>
@@ -70,7 +71,7 @@
                 <asp:Label ID="lblMail" runat="server" Text="Mail:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
+            <td style="width: 266px">
                 <asp:TextBox ID="txtMailContacto" runat="server" Width="227px"></asp:TextBox>
             </td>
         </tr>
@@ -79,7 +80,7 @@
                 <asp:Label ID="Label5" runat="server" Text="Meses:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
+            <td style="width: 266px">
                 <asp:Label ID="lblMeses" runat="server" CssClass="estiloLabel"></asp:Label>
             </td>
         </tr>
@@ -88,7 +89,7 @@
                 <asp:Label ID="Label1" runat="server" Text="Vigencia desde:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td style="text-align: left">
+            <td style="text-align: left; width: 266px;">
                 <asp:TextBox ID="txtInicio" runat="server" Height="18px" Width="68px"></asp:TextBox>
                 <asp:Label ID="Label4" runat="server" Text=" Hasta " CssClass="estiloLabel"></asp:Label>
                 <asp:TextBox ID="txtFin" runat="server" Height="18px" Width="68px"></asp:TextBox>
@@ -102,7 +103,7 @@
                 <asp:Label ID="lblFrec" runat="server" Text="Frecuencia de Aparicion:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
+            <td style="width: 266px">
                 <asp:DropDownList ID="ddlFrecuencia" runat="server" Height="22px" Width="55px">
                 </asp:DropDownList>
             </td>
@@ -112,7 +113,7 @@
                 <asp:Label ID="lblUrl" runat="server" Text="Url:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
+            <td style="width: 266px">
                 <asp:TextBox ID="txtUrl" runat="server" Width="227px"></asp:TextBox>
             </td>
         </tr>
@@ -121,7 +122,7 @@
                 <asp:Label ID="lblImagen" runat="server" Text="Imagen:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
+            <td style="width: 266px">
                 <asp:FileUpload ID="upPublicidad" runat="server" Width="256px" Height="26px"/>
                 <br />
             </td>
@@ -131,7 +132,7 @@
                 <asp:Label ID="lblConsulta" runat="server" Text="Consulta:" 
                     CssClass="estiloLabel"></asp:Label>
                 </td>
-            <td style="height: 26px;">
+            <td style="height: 26px; width: 266px;">
                 <asp:Button ID="btnPrevisualizar" runat="server" onclick="btnCargar_Click" 
                     Text="Cargar" Width="229px" CssClass="botones" />
             </td>
@@ -139,7 +140,7 @@
         <tr>
             <td style="width: 182px">
                 &nbsp;</td>
-            <td>
+            <td style="width: 266px">
                 <asp:TextBox ID="txtConsulta" runat="server" Height="111px" 
                     TextMode="MultiLine" Width="227px"></asp:TextBox>
                 <br />
@@ -150,7 +151,7 @@
         <tr>
             <td style="width: 182px">
                 &nbsp;</td>
-            <td style="text-align: right; ">
+            <td style="text-align: right; width: 266px;">
                 <asp:Button ID="btnBaja" runat="server" CssClass="botones" 
                     onclick="btnBaja_Click" Text="Baja" Visible="False" />
                 <asp:Button ID="btnAlta" runat="server" CssClass="botones" 
