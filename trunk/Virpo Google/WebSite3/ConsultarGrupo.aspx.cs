@@ -67,7 +67,8 @@ public partial class ConsultarGrupo : System.Web.UI.Page
                 
                 ViewState.Add("idGrupo", id);
                 ViewState.Add("mailCreador", grupo.Creador.EMail);
-                lblCreador.Text = grupo.Creador.NombreUsuario;
+                lblCreador.Text = "<a href='PerfilPublico.aspx?Id=" + grupo.Creador.Id + "' title='" + grupo.Creador.NombreUsuario + "'>" + grupo.Creador.NombreUsuario + "</a>";
+                
                 lblDescripcion.Text = grupo.Descripcion;
                 //string[] enlaces = grupo.Enlaces.Split(' ');
                 //foreach (string enlace in enlaces)
