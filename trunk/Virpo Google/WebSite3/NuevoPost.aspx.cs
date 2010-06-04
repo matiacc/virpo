@@ -22,7 +22,7 @@ public partial class NuevoPost : System.Web.UI.Page
         {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
-            lblMisGrupos.Text = "<a href='GruposDeInteres.aspx?Id=" + ((Usuario)Session["Usuario"]).Id + "' title='Mis Grupos'>Mis Grupos</a>";
+            //lblMisGrupos.Text = "<a href='GruposDeInteres.aspx?Id=" + ((Usuario)Session["Usuario"]).Id + "' title='Mis Grupos'>Mis Grupos</a>";
 
             if (!string.IsNullOrEmpty(Request.QueryString["idTopic"]))
             {

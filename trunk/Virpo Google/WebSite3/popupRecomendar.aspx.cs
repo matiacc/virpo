@@ -22,10 +22,10 @@ public partial class popupRecomendar : System.Web.UI.Page
     }
     protected void btEnviar_Click(object sender, EventArgs e)
     {
-        string asunto = "Virpo: Recomendacion de un Aviso Clasificado";
+        string asunto = "Virpo: Recomendaci&oacuten de un Aviso Clasificado";
         string url = Convert.ToString(Session["urlClasificado"]);
         Usuario usuario = (Usuario) Session["Usuario"];
-        string mensaje = "Hola!!!<br />El usuario <b>" + usuario.NombreUsuario + "</b> te recomendó un artículo. Sigue el siguiente vínculo para averiguar de que se trata.<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
+        string mensaje = "Hola!!!<br />El usuario <b>" + usuario.NombreUsuario + "</b> te recomend&oacute un artículo. Sigue el siguiente v&iacutenculo para averiguar de que se trata.<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
         mensaje += txtMensaje.Text.Trim();
         string[] mails = txtPara.Text.Split(',');
         int i = 0;

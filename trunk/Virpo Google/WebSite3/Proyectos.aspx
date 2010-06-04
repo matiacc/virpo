@@ -19,7 +19,7 @@
             <td>
                 <center style="width: 529px; background-color: #333333">
                     <titulosubventana>
-                    Ultimos Proyectos</titulosubventana>
+                    Últimos Proyectos</titulosubventana>
                 </center>
             </td>
         </tr>

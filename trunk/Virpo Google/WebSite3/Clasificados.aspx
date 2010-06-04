@@ -25,7 +25,7 @@
         <tr>
             <td id="tdTitulo" runat="server">
                 <center style="width: 527px; background-color: #333333"><tituloSubVentana>
-                    Ultimos Clasificados</tituloSubVentana></center></td>
+                    Últimos Clasificados</tituloSubVentana></center></td>
         </tr>
         <tr>
             <td>

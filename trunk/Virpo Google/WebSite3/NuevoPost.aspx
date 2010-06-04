@@ -6,7 +6,7 @@
       <div id="menu8">
         <ul>
             <li><a href="NuevoGrupo.aspx" title="Nuevo Grupo">Nuevo Grupo</a></li>
-            <li><asp:Label ID="lblMisGrupos" runat="server"></asp:Label></li>
+            <li><a href="MisGrupos.aspx" title="Mis Grupos de Interés">Mis Grupos</a></li>
             <li><asp:Label ID="lblDebate" runat="server"></asp:Label></li>
             <li><asp:Label ID="lblProyectos" runat="server"></asp:Label></li>
             

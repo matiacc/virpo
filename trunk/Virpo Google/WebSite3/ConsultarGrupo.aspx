@@ -6,7 +6,7 @@
     <div id="menu8">
         <ul>
             <li><a href="NuevoGrupo.aspx" title="Nuevo Grupo">Nuevo Grupo</a></li>
-            <li><asp:Label ID="lblMisGrupos" runat="server"></asp:Label></li>
+            <li><a href="MisGrupos.aspx" title="Mis Grupos de Interés">Mis Grupos</a></li>
             <li><asp:Label ID="lblDebate" runat="server"></asp:Label></li>
             <li><asp:Label ID="lblProyectos" runat="server"></asp:Label></li>
         </ul>
@@ -43,9 +43,13 @@ window.opener.location.reload();
             <td colspan="3" style="text-align: left">
                
                 
+
                 <asp:Label ID="lblDescripcion" runat="server" CssClass="estiloLabelCabecera2"></asp:Label>
 
                 </td>
+
+                </td>
+
         </tr>
         <tr>
             <td colspan="3" style="text-align: right">
@@ -56,12 +60,15 @@ window.opener.location.reload();
 
                 </td>
         </tr>
-        <tr>
-            <td colspan="3">
+        <%--<tr>
+            <td colspan="3" align="right">
                
                 
-                &nbsp;</td>
-        </tr>
+                <asp:Button ID="btUnirme" runat="server" Text="Unirme!" 
+                    onclick="btUnirme_Click" CssClass="botones" Width="120px" />
+
+                </td>
+        </tr>--%>
         <tr>
             <td>
                 Creado por:</td>
@@ -142,7 +149,13 @@ window.opener.location.reload();
                 &nbsp;</td>
         </tr>
         <tr>
-            <td colspan="3" align="center" style="text-align: right">
+            <td colspan="2" align="center" style="text-align: right">
+
+                <asp:Button ID="btEditar" runat="server" CssClass="botones" Text="Editar" />
+                <asp:Button ID="btBorrar" runat="server" CssClass="botones" Text="Borrar" 
+                    onclick="btBorrar_Click" OnClientClick="return confirm('¿Esta seguro de borrar?')" />
+            </td>
+            <td align="right">
 
                 <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
                     Width="120px" onclick="btnDenunciar_Click" />
@@ -158,7 +171,7 @@ window.opener.location.reload();
                  <asp:Button ID="Button2" runat="server" Text="False" Style="display: none;" />
     <asp:Button ID="Button3" runat="server" Text="False2" Style="display: none;"/>
     <asp:Panel ID="Panel1" runat="server" Style="display: none;" CssClass="modalPopup">
-        <center>Se ha agregado al grupo!!</center>
+        <center>Se ha unido al grupo!!</center>
         <br />
         <br />
         

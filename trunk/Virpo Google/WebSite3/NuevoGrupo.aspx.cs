@@ -22,7 +22,6 @@ public partial class NuevoGrupo : System.Web.UI.Page
         if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
         if (!Page.IsPostBack)
         {
-            lblMisGrupos.Text = "<a href='GruposDeInteres.aspx?Id=" + ((Usuario)Session["Usuario"]).Id + "' title='Mis Grupos'>Mis Grupos</a>";
             this.Form.DefaultButton = btGuardar.UniqueID;
         }
     }

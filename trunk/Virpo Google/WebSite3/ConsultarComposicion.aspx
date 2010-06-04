@@ -20,7 +20,7 @@
             <td colspan="3" style="height: 14px">
                 <center style="width: 529px; background-color: #333333">
                     <titulosubventana>
-                    Detalles de la composicion </titulosubventana>
+                    Detalles de la composición </titulosubventana>
                 </center></td>
         </tr>
         <tr>

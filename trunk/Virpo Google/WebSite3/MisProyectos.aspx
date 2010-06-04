@@ -23,6 +23,18 @@
         </tr>
         <tr>
             <td>
+                Proyectos musicales creados por mí:</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
                 <asp:Label ID="lblResultados" runat="server" Text="No tenés proyectos creados"
                     Visible="False"></asp:Label>
             </td>

@@ -36,7 +36,7 @@ public partial class Proyectos : System.Web.UI.Page
                 label3.Visible = true;
                 lblGrupo.Visible = true;
                 Grupo grupo = GrupoFactory.Devolver(Convert.ToInt32(filtro));
-                lblGrupo.Text = "<a href='ConsultarGrupo.aspx?id="+ grupo.Id +"'>"+ grupo.Nombre +"</a>";
+                lblGrupo.Text = "<a href='ConsultarGrupo.aspx?id="+ grupo.Id +"'>"+ grupo.Nombre +"</a><br>";
             }
             if (Request.QueryString["banda"] != null)
             {

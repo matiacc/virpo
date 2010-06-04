@@ -93,11 +93,13 @@ public static class MetodosComunes
         dr.Close();
     }
 
-    public static void cargarGrupos(DropDownList ddl, int idCreador)
+    public static void cargarGrupos(DropDownList ddl, int idMiembro)
     {
-        string query = "SELECT id, nombre FROM Grupo WHERE idCreador ="+ idCreador;
+        string query = "SELECT     G.id, G.nombre "+
+                       "FROM         Grupo AS G INNER JOIN "+
+                       "                      UsuarioXGrupo AS UG ON G.id = UG.idGrupo "+
+                       "WHERE     (UG.idUsuario = "+ idMiembro +")";
         SqlDataReader dr = BDUtilidades.GetReader(query);
-
 
         CargarCombo(ddl, dr, "nombre", "id", "No publicar en Grupos");
         dr.Close();
