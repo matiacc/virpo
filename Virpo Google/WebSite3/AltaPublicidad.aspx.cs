@@ -169,8 +169,8 @@ public partial class _Default : System.Web.UI.Page
             }
 
             upPublicidad.PostedFile.SaveAs(Server.MapPath(@"./Temp/") + upPublicidad.FileName);
-            
-            Response.Redirect("AltaPublicidad.aspx?&FN=" + upPublicidad.FileName);
+
+            imgPubli.ImageUrl = "~/Temp/" + upPublicidad.FileName;
             
         }
     }
