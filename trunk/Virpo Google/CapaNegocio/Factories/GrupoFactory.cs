@@ -44,6 +44,8 @@ namespace CapaNegocio.Factories
             if (!string.IsNullOrEmpty(restriccion))
                 query += restriccion;
 
+            query += " order by id desc";
+
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
             {
@@ -52,6 +54,37 @@ namespace CapaNegocio.Factories
                 {
                     Grupo grupo = new Grupo();
                     grupo.Id = Convert.ToInt32(dt.Rows[i]["id"]);
+                    grupo.Nombre = dt.Rows[i]["nombre"].ToString();
+                    grupo.Descripcion = dt.Rows[i]["descripcion"].ToString();
+                    grupo.Tema = dt.Rows[i]["tema"].ToString();
+                    grupo.Imagen = dt.Rows[i]["imagen"].ToString();
+                    grupo.Tags = dt.Rows[i]["tags"].ToString();
+                    grupo.Creador = UsuarioFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idCreador"]));
+                    grupo.Enlaces = dt.Rows[i]["enlaces"].ToString();
+                    grupos.Add(grupo);
+                }
+                return grupos;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static List<Grupo> DevolverTodosPorMiembro(int idMiembro)
+        {
+            string query = "SELECT     G.id as idGr, G.nombre, G.descripcion, G.tema, G.imagen, G.tags, G.idCreador, G.enlaces, UG.id AS Expr1, UG.idUsuario, UG.idGrupo, UG.fechaIngreso "+
+                           "FROM         Grupo AS G INNER JOIN "+
+                            "UsuarioXGrupo AS UG ON G.id = UG.idGrupo AND UG.idUsuario = "+ idMiembro +" AND G.idCreador <> "+ idMiembro;
+
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                List<Grupo> grupos = new List<Grupo>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Grupo grupo = new Grupo();
+                    grupo.Id = Convert.ToInt32(dt.Rows[i]["idGr"]);
                     grupo.Nombre = dt.Rows[i]["nombre"].ToString();
                     grupo.Descripcion = dt.Rows[i]["descripcion"].ToString();
                     grupo.Tema = dt.Rows[i]["tema"].ToString();
