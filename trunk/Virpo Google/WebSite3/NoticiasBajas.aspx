@@ -24,7 +24,7 @@
     <p>
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
             AutoGenerateColumns="False" CssClass="HeaderStyle" GridLines="None" OnRowCommand="GridView1_RowCommand"
-            Width="529" PageSize="16">
+            Width="529px" PageSize="16">
             <Columns>
                 <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False">
                     <HeaderStyle Font-Size="Small" />
@@ -33,7 +33,8 @@
                 <asp:BoundField DataField="Descripcion" HeaderText="Noticia" />
                 <asp:BoundField DataField="Posicion" HeaderText="Posicion" />
                 <asp:BoundField DataField="IdAutor" HeaderText="Autor" />
-                <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/eliminar.png" />
+                <asp:ButtonField ButtonType="Image" CommandName="C" 
+                    ImageUrl="~/ImagenesSite/delete.png" />
                 <asp:ButtonField ButtonType="Image" CommandName="M" ImageUrl="~/ImagenesSite/edit.png" />
             </Columns>
             <RowStyle CssClass="RowStyle" />
