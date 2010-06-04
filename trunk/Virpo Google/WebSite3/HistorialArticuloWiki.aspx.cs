@@ -22,17 +22,19 @@ public partial class _Default : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
+            
+
+            int id = Convert.ToInt32(Request.QueryString["C"]);
+
+            ArticuloWiki articulo = ArticuloWikiFactory.Devolver(id);
+            lblTitulo.Text = articulo.Titulo;
+            lblCat.Text = articulo.IdCat.Nombre;
+
+            DataTable dt = this.VersionesArticulo(id);
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+            GridView1.Columns[0].Visible = false;
         }
-        int id = Convert.ToInt32(Request.QueryString["C"]);
-
-        ArticuloWiki articulo = ArticuloWikiFactory.Devolver(id);
-        lblTitulo.Text = articulo.Titulo;
-        lblCat.Text = articulo.IdCat.Nombre;
-
-        DataTable dt = this.VersionesArticulo(id);
-        GridView1.DataSource = dt;
-        GridView1.DataBind();
-        //GridView1.Columns[0].Visible = false;
     }
     private DataTable VersionesArticulo(int idArt)
     {
