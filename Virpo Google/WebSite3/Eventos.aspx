@@ -14,7 +14,7 @@
     <p>
         <center style="width: 529px; background-color: #333333">
                     <titulosubventana>
-                        Ultimos Eventos</titulosubventana>
+                        Últimos Eventos</titulosubventana>
                 </center></td>
     <p>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 

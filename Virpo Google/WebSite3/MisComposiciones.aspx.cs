@@ -180,7 +180,7 @@ public partial class _Default : System.Web.UI.Page
         if (e.CommandName == "Proy")
         {
             int id = Convert.ToInt32(GridView1.Rows[Convert.ToUInt16(e.CommandArgument)].Cells[5].Text);
-            Proyecto proy = ProyectoFactory.DevolverProyectoPorComposicion(id);
+            CapaNegocio.Entities.Proyecto proy = ProyectoFactory.DevolverProyectoPorComposicion(id);
             if (proy != null)
                 Response.Redirect("Proyecto.aspx?Id=" + proy.Id);
         }

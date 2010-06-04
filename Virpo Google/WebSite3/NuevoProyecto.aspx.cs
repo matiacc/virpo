@@ -43,7 +43,7 @@ public partial class NuevoProyecto : System.Web.UI.Page
             if (FileUpload1.HasFile)
             {
                 string extension = Path.GetExtension(FileUpload1.PostedFile.FileName).ToLower();
-                if (extension != ".png" && extension != ".jpg" && extension != ".bmp")
+                if (extension != ".png" && extension != ".jpg" && extension != ".bmp" && extension != ".gif")
                     throw new Exception("El archivo ingresado no es una imagen");
                 FileUpload1.PostedFile.SaveAs(Server.MapPath(@"./ImagenesProyectos/") + filename + extension);
                 proyecto.Imagen = @"./ImagenesProyectos/" + filename + extension;

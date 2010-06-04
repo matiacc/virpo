@@ -22,10 +22,10 @@ public partial class popupRecomendarWiki : System.Web.UI.Page
     }
     protected void btEnviar_Click(object sender, EventArgs e)
     {
-        string asunto = "Virpo: Recomendacion de un Articulo WikiMusic";
+        string asunto = "Virpo: Recomendaci&oacuten de un Art&iacuteculo WikiMusic";
         string url = Convert.ToString(Session["urlWiki"]);
         Usuario usuario = (Usuario)Session["Usuario"];
-        string mensaje = "Hola!!!<br />El usuario <b>" + usuario.NombreUsuario + "</b> te recomendó un artículo de WikiMusic. Sigue el siguiente vínculo para averiguar de que se trata.<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
+        string mensaje = "Hola!!!<br />El usuario <b>" + usuario.NombreUsuario + "</b> te recomend&oacute un art&iacuteculo de WikiMusic. Sigue el siguiente v&iacutenculo para averiguar de que se trata.<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
         mensaje += txtMensaje.Text.Trim();
         string[] mails = txtPara.Text.Split(',');
         int i = 0;

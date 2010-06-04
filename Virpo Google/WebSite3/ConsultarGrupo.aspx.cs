@@ -51,12 +51,12 @@ public partial class ConsultarGrupo : System.Web.UI.Page
 
                 if (Session["Usuario"] == null)
                 {
-                    lblMisGrupos.Text = "<a href='GruposDeInteres.aspx' title='Mis Grupos'>Mis Grupos</a>";
+                    //lblMisGrupos.Text = "<a href='GruposDeInteres.aspx' title='Mis Grupos'>Mis Grupos</a>";
                     btUnirme.Visible = false;
                 }
                 else
                 {
-                    lblMisGrupos.Text = "<a href='GruposDeInteres.aspx?Id=" + ((Usuario)Session["Usuario"]).Id + "' title='Mis Grupos'>Mis Grupos</a>";
+                    //lblMisGrupos.Text = "<a href='GruposDeInteres.aspx?Id=" + ((Usuario)Session["Usuario"]).Id + "' title='Mis Grupos'>Mis Grupos</a>";
                     if (grupo.Creador.Id == ((Usuario)Session["Usuario"]).Id ||
                         GrupoFactory.EsMiembro(((Usuario)Session["Usuario"]).Id, id))
                     {
@@ -80,6 +80,17 @@ public partial class ConsultarGrupo : System.Web.UI.Page
                 this.CargarMiembros(grupo.Id);
                 lblCantMiembros.Text = GrupoFactory.CantidadMiembros(grupo.Id).ToString();
                 
+                //Botones Editar y Borrar
+                if (Session["Usuario"] != null && ((Usuario)Session["Usuario"]).Id == grupo.Creador.Id)
+                {
+                    btEditar.Visible = true;
+                    btBorrar.Visible = true;
+                }
+                else
+                {
+                    btEditar.Visible = false;
+                    btBorrar.Visible = false;
+                }
             }
 
         }
@@ -99,7 +110,7 @@ public partial class ConsultarGrupo : System.Web.UI.Page
                 string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/Login.aspx?url=ConsultarGrupo.aspx?id=" + ViewState["idGrupo"].ToString();
                 //string url = "http://127.0.0.1:50753/WebSite3/inicio.aspx";
                 //DEVOLVER NOMBRE Y EMAIL DEL CREADOR
-                string mensaje = "Hola <b>" + lblCreador.Text + "</b>, un Músico se ha unido al grupo <b>" + lblNombre.Text + "</b> que creaste en Virpo.<br /><br />Ingresa al sitio para mas informacion:<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
+                string mensaje = "Hola <b>" + lblCreador.Text + "</b>, un M&uacutesico se ha unido al grupo <b>" + lblNombre.Text + "</b> que creaste en Virpo.<br /><br />Ingresa al sitio para mas informaci&oacuten:<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
                 EnviarMail.Mande("Virpo", ViewState["mailCreador"].ToString(), asunto, mensaje);
 
                 //Registrar las Adhesiones al Grupo en la tabla "BandejaDeEntrada"
@@ -175,5 +186,9 @@ public partial class ConsultarGrupo : System.Web.UI.Page
 
             bool ok = DenunciaFactory.Insertar(denuncia);
         }
+    }
+    protected void btBorrar_Click(object sender, EventArgs e)
+    {
+
     }
 }

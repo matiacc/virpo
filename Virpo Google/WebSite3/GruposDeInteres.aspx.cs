@@ -20,27 +20,12 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            if (Session["Usuario"] != null)
-                lblMisGrupos.Text = "<a href='GruposDeInteres.aspx?Id=" + ((Usuario)Session["Usuario"]).Id +"' title='Mis Grupos'>Mis Grupos</a>";
-            else
-                lblMisGrupos.Text = "<a href='GruposDeInteres.aspx' title='Mis Grupos'>Mis Grupos</a>";
-
-            
-            int idUser = 0;
-            if(Request.QueryString["Id"] != null)
-            {
-                idUser = Convert.ToInt32(Request.QueryString["Id"]);
-            }
-            this.CargarGrupos(idUser);
+            this.CargarGrupos();
         }
     }
-    private void CargarGrupos(int idUser)
+    private void CargarGrupos()
     {
-        string restriccion = "";
-        if (idUser > 0)
-            restriccion = "WHERE idCreador =" + idUser;
-
-        List<Grupo> grupos = GrupoFactory.DevolverTodos(restriccion);
+        List<Grupo> grupos = GrupoFactory.DevolverTodos("");
         string html = "<table>";
 
         int i=0;
@@ -56,7 +41,7 @@ public partial class _Default : System.Web.UI.Page
             "			<a class='blogHeadline' title='" + grupo.Nombre + "' href='ConsultarGrupo.aspx?id=" + grupo.Id + "'><img src='" + grupo.Imagen + "' style='width:250px; height:250px;'/></a>" +
             "		<h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; background-color: black; color: rgb(51, 51, 51);' class='transparent_60'>" + grupo.Nombre + "</h2>" +
             "		<h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; color: white;'>" + grupo.Nombre + "</h2>" +
-            "		<div style='padding: 5px; margin-top: 0px; width: 240px; position: absolute; left: 0px; bottom: 0px; background-color: black; color: white;' " +
+            "		<div style='padding: 5px; margin-top: 0px; width: 240px; position: absolute; left: 0px; bottom: 0px; background-color: black; color: white;'> " +
                 //"			<a href="http://kompoz.com/site/guitar" style="text-decoration: none; color: rgb(160, 160, 160);">" +
                 //"            kompoz.com/site/guitar</a><br>" +
             "			<b>" + miembros + " miembros</b>" +
@@ -70,7 +55,12 @@ public partial class _Default : System.Web.UI.Page
         if (i == 0)
             lblGrupos.Text = "No se ha registrado ningun grupo";
         else
+        {
+            if (html.Substring(html.Length - 3, 2) != "tr")
+                html += "</tr>";
+            html += "</table>";
             lblGrupos.Text = html;
+        }
         
     }
 }
