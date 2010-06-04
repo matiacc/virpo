@@ -56,10 +56,10 @@ public partial class NuevaComposicion : System.Web.UI.Page
             composicion.Tonalidad = TonalidadFactory.Devolver(Convert.ToInt32(ddlTonalidad.SelectedValue));
             lblTonalidad.Visible = false;
         }
-        if (ddlTipo.Text != "5")
+        if (ddlTipo.Text != "5") //Canción No Terminada
             composicion.Instrumento = InstrumentoFactory.Devolver(Convert.ToInt32(ddlInstrumento.SelectedValue));
         else
-            composicion.Instrumento = InstrumentoFactory.Devolver(6);
+            composicion.Instrumento = InstrumentoFactory.Devolver(6); //Canción No Terminada
 
         string path = FileUpload1.PostedFile.FileName;
         if(!this.CargarAudio(path))

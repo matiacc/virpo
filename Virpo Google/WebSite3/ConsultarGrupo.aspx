@@ -30,7 +30,7 @@ window.opener.location.reload();
             
         </tr>
         <tr>
-            <td>
+            <td style="width: 126px">
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
             </td>
@@ -52,9 +52,9 @@ window.opener.location.reload();
 
         </tr>
         <tr>
-            <td colspan="3" style="text-align: right">
-               
-                
+        <td>
+        </td>
+            <td colspan="2" style="text-align: right;" valign="top">
                 <asp:Button ID="btUnirme" runat="server" Text="Unirme!" 
                     onclick="btUnirme_Click" CssClass="botones" Width="120px" />
 
@@ -70,49 +70,56 @@ window.opener.location.reload();
                 </td>
         </tr>--%>
         <tr>
-            <td>
+        <td>
+            &nbsp;</td>
+            <td colspan="2" style="text-align: right;" valign="top">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 126px">
                 Creado por:</td>
             <td>
                 <asp:Label ID="lblCreador" runat="server"></asp:Label>
             </td>
-            <td rowspan="9" style="text-align: right">
-                <asp:Image ID="imgGrupo"  runat="server" style="height:120px" Width="120px"/>
+            <td rowspan="9" style="text-align: center">
+                <asp:Image ID="imgGrupo"  runat="server" style="margin-left: 0px;" 
+                    Width="230px" Height="200px"/>
                 <br />
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 126px">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 126px">
                 Tema:</td>
             <td>
                 <asp:Label ID="lblTema" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 126px">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 126px">
                  Miembros (<asp:Label ID="lblCantMiembros" runat="server"></asp:Label>)</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 126px">
                  &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 126px">
                 <asp:Label ID="lblMiembros" runat="server"></asp:Label>
             </td>
             <td>
@@ -137,19 +144,27 @@ window.opener.location.reload();
                 &nbsp;</td>
         </tr>--%>
         <tr>
-            <td align="center">
+            <td align="center" style="width: 126px">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td align="center">
+            <td align="center" style="width: 126px">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2" align="center" style="text-align: right">
+            <td colspan="2" align="left" style="text-align: left">
+
+                &nbsp;</td>
+            <td align="right">
+
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="left" style="text-align: left">
 
                 <asp:Button ID="btEditar" runat="server" CssClass="botones" Text="Editar" />
                 <asp:Button ID="btBorrar" runat="server" CssClass="botones" Text="Borrar" 

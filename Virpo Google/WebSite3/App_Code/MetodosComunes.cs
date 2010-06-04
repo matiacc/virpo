@@ -111,7 +111,7 @@ public static class MetodosComunes
         string query = "select B.id, B.nombre "+
                        "from Banda B, MusicoXBanda M "+
                        "where M.idBanda=B.id "+
-                       "and M.creador='True' " +
+                       //"and M.creador='True' " +
                        "and M.idUsuario=" + idCreador;
 
         SqlDataReader dr = BDUtilidades.GetReader(query);
