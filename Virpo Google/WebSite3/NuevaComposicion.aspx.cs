@@ -59,7 +59,7 @@ public partial class NuevaComposicion : System.Web.UI.Page
         if (ddlTipo.Text != "5")
             composicion.Instrumento = InstrumentoFactory.Devolver(Convert.ToInt32(ddlInstrumento.SelectedValue));
         else
-            composicion.Instrumento = InstrumentoFactory.Devolver(7);
+            composicion.Instrumento = InstrumentoFactory.Devolver(6);
 
         string path = FileUpload1.PostedFile.FileName;
         if(!this.CargarAudio(path))
