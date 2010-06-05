@@ -54,14 +54,14 @@ public partial class _Default : System.Web.UI.Page
                         //txtInicio.Enabled = false;
                         //txtFin.Enabled = false;
                         //ddlFrecuencia.Enabled = false;
-                        lblConsulta.Text = "Observacion:";
+                        lblConsulta.Text = "Nota:";
                         break;
                     case 2: btnAlta.Text = "Renovar";
-                        lblConsulta.Text = "Observacion:";
+                        lblConsulta.Text = "Nota:";
                         btnBaja.Visible = true;
                         break;
                     case 3: btnAlta.Text = "Renovar";
-                        lblConsulta.Text = "Observacion:";
+                        lblConsulta.Text = "Nota:";
                         btnBaja.Visible = true;
                         btnBaja.Text = "Eliminar";
                         break;
