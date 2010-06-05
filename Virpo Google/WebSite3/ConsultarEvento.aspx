@@ -36,7 +36,7 @@
         </tr>
         <tr>
             <td style="height: 15px">
-                <asp:Label ID="lblMusico" runat="server" Text="Musico:" CssClass="estiloLabel"></asp:Label>
+                <asp:Label ID="lblMusico" runat="server" Text="Músico:" CssClass="estiloLabel"></asp:Label>
                 </td>
             <td style="width: 295px; height: 15px;">
                 <asp:HyperLink ID="HpLMusico" runat="server">[HpLMusico]</asp:HyperLink>
@@ -135,6 +135,16 @@
         </tr>
         <tr>
             <td colspan="3">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3" align="left">
+                <asp:Button ID="btEditar" runat="server" CssClass="botones" Text="Editar" />
+                <asp:Button ID="btBorrar" runat="server" CssClass="botones" Text="Borrar" 
+                    onclick="btBorrar_Click" OnClientClick="return confirm('¿Esta seguro de borrar?')" /></td>
+        </tr>
+        <tr>
+            <td colspan="3">
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
             </td>
@@ -156,23 +166,30 @@
                 <fieldset>
                 <legend>Comentarios</legend>
                 <table class="tabla" border="1" style="width:512px;">
-                <asp:Label ID="lblTabla" runat="server" Text="Panel created."></asp:Label><br />
+                <asp:Label ID="lblTabla" runat="server" Text="Panel created."></asp:Label>
+                    <caption>
+                        <br />
+                    </caption>
                 </table>
                 </fieldset>
-            </ContentTemplate>
-        </asp:UpdatePanel>
+            
         <table class="tabla" style="height: 100px">
             <tr>
             <td align="left" style="height: 53px">
                 
-                <asp:TextBox ID="txtComentario" runat="server" Height="55px" Width="529px"></asp:TextBox>
-                
+                <asp:TextBox ID="txtComentario" runat="server" Height="55px" Width="529px" 
+                    TextMode="MultiLine"></asp:TextBox>
         </tr>
-        
+            <tr>
+                <td align="right" style="height: 53px">
+                    <asp:Button ID="btPublicar" runat="server" CssClass="botones" 
+                        onclick="btPublicar_Click" Text="Publicar" />
+                </td>
+            </tr>
+        </ContentTemplate>
+        </asp:UpdatePanel>
          <tr>
             <td align="right" class="tabla">
-                <asp:Button ID="btPublicar" runat="server" CssClass="botones" 
-                    onclick="btPublicar_Click" Text="Publicar" />
             </td>
         </tr>
         

@@ -82,13 +82,13 @@ namespace CapaNegocio.Factories
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     Banda banda = new Banda();
-                    banda.Id = int.Parse(dt.Rows[i]["id"].ToString());
-                    banda.Imagen = dt.Rows[i]["imagen"].ToString();
+                    banda.Id = (int)dt.Rows[i]["id"];
                     banda.Nombre = dt.Rows[i]["nombre"].ToString();
-                    banda.Genero = GeneroFactory.Devolver(int.Parse(dt.Rows[i]["idGenero"].ToString()));
-                    banda.FechaInicio = DateTime.Parse(dt.Rows[i]["fechaInicio"].ToString());
                     banda.PaginaWeb = dt.Rows[i]["paginaWeb"].ToString();
-                    banda.Localidad = LocalidadFactory.Devolver(Convert.ToInt32(dt.Rows[i]["idLocalidad"].ToString()));
+                    banda.Imagen = dt.Rows[i]["imagen"].ToString();
+                    banda.FechaInicio = Convert.ToDateTime(dt.Rows[i]["fechaInicio"].ToString());
+                    banda.Genero = GeneroFactory.Devolver(int.Parse(dt.Rows[i]["idGenero"].ToString()));
+                    banda.Localidad = LocalidadFactory.Devolver(int.Parse(dt.Rows[i]["idLocalidad"].ToString()));
                     banda.Video = dt.Rows[i]["video"].ToString();
                     bandas.Add(banda);
                 }
