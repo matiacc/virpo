@@ -33,7 +33,7 @@
         <tr>
             <td style="text-align: left; width: 182px;">
                 <asp:Label ID="lblEmpresa" runat="server" Text="Empresa:" 
-                    CssClass="estiloLabel" Width="110px"></asp:Label>
+                    CssClass="estiloLabel" Width="80px"></asp:Label>
             </td>
             <td style="width: 266px">
                 <asp:TextBox ID="txtEntidad" runat="server" Width="227px"></asp:TextBox>
@@ -51,7 +51,7 @@
         <tr>
             <td style="text-align: left; width: 182px;">
                 <asp:Label ID="lblContacto" runat="server" Text="Nombre:" 
-                    CssClass="estiloLabel" Width="110px"></asp:Label>
+                    CssClass="estiloLabel" Width="80px"></asp:Label>
             </td>
             <td style="width: 266px">
                 <asp:TextBox ID="txtNombreContacto" runat="server" Width="227px"></asp:TextBox>
@@ -60,7 +60,7 @@
         <tr>
             <td style="text-align: left; width: 182px;">
                 <asp:Label ID="lblTel" runat="server" Text="Telefono:" 
-                    CssClass="estiloLabel" Width="120px"></asp:Label>
+                    CssClass="estiloLabel" Width="70px"></asp:Label>
             </td>
             <td style="width: 266px">
                 <asp:TextBox ID="txtTelContacto" runat="server" Width="227px"></asp:TextBox>
@@ -100,8 +100,8 @@
         </tr>
         <tr>
             <td style="text-align: left; width: 182px;">
-                <asp:Label ID="lblFrec" runat="server" Text="Frecuencia de Aparicion:" 
-                    CssClass="estiloLabel"></asp:Label>
+                <asp:Label ID="lblFrec" runat="server" Text="Impresiones:" 
+                    CssClass="estiloLabel" Font-Size="10pt"></asp:Label>
             </td>
             <td style="width: 266px">
                 <asp:DropDownList ID="ddlFrecuencia" runat="server" Height="22px" Width="55px">
@@ -123,7 +123,7 @@
                     CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="width: 266px">
-                <asp:FileUpload ID="upPublicidad" runat="server" Width="256px" Height="26px"/>
+                <asp:FileUpload ID="upPublicidad" runat="server" Width="220px" Height="26px"/>
                 <br />
             </td>
         </tr>
