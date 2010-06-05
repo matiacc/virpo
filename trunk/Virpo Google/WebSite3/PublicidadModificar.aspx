@@ -59,7 +59,7 @@
         </tr>
         <tr>
             <td style="text-align: left; width: 182px;">
-                <asp:Label ID="lblTel" runat="server" Text="Telefono:" 
+                <asp:Label ID="lblTel" runat="server" Text="Teléfono:" 
                     CssClass="estiloLabel" Width="70px"></asp:Label>
             </td>
             <td style="width: 266px">
@@ -68,7 +68,7 @@
         </tr>
         <tr>
             <td style="text-align: left; width: 182px;">
-                <asp:Label ID="lblMail" runat="server" Text="Mail:" 
+                <asp:Label ID="lblMail" runat="server" Text="E–Mail:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="width: 266px">
