@@ -68,7 +68,7 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 92px">
+            <td style="width: 92px; height: 21px;">
                 <asp:Label ID="Label4" runat="server" Text="Pais:"></asp:Label>
             </td>
             <td style="width: 92px" rowspan="3">
@@ -108,7 +108,7 @@ arguments.IsValid = true;
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 92px">
+            <td style="width: 92px; height: 22px;">
                 <asp:Label ID="Label5" runat="server" Text="Ciudad:"></asp:Label>
             </td>
         </tr>

@@ -51,7 +51,7 @@ public partial class musicamania_Virpo : System.Web.UI.MasterPage
         switch (ddlBuscarPor.SelectedValue)
         {
             case "Banda":
-                Response.Redirect("BuscarBanda.aspx?filtro=" + filtro);
+                Response.Redirect("Bandas.aspx?filtro=" + filtro);
                 break;
             case "Clasificado":
                 Response.Redirect("Clasificados.aspx?filtro=" + filtro);

@@ -20,12 +20,18 @@ public partial class Bandas : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            CargarBandas();
+            string restriccion = "";
+            if (Request.QueryString["filtro"] != null)
+            {
+                string filtro = Request.QueryString["filtro"];
+                restriccion = " WHERE (nombre like '%" + filtro + "%' or descripcion like '%" + filtro + "%')";
+            }
+            CargarBandas(restriccion);
         }
     }
-    private void CargarBandas()
+    private void CargarBandas(string restriccion)
     {
-        List<Banda> bandas = BandaFactory.DevolverTodos();
+        List<Banda> bandas = BandaFactory.DevolverTodos(restriccion);
         string html = "<table>";
 
         for (int i = 0; i < bandas.Count; i++)

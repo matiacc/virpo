@@ -18,8 +18,9 @@ Inherits="MisEventos" Title="Página sin título" %>
         <br />
        
       
-    </center>
-
+    </center><br />
+    <asp:Label ID="lblMisEventos" runat="server" style="text-align: left" Text="Eventos creados por mí:"></asp:Label>
+    <br /><br />
     <asp:Label ID="lblEventos" runat="server" style="text-align: left"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">

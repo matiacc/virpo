@@ -62,6 +62,17 @@ public partial class _Default : System.Web.UI.Page
         comentarios = ComentarioEventoFactory.DevolverTodosPorEvento(Convert.ToString(evento.Id));
         CargarTabla(comentarios);
 
+        //Botones Editar y Borrar
+        if (Session["Usuario"] != null && ((Usuario)Session["Usuario"]).Id == evento.Musico.Id)
+        {
+            btEditar.Visible = true;
+            btBorrar.Visible = true;
+        }
+        else
+        {
+            btEditar.Visible = false;
+            btBorrar.Visible = false;
+        }
     }
 
     private void setearMapa()
@@ -176,8 +187,12 @@ public partial class _Default : System.Web.UI.Page
            // Panel1_ModalPopupExtender.Show();
         }
     }
-  
 
 
 
+
+    protected void btBorrar_Click(object sender, EventArgs e)
+    {
+
+    }
 }
