@@ -29,9 +29,17 @@
                     ImageAlign="Left" Width="250px" />
             </td>
             <td>
-                <table style="width: 100%; height: 198px">
+                <table style="width: 81%; height: 198px">
                     <tr>
-                        <td style="text-align: right; width: 125px;">
+                        <td style="text-align: left; width: 125px;">
+                <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
+                    Width="95px" onclick="btnDenunciar_Click" />
+                        </td>
+                        <td style="text-align: right">
+                            &nbsp;</td>
+                        <td style="text-align: right">
+                            &nbsp;</td>
+                        <td style="text-align: right">
                             &nbsp;</td>
                         <td style="text-align: right">
                             &nbsp;</td>
@@ -41,30 +49,54 @@
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
                     </tr>
                     <tr>
                         <td style="width: 135px">
                             <asp:Label ID="Label4" runat="server" Text="Género:" CssClass="estiloLabel"></asp:Label></td>
                         <td> <asp:Label ID="lblGenero" runat="server" Font-Size="Medium"></asp:Label>
                             </td>
+                        <td> &nbsp;</td>
+                        <td> &nbsp;</td>
+                        <td> &nbsp;</td>
                     </tr>
                     <tr>
                         <td style="width: 135px">
                             <asp:Label ID="Label7" runat="server" Text="Página Web:" 
-                                CssClass="estiloLabel" Width="100px"></asp:Label></td>
+                                CssClass="estiloLabel" Width="82px"></asp:Label></td>
                         <td>
                             <asp:Label ID="lblPaginaWeb" runat="server"></asp:Label></td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
                     </tr>
                      <tr>
                         <td style="width: 135px">
                 
                 <asp:Label ID="Label1" runat="server" Text="Inicio de la Banda:" 
-                    CssClass="estiloLabel" Width="120px"></asp:Label>
+                    CssClass="estiloLabel" Width="80px"></asp:Label>
                             </td>
                         <td>
                 
                 <asp:Label ID="lblFecInicio" runat="server"></asp:Label>
                             </td>
+                        <td>
+                
+                            &nbsp;</td>
+                        <td>
+                
+                            &nbsp;</td>
+                        <td>
+                
+                            &nbsp;</td>
                     </tr>
                      <tr>
                         <td style="width: 135px">
@@ -74,11 +106,23 @@
                         <td>
                             <asp:Label ID="lblLocalidad" runat="server"></asp:Label>
                             </td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
                     </tr>
                      <tr>
                         <td style="width: 135px">
                             <asp:Label ID="lblId" runat="server" Text="Oculto" Visible="False"></asp:Label>
                          </td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
                         <td>
                             &nbsp;</td>
                     </tr>
@@ -90,12 +134,13 @@
                 
                 <asp:Button ID="btnModificarBanda" runat="server" 
                     onclick="btnModificarBanda_Click" Text="Modificar" CssClass="botones" />
-                </td>
-            <td style="text-align: right;" colspan="2">
                 
                 <asp:Button ID="btnCancelar" runat="server" onclick="btnCancelar_Click" 
                     Text="Cancelar" CssClass="botones" />
-            </td>
+                </td>
+            <td style="text-align: right;" colspan="2">
+                
+                &nbsp;</td>
         </tr>
         <tr>
             <td colspan="3">
@@ -103,9 +148,8 @@
         </tr>
         <tr>
             <td colspan="3" style="background-color: #999999; text-align: center;">
-                <asp:Label ID="Label3" runat="server" Text="Integrantes de la Banda" 
-                    Font-Bold="True" CssClass="estiloLabelNaranja" Font-Overline="False" 
-                    Font-Strikeout="False" ForeColor="#FF6600" style="margin-right: 0px"></asp:Label>
+                <asp:Label ID="Label3" runat="server" Text="Integrantes de la Banda" CssClass="estiloLabelCabecera2" 
+                    ></asp:Label>
             </td>
         </tr>
          <tr>
@@ -117,8 +161,8 @@
         </tr>
          <tr>
             <td colspan="3" style="background-color: #999999; text-align: center;">
-                <asp:Label ID="Label8" runat="server" Text="VIDEO" Font-Bold="True" 
-                    CssClass="estiloLabelNaranja" ForeColor="#FF6600"></asp:Label>
+                <asp:Label ID="Label8" runat="server" Text="Video" 
+                    CssClass="estiloLabelCabecera2" Font-Bold="False" ></asp:Label>
              </td>
         </tr>
          <tr>
@@ -137,7 +181,8 @@
          <tr>
             <td colspan="3" style="text-align: center; background-color: #999999">
                 <asp:Label ID="Label9" runat="server" Text="Eventos Publicados" 
-                    Font-Bold="True" CssClass="estiloLabelNaranja" ForeColor="#FF6600"></asp:Label>
+                    CssClass="estiloLabelCabecera2" Font-Bold="False" 
+                    ></asp:Label>
              </td>
         </tr>
          <tr>
@@ -182,9 +227,7 @@
             <td colspan="2" style="width: 250px">
                 &nbsp;</td>
             <td style="width: 198px" align="right">
-                <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
-                    Width="95px" onclick="btnDenunciar_Click" />
-                </td>
+                &nbsp;</td>
         </tr>
     </table>
 </asp:Content>
