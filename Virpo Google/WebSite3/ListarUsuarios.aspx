@@ -15,10 +15,6 @@
     <table style="width: 100%">
                         <tr>
                             <td colspan="2">
-                                &nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
                                 <center style="width: 522px; background-color: #333333">
                                     <tituloSubVentana>Agregar Integrantes</tituloSubVentana></center>
                             </td>
