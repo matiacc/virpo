@@ -23,7 +23,7 @@
     </p>
     <p>
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
-            AutoGenerateColumns="False" CssClass="HeaderStyle" GridLines="None" OnRowCommand="GridView1_RowCommand"
+            AutoGenerateColumns="False" CssClass="GridViewStyle" GridLines="None" OnRowCommand="GridView1_RowCommand"
             Width="529px" PageSize="16">
             <Columns>
                 <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False">
