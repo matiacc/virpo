@@ -19,7 +19,7 @@
                     a tu Perfil</tituloSubVentana></center>&nbsp; &nbsp; &nbsp; &nbsp;
                 <asp:Label ID="Label9" runat="server" Text="Barrio:" CssClass="estiloLabel" 
                     Visible="False"></asp:Label>
-            &nbsp;<asp:Label ID="lblBarrio" runat="server" Visible="False"></asp:Label>
+                &nbsp;<asp:Label ID="lblBarrio" runat="server" Visible="False"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -132,7 +132,8 @@
             <td style="width: 171px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
-                <asp:Label ID="Label11" runat="server" Text="Estado o Provincia" CssClass="estiloLabel"></asp:Label>
+                <asp:Label ID="Label11" runat="server" Text="Estado / Provincia" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="width: 105px; ">
                 <asp:Label ID="lblProvincia" runat="server"></asp:Label>
