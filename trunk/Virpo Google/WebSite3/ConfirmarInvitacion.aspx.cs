@@ -50,7 +50,7 @@ public partial class ConfirmarInvitacion : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Bandeja.aspx");
+        Response.Redirect("ConsultarBanda.aspx?P=1&C=" + int.Parse(Request.QueryString["idB"].ToString())); 
     }
     protected void Button4_Click(object sender, EventArgs e)
     {
