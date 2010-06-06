@@ -5,7 +5,6 @@
         <ul>
             <li><a href="NuevaBanda.aspx" title="Nueva Banda">Nueva Banda</a></li>
             <li><a href="MisBandas.aspx" title="Mis Bandas">Mis Bandas</a></li>
-            <li><a href="ListarUsuarios.aspx" title="Agregar Integrante">Agregar Integrante</a></li>      
             <li><a href="ListarBandas.aspx" title="Listar Bandas">Listar Bandas</a></li>
             <li><asp:Label ID="lblProyectos" runat="server"></asp:Label></li>
         </ul>
@@ -37,21 +36,9 @@
                         </td>
                         <td style="text-align: right">
                             &nbsp;</td>
-                        <td style="text-align: right">
-                            &nbsp;</td>
-                        <td style="text-align: right">
-                            &nbsp;</td>
-                        <td style="text-align: right">
-                            &nbsp;</td>
                     </tr>
                     <tr>
                         <td style="width: 135px">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
@@ -61,9 +48,6 @@
                             <asp:Label ID="Label4" runat="server" Text="Género:" CssClass="estiloLabel"></asp:Label></td>
                         <td> <asp:Label ID="lblGenero" runat="server" Font-Size="Medium"></asp:Label>
                             </td>
-                        <td> &nbsp;</td>
-                        <td> &nbsp;</td>
-                        <td> &nbsp;</td>
                     </tr>
                     <tr>
                         <td style="width: 135px">
@@ -71,12 +55,13 @@
                                 CssClass="estiloLabel" Width="82px"></asp:Label></td>
                         <td>
                             <asp:Label ID="lblPaginaWeb" runat="server"></asp:Label></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 135px">
+                            <asp:Label ID="Label6" runat="server" Text="Creador:" 
+                                CssClass="estiloLabel" Width="82px"></asp:Label></td>
                         <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
+                            <asp:Label ID="lblCreador" runat="server"></asp:Label></td>
                     </tr>
                      <tr>
                         <td style="width: 135px">
@@ -88,15 +73,6 @@
                 
                 <asp:Label ID="lblFecInicio" runat="server"></asp:Label>
                             </td>
-                        <td>
-                
-                            &nbsp;</td>
-                        <td>
-                
-                            &nbsp;</td>
-                        <td>
-                
-                            &nbsp;</td>
                     </tr>
                      <tr>
                         <td style="width: 135px">
@@ -106,23 +82,11 @@
                         <td>
                             <asp:Label ID="lblLocalidad" runat="server"></asp:Label>
                             </td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
                     </tr>
                      <tr>
                         <td style="width: 135px">
                             <asp:Label ID="lblId" runat="server" Text="Oculto" Visible="False"></asp:Label>
                          </td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
                         <td>
                             &nbsp;</td>
                     </tr>
@@ -132,11 +96,17 @@
         <tr>
             <td>
                 
+                &nbsp;</td>
+            <td style="text-align: right;" colspan="2">
+                
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                
                 <asp:Button ID="btnModificarBanda" runat="server" 
                     onclick="btnModificarBanda_Click" Text="Modificar" CssClass="botones" />
                 
-                <asp:Button ID="btnCancelar" runat="server" onclick="btnCancelar_Click" 
-                    Text="Cancelar" CssClass="botones" />
                 </td>
             <td style="text-align: right;" colspan="2">
                 
@@ -158,6 +128,19 @@
                 <asp:Label ID="lblIntegrantes"  runat="server"></asp:Label>
                 <br />
              </td>
+        </tr>
+         <tr>
+            <td colspan="3" style="text-align: left">
+                
+                <asp:Button ID="btnAgregarIntegrantes" runat="server" 
+                    onclick="btnAgregarIntegrantes_Click" Text="Invitar" 
+                    CssClass="botones" />
+                
+             </td>
+        </tr>
+         <tr>
+            <td colspan="3" style="text-align: left">
+                &nbsp;</td>
         </tr>
          <tr>
             <td colspan="3" style="background-color: #999999; text-align: center;">

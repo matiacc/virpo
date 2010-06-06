@@ -21,10 +21,14 @@ public partial class ListarUsuarios : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            if (Request.QueryString["IdBanda"] != null)
+            {
+                ViewState.Add("IdBanda", Request.QueryString["IdBanda"]);
+            }
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
-            Usuario usr = new Usuario();
-            usr=(Usuario)Session["Usuario"];
-            MetodosComunes.cargarMisBandas(ddlMisBandas, int.Parse(usr.Id.ToString()));
+            //Usuario usr = new Usuario();
+            //usr=(Usuario)Session["Usuario"];
+            //MetodosComunes.cargarMisBandas(ddlMisBandas, int.Parse(usr.Id.ToString()));
             DataTable dt = new DataTable();
             DataRow row;
             dt.Columns.Add("Id");
@@ -36,12 +40,14 @@ public partial class ListarUsuarios : System.Web.UI.Page
             usuarios = UsuarioFactory.DevolverTodos();
             foreach (Usuario usuario in usuarios)
             {
+                if (usuario.Id == ((Usuario)Session["Usuario"]).Id)
+                    continue;
                 row = dt.NewRow();
                 row["Id"] = usuario.Id;
                 row["Usuario"] = usuario.NombreUsuario;
                 row["Instrumento"] = InstrumentoFactory.Devolver(usuario.IdInstrumento).Nombre;
                 if (!string.IsNullOrEmpty(usuario.ImagenThumb))
-                    row["Imagen"] = ResolveUrl("~/ImagenesUsuario/") + usuario.ImagenThumb;
+                    row["Imagen"] = "ImagenesUsuario/" + usuario.ImagenThumb;
                 else
                     row["Imagen"] = "ImagenesSite/user_no_avatar.gif";
                 
@@ -50,7 +56,7 @@ public partial class ListarUsuarios : System.Web.UI.Page
             }
             GridView1.DataSource = dt;
             GridView1.DataBind();
-
+            GridView1.Columns[0].Visible = false;
         }
     }
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -83,8 +89,9 @@ public partial class ListarUsuarios : System.Web.UI.Page
                 //
         	    Usuario destinatario = new Usuario();
                 destinatario = UsuarioFactory.Devolver(id);
-                string banda = ddlMisBandas.Items[ddlMisBandas.SelectedIndex].Text;
-                string idBanda = ddlMisBandas.SelectedValue;
+                //string banda = ddlMisBandas.Items[ddlMisBandas.SelectedIndex].Text;
+                Banda banda = BandaFactory.Devolver(Convert.ToInt32(ViewState["IdBanda"]));
+                //string idBanda = ddlMisBandas.SelectedValue;
                 //Mensaje msj = new Mensaje();
                 //msj.Msj = txtMensaje.Text.Trim();
                 //msj.Fecha = DateTime.Now;
@@ -93,7 +100,7 @@ public partial class ListarUsuarios : System.Web.UI.Page
                 string asunto = "Virpo: Usted ha sido invitado para participar de la nueva comunidad musical!!!";
                 string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/Login.aspx?url=Bandeja.aspx";
                 //string url = "http://127.0.0.1:50753/WebSite3/Invitaciones.aspx?Id=" + idBanda;//Idbanda
-                string mensaje = "Hola <b>" + destinatario.Nombre + "</b>.<br /><br />Ha sido invitado para formar parte de la banda <b>"+ banda+ "</b>.<br />" +
+                string mensaje = "Hola <b>" + destinatario.Nombre + "</b>.<br /><br />Ha sido invitado para formar parte de la banda <b>" + banda.Nombre+ "</b>.<br />" +
                                  "Ingrese a su bandeja de entrada de Virpo: <br /><br /><a href='" + url + " '>Virpo Web</a><br /><br />";
                 mensaje += "Mensaje:<br /><br />" + txtMensaje.Text.Trim(); ;
                 if (EnviarMail.Mande("Virpo", destinatario.EMail, asunto, mensaje))
@@ -103,7 +110,7 @@ public partial class ListarUsuarios : System.Web.UI.Page
                 bande.UsrDestinatario = id;
                 bande.UsrRemitente = int.Parse(((Usuario)Session["Usuario"]).Id.ToString());
                 bande.Fecha = DateTime.Now;
-                bande.IdBanda = int.Parse(idBanda.ToString());
+                bande.IdBanda = banda.Id;
                 bande.IdAviso = 0;
                 bande.AvisoMotivo = "NULL";
                 bande.IdGrupo = 0;
@@ -124,5 +131,9 @@ public partial class ListarUsuarios : System.Web.UI.Page
                          message +
                         "')</SCRIPT>";
         ClientScript.RegisterClientScriptBlock(this.GetType(), "buscar", jscript);
+    }
+    protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
+    {
+
     }
 }

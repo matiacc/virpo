@@ -130,6 +130,8 @@ namespace CapaNegocio.Factories
             }
         }
 
+        
+
         #region Insertar
         /// <summary>
         /// Alta de un registro sin transaccion

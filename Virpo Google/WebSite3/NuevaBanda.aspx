@@ -7,8 +7,6 @@
         <ul>
             <li><a href="NuevaBanda.aspx" title="Nueva Banda">Nueva Banda</a></li>
             <li><a href="MisBandas.aspx" title="Mis Bandas">Mis Bandas</a></li>
-            <li><a href="ListarUsuarios.aspx" title="Agregar Integrante">Agregar Integrante</a></li>
-           
             <li><a href="ListarBandas.aspx" title="Listar Bandas">Listar Bandas</a></li>
         </ul>
     </div>
