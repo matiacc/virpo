@@ -167,4 +167,8 @@ public partial class _Default : System.Web.UI.Page
                         "')</SCRIPT>";
         ClientScript.RegisterStartupScript(this.GetType(), "buscar", jscript);
     }
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("inicio.aspx");
+    }
 }

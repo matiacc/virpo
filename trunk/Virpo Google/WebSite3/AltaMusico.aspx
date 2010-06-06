@@ -23,67 +23,72 @@
                 <tituloSubVentana>Registrar Musico</tituloSubVentana></center></td>
         </tr>
         <tr>
-            <td style="width: 187px">
+            <td style="width: 295px">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 187px">
+            <td style="width: 295px">
                 <asp:Label ID="lblUsuario" runat="server" Text="Usuario:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
-                <asp:TextBox ID="txtUsuario" runat="server" Width="339px"></asp:TextBox>
+            <td><div class="loginboxdiv">
+                <asp:TextBox ID="txtUsuario" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 187px">
+            <td style="width: 295px">
                 <asp:Label ID="lblPassword" runat="server" Text="Password:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
-                <asp:TextBox ID="txtPassword" runat="server" Width="339px" TextMode="Password"></asp:TextBox>
+            <td><div class="loginboxdiv">
+                <asp:TextBox ID="txtPassword" runat="server" Width="127px" TextMode="Password" 
+                    CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 187px">
+            <td style="width: 295px">
                 <asp:Label ID="lblInstrumento" runat="server" Text="Instrumento:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="text-align: left">
-                <asp:DropDownList ID="ddlInstrumento" runat="server" Width="339px">
+                <asp:DropDownList ID="ddlInstrumento" runat="server" Width="145px">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td style="width: 187px">
+            <td style="width: 295px">
                 <asp:Label ID="lblNombre" runat="server" Text="Nombre:" CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
-                <asp:TextBox ID="txtNombre" runat="server" Width="339px"></asp:TextBox>
+            <td><div class="loginboxdiv">
+                <asp:TextBox ID="txtNombre" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 187px">
+            <td style="width: 295px">
                 <asp:Label ID="lblApellido" runat="server" Text="Apellido:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
-                <asp:TextBox ID="txtApellido" runat="server" Width="339px"></asp:TextBox>
+            <td><div class="loginboxdiv">
+                <asp:TextBox ID="txtApellido" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 187px">
+            <td style="width: 295px">
                 <asp:Label ID="lblSexo" runat="server" Text="Sexo:" CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="text-align: left">
-                <asp:DropDownList ID="ddlSexo" runat="server" Width="339px">
+                <asp:DropDownList ID="ddlSexo" runat="server" Width="145px">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td style="width: 187px">
+            <td style="width: 295px">
                 <asp:Label ID="lblFecNac" runat="server" Text="Fecha de Nacimiento:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
@@ -92,83 +97,90 @@
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlMes" runat="server" Width="40px">
                 </asp:DropDownList>
-                <asp:DropDownList ID="ddlAnio" runat="server" Width="75px">
+                <asp:DropDownList ID="ddlAnio" runat="server" Width="57px">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td style="width: 187px; height: 19px">
+            <td style="width: 295px; height: 19px">
                 <asp:Label ID="lblTelFijo" runat="server" Text="Telefono:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="height: 19px">
-                <asp:TextBox ID="txtTelFijo" runat="server" Width="339px"></asp:TextBox>
+            <div class="loginboxdiv">
+                <asp:TextBox ID="txtTelFijo" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 187px">
+            <td style="width: 295px">
                 <asp:Label ID="lblTelMovil" runat="server" Text="Teléfono Móvil:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
-                <asp:TextBox ID="txtTelMovil" runat="server" Width="339px"></asp:TextBox>
+            <td><div class="loginboxdiv">
+                <asp:TextBox ID="txtTelMovil" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 187px">
+            <td style="width: 295px">
                 <asp:Label ID="lblEmail" runat="server" Text="Email:" CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
-                <asp:TextBox ID="txtEmail" runat="server" Width="339px"></asp:TextBox>
+            <td><div class="loginboxdiv">
+                <asp:TextBox ID="txtEmail" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 187px; height: 28px;">
+            <td style="width: 295px; height: 28px;">
                 <asp:Label ID="Label14" runat="server" Text="Provincia:" CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="text-align: left" rowspan="2">
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
                         <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" 
-                    onselectedindexchanged="ddlProvincia_SelectedIndexChanged">
+                    onselectedindexchanged="ddlProvincia_SelectedIndexChanged" Width="145px">
                         </asp:DropDownList>
                         <br>
-                        <asp:DropDownList ID="ddlLocalidad" runat="server">
+                        <asp:DropDownList ID="ddlLocalidad" runat="server" Width="145px">
                         </asp:DropDownList>
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </td>
         </tr>
         <tr>
-            <td style="width: 187px">
+            <td style="width: 295px">
                 <asp:Label ID="Label15" runat="server" Text="Localidad:" CssClass="estiloLabel"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td style="width: 187px">
+            <td style="width: 295px">
                 <asp:Label ID="Label16" runat="server" Text="Barrio:" CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
-                <asp:TextBox ID="txtBarrio" runat="server" Width="339px"></asp:TextBox>
+            <td> <div class="loginboxdiv">
+                <asp:TextBox ID="txtBarrio" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 187px">
+            <td style="width: 295px">
                 <asp:Label ID="lblFoto" runat="server" Text="Foto:" CssClass="estiloLabel"></asp:Label>
             </td>
             <td>
-                <asp:FileUpload ID="uploadImagen" runat="server" />
+                <asp:FileUpload ID="uploadImagen" runat="server" Width="150px" />
             </td>
         </tr>
         <tr>
-            <td style="width: 187px">
+            <td style="width: 295px">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 187px">
-                &nbsp;</td>
+            <td style="width: 295px">
+                <asp:Button ID="Button2" runat="server" CausesValidation="False" 
+                    CssClass="botones" onclick="Button2_Click" Text="Cancelar" />
+            </td>
             <td style="text-align: right">
                 <asp:Button ID="Button1" runat="server" Text="Registrar" 
                     onclick="Button1_Click" CssClass="botones" />
