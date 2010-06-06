@@ -52,6 +52,8 @@ public partial class ConsultarBanda : System.Web.UI.Page
             if(creador != null)
                 lblCreador.Text = "<a href='PerfilPublico.aspx?Id=" + creador.Id + "' title='" + creador.NombreUsuario + "'>" + creador.NombreUsuario + "</a>";
 
+            if (Session["Usuario"] == null)
+                btnDenunciar.Visible = false;
             //if (Convert.ToInt32(Request.QueryString["P"]) == 1) //No es el creador
             //{
             //    btnModificarBanda.Visible = false;
@@ -176,7 +178,7 @@ public partial class ConsultarBanda : System.Web.UI.Page
             Usuario usr = new Usuario();
             usr = (Usuario)Session["Usuario"];
             Denuncia denuncia = new Denuncia();
-            denuncia.IdDenunciante = (int)usr.Id;
+            denuncia.IdDenunciante = Convert.ToInt32(usr.Id);
             denuncia.UsrDenunciante = usr.NombreUsuario.ToString();
             denuncia.Url = Request.Url.ToString().Substring(Request.Url.ToString().LastIndexOf('/') + 1);
             denuncia.Descripcion = lblNombre.Text.ToString();
