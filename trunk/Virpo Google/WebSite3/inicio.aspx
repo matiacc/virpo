@@ -44,8 +44,9 @@
             <center>
                 <h2>
                     &nbsp;Click
-                    <asp:HyperLink ID="HyperLink1" runat="server" ForeColor="#99CCFF" NavigateUrl="~/AltaMusico.aspx"> 
-                    aquí
+                    <asp:HyperLink ID="HyperLink1" runat="server" ForeColor="#CC3300" 
+                        NavigateUrl="~/AltaMusico.aspx"> 
+                     aquí
                     </asp:HyperLink>
                     &nbsp;para registrarte
                 </h2>
@@ -56,8 +57,9 @@
                     <center>
                         <h3>
                             &nbsp;Tu negocio tiene un lugar en Virpo,
-                            <asp:HyperLink ID="HyperLink2" runat="server" ForeColor="#99CCFF" NavigateUrl="~/AltaPublicidad.aspx"> 
-                            Publicitá
+                            <asp:HyperLink ID="HyperLink2" runat="server" ForeColor="#CC3300" 
+                                NavigateUrl="~/AltaPublicidad.aspx"> 
+                             Publicitá
                             </asp:HyperLink>
                            
                         </h3>
