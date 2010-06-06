@@ -34,8 +34,7 @@
             </td>
             <td style="width: 291px; height: 20px;">
                 <div class="loginboxdiv">
-                 <asp:TextBox ID="txtNombre" runat="server" Width="127px" CssClass="loginbox" 
-                    Height="29px"></asp:TextBox></div>
+                 <asp:TextBox ID="txtNombre" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox></div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                     ControlToValidate="txtNombre" ErrorMessage="*"></asp:RequiredFieldValidator>
             </td>
@@ -68,7 +67,7 @@
             <td style="width: 291px">
                 <div class="loginboxdiv">
                     <asp:TextBox ID="txtGenero" runat="server"  autocomplete="off"  
-                    Width="127px" CssClass="loginbox" Height="22px"></asp:TextBox></div>
+                    Width="127px" CssClass="loginbox"></asp:TextBox></div>
                 
                 <br />
             </td>
