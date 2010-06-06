@@ -33,6 +33,7 @@ public partial class ListarBandas : System.Web.UI.Page
             GridView1.DataBind();
             ViewState.Add("SortExpression", "Fecha Inicio");
             ViewState.Add("SortDirection", "DESC");
+            GridView1.Columns[0].Visible = false;
         }
     }
 

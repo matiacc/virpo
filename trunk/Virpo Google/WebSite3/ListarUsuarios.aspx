@@ -1,12 +1,10 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="ListarUsuarios.aspx.cs" Inherits="ListarUsuarios" Title="Página sin título" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div id="menu8">
+    <div id="menu8">
         <ul>
               <li><a href="NuevaBanda.aspx" title="Nueva Banda">Nueva Banda</a></li>
             <li><a href="MisBandas.aspx" title="Mis Bandas">Mis Bandas</a></li>
-            <li><a href="ListarUsuarios.aspx" title="Agregar Integrante">Agregar Integrante</a></li>
-           
             <li><a href="ListarBandas.aspx" title="Listar Bandas">Listar Bandas</a></li>
         </ul>
     </div>
@@ -30,7 +28,8 @@
     
     <asp:GridView ID="GridView1" runat="server"
     AutoGenerateColumns="False" CssClass="GridViewStyle" GridLines="None" 
-                    onrowcommand="GridView1_RowCommand" Width="519px">
+                    onrowcommand="GridView1_RowCommand" Width="519px" AllowPaging="True" 
+                                    onsorting="GridView1_Sorting">
         <Columns>
             <asp:BoundField DataField="Id" ReadOnly="True" ShowHeader="False" />
             <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
@@ -61,13 +60,6 @@
                         <tr>
                             <td colspan="2">
                                 &nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-        Banda:&nbsp;
-                <asp:DropDownList ID="ddlMisBandas" runat="server">
-                </asp:DropDownList>
-                            </td>
                         </tr>
                         <tr>
                             <td colspan="2">

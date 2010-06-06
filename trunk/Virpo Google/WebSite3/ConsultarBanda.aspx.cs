@@ -38,11 +38,31 @@ public partial class ConsultarBanda : System.Web.UI.Page
 
 
             Banda banda = BandaFactory.Devolver(Convert.ToInt32(Request.QueryString["C"]));
-            if (Convert.ToInt32(Request.QueryString["P"]) == 1) btnModificarBanda.Visible = false;
+            Usuario creador = UsuarioFactory.DevolverCreadorDeBanda(banda.Id);
+            if (Session["Usuario"] != null && creador != null && ((Usuario)Session["Usuario"]).Id == creador.Id)
+            {
+                btnModificarBanda.Visible = true;
+                btnAgregarIntegrantes.Visible = true;
+            }
+            else
+            {
+                btnModificarBanda.Visible = false;
+                btnAgregarIntegrantes.Visible = false;
+            }
+            if(creador != null)
+                lblCreador.Text = "<a href='PerfilPublico.aspx?Id=" + creador.Id + "' title='" + creador.NombreUsuario + "'>" + creador.NombreUsuario + "</a>";
+
+            //if (Convert.ToInt32(Request.QueryString["P"]) == 1) //No es el creador
+            //{
+            //    btnModificarBanda.Visible = false;
+            //    btnAgregarIntegrantes.Visible = false;
+            //}
             lblId.Text = banda.Id.ToString();
             lblNombre.Text = banda.Nombre;
             lblGenero.Text = banda.Genero.Nombre;
-            lblPaginaWeb.Text = banda.PaginaWeb;
+            if (!banda.PaginaWeb.StartsWith("http"))
+                banda.PaginaWeb = "http://" + banda.PaginaWeb;
+            lblPaginaWeb.Text = "<a href='" + banda.PaginaWeb + "' target='_blank'>" + banda.PaginaWeb + "</a>";
             lblFecInicio.Text = banda.FechaInicio.ToShortDateString();
             lblLocalidad.Text = banda.Localidad.Nombre;
             Image1.ImageUrl = ResolveUrl("./ImagenesBandas/") + banda.Imagen;
@@ -65,10 +85,10 @@ public partial class ConsultarBanda : System.Web.UI.Page
         Session["DatosBanda"] = banda;
         Response.Redirect("ModificarBanda.aspx");
     }
-    protected void btnCancelar_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ListarBandas.aspx");
-    }
+    //protected void btnCancelar_Click(object sender, EventArgs e)
+    //{
+    //    Response.Redirect("ListarBandas.aspx");
+    //}
     private void CargarIntegrantes(int idBanda)
     {
         List<Usuario> usuarios = UsuarioFactory.DevolverIntegrantesaDeBanda(idBanda);
@@ -167,5 +187,9 @@ public partial class ConsultarBanda : System.Web.UI.Page
 
             bool ok = DenunciaFactory.Insertar(denuncia);
         }
+    }
+    protected void btnAgregarIntegrantes_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ListarUsuarios.aspx?IdBanda=" + lblId.Text);
     }
 }
