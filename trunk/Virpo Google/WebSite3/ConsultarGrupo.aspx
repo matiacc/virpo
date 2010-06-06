@@ -51,15 +51,6 @@ window.opener.location.reload();
                 </td>
 
         </tr>
-        <tr>
-        <td>
-        </td>
-            <td colspan="2" style="text-align: right;" valign="top">
-                <asp:Button ID="btUnirme" runat="server" Text="Unirme!" 
-                    onclick="btUnirme_Click" CssClass="botones" Width="120px" />
-
-                </td>
-        </tr>
         <%--<tr>
             <td colspan="3" align="right">
                
@@ -81,9 +72,9 @@ window.opener.location.reload();
             <td>
                 <asp:Label ID="lblCreador" runat="server"></asp:Label>
             </td>
-            <td rowspan="9" style="text-align: center">
+            <td rowspan="9" style="text-align: right">
                 <asp:Image ID="imgGrupo"  runat="server" style="margin-left: 0px;" 
-                    Width="230px" Height="200px"/>
+                    Width="230px" Height="230px" BorderStyle="Ridge" BorderWidth="2px"/>
                 <br />
             </td>
         </tr>
@@ -172,15 +163,13 @@ window.opener.location.reload();
             </td>
             <td align="right">
 
+                <asp:Button ID="btUnirme" runat="server" Text="Unirme!" 
+                    onclick="btUnirme_Click" CssClass="botones" Width="120px" />
+
                 <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
-                    Width="120px" onclick="btnDenunciar_Click" />
+                    Width="110px" onclick="btnDenunciar_Click" />
             
             </td>
-        </tr>
-        <tr>
-            <td colspan="3" align="center" style="text-align: right">
-
-                &nbsp;</td>
         </tr>
         </table>
                  <asp:Button ID="Button2" runat="server" Text="False" Style="display: none;" />
