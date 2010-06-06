@@ -105,7 +105,7 @@
         </tr>
         <tr>
             <td>
-                <asp:Label ID="Label5" runat="server" Text="Provincia:"></asp:Label>
+                <asp:Label ID="Label5" runat="server" Text="Prov./Edo.:"></asp:Label>
             </td>
         </tr>
         <tr>
