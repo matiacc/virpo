@@ -198,4 +198,8 @@ public partial class _Default : System.Web.UI.Page
     {
         Response.Redirect("Bandas.aspx");
     }
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Bandas.aspx");
+    }
 }

@@ -35,7 +35,10 @@
                 <asp:Label ID="lblNombre" runat="server" Text="Nombre:" CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="text-align: left">
-                <asp:TextBox ID="txtNombreBanda" runat="server" Width="297px" Style="margin-bottom: 0px"></asp:TextBox>
+            <div class="loginboxdiv">
+                <asp:TextBox ID="txtNombreBanda" runat="server" Width="127px" 
+                    Style="margin-bottom: 0px" CssClass="loginbox"></asp:TextBox>
+                    </div>
             </td>
         </tr>
         <tr>
@@ -43,7 +46,8 @@
                 <asp:Label ID="lblGenero" runat="server" Text="Género" CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="text-align: left; margin-left: 40px;">
-                <asp:DropDownList ID="ddlGenero" runat="server" Style="text-align: left">
+                <asp:DropDownList ID="ddlGenero" runat="server" Style="text-align: left" 
+                   Width="145px">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -56,7 +60,7 @@
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlMes" runat="server">
                 </asp:DropDownList>
-                <asp:DropDownList ID="ddlAnio" runat="server">
+                <asp:DropDownList ID="ddlAnio" runat="server" Width="60px">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -70,20 +74,21 @@
                         <table class="style1">
                             <tr>
                                 <td>
-                                    <asp:DropDownList ID="ddlPais" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlPais_SelectedIndexChanged">
+                                    <asp:DropDownList ID="ddlPais" runat="server" AutoPostBack="True" 
+                                        OnSelectedIndexChanged="ddlPais_SelectedIndexChanged" Width="145px">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="height: 29px">
                                     <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" Height="22px"
-                                        OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged">
+                                        OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" Width="145px">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:DropDownList ID="ddlLocalidad" runat="server">
+                                    <asp:DropDownList ID="ddlLocalidad" runat="server" Width="145px">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -107,7 +112,9 @@
                 <asp:Label ID="lblSitioWeb" runat="server" Text="Sitio web:" CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="text-align: left">
-                <asp:TextBox ID="txtSitioWeb" runat="server" Width="297px"></asp:TextBox>
+            <div class="loginboxdiv">
+                <asp:TextBox ID="txtSitioWeb" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
             </td>
         </tr>
         <tr>
@@ -124,9 +131,14 @@
                     CssClass="estiloLabel"></asp:Label>
                 <br />
                 <br />
+                <br />
+                <br />
+                <br />
             </td>
             <td style="height: 19px">
-                <asp:TextBox ID="txtVideo" runat="server" Width="127px"></asp:TextBox>
+            <div class="loginboxdiv">
+                <asp:TextBox ID="txtVideo" runat="server" Width="127px" CssClass="loginbox"></asp:TextBox>
+                </div>
                 <br>
                 <asp:Label ID="Label1" runat="server" 
                     Text="Introducir el texto que sigue al signo = de la url, ej: http://www.youtube.com/watch?v=" 
@@ -140,11 +152,13 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 248px; height: 19px">
+            <td style="width: 450px; height: 19px">
+                <asp:Button ID="Button4" runat="server" CssClass="botones" 
+                    onclick="Button4_Click" Text="Cancelar" />
             </td>
             <td style="height: 19px; text-align: right;">
-                <asp:Button ID="btnCrearBanda" runat="server" CssClass="botones" Text="Crear Banda"
-                    Width="148px" OnClick="Button3_Click" />
+                <asp:Button ID="btnCrearBanda" runat="server" CssClass="botones" 
+                    Text="Crear Banda" OnClick="Button3_Click" />
             </td>
         </tr>
     </table>
