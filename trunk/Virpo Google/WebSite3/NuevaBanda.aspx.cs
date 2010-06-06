@@ -91,50 +91,54 @@ public partial class _Default : System.Web.UI.Page
         Localidad loc = new Localidad();
         Usuario usu = (Usuario)Session["Usuario"];
         DateTime fecSis = DateTime.Now;
-
-        banda.Nombre = txtNombreBanda.Text.Trim();
-        gen.Id = int.Parse(ddlGenero.SelectedValue);
-        banda.Genero = gen;
-        banda.FechaInicio = DateTime.Parse(ddlDia.Text + "/" + ddlMes.Text + "/" + ddlAnio.Text);
-        loc.Id = int.Parse(ddlLocalidad.SelectedValue);
-        banda.Localidad = loc;
-        banda.PaginaWeb = txtSitioWeb.Text.Trim();
-        string thumb = "";
-        string path = this.GuardarImagen(out thumb);
-        banda.Imagen = path;
-        banda.ImagenThumb = thumb;
-        banda.Descripcion = "";
-        banda.FecSistema = fecSis;
-        banda.Video = txtVideo.Text;
-        if (BandaFactory.Insertar(banda))
+        try
         {
-            mxbanda.IdUsuario = usu.Id;
-            mxbanda.IdBanda = MusicoXBandaFactory.DevolverIdBandaCreada(fecSis);
-            mxbanda.Creador = true;
-            mxbanda.FecAgregado = fecSis;
-            if (MusicoXBandaFactory.Insertar(mxbanda))
+            banda.Nombre = txtNombreBanda.Text.Trim();
+            gen.Id = int.Parse(ddlGenero.SelectedValue);
+            banda.Genero = gen;
+            banda.FechaInicio = Convert.ToDateTime(ddlDia.Text + "/" + ddlMes.Text + "/" + ddlAnio.Text);
+            loc.Id = int.Parse(ddlLocalidad.SelectedValue);
+            banda.Localidad = loc;
+            banda.PaginaWeb = txtSitioWeb.Text.Trim();
+            string thumb = "";
+            string path = this.GuardarImagen(out thumb);
+            banda.Imagen = path;
+            banda.ImagenThumb = thumb;
+            banda.Descripcion = "";
+            banda.FecSistema = fecSis;
+            banda.Video = txtVideo.Text;
+            if (BandaFactory.Insertar(banda))
             {
-                Panel1_ModalPopupExtender.Show();
+                mxbanda.IdUsuario = usu.Id;
+                mxbanda.IdBanda = MusicoXBandaFactory.DevolverIdBandaCreada(fecSis);
+                mxbanda.Creador = true;
+                mxbanda.FecAgregado = fecSis;
+                if (MusicoXBandaFactory.Insertar(mxbanda))
+                {
+                    Panel1_ModalPopupExtender.Show();
+                }
+
+                //            if(MusicoXBandaFactory.Insertar(mxbanda)) 
+                //            {mzbanda.IdUsuario = 5;
+                //                mzbanda.IdBanda = MusicoXBandaFactory.DevolverIdBandaCreada(fecSis);
+                //                mzbanda.Creador = false;
+                //                mzbanda.FecAgregado = fecSis;
+                //                MusicoXBandaFactory.Insertar(mzbanda);
+                //                Response.Redirect("Bandas.aspx");
+                //            }
+
+                //            if(MusicoXBandaFactory.Insertar(mxbanda)) 
+                //            {mzbanda.IdUsuario = 5;
+                ////                mzbanda.IdBanda = MusicoXBandaFactory.DevolverIdBandaCreada(fecSis);
+                //                mzbanda.Creador = false;
+                //                mzbanda.FecAgregado = fecSis;
+                //                MusicoXBandaFactory.Insertar(mzbanda);
+                //                Response.Redirect("Bandas.aspx");
+                //            }
             }
-
-//            if(MusicoXBandaFactory.Insertar(mxbanda)) 
-//            {mzbanda.IdUsuario = 5;
-//                mzbanda.IdBanda = MusicoXBandaFactory.DevolverIdBandaCreada(fecSis);
-//                mzbanda.Creador = false;
-//                mzbanda.FecAgregado = fecSis;
-//                MusicoXBandaFactory.Insertar(mzbanda);
-//                Response.Redirect("Bandas.aspx");
-//            }
-
-//            if(MusicoXBandaFactory.Insertar(mxbanda)) 
-//            {mzbanda.IdUsuario = 5;
-////                mzbanda.IdBanda = MusicoXBandaFactory.DevolverIdBandaCreada(fecSis);
-//                mzbanda.Creador = false;
-//                mzbanda.FecAgregado = fecSis;
-//                MusicoXBandaFactory.Insertar(mzbanda);
-//                Response.Redirect("Bandas.aspx");
-//            }
         }
+        catch{}
+        
 
     }
     private string GuardarImagen(out string thumb)

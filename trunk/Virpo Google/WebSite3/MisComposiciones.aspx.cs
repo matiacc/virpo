@@ -39,7 +39,7 @@ public partial class _Default : System.Web.UI.Page
                 if (dt.Rows.Count == 0)
                 {
                     Label2.Visible = true;
-                    Label2.Text = "No hay canciones terminadas";
+                    Label2.Text = "No hay canciones finalizadas.";
                 }
                 else
                 {
@@ -47,7 +47,7 @@ public partial class _Default : System.Web.UI.Page
                     GridView1.DataBind();
                     GridView1.Columns[5].Visible = false;
                     GridView1.Columns[8].Visible = false;
-                    prueba.InnerText = "Canciones Terminadas";
+                    prueba.InnerText = "Canciones Finalizadas";
                 }
             }
             else

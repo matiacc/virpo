@@ -82,7 +82,10 @@ public partial class ListarBandas : System.Web.UI.Page
                 row["Nombre"] = banda.Nombre;
                 row["Genero"] = banda.Genero.Nombre;
                 row["Fecha Inicio"] = banda.FechaInicio.ToShortDateString();
-                row["Pagina Web"] = banda.PaginaWeb;
+                if (banda.PaginaWeb.Length > 6)
+                    row["Pagina Web"] = banda.PaginaWeb.Remove(5) + "...";
+                else
+                    row["Pagina Web"] = banda.PaginaWeb;
                 row["Localidad"] = banda.Localidad.Nombre;
                 dt.Rows.Add(row);
             }

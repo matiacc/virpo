@@ -38,8 +38,8 @@ public partial class popupContactarVendedor : System.Web.UI.Page
         msj.Remitente = remitente;
         string asunto = "Virpo: " + txtAsunto.Text;
         //string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/inicio.aspx";
-        string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/Login.aspx?url=MisAvisosClasificados.aspx";
-        string mensaje = "Hola <b>" + aviso.Dueño.Nombre + "</b>, te hicieron una pregunta sobre el aviso que publicaste en Virpo.<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
+        string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/Login.aspx?url=Bandeja.aspx";
+        string mensaje = "Hola <b>" + aviso.Dueño.Nombre + "</b>, te hicieron una pregunta sobre el aviso <b>" + aviso.Descripcion + "</b> que publicaste en Virpo.<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
         mensaje += txtMensaje.Text.Trim();
         EnviarMail.Mande("Virpo", aviso.Dueño.EMail, asunto , mensaje);
         if (MensajeFactory.Insertar(msj))

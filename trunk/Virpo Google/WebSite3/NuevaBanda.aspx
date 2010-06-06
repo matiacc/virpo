@@ -9,7 +9,7 @@
             <li><a href="MisBandas.aspx" title="Mis Bandas">Mis Bandas</a></li>
             <li><a href="ListarUsuarios.aspx" title="Agregar Integrante">Agregar Integrante</a></li>
            
-            <li><a href="ListarBandas.aspx" title="Agregar Integrante">Listar Bandas</a></li>
+            <li><a href="ListarBandas.aspx" title="Listar Bandas">Listar Bandas</a></li>
         </ul>
     </div>
 </asp:Content>
@@ -42,7 +42,7 @@
         </tr>
         <tr>
             <td style="width: 200px">
-                <asp:Label ID="lblGenero" runat="server" Text="Genero:" CssClass="estiloLabel"></asp:Label>
+                <asp:Label ID="lblGenero" runat="server" Text="Género" CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="text-align: left; margin-left: 40px;">
                 <asp:DropDownList ID="ddlGenero" runat="server" Style="text-align: left">
@@ -64,7 +64,7 @@
         </tr>
         <tr>
             <td style="width: 248px">
-                <asp:Label ID="lblPais" runat="server" Text="Pais:" CssClass="estiloLabel"></asp:Label>
+                <asp:Label ID="lblPais" runat="server" Text="País:" CssClass="estiloLabel"></asp:Label>
             </td>
             <td rowspan="3">
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
