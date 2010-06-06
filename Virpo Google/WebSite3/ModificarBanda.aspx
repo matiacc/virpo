@@ -135,15 +135,15 @@
         </tr>
         <tr>
             <td>
-                <asp:Button ID="btnGuardar" runat="server" OnClick="btnGuardar_Click" 
-                    Text="Guardar" CssClass="botones" />
+                <asp:Button ID="btnCancelar" runat="server" OnClick="btnCancelar_Click" 
+                    Text="Cancelar" CssClass="botones" />
                 </td>
             <td>
                 &nbsp;
             </td>
             <td style="text-align: right">
-                <asp:Button ID="btnCancelar" runat="server" OnClick="btnCancelar_Click" 
-                    Text="Cancelar" CssClass="botones" />
+                <asp:Button ID="btnGuardar" runat="server" OnClick="btnGuardar_Click" 
+                    Text="Guardar" CssClass="botones" />
             </td>
         </tr>
     </table>
