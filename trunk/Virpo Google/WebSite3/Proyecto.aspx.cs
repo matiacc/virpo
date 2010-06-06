@@ -137,11 +137,11 @@ public partial class Proyecto : System.Web.UI.Page
         }
         else if (ProyectoFactory.InsertarUsuarioXProyecto(((Usuario)Session["Usuario"]).Id, (int)ViewState["idProyecto"], false))
         {
-            string asunto = "Virpo: Un Músico se ha unido a tu proyecto!!!";
+            string asunto = "Virpo: Un Musico se ha unido a tu proyecto!!!";
             string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/inicio.aspx";
             //string url = "http://127.0.0.1:50753/WebSite3/inicio.aspx";
             //DEVOLVER NOMBRE Y EMAIL DEL CREADOR
-            string mensaje = "Hola <b>" + ViewState["nombreCreador"].ToString() + "</b>, un Músico se ha unido a tu proyecto Virpo <b>" + lblNombre.Text + "</b> y pronto comenzará a colaborar.<br /><br />Ingresa al sitio para mas informacion:<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
+            string mensaje = "Hola <b>" + ViewState["nombreCreador"].ToString() + "</b>, un Musico se ha unido a tu proyecto Virpo <b>" + lblNombre.Text + "</b> y pronto comenzara a colaborar.<br /><br />Ingresa al sitio para mas informacion:<br /><br /><a href='" + url + " '>Virpo Web</a><br /><br /><br />";
             EnviarMail.Mande("Virpo", ViewState["mailCreador"].ToString(), asunto, mensaje);
 
             BandejaDeEntrada bande = new BandejaDeEntrada();

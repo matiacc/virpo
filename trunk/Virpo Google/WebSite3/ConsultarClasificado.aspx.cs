@@ -202,7 +202,7 @@ public partial class ConsultarClasificado : System.Web.UI.Page
         userDestinatario = UsuarioFactory.Devolver(idUserDestinatario);
         string asunto = "Su mensaje sobre el Aviso Clasificado ha sido respondido";
         //string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/MisAvisosClasificados.aspx?Aviso=" + idMsj;
-        string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/Login.aspx?url=ConsultarClasificado.aspx?C=" + ViewState["IdAviso"].ToString();
+        string url = Request.Url.ToString().Remove(Request.Url.ToString().LastIndexOf('/')) + "/Login.aspx?url=Bandeja.aspx";
         //string url = "http://127.0.0.1:50753/WebSite3/inicio.aspx";
         string mensaje = "Han respondido su mensaje sobre el Aviso Clasificado. Ingrese a su bandeja de entrada de Virpo: <br /><br /><a href='" + url + " '>Virpo Web</a>";
         string query = "UPDATE Mensaje " +
