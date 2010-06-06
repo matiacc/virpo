@@ -178,10 +178,12 @@
         </tr>
         <tr>
             <td style="width: 129px">
-                &nbsp;</td>
-            <td style="width: 291px">
+                <asp:Button ID="Button1" runat="server" CssClass="botones" 
+                    onclick="Button1_Click" Text="Cancelar" />
+            </td>
+            <td style="width: 291px; text-align: right;">
                 <asp:Button ID="btCrear" runat="server" Text="Crear!" onclick="btCrear_Click" 
-                    CssClass="botones" Width="75px" />
+                    CssClass="botones" />
             </td>
         </tr>
     </table>

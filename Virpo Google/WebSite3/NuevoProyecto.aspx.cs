@@ -144,4 +144,8 @@ public partial class NuevoProyecto : System.Web.UI.Page
 
         return items.ToArray();
     }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Proyectos.aspx");
+    }
 }
