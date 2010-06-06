@@ -17,16 +17,16 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            if (Request.QueryString["e"] != null)
+            if (Request.QueryString["Logout"] != null)
+                Session.Clear();
+            else if (Request.QueryString["e"] != null)
             {
-                if (Request.QueryString["e"].ToString() == "1") Login1.FailureText = "Debe ser Administrador o Priodista para poder ingresar.";
+                if (Request.QueryString["e"].ToString() == "1") Login1.FailureText = "Debe ser Administrador o Periodista para poder ingresar.";
             }
+            else if (Session["UsuarioAdmin"] != null)
+                Response.Redirect("AdminHome.aspx");
         }
-        if (Request.QueryString["Logout"] != null)
-        {
-            Session.Clear();
-
-        }
+        
     }
     protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
     {        

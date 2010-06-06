@@ -3,7 +3,7 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div id="menu8">
+    <div id="menu8">
         <ul>
             <li><a href="AdminHome.aspx" title="Home Administración">Home</a></li>
         </ul>
@@ -29,7 +29,7 @@ location.href=pagina+idDen+"&baj="+baj
 <center style="width: 532px; background-color: #333333"><tituloSubVentana>
                   <asp:Label ID="lblTituloDenuncias" runat="server" Text="Denuncias"></asp:Label></tituloSubVentana></center>
                   
-
+<br /><br />
 <table class="style1">
         <tr>
             <td>

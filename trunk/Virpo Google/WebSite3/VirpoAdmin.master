@@ -126,7 +126,7 @@
 &nbsp;&nbsp;&nbsp;<asp:HyperLink 
               ID="hlNombreUsuario" runat="server" Font-Bold="True">Bienvenido!</asp:HyperLink>
           &nbsp;<asp:HyperLink ID="hlinkIniciarSesion" runat="server" 
-                  NavigateUrl="~/admin.aspx">Iniciar 
+                  NavigateUrl="?Logout=true">Iniciar 
           Sesion</asp:HyperLink>
 <%--          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
           </div>
