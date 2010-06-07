@@ -12,9 +12,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <table style="width: 100%">
                         <tr>
-                            <td colspan="2">
+                            <td colspan="2" runat="server" id="tdTitulo">
                                 <center style="width: 522px; background-color: #333333">
-                                    <tituloSubVentana>Agregar Integrantes</tituloSubVentana></center>
+                                    <tituloSubVentana>Invitar Integrantes</tituloSubVentana></center>
                             </td>
                         </tr>
                         <tr>

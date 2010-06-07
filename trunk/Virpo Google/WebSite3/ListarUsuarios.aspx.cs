@@ -61,6 +61,10 @@ public partial class ListarUsuarios : System.Web.UI.Page
             GridView1.DataSource = dt;
             GridView1.DataBind();
             GridView1.Columns[0].Visible = false;
+            Banda banda = BandaFactory.Devolver(Convert.ToInt32(ViewState["IdBanda"]));
+            if (banda != null)
+                tdTitulo.InnerHtml = "<center style='width: 522px; background-color: #333333'>" +
+                                    "<tituloSubVentana>" + banda.Nombre + ": Invitar Integrantes</tituloSubVentana></center>";
         }
     }
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
