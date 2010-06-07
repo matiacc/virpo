@@ -32,19 +32,13 @@ window.opener.location.reload();
             </td>
         </tr>
         <tr>
-            <td style="width: 141px;" rowspan="12">
+            <td style="width: 141px;" rowspan="11">
                 <asp:Image ID="Image1" runat="server" Height="300px" Width="300px" />
                 <br />
                 <asp:Button ID="btUnirse" runat="server" CssClass="botones" Text="Unirse al Proyecto"
                     OnClick="btUnirse_Click" Width="300px" />&nbsp;&nbsp;
                     
             </td>
-            <td style="height: 20px">
-                &nbsp;</td>
-            <td valign="top" style="height: 20px">
-                &nbsp;</td>
-        </tr>
-        <tr>
             <td style="height: 20px">
                 <asp:Label ID="Label1" runat="server" Text="Descripción:" CssClass="estiloLabel"></asp:Label>
             </td>
