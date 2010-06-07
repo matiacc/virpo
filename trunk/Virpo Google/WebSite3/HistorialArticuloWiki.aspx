@@ -4,10 +4,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="menu8">
         <ul>
-            <li><a href="NuevoArticuloWiki.aspx" title="Nuevo Articulo">Nuevo Articulo</a></li>
+            <li><a href="NuevoArticuloWiki.aspx" title="Nuevo Articulo">Nuevo Artículo</a></li>
             <li><a href="FavoritosWiki.aspx" title="Articulos Favoritos">Artículos Favoritos</a></li>
             <li><a href="MisArticulosWiki.aspx" title="Mis Articulos">Mis Artículos</a></li>
-            <li><a href="ConsultarArticuloWiki.aspx?A=1" title="Articulo Aleatorio">Articulo Aleatorio</a></li>
+            <li><a href="ConsultarArticuloWiki.aspx?A=1" title="Articulo Aleatorio">Artículo Aleatorio</a></li>
         </ul>
     </div>
 </asp:Content>
@@ -65,7 +65,7 @@
                             <HeaderStyle Font-Size="Small" />
                         </asp:BoundField>
                         <asp:BoundField DataField="Version" HeaderText="Version" />
-                        <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
+                        <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
                         <asp:BoundField DataField="Creado" HeaderText="Creado" />
                         <asp:BoundField DataField="Autor" HeaderText="Autor" />
                         <asp:ButtonField ButtonType="Image" CommandName="C" ImageUrl="~/ImagenesSite/lupa3.png"
