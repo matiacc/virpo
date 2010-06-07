@@ -31,7 +31,7 @@ public partial class _Default : System.Web.UI.Page
 
         Ubicar(evento.Ubicacion);
 
-        
+        lblRecomendar.Text = "<a href='javascript:abrirPopup2()' class='estiloLabelCabeceraPeque'>Recomendar Evento</a>";
         Image1.ImageUrl = evento.Imagen;
         lblNombre.Text = evento.Nombre;
         lblLugar.Text = evento.Lugar;
@@ -92,19 +92,23 @@ public partial class _Default : System.Web.UI.Page
 
     private void Ubicar(String direccion)
     {
-                
+        try
+        {
             string Key = System.Configuration.ConfigurationManager.AppSettings.Get("googlemaps.subgurim.net");
 
             GeoCode geocode = GMap.geoCodeRequest(direccion, Key);
-            Double lat = geocode.Placemark.coordinates.lat;;
+            Double lat = geocode.Placemark.coordinates.lat; ;
             Double lng = geocode.Placemark.coordinates.lng;
-            GLatLng ubicacion = new GLatLng(lat,lng);
+            GLatLng ubicacion = new GLatLng(lat, lng);
             GInfoWindowOptions options = new GInfoWindowOptions();
             options.zoomLevel = 14;
             options.mapType = GMapType.GTypes.Hybrid;
             GShowMapBlowUp mBlowUp = new GShowMapBlowUp(new GMarker(ubicacion), options);
             GMap1.addShowMapBlowUp(mBlowUp);
             GMap1.setCenter(ubicacion, 15);
+        }
+        catch {}    
+            
             
             
                          
