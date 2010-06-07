@@ -103,7 +103,7 @@
         </tr>
         <tr>
             <td style="width: 295px; height: 19px">
-                <asp:Label ID="lblTelFijo" runat="server" Text="Telefono:" 
+                <asp:Label ID="lblTelFijo" runat="server" Text="Teléfono:" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="height: 19px">
