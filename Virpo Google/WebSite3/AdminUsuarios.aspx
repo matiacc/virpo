@@ -14,7 +14,24 @@
                     <titulosubventana>
                         Administrar Usuarios</titulosubventana>
                 </center>
+  
+        <table class="style1" style="width: 132%">
+            <tr>
+                <td>
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <asp:Image ID="Image1" runat="server" Height="256px" 
+        ImageUrl="~/ImagenesSite/users-icon.png" Width="256px" />
+                </td>
+            </tr>
+        </table>
+  
                     </asp:Content>
+                    
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
 </asp:Content>
 
