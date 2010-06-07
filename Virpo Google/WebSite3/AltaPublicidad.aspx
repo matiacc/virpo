@@ -87,7 +87,7 @@
         </tr>
         <tr>
             <td style="text-align: left">
-                <asp:Label ID="lblTel" runat="server" Text="Telefono de Contacto:" CssClass="estiloLabel"></asp:Label>
+                <asp:Label ID="lblTel" runat="server" Text="Teléfono de Contacto:" CssClass="estiloLabel"></asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtTelContacto" runat="server" Width="227px"></asp:TextBox>
