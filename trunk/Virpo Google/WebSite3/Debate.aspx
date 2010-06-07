@@ -11,7 +11,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-    <center style="width: 527px; background-color: #333333"><tituloSubVentana>
+    <center style="width: 527px; background-color: #333333" runat="server" id="centerTitulo"><tituloSubVentana>
                    Debates</tituloSubVentana></center>
     <table class="tabla" style="width: 531px">
         <tr>
