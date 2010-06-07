@@ -7,7 +7,7 @@
             <li><a href="AdminHome.aspx" title="Vuelve al Home Administracion">Home</a></li>
             <li><a href="PublicidadSolicitudes.aspx" title="Pedidos de Publicidad">Solicitudes</a></li>
             <li><a href="PublicidadBajas.aspx" title="Publicidades Vigentes">Bajas &amp; Modificar</a></li>
-            <li><a href="PublicidadRenovacion.aspx" title="Publicidades Vencidas">Renovacion</a></li>
+            <li><a href="PublicidadRenovacion.aspx" title="Publicidades Vencidas">Renovación</a></li>
             <li><a href="PublicidadEjecutarBajas.aspx" title="Publicidades a Eliminar">Ejecutar
                 Bajas</a></li>
         </ul>
