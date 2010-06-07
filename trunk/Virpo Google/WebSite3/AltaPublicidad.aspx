@@ -159,8 +159,7 @@
         </tr>
         <tr>
             <td style="text-align: left">
-                <asp:Label ID="lblConsulta" runat="server" Text="Dejanos tu Consulta:" CssClass="estiloLabel"></asp:Label>
-            </td>
+                &nbsp;</td>
             <td>
                 <asp:Button ID="btnPrevisualizar" runat="server" OnClick="btnCargar_Click" Text="Cargar"
                     Width="229px" CssClass="botones" CausesValidation="False" />
@@ -170,10 +169,11 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td valign="top">
                 &nbsp;
+                <asp:Label ID="lblConsulta" runat="server" Text="Dejanos tu Consulta:" CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
+            <td valign="top">
                 <asp:TextBox ID="txtConsulta" runat="server" Height="124px" TextMode="MultiLine"
                     Width="227px"></asp:TextBox>
             </td>
