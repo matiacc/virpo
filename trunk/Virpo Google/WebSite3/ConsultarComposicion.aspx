@@ -39,16 +39,16 @@
                 <asp:Label ID="lblTipo" runat="server" Font-Size="Medium"></asp:Label>
             </td>
             <td>
-        <asp:Label ID="Label8" runat="server" Text="Autor:"></asp:Label>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
-            <td>
-                &nbsp;</td>
+            <td style="text-align: right">
+        <asp:Label ID="Label8" runat="server" Text="Autor:"></asp:Label>
+            </td>
         </tr>
         <tr>
             <td style="width: 107px">
@@ -57,7 +57,7 @@
             <td>
                 <asp:Label ID="lblNombre" runat="server" Font-Size="Medium"></asp:Label>
             </td>
-            <td rowspan="5">
+            <td rowspan="5" style="text-align: right">
                             <asp:ImageButton ID="ImageButton1" runat="server" Height="54px" 
                                 onclick="ImageButton1_Click" Width="54px" />
                             <br />
@@ -66,6 +66,8 @@
             
             
                 <asp:Label ID="lblAutor" runat="server"></asp:Label>
+                            <br />
+                            <br />
             </td>
         </tr>
         <tr>
@@ -109,7 +111,7 @@
             <td>
                 <asp:Label ID="lblInstrumento" runat="server" Font-Size="Medium"></asp:Label>
             </td>
-            <td rowspan="5">
+            <td rowspan="5" style="text-align: right">
                 <asp:ImageButton ID="ImageButton2" runat="server" Height="74px" 
                     ImageUrl="~/ImagenesSite/play.png" Width="79px" 
                     onclick="ImageButton2_Click" />
@@ -141,7 +143,7 @@
             </td>
             <td>
                 <asp:Button ID="btnFinalizar" runat="server" onclick="Button1_Click" 
-                    Text="Si" />
+                    Text="Si" CssClass="botones" />
             </td>
         </tr>
         <tr>
@@ -152,9 +154,9 @@
         </tr>
         <tr>
             <td style="width: 107px">
-                &nbsp;</td>
-            <td colspan="2">
                 <a id="aVolver" runat="server">Volver</a></td>
+            <td colspan="2">
+                </td>
         </tr>
         <tr>
             <td style="width: 107px">
