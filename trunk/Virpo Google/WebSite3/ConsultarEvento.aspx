@@ -31,8 +31,16 @@
                                 &nbsp;</td>
             <td style="width: 295px; height: 15px;">
                                 &nbsp;</td>
-            <td style="width: 295px; height: 15px;">
+            <td style="width: 295px; height: 15px; text-align: right;">
                 &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="height: 15px">
+                                &nbsp;</td>
+            <td style="width: 295px; height: 15px;">
+                                &nbsp;</td>
+            <td style="width: 295px; height: 15px; text-align: right;">
+                <asp:Label ID="lblRecomendar" runat="server" BackColor="#FFFFCC"></asp:Label></td>
         </tr>
         <tr>
             <td style="height: 15px">
@@ -41,8 +49,6 @@
             <td style="width: 295px; height: 15px;">
                 <asp:HyperLink ID="HpLMusico" runat="server">[HpLMusico]</asp:HyperLink>
             </td>
-            <td style="width: 295px; height: 15px;">
-                &nbsp;</td>
         </tr>
         <tr>
             <td style="height: 35px">
@@ -114,14 +120,6 @@
         <tr>
             <td style="height: 16px">
                 &nbsp;</td>
-            <td style="width: 295px; height: 16px;">
-                &nbsp;</td>
-            <td style="width: 295px; height: 16px;" class="estiloLabel">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="height: 16px">
-                <asp:Label ID="lblRecomendar" runat="server" BackColor="#FFFFCC"></asp:Label></td>
             <td style="width: 295px; height: 16px;">
                 &nbsp;</td>
             <td style="width: 295px; height: 16px;" class="estiloLabel">
