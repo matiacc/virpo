@@ -63,27 +63,30 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-        <asp:Label ID="Label1" runat="server" Text="Mensaje"></asp:Label>
-                                :</td>
+        <asp:Label ID="Label1" runat="server" Text="Mensaje:" CssClass="estiloLabel"></asp:Label>
+                                </td>
                         </tr>
                         <tr>
                             <td colspan="2">
     <asp:TextBox ID="txtMensaje" runat="server" Height="77px" TextMode="MultiLine" 
-            Width="521px"></asp:TextBox>
+            Width="518px"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Button ID="Button1" runat="server" CssClass="botones" Text="Cancelar" />
+                            </td>
+                            <td style="text-align: right">
     <asp:Button ID="btEnviarInvitacion" runat="server" 
-        onclick="btEnviarInvitacion_Click" Text="Enviar Invitaciones"/> 
+        onclick="btEnviarInvitacion_Click" Text="Enviar Invitaciones" CssClass="botones" Width="156px"/> 
         <img alt="" id="loading" runat="server" class="imagenLoading" src="ImagenesSite/loading.gif" style="display:none; vertical-align:top;" />
                             </td>
                         </tr>
-                        <tr>
-                            <td colspan="2" style="text-align: right">
-                                &nbsp;</td>
-                        </tr>
-                    </table>
+                        </table>
     
     </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
