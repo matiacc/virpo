@@ -271,7 +271,8 @@
                                                                 <td align="right">
                                                                     &nbsp;</td>
                                                                 <td style="text-align: right"><img src="ImagenesSite/loading.gif" class="imagenLoading" id="loading" runat="server" style="display:none; vertical-align:top;" />&nbsp;&nbsp;
-                                                                    <asp:Button ID="btResponder" runat="server" onclick="btResponder_Click" Text="Responder" />
+                                                                    <asp:Button ID="btResponder" runat="server" onclick="btResponder_Click" 
+                                                                        Text="Responder" CssClass="botones" />
                                                                 </td>
                                                             </tr>
                                                         </table>
