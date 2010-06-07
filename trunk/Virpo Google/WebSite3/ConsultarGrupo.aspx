@@ -51,25 +51,6 @@ window.opener.location.reload();
 
         </tr>
         <tr>
-        <td style="height: 45px">
-        </td>
-            <td colspan="2" align="right" valign="top">
-                <img src="ImagenesSite/loading.gif" class="imagenLoading" id="loading" runat="server" style="display:none; vertical-align:top;" />
-            &nbsp;&nbsp;<asp:Button ID="btUnirme" runat="server" Text="Unirme!" 
-                    onclick="btUnirme_Click" CssClass="botones" Width="120px" />
-
-                </td>
-        </tr>
-        <%--<tr>
-            <td colspan="3" align="right">
-               
-                
-                <asp:Button ID="btUnirme" runat="server" Text="Unirme!" 
-                    onclick="btUnirme_Click" CssClass="botones" Width="120px" />
-
-                </td>
-        </tr>--%>
-        <tr>
         <td>
             &nbsp;</td>
             <td colspan="2" style="text-align: right;" valign="top">
@@ -156,22 +137,26 @@ window.opener.location.reload();
                 &nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2" align="left" style="text-align: left">
+            <td colspan="2" align="left" valign="top">
 
                 &nbsp;</td>
-            <td align="right">
+            <td align="right" valign="top">
 
                 &nbsp;</td>
         </tr>
-        <tr>
-            <td colspan="2" align="left" style="text-align: left">
+        <tr style="height: 45px">
+            <td colspan="2" align="left" valign="top">
 
                 <asp:Button ID="btEditar" runat="server" CssClass="botones" Text="Editar" />
                 <asp:Button ID="btBorrar" runat="server" CssClass="botones" Text="Borrar" 
                     onclick="btBorrar_Click" OnClientClick="return confirm('¿Esta seguro de borrar?')" />
             </td>
-            <td align="right">
+            <td align="right" valign="top">
 
+                <%--<asp:Button ID="btUnirme" runat="server" Text="Unirme!" 
+                    onclick="btUnirme_Click" CssClass="botones" Width="120px" />--%>
+
+                 <img src="ImagenesSite/loading.gif" class="imagenLoading" id="loading" runat="server" style="display:none; vertical-align:top;" />               
                 <asp:Button ID="btUnirme" runat="server" Text="Unirme!" 
                     onclick="btUnirme_Click" CssClass="botones" Width="120px" />
 
