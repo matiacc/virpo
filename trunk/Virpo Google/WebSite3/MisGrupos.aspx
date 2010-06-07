@@ -21,6 +21,11 @@
 		<table border="0">
 		<%--<tbody>--%>
 		<tr><td>
+		    <asp:Label ID="Label1" runat="server" CssClass="estiloLabel" 
+                Text="Estos son los Grupos de Interés creados por usted. "></asp:Label>
+		</td>
+		</tr> 
+		<tr><td>
 		<asp:Label ID="lblGrupos" runat="server"></asp:Label>
 		</td>
 		</tr> 
