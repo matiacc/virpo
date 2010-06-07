@@ -3,7 +3,7 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-<div id="menu8">
+    <div id="menu8">
         <ul>
              <li><a href="NuevaBanda.aspx" title="Nueva Banda"> Nueva Banda</a></li>
              <li><a href="MostrarIntegrantesBanda.aspx" title="Agregar Integrante">Bandas e 
