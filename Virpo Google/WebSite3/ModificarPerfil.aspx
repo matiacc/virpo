@@ -261,6 +261,20 @@
         </tr>
         <tr>
             <td style="width: 229px">
+                &nbsp;</td>
+            <td style="width: 124px">
+                &nbsp;</td>
+            <td style="width: 124px">
+                &nbsp;</td>
+            <td style="width: 124px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 229px">
                 <asp:Button ID="btnCancelar" runat="server" OnClick="btnCancelar_Click" 
                     Text="Cancelar" CssClass="botones" />
             </td>
