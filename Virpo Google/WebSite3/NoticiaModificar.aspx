@@ -12,12 +12,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <p style="text-align: center">
-        <asp:Label ID="Label1" runat="server" Text="Posición:"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Posición:" CssClass="estiloLabel"></asp:Label>
         <asp:DropDownList ID="ddlPosicion" runat="server" Height="23px" Width="122px">
         </asp:DropDownList>
     </p>
     <p style="text-align: right">
-        <asp:Label ID="Label2" runat="server" Text="Descripción:"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Text="Descripción:" 
+            CssClass="estiloLabel"></asp:Label>
         <asp:TextBox ID="txtDesc" runat="server" Height="25px" 
             style="margin-left: 0px; margin-bottom: 1px" Width="219px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
