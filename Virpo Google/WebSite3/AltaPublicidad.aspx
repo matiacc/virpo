@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Virpo.master" AutoEventWireup="true" CodeFile="AltaPublicidad.aspx.cs"
     Inherits="_Default" Title="Untitled Page" %>
+    <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 </asp:Content>
@@ -28,7 +29,7 @@
         </tr>
         <tr>
             <td style="height: 20px; text-align: left;" colspan="3">
-                <asp:Label ID="lblMsj" runat="server" Text="Deje sus datos y nos comunicaremos con usted a la brevedad"
+                <asp:Label ID="lblMsj" runat="server" Text="Deje sus datos y nos comunicaremos con usted a la brevedad."
                     CssClass="estiloLabel" Font-Italic="False"></asp:Label>
                 <asp:Label ID="lblOk" runat="server" ForeColor="#009933" Text="Su consulta fue enviada con Exito, Desea hacer otra..."
                     Visible="False"></asp:Label>
@@ -200,6 +201,30 @@
     </p>
     </contenttemplate>
     </asp:UpdatePanel>
+    <table class="style1">
+        <tr>
+            <td>
+                <asp:Button ID="Button2" runat="server" Text="False" Style="display: none;" />
+                <asp:Button ID="Button3" runat="server" Text="False2" Style="display: none;" />
+                <asp:Panel ID="Panel1" runat="server" Style="display: none;" CssClass="modalPopup">
+                    <center>
+                        Su Solicitud fue enviada con éxito.
+                        <br />
+                        Desea enviar otra?</center>
+                    <br />
+                    <br />
+                    <center>
+                        <asp:Button ID="Button1" runat="server" Text="SI" OnClick="Button1_Click" CssClass="botones" />
+                        <asp:Button ID="Button4" runat="server" Text="NO" OnClick="Button4_Click" CssClass="botones" />
+                    </center>
+                </asp:Panel>
+                <cc1:modalpopupextender id="Panel1_ModalPopupExtender" backgroundcssclass="modalBackground"
+                    runat="server" dynamicservicepath="" enabled="True" targetcontrolid="Button2"
+                    popupcontrolid="Panel1" okcontrolid="Button3">
+    </cc1:modalpopupextender>
+            </td>
+        </tr>
+    </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="Server">
 </asp:Content>
