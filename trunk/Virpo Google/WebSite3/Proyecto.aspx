@@ -40,7 +40,7 @@ window.opener.location.reload();
                     
             </td>
             <td style="height: 20px">
-                <asp:Label ID="Label1" runat="server" Text="Descripcion:" CssClass="estiloLabel"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Descripción:" CssClass="estiloLabel"></asp:Label>
             </td>
             <td valign="top" style="height: 20px">
                 <asp:Label ID="lblDescripcion" runat="server"></asp:Label>
@@ -57,7 +57,7 @@ window.opener.location.reload();
         </tr>
         <tr>
             <td>
-                <asp:Label ID="Label4" runat="server" Text="Genero:" CssClass="estiloLabel"></asp:Label>
+                <asp:Label ID="Label4" runat="server" Text="Género:" CssClass="estiloLabel"></asp:Label>
             </td>
             <td valign="top">
                 <asp:Label ID="lblGenero" runat="server"></asp:Label>
