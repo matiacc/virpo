@@ -144,7 +144,7 @@ window.opener.location.reload();
             <td colspan="3" align="center">
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand"
                     GridLines="Horizontal" BorderStyle="Dotted" 
-                    onrowdeleting="GridView1_RowDeleting">
+                    onrowdeleting="GridView1_RowDeleting" Width="528px">
                     <Columns>
                         <asp:ButtonField ButtonType="Image" CommandName="P" DataTextField="Ruta" ImageUrl="~/ImagenesSite/play.png"
                             Text="Play" />
@@ -169,6 +169,10 @@ window.opener.location.reload();
             </td>
         </tr>
         </div>
+        <tr>
+            <td colspan="3" align="right">
+                &nbsp;</td>
+        </tr>
         <tr>
             <td colspan="3" align="right">
                 &nbsp;
