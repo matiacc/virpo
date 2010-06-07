@@ -73,8 +73,9 @@
                     <asp:ListItem>Ubicacion</asp:ListItem>
                     <asp:ListItem>Club de Fan</asp:ListItem>
                     <asp:ListItem>Generico</asp:ListItem>
-                    <asp:ListItem>Otro</asp:ListItem>
                     <asp:ListItem>Idioma</asp:ListItem>
+                    <asp:ListItem>Otro</asp:ListItem>
+                    <asp:ListItem>Género</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>
