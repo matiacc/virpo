@@ -6,10 +6,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="menu8">
         <ul>
-            <li><a href="NuevoArticuloWiki.aspx" title="Nuevo Articulo">Nuevo Articulo</a></li>
-            <li><a href="FavoritosWiki.aspx" title="Articulos Favoritos">Articulos Favoritos</a></li>
-            <li><a href="MisArticulosWiki.aspx" title="Mis Articulos">Mis Articulos</a></li>
-            <li><a href="ConsultarArticuloWiki.aspx" title="Articulo Aleatorio">Articulo 
+            <li><a href="NuevoArticuloWiki.aspx" title="Nuevo Articulo">Nuevo Artículo</a></li>
+            <li><a href="FavoritosWiki.aspx" title="Articulos Favoritos">Artículos Favoritos</a></li>
+            <li><a href="MisArticulosWiki.aspx" title="Mis Articulos">Mis Artículos</a></li>
+            <li><a href="ConsultarArticuloWiki.aspx" title="Articulo Aleatorio">Artículo 
                 Aleatorio</a></li>
         </ul>
     </div>
