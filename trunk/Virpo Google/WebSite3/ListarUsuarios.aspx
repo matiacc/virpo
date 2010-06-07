@@ -88,7 +88,8 @@
                         </tr>
                         <tr>
                             <td>
-                                <input id="Button2" class="botones" type="button" value="Cancelar" onclick="javascript:history.back();" /></td>
+                                <input id="Button2" class="botones" type="button" value="Volver" 
+                                    onclick="javascript:history.back();" /></td>
                             <td style="text-align: right">
                             <img alt="" id="loading" runat="server" class="imagenLoading" src="ImagenesSite/loading.gif" style="display:none; vertical-align:top;" />&nbsp;
     <asp:Button ID="btEnviarInvitacion" runat="server" 
