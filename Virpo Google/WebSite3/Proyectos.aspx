@@ -27,21 +27,21 @@
             <td>
                 &nbsp;
                 <asp:Label ID="label3" runat="server" Text="Proyectos publicados en el Grupo " 
-                    Visible="False"></asp:Label>
+                    Visible="False" CssClass="estiloLabel"></asp:Label>
                 <asp:Label ID="lblGrupo" runat="server" Visible="False"></asp:Label>
             </td>
         </tr>
         <tr>
             <td>
                 <asp:Label ID="label4" runat="server" Text="Proyectos publicados en la Banda  " 
-                    Visible="False"></asp:Label>
+                    Visible="False" CssClass="estiloLabel"></asp:Label>
                 <asp:Label ID="lblBanda" runat="server" Visible="False"></asp:Label>
             </td>
         </tr>
         <tr>
             <td>
                 <asp:Label ID="lblResultados" runat="server" Text="No se han encontrado resultados para la búsqueda solicitada."
-                    Visible="False"></asp:Label>
+                    Visible="False" CssClass="estiloLabel"></asp:Label>
             </td>
         </tr>
     </table>
@@ -56,7 +56,7 @@
             <asp:ImageField DataImageUrlField="Imagen" HeaderText="Imagen">
             </asp:ImageField>
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
-            <asp:BoundField DataField="Genero" HeaderText="Genero" SortExpression="Genero" />
+            <asp:BoundField DataField="Género" HeaderText="Genero" SortExpression="Genero" />
             <asp:BoundField DataField="Creado" HeaderText="Creado" SortExpression="Creado">
             <ItemStyle Width="100px" />
             </asp:BoundField>
