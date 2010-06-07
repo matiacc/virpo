@@ -127,9 +127,9 @@ public partial class ListarUsuarios : System.Web.UI.Page
                 BandejaDeEntradaFactory.Insertar(bande);
             }
             if (enviados != 0)
-                AlertJS("Las invitaciones se enviaron con éxito.");
+                Panel1_ModalPopupExtender.Show();
             else
-                AlertJS("Hubo un error al intentar enviar las invitaciones.\nVerifique su conexion a internet.");
+                AlertJS("Hubo un error al intentar enviar las invitaciones.\nVerifique su conexión a internet.");
         }
 
     }
@@ -143,5 +143,17 @@ public partial class ListarUsuarios : System.Web.UI.Page
     protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
     {
 
+    }
+    protected void btnVolver_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ConsultarBanda.aspx?C=" + Request.QueryString["IdBanda"].ToString());
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ListarUsuarios.aspx?IdBanda=" + Request.QueryString["IdBanda"].ToString());
+    }
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ConsultarBanda.aspx?C=" + Request.QueryString["IdBanda"].ToString());
     }
 }
