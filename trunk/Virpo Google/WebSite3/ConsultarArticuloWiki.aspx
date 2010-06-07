@@ -94,6 +94,4 @@ window.opener.location.reload();
     </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="Server">
-    <asp:ImageButton ID="imgPubli2" runat="server" Height="385px" 
-        Width="145px" onclick="imgPubli2_Click" />
-</asp:Content>
+    </asp:Content>
