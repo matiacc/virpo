@@ -261,18 +261,18 @@
         </tr>
         <tr>
             <td style="width: 229px">
-                &nbsp;</td>
-            <td style="width: 124px">
-                &nbsp;</td>
-            <td style="width: 124px">
-                &nbsp;</td>
-            <td style="width: 124px">
-                <asp:Button ID="btnGuardar" runat="server" OnClick="btnGuardar_Click" 
-                    Text="Guardar" CssClass="botones" />
-            </td>
-            <td style="text-align: right;">
                 <asp:Button ID="btnCancelar" runat="server" OnClick="btnCancelar_Click" 
                     Text="Cancelar" CssClass="botones" />
+            </td>
+            <td style="width: 124px">
+                &nbsp;</td>
+            <td style="width: 124px">
+                &nbsp;</td>
+            <td style="width: 124px">
+                &nbsp;</td>
+            <td style="text-align: right;">
+                <asp:Button ID="btnGuardar" runat="server" OnClick="btnGuardar_Click" 
+                    Text="Guardar" CssClass="botones" />
             </td>
             <td style="text-align: right;">
                 &nbsp;</td>
