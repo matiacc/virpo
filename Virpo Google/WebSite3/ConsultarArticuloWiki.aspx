@@ -4,9 +4,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="menu8">
         <ul>
-            <li><a href="NuevoArticuloWiki.aspx" title="Nuevo Articulo">Nuevo Articulo</a></li>
-            <li><a href="FavoritosWiki.aspx" title="Articulos Favoritos">Articulos Favoritos</a></li>
-            <li><a href="MisArticulosWiki.aspx" title="Mis Articulos">Mis Articulos</a></li>
+            <li><a href="NuevoArticuloWiki.aspx" title="Nuevo Articulo">Nuevo Artículo</a></li>
+            <li><a href="FavoritosWiki.aspx" title="Articulos Favoritos">Artículos Favoritos</a></li>
+            <li><a href="MisArticulosWiki.aspx" title="Mis Articulos">Mis Artículos</a></li>
             <li><a href="ConsultarArticuloWiki.aspx?A=1" title="Novedades">Novedades</a></li>
         </ul>
     </div>
@@ -60,7 +60,7 @@ window.opener.location.reload();
                 <asp:Label ID="lblvers" runat="server"></asp:Label>
                 <asp:Label ID="lblGuion" runat="server" Text="   -   "></asp:Label>
                 <asp:Label ID="lblCat" runat="server" Font-Italic="True"></asp:Label>
-                <asp:Label ID="lblOk" runat="server" Style="color: #009933" Text="Articulo Apuntado"
+                <asp:Label ID="lblOk" runat="server" Style="color: #009933" Text="Artículo Apuntado"
                     Visible="False"></asp:Label>
                 <asp:Label ID="lblMal" runat="server" Style="color: #CC3300" Text="Articulo Ya Apuntado"
                     Visible="False" Width="157px"></asp:Label>
