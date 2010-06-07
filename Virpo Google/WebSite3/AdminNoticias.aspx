@@ -15,16 +15,30 @@
                     <titulosubventana>
                         Administrar Noticias</titulosubventana>
                 </center>
-    <p>
-         &nbsp;</p>
-    <p>
-        &nbsp;</p>
-    <p>
+     <table class="style1" style="width: 132%">
+         <tr>
+             <td style="text-align: center">
         <asp:Label ID="lblOk" runat="server" ForeColor="#009900" 
             Text="Se Publicó la Noticia" Visible="False"></asp:Label>
         <asp:Label ID="lblMal" runat="server" ForeColor="#CC0000" 
             Text="No Se Publicó la Noticia" Visible="False"></asp:Label>
-    </p>
+             </td>
+         </tr>
+         <tr>
+             <td style="text-align: center">
+                 &nbsp;</td>
+         </tr>
+         <tr>
+             <td style="text-align: center">
+                 <asp:Image ID="Image1" runat="server" Height="408px" 
+                     ImageUrl="~/ImagenesSite/noticias.png" Width="321px" />
+             </td>
+         </tr>
+     </table>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
     <p>
         &nbsp;</p>
 </asp:Content>
