@@ -288,11 +288,12 @@ namespace CapaNegocio.Factories
         {
             fecha = fecha.AddDays(7);
 
-            string FECHA = "'"+ fecha.Year +"/"+fecha.Month+"/"+fecha.Day+ "'";
+            //string FECHA = "'"+ fecha.Year +"/"+fecha.Month+"/"+fecha.Day+ "'";
             
-            string query = "UPDATE Publicidad SET idEstado = 2 WHERE idEstado = 1 and fechaFin <= "+FECHA;
+            string query = "UPDATE Publicidad SET idEstado = 2 WHERE idEstado = 1 and fechaFin <= '"+fecha.ToShortDateString()+"'";
             return BDUtilidades.EjecutarNonQuery(query);
         }
+
         public static int ActualizarVencidas(DateTime fecha)
         {
             string FECHA = "'" + fecha.Year + "/" + fecha.Month + "/" + fecha.Day + "'";
