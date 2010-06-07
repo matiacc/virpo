@@ -48,7 +48,7 @@
                 &nbsp;</td>
             <td style="width: 275px; text-align: center;">
                 <asp:Label ID="lblMensaje" runat="server">¿No es usuario registrado?<a href="AltaMusico.aspx">
-                    Registrarse aqui</a></asp:Label>
+                    Registrarse aquí</a></asp:Label>
             </td>
             <td>
                 &nbsp;</td>
