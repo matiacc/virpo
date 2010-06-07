@@ -19,7 +19,7 @@ Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
                 </center>
     <p style="text-align: left">
     
-        <asp:Label ID="Label1" runat="server" Text="Posicion: " CssClass="estiloLabel"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Posición: " CssClass="estiloLabel"></asp:Label>
         <asp:DropDownList ID="ddlPosicion" runat="server" Height="22px" Width="138px" 
             style="margin-left: 25px">
         </asp:DropDownList>
@@ -28,7 +28,7 @@ Inherits="_Default" Title="Untitled Page" ValidateRequest="false"%>
     </p>
     <p style="text-align: left">
     
-        <asp:Label ID="Label2" runat="server" Text="Descripcion:  " 
+        <asp:Label ID="Label2" runat="server" Text="Descripción:  " 
             CssClass="estiloLabel"></asp:Label>
         <asp:TextBox ID="txtDesc" runat="server" Width="218px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
