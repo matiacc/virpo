@@ -120,6 +120,22 @@
                 &nbsp;</td>
         </tr>
         <tr>
+            <td style="height: 16px">
+                <asp:Label ID="lblRecomendar" runat="server" BackColor="#FFFFCC"></asp:Label></td>
+            <td style="width: 295px; height: 16px;">
+                &nbsp;</td>
+            <td style="width: 295px; height: 16px;" class="estiloLabel">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="height: 16px">
+                &nbsp;</td>
+            <td style="width: 295px; height: 16px;">
+                &nbsp;</td>
+            <td style="width: 295px; height: 16px;" class="estiloLabel">
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td style="height: 17px; text-align: center;" colspan="3">
         <asp:Label ID="Label11" runat="server" 
             Text="Ubicación en el Mapa" Width="193px" CssClass="estiloLabelCabecera2" 
