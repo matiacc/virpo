@@ -199,6 +199,10 @@
                            <asp:Label ID="lblMensajesNuevos" runat="server" Visible="False"></asp:Label></td></tr>
                             <tr>
                                 <td>
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>
                                     <asp:Panel ID="Panel1" runat="server">
                                      
                                         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" 
