@@ -21,6 +21,7 @@ public partial class ListarUsuarios : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            btEnviarInvitacion.OnClientClick = "javascript:document.getElementById('" + this.loading.ClientID + "').style.display = '';";
             if (Request.QueryString["IdBanda"] != null)
             {
                 ViewState.Add("IdBanda", Request.QueryString["IdBanda"]);
@@ -38,9 +39,12 @@ public partial class ListarUsuarios : System.Web.UI.Page
 
             List<Usuario> usuarios = new List<Usuario>();
             usuarios = UsuarioFactory.DevolverTodos();
+            List<int> idsIntegrantes = UsuarioFactory.DevolverIdsIntegrantesaDeBanda(Convert.ToInt32(ViewState["IdBanda"]));
             foreach (Usuario usuario in usuarios)
             {
                 if (usuario.Id == ((Usuario)Session["Usuario"]).Id)
+                    continue;
+                if (idsIntegrantes.Contains(usuario.Id))
                     continue;
                 row = dt.NewRow();
                 row["Id"] = usuario.Id;

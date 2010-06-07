@@ -20,6 +20,8 @@ public partial class ConsultarGrupo : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            this.btUnirme.OnClientClick = "javascript:document.getElementById('" + this.loading.ClientID + "').style.display = '';";
+
             //Cambia el estado a leido cuando es consultado por la administración de denuncias.
             if (Request.QueryString["leida"] != null)
             {

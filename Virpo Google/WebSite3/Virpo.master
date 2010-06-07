@@ -30,7 +30,7 @@ hidden = window.open('popupRecomendarWiki.aspx', 'NewWindow','top=0,left='+winLe
 //hidden = window.open('popupRecomendar.aspx?dire='+direccion+'', 'NewWindow','top=0,left='+winLeft+', width=500,height=400,status=yes, resizable=no,scrollbars=no');
 }
 function mostrarGif(){
- document.getElementById('loading').style.display = '';
+    document.getElementById('loading').style.display = '';
 }
 
 </script>

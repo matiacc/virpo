@@ -48,8 +48,17 @@ window.opener.location.reload();
 
                 </td>
 
-                </td>
 
+        </tr>
+        <tr>
+        <td style="height: 45px">
+        </td>
+            <td colspan="2" align="right" valign="top">
+                <img src="ImagenesSite/loading.gif" class="imagenLoading" id="loading" runat="server" style="display:none; vertical-align:top;" />
+            &nbsp;&nbsp;<asp:Button ID="btUnirme" runat="server" Text="Unirme!" 
+                    onclick="btUnirme_Click" CssClass="botones" Width="120px" />
+
+                </td>
         </tr>
         <%--<tr>
             <td colspan="3" align="right">

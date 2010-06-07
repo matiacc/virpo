@@ -75,7 +75,8 @@
                         <tr>
                             <td colspan="2">
     <asp:Button ID="btEnviarInvitacion" runat="server" 
-        onclick="btEnviarInvitacion_Click" Text="Enviar Invitaciones" OnClientClick="mostrarGif()"/> 
+        onclick="btEnviarInvitacion_Click" Text="Enviar Invitaciones"/> 
+        <img alt="" id="loading" runat="server" class="imagenLoading" src="ImagenesSite/loading.gif" style="display:none; vertical-align:top;" />
                             </td>
                         </tr>
                         <tr>

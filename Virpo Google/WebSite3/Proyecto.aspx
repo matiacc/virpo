@@ -36,7 +36,8 @@ window.opener.location.reload();
                 <asp:Image ID="Image1" runat="server" Height="300px" Width="300px" />
                 <br />
                 <asp:Button ID="btUnirse" runat="server" CssClass="botones" Text="Unirse al Proyecto"
-                    OnClick="btUnirse_Click" Width="300px" />
+                    OnClick="btUnirse_Click" Width="300px" />&nbsp;&nbsp;
+                    
             </td>
             <td style="height: 20px">
                 <asp:Label ID="Label1" runat="server" Text="Descripcion:" CssClass="estiloLabel"></asp:Label>
@@ -50,7 +51,7 @@ window.opener.location.reload();
                 <asp:Label ID="Label3" runat="server" Text="Creado Por:" CssClass="estiloLabel"></asp:Label>
             </td>
             <td valign="top">
-                <img alt="" src="./ImagenesSite/cargando.gif" id="loading" style="display: none" />
+                
                 <asp:Label ID="lblUsuario" runat="server"></asp:Label>
             </td>
         </tr>
@@ -110,10 +111,11 @@ window.opener.location.reload();
         <tr>
             <td>
                 &nbsp;
-            </td>
+                <img alt="" id="loading" runat="server" class="imagenLoading" src="ImagenesSite/loading.gif" style="display:none; vertical-align:top;" /></td>
         </tr>
         <tr>
             <td>
+           
             </td>
         </tr>
         <tr>

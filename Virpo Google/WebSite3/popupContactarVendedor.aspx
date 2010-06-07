@@ -5,6 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Contactar con el Vendedor</title>
+<script type="text/javascript" language="javascript">
+    function mostrarGif(){
+ document.getElementById('loading').style.display = '';
+}
+</script>
     <style type="text/css">
         .style1
         {
@@ -84,8 +89,8 @@
         <tr>
             <td class="style2">
                 &nbsp;</td>
-            <td style="text-align: right"><img alt="" src="ImagenesSite/cargando.gif" id="loading" style="display: none;"/>&nbsp;&nbsp;
-                <asp:Button ID="btEnviar" runat="server" onclick="btEnviar_Click" OnClientClick="mostrarGif()"
+            <td style="text-align: right"><img alt="" id="loading" src="ImagenesSite/loading.gif" style="display:none; vertical-align:top;" />&nbsp;&nbsp;
+                <asp:Button ID="btEnviar" runat="server" onclick="btEnviar_Click" OnClientClick="mostrarGif();"
                     Text="Enviar" />
             </td>
         </tr>
