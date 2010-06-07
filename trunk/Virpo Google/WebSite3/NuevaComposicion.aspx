@@ -168,14 +168,14 @@
         </tr>
         <tr>
             <td>
-            </td>
-            <td style="text-align: left">
-                <asp:Button ID="btGuardar" runat="server" OnClick="btGuardar_Click" Text="Aceptar"
-                    CssClass="botones" />
                 <asp:Button ID="btnCancelar" runat="server" CausesValidation="False" CssClass="botones"
                     OnClick="btnCancelar_Click" Text="Cancelar" />
             </td>
+            <td style="text-align: left">
+                &nbsp;</td>
             <td style="text-align: right">
+                <asp:Button ID="btGuardar" runat="server" OnClick="btGuardar_Click" Text="Aceptar"
+                    CssClass="botones" />
             </td>
         </tr>
     </table>
