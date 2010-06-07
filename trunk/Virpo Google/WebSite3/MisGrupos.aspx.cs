@@ -22,7 +22,7 @@ public partial class MisGrupos : System.Web.UI.Page
         {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
-            lblGrupos.Text = "Grupos de Interés creados por mí:<br><br>";
+            //lblGrupos.Text = "Grupos de Interés creados por mí:<br><br>";
             
             this.CargarMisGrupos(((Usuario)(Session["Usuario"])).Id);
             this.CargarTodos(((Usuario)(Session["Usuario"])).Id);
