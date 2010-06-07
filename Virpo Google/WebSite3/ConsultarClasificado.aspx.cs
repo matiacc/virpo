@@ -21,14 +21,18 @@ public partial class ConsultarClasificado : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             this.btResponder.OnClientClick = "javascript:document.getElementById('" + this.loading.ClientID + "').style.display = '';";
-            if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
+            //if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
             //Cambia el estado a leido cuando es consultado por la administración de denuncias.
             if (Request.QueryString["leida"] != null)
             {
+                if (Session["Usuario"] == null)
+                    Response.Redirect("Login.aspx?url=ConsultarClasificado.aspx?C=" + Request.QueryString["C"]);
                 DenunciaFactory.ModificarLeida(int.Parse(Request.QueryString["leida"].ToString()));
                 ClientScript.RegisterStartupScript(typeof(String), "RefrescaDenunciasLeidas", "window.opener.location.reload()", true);
             }
+            else if (Session["Usuario"] == null)
+                Response.Redirect("ErrorAutentificacion.aspx");
             //Fin
 
             if (DenunciaFactory.HayDenuncia(Convert.ToInt32(Request.QueryString["C"]), "AvisoClasificado") != 0)

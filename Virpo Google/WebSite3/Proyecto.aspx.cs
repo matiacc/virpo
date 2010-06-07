@@ -29,14 +29,19 @@ public partial class Proyecto : System.Web.UI.Page
         
         if (!Page.IsPostBack)
         {
-            if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
+            //if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
             //Cambia el estado a leido cuando es consultado por la administración de denuncias.
             if (Request.QueryString["leida"] != null)
             {
+                if (Session["Usuario"] == null)
+                    Response.Redirect("Login.aspx?url=Proyecto.aspx?Id=" + Request.QueryString["Id"]);
                 DenunciaFactory.ModificarLeida(int.Parse(Request.QueryString["leida"].ToString()));
                 ClientScript.RegisterStartupScript(typeof(String), "RefrescaDenunciasLeidas", "window.opener.location.reload()", true);
             }
+            else if (Session["Usuario"] == null)
+                Response.Redirect("ErrorAutentificacion.aspx");
+
             //Fin
 
 

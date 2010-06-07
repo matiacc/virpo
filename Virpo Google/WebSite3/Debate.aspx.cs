@@ -32,6 +32,9 @@ public partial class _Default : System.Web.UI.Page
                 
                 this.CrearTabla(topics);
 
+                Grupo grupo = GrupoFactory.Devolver(idGrupo);
+                if(grupo != null)
+                    centerTitulo.InnerHtml = "<tituloSubVentana>Debates del Grupo: " + grupo.Nombre + "</tituloSubVentana>";
             }
         }
        
