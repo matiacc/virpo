@@ -31,14 +31,22 @@
                 <table style="width: 81%; height: 198px">
                     <tr>
                         <td style="text-align: left; width: 125px;">
+                            &nbsp;</td>
+                        <td style="text-align: right">
                 <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
                     Width="95px" onclick="btnDenunciar_Click" />
                         </td>
                         <td style="text-align: right">
                             &nbsp;</td>
+                        <td style="text-align: right">
+                            &nbsp;</td>
                     </tr>
                     <tr>
                         <td style="width: 135px">
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
@@ -48,6 +56,8 @@
                             <asp:Label ID="Label4" runat="server" Text="Género:" CssClass="estiloLabel"></asp:Label></td>
                         <td> <asp:Label ID="lblGenero" runat="server" Font-Size="Medium"></asp:Label>
                             </td>
+                        <td> &nbsp;</td>
+                        <td> &nbsp;</td>
                     </tr>
                     <tr>
                         <td style="width: 135px">
@@ -55,6 +65,10 @@
                                 CssClass="estiloLabel" Width="82px"></asp:Label></td>
                         <td>
                             <asp:Label ID="lblPaginaWeb" runat="server"></asp:Label></td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
                     </tr>
                     <tr>
                         <td style="width: 135px">
@@ -62,6 +76,10 @@
                                 CssClass="estiloLabel" Width="82px"></asp:Label></td>
                         <td>
                             <asp:Label ID="lblCreador" runat="server"></asp:Label></td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
                     </tr>
                      <tr>
                         <td style="width: 135px">
@@ -73,6 +91,12 @@
                 
                 <asp:Label ID="lblFecInicio" runat="server"></asp:Label>
                             </td>
+                        <td>
+                
+                            &nbsp;</td>
+                        <td>
+                
+                            &nbsp;</td>
                     </tr>
                      <tr>
                         <td style="width: 135px">
@@ -82,11 +106,19 @@
                         <td>
                             <asp:Label ID="lblLocalidad" runat="server"></asp:Label>
                             </td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
                     </tr>
                      <tr>
                         <td style="width: 135px">
                             <asp:Label ID="lblId" runat="server" Text="Oculto" Visible="False"></asp:Label>
                          </td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
                         <td>
                             &nbsp;</td>
                     </tr>
