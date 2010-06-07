@@ -140,6 +140,26 @@ namespace CapaNegocio.Factories
             }
         }
 
+        public static List<int> DevolverIdsIntegrantesaDeBanda(int idBanda)
+        {
+            string query = "SELECT idUsuario " +
+                           "FROM MusicoXBanda INNER JOIN Usuario on MusicoXBanda.idUsuario = Usuario.id " +
+                          "WHERE idBanda = " + idBanda;
+            DataTable dt = BDUtilidades.EjecutarConsulta(query);
+            if (dt != null)
+            {
+                List<int> ids = new List<int>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    ids.Add(Convert.ToInt32(dt.Rows[i]["idUsuario"]));
+                }
+                return ids;
+            }
+            else
+            {
+                return null;
+            }
+        }
         public static List<Usuario> DevolverIntegrantesDeProyecto(int idProyecto)
         {
 

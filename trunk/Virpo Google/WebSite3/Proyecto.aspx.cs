@@ -23,13 +23,10 @@ public partial class Proyecto : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-      
         mp3_seleccionado = "";
         mp3_seleccionado_titulo = "";
         reproducir = "no";
-        if (!btUnirse.Text.Contains("Subir"))
-            btUnirse.OnClientClick = "javascript:mostrargif();";
-
+        
         if (!Page.IsPostBack)
         {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
@@ -85,6 +82,9 @@ public partial class Proyecto : System.Web.UI.Page
                 
             }
         }
+        if (!btUnirse.Text.Contains("Subir"))
+            btUnirse.OnClientClick = "javascript:document.getElementById('" + this.loading.ClientID + "').style.display = '';";
+
         if (btUnirse.Text == "Subir una composicion")
             tdProyecto.InnerHtml = "";
         else

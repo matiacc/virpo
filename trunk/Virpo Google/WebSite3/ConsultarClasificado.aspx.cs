@@ -20,6 +20,7 @@ public partial class ConsultarClasificado : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            this.btResponder.OnClientClick = "javascript:document.getElementById('" + this.loading.ClientID + "').style.display = '';";
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
 
             //Cambia el estado a leido cuando es consultado por la administración de denuncias.
@@ -206,7 +207,7 @@ public partial class ConsultarClasificado : System.Web.UI.Page
         //string url = "http://127.0.0.1:50753/WebSite3/inicio.aspx";
         string mensaje = "Han respondido su mensaje sobre el Aviso Clasificado. Ingrese a su bandeja de entrada de Virpo: <br /><br /><a href='" + url + " '>Virpo Web</a>";
         string query = "UPDATE Mensaje " +
-                    "SET fechaYhoraResp = '" + DateTime.Now + "', " +
+                    "SET fechaYhoraResp = GETDATE(), " +
                     "respuesta = '" + txtRespuesta.Text.Trim() + "' " +
                     "WHERE id=" + idMsj;
         //Insertar en Bandeja de Entrada

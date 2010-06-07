@@ -60,6 +60,14 @@ img {
 	font-family: "Arial Black";
 }
 
+.imagenLoading {
+	border-style: none;
+    border-color: inherit;
+    border-width: 0;
+    width: 25px;
+    height: 25px;
+	font-family: "Arial Black";
+}
 .imagenmail 
 {
 
