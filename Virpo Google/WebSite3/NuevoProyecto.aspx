@@ -2,7 +2,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div id="menu8">
+    <div id="menu8">
         <ul>
             <li><a href="NuevoProyecto.aspx" title="Nuevo Proyecto">Nuevo Proyecto</a></li>
             <li><a href="MisProyectos.aspx" title="Mis Proyectos">Mis Proyectos</a></li>
@@ -42,7 +42,7 @@
         <tr>
             <td style="width: 129px">
                 <asp:Label ID="Label2" runat="server" CssClass="estiloLabel" 
-                    Text="Descripcion:"></asp:Label>
+                    Text="Descripción:"></asp:Label>
             </td>
             <td style="width: 291px">
                 <asp:TextBox ID="txtDescripcion" runat="server" Height="79px" 
@@ -52,7 +52,7 @@
         <tr>
             <td style="width: 129px">
                 <asp:Label ID="Label3" runat="server" CssClass="estiloLabel" 
-                    Text="Subi una imagen:"></asp:Label>
+                    Text="Subir una imagen:"></asp:Label>
             </td>
             <td style="width: 291px">
                 <asp:FileUpload ID="FileUpload1" runat="server" Width="286px" />
@@ -60,7 +60,7 @@
         </tr>
         <tr>
             <td style="width: 129px">
-                <asp:Label ID="Label4" runat="server" CssClass="estiloLabel" Text="Genero:"></asp:Label>
+                <asp:Label ID="Label4" runat="server" CssClass="estiloLabel" Text="Género:"></asp:Label>
                 <br />
                 <br />
             </td>
