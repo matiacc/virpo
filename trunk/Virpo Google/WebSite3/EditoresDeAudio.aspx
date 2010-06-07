@@ -50,7 +50,7 @@
                                 <td style="text-align: justify">
                                     Audacity es un programa libre y de código abierto para grabar y editar sonido. 
                                     Está disponible para Mac OS X, Microsoft Windows, GNU/Linux y otros sistemas 
-                                    operativos. Para bajar el programa hacer click sobre el siguiente logo:</td>
+                                    operativos. </td>
                                 <td style="text-align: justify">
                                     &nbsp;</td>
                                 <td style="text-align: justify">
@@ -69,15 +69,20 @@
                                 <td>
                                     &nbsp;</td>
                                 <td>
-                                    &nbsp;</td>
+                                    <p style="text-align: center">
+                                        <asp:ImageButton ID="ImageButton3" runat="server" Height="57px" 
+                                            ImageUrl="~/ImagenesSite/download.gif" 
+                                            PostBackUrl="http://audacity.sourceforge.net/latest/audacity-win/audacity-win-1.2.6.exe" 
+                                            Width="150px" />
+                                    </p>
+                                </td>
                             </tr>
                             <tr>
                                 <td style="text-align: justify">
                                     Wavosaur es un editor de sonido gratis, editor de audio, wav editor para la 
                                     edición, procesamiento y grabación de sonidos, wav y mp3. Wavosaur tiene todas 
                                     las características para editar audio (cortar, copiar, pegar, etc) producir 
-                                    música bucles, analizar, registro, la conversión por lotes.<br />
-                                    Para bajar el programa hacer click sobre el siguiente logo:</td>
+                                    música bucles, analizar, registro, la conversión por lotes.</td>
                                 <td>
                                     &nbsp;</td>
                                 <td>
@@ -95,8 +100,12 @@
                                     &nbsp;</td>
                                 <td>
                                     &nbsp;</td>
-                                <td>
-                                    &nbsp;</td>
+                                <td style="text-align: center">
+                                    <asp:ImageButton ID="ImageButton4" runat="server" Height="57px" 
+                                        ImageUrl="~/ImagenesSite/download.gif" 
+                                        PostBackUrl="http://www.wavosaur.com/download/files/Wavosaur.1.0.5.0(en).zip" 
+                                        Width="150px" />
+                                </td>
                             </tr>
                             <tr>
                                 <td>
