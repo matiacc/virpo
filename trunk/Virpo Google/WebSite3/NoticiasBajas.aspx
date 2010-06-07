@@ -31,7 +31,7 @@
                 </asp:BoundField>
                 <asp:BoundField DataField="FechaCreacion" HeaderText="Fecha" />
                 <asp:BoundField DataField="Descripcion" HeaderText="Noticia" />
-                <asp:BoundField DataField="Posicion" HeaderText="Posicion" />
+                <asp:BoundField DataField="Posicion" HeaderText="Posición" />
                 <asp:BoundField DataField="IdAutor" HeaderText="Autor" />
                 <asp:ButtonField ButtonType="Image" CommandName="C" 
                     ImageUrl="~/ImagenesSite/delete.png" />
