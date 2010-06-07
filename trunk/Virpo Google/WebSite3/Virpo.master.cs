@@ -41,7 +41,11 @@ public partial class musicamania_Virpo : System.Web.UI.MasterPage
 
         }
         else
-            hlBandeja.Visible = false;
+        {
+            //hlBandeja.Visible = false;
+            hlBandeja.Enabled = false;
+            imgMail.Src = "ImagenesSite/transparent.png";
+        }
         
     }
 
