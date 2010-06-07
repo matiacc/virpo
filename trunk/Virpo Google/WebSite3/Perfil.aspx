@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <td style="width: 11px; " rowspan="13">
-                <asp:Image ID="ImgPerfil" runat="server" Height="253px" Width="247px" />
+                <asp:Image ID="ImgPerfil" runat="server" Height="250px" Width="250px" />
                 
             </td>
             <td style="width: 171px; ">
@@ -151,17 +151,6 @@
         </tr>
 
         <tr>
-            <td style="width: 171px; ">
-                &nbsp;</td>
-            <td style="width: 171px; ">
-                &nbsp;</td>
-            <td style="width: 105px; ">
-                &nbsp;</td>
-        </tr>
-
-        <tr>
-            <td style="width: 11px; ">
-                &nbsp;</td>
             <td style="width: 171px; ">
                 &nbsp;</td>
             <td style="width: 171px; ">
