@@ -70,6 +70,8 @@ public partial class _Default : System.Web.UI.Page
         {
             int ID= Convert.ToInt32(id);
             Publicidad publi = PublicidadFactory.Devolver(ID);
+            ViewState["ID"] = ID;
+
             try
             {
                 if (publi.Imagen != "")
@@ -80,15 +82,32 @@ public partial class _Default : System.Web.UI.Page
             catch (Exception)
             {
             }
-
-            if (PublicidadFactory.Eliminar(ID))
-            {
-                Response.Redirect("PublicidadEjecutarBajas.aspx?c=1");
-            }
-            else
-            {
-                Response.Redirect("PublicidadEjecutarBajas.aspx?c=0");    
-            }            
+            Panel1_ModalPopupExtender.Show();
+            //if (PublicidadFactory.Eliminar(ID))
+            //{
+            //    Response.Redirect("PublicidadEjecutarBajas.aspx?c=1");
+            //}
+            //else
+            //{
+            //    Response.Redirect("PublicidadEjecutarBajas.aspx?c=0");    
+            //}            
         }
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            PublicidadFactory.Eliminar(int.Parse(ViewState["ID"].ToString()));
+            Panel2_ModalPopupExtender.Show();
+        }
+        catch { }
+    }
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("PublicidadEjecutarBajas.aspx");
     }
 }

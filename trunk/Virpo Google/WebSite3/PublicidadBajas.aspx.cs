@@ -46,7 +46,7 @@ public partial class _Default : System.Web.UI.Page
                 {
                     lblOk2.Visible = true;
                 }
-                
+
             }
         }
 
@@ -58,25 +58,37 @@ public partial class _Default : System.Web.UI.Page
         int ID = Convert.ToInt32(GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
         Publicidad publi = new Publicidad();
         publi = PublicidadFactory.Devolver(ID);
+        Session["publi"] = publi;
 
         if (e.CommandName == "E")
         {
-            publi.Consulta = "Baja Forzada";
-            publi.IdEstado = 3;
-            if (PublicidadFactory.Modificar(publi))
-            {
-                Response.Redirect("PublicidadBajas.aspx?&C=2");
-            }
-            else
-            {
-                Response.Redirect("PublicidadBajas.aspx?&C=0");
-            }
-            
+            Panel1_ModalPopupExtender.Show();
         }
         if (e.CommandName == "M")
         {
-           
+
             Response.Redirect("PublicidadModificar.aspx?I=" + id + "&EP=1");
         }
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Publicidad publi = new Publicidad();
+        publi = (Publicidad)Session["publi"];
+        try
+        {
+            publi.Consulta = "Baja Forzada";
+            publi.IdEstado = 3;
+            PublicidadFactory.Modificar(publi);
+            Panel2_ModalPopupExtender.Show();
+        }
+        catch { }
+    }
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("PublicidadBajas.aspx");
     }
 }
