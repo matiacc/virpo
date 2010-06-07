@@ -26,6 +26,8 @@ public partial class MisGrupos : System.Web.UI.Page
             
             this.CargarMisGrupos(((Usuario)(Session["Usuario"])).Id);
             this.CargarTodos(((Usuario)(Session["Usuario"])).Id);
+            if (lblGrupos.Text == "<table>")
+                Label1.Text += "<br><br>No has creado ningún grupo todavía.";
         }
     }
     private void CargarMisGrupos(int idUser)
