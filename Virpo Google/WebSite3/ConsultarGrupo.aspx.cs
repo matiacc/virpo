@@ -64,6 +64,11 @@ public partial class ConsultarGrupo : System.Web.UI.Page
                     {
                         btUnirme.Text = "Salir del grupo";
                     }
+                    else
+                    {
+                        lblDebate.Visible = false;
+                        lblProyectos.Visible = false;
+                    }
 
                 }
                 

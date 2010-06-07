@@ -8,6 +8,16 @@
             <li><a href="ListarBandas.aspx" title="Listar Bandas">Listar Bandas</a></li>
         </ul>
     </div>
+
+    <script language="javascript" type="text/javascript">
+// <!CDATA[
+
+        function Button2_onclick() {
+
+        }
+
+// ]]>
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <table style="width: 100%">
@@ -78,12 +88,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:Button ID="Button1" runat="server" CssClass="botones" Text="Cancelar" />
-                            </td>
+                                <input id="Button2" class="botones" type="button" value="Cancelar" onclick="javascript:history.back();" /></td>
                             <td style="text-align: right">
+                            <img alt="" id="loading" runat="server" class="imagenLoading" src="ImagenesSite/loading.gif" style="display:none; vertical-align:top;" />&nbsp;
     <asp:Button ID="btEnviarInvitacion" runat="server" 
         onclick="btEnviarInvitacion_Click" Text="Enviar Invitaciones" CssClass="botones" Width="156px"/> 
-        <img alt="" id="loading" runat="server" class="imagenLoading" src="ImagenesSite/loading.gif" style="display:none; vertical-align:top;" />
+        
                             </td>
                         </tr>
                         </table>
