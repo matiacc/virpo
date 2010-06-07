@@ -56,7 +56,7 @@
             <asp:ImageField DataImageUrlField="Imagen" HeaderText="Imagen">
             </asp:ImageField>
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
-            <asp:BoundField DataField="Género" HeaderText="Genero" SortExpression="Genero" />
+            <asp:BoundField DataField="Genero" HeaderText="Género" SortExpression="Genero" />
             <asp:BoundField DataField="Creado" HeaderText="Creado" SortExpression="Creado">
             <ItemStyle Width="100px" />
             </asp:BoundField>
