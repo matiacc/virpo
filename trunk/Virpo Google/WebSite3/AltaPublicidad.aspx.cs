@@ -134,7 +134,7 @@ public partial class _Default : System.Web.UI.Page
 
         if (PublicidadFactory.Insertar(publi))
         {
-            Response.Redirect("AltaPublicidad.aspx?c=1");
+            Panel1_ModalPopupExtender.Show();
         }
         else
         {
@@ -173,5 +173,13 @@ public partial class _Default : System.Web.UI.Page
             imgPubli.ImageUrl = "~/Temp/" + upPublicidad.FileName;
             
         }
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("AltaPublicidad.aspx");
+    }
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("inicio.aspx");
     }
 }
