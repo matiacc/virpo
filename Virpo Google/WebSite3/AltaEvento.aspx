@@ -69,7 +69,7 @@
         </tr>
         <tr>
             <td style="width: 92px; height: 21px;">
-                <asp:Label ID="Label4" runat="server" Text="Pais:"></asp:Label>
+                <asp:Label ID="Label4" runat="server" Text="País:"></asp:Label>
             </td>
             <td style="width: 92px" rowspan="3">
                 <asp:UpdatePanel ID="UpdatePanel3" runat="server">
@@ -98,7 +98,7 @@ arguments.IsValid = true;
 } 
 </script>
                         <asp:DropDownList ID="ddlCiudad" runat="server" AutoPostBack="True" 
-                            Height="16px" Width="144px">
+                            Width="144px">
                         </asp:DropDownList>
                     </ContentTemplate>
                 </asp:UpdatePanel></td>
@@ -281,14 +281,14 @@ arguments.IsValid = true;
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="text-align: right;" colspan="2">
+            <td style="width: 92px">
+                <asp:Button ID="Button1" runat="server" CssClass="botones" 
+                    onclick="Button1_Click" Text="Volver" />
+            </td>
+            <td style="width: 92px; text-align: right;">
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
                     onclick="btnGuardar_Click" CssClass="botones" OnClientClick="return confirm('Evento Registrado')"/>
-                    <br />
-                    <br />
-
-                    
-            </td>
+                    </td>
         </tr>
         </table>
   
