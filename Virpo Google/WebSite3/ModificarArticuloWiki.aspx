@@ -40,7 +40,7 @@
         </tr>
         <tr>
             <td style="width: 258px">
-                <asp:Label ID="lblTit" runat="server" Text="Titulo:"></asp:Label>
+                <asp:Label ID="lblTit" runat="server" Text="Título:"></asp:Label>
             </td>
             <td>
                 <asp:Label ID="lblTitulo" runat="server"></asp:Label>
@@ -52,7 +52,7 @@
         </tr>
         <tr>
             <td style="height: 13px; width: 258px;" class="submit">
-                <asp:Label ID="lblCat" runat="server" Text="Categoria:"></asp:Label>
+                <asp:Label ID="lblCat" runat="server" Text="Categoría:"></asp:Label>
             </td>
             <td style="height: 13px" class="submit">
                 <asp:Label ID="lblCategoria" runat="server"></asp:Label>
@@ -62,7 +62,7 @@
         </tr>
         <tr>
             <td style="width: 258px; height: 13px;">
-                <asp:Label ID="lblDesc" runat="server" Text="Descripcion de la Modificacion:"></asp:Label>
+                <asp:Label ID="lblDesc" runat="server" Text="Descripción de la Modificación:"></asp:Label>
             </td>
             <td style="text-align: left; height: 13px;">
                 <asp:TextBox ID="txtDescripcion" runat="server" Width="301px"></asp:TextBox>
