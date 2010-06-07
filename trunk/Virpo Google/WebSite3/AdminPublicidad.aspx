@@ -18,10 +18,22 @@
                         Administrar Publicidad</titulosubventana>
                 </center>    
     <p>
+        <table class="style1" style="width: 131%">
+            <tr>
+                <td>
         <asp:Label ID="lblOk" runat="server" ForeColor="#009900" 
             Text="La Transacción fue Exitosa..." Visible="False"></asp:Label>
         <asp:Label ID="lblMal" runat="server" ForeColor="#CC0000" 
             Text="Error al Procesar la Transacción..." Visible="False"></asp:Label>        
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center">
+                    <asp:Image ID="Image1" runat="server" Height="425px" 
+                        ImageUrl="~/ImagenesSite/megaphone.png" Width="427px" />
+                </td>
+            </tr>
+        </table>
     </p>
     <br />
 </asp:Content>
