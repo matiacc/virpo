@@ -17,7 +17,7 @@
                     Cambiar Contraseña</tituloSubVentana></center>
     <table class="tabla" style="width: 132%">
         <tr>
-            <td style="width: 380px">
+            <td style="width: 176px">
                 &nbsp;
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
@@ -29,7 +29,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 380px; height: 39px;">
+            <td style="width: 176px; height: 39px;">
                 &nbsp;
                 <asp:Label ID="Label4" runat="server" Text="Nombre de Usuario:" 
                     CssClass="estiloLabel"></asp:Label>
@@ -40,7 +40,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 380px; height: 39px;">
+            <td style="width: 176px; height: 39px;">
                 &nbsp;
                 <asp:Label ID="Label1" runat="server" Text="Contraseña Actual:" 
                     CssClass="estiloLabel"></asp:Label>
@@ -56,7 +56,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 380px; height: 39px;">
+            <td style="width: 176px; height: 39px;">
                 &nbsp;
                 <asp:Label ID="Label2" runat="server" Text="Contraseña Nueva:" 
                     CssClass="estiloLabel"></asp:Label>
@@ -78,7 +78,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 380px; height: 38px;">
+            <td style="width: 176px; height: 38px;">
                 &nbsp;
                 <asp:Label ID="Label3" runat="server" Text="Repetir Contraseña:" 
                     CssClass="estiloLabel"></asp:Label>
@@ -94,7 +94,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 380px">
+            <td style="width: 176px">
                 &nbsp;
             </td>
             <td>
@@ -104,7 +104,7 @@
             </td>
         </tr>
         <tr>
-            <td style="height: 33px; width: 380px;">
+            <td style="height: 33px; width: 176px;">
                 <asp:Button ID="btnVolver" runat="server" OnClick="btnVolver_Click" Text="Volver"
                     CausesValidation="False" CssClass="botones" Width="100px" />
             </td>
