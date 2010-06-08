@@ -169,7 +169,7 @@
         <tr>
             <td>
                 <asp:Button ID="btnCancelar" runat="server" CausesValidation="False" CssClass="botones"
-                    OnClick="btnCancelar_Click" Text="Cancelar" />
+                    OnClick="btnCancelar_Click" Text="Volver" />
             </td>
             <td style="text-align: left">
                 &nbsp;</td>

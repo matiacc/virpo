@@ -43,7 +43,7 @@ public partial class PostsGrupos : System.Web.UI.Page
         foreach (PostGrupo post in posts)
         {
             html += "<tr>";
-            html += "    <td colspan='2' align='right'>"+ post.FechaCreacion.ToLongDateString() +"</td>";
+            html += "    <td colspan='2' align='right'>"+ post.FechaCreacion.ToString() +"</td>";
             html += "</tr>";
             html += "<tr>";
             html += "    <td style='width: 50px' align='center'><a href='PerfilPublico.aspx?Id=" + post.Creador.Id + "'>";

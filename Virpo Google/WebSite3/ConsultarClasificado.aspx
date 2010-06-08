@@ -85,26 +85,20 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 366px" rowspan="2">
+            <td style="width: 354px">
                 
                 <asp:Label ID="Label8" runat="server" CssClass="estiloLabel" 
                     Text="Descripcion:"></asp:Label>
                 
             </td>
-            <td colspan="2" rowspan="2">
+            <td colspan="3">
                 
               <asp:Label ID="lblDescripcion" runat="server">  </asp:Label>
                 
             </td>
-            <td style="text-align: right">
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="text-align: right">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="width: 366px">
+            <td style="width: 354px">
                 <asp:Label ID="Label3" runat="server" Text="Ubicación:" CssClass="estiloLabel"></asp:Label>
             </td>
             <td colspan="2">
@@ -114,7 +108,7 @@
                 &nbsp;</td>
         </tr>
          <tr>
-            <td style="width: 366px">
+            <td style="width: 354px">
                 <asp:Label ID="Label6" runat="server" Text="Rubro:" CssClass="estiloLabel"></asp:Label>
             </td>
             <td style="width: 366px">
@@ -255,7 +249,9 @@
                                                                     <asp:Label ID="Label10" runat="server" CssClass="estiloLabel" Text="Pregunta"></asp:Label>
                                                                 </td>
                                                                 <td>
+                                                                
                                                                     <asp:Label ID="lblPregunta" runat="server"></asp:Label>
+                                                                    
                                                                 </td>
                                                             </tr>
                                                             <tr>
