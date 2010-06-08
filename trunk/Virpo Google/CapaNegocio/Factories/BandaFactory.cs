@@ -138,7 +138,7 @@ namespace CapaNegocio.Factories
         /// </summary>
         /// <param name="musico">objeto Banda</param>
         /// <returns>true si guardó con éxito</returns>
-        public static bool Insertar(Banda banda)
+        public static int Insertar(Banda banda)
         {
             return Insertar(banda, (SqlTransaction)null);
         }
@@ -147,7 +147,7 @@ namespace CapaNegocio.Factories
         /// </summary>
         /// <param name="musico">Objeto Banda</param>
         /// <returns>true si guardó con éxito</returns>
-        public static bool Insertar(Banda banda, SqlTransaction tran)
+        public static int Insertar(Banda banda, SqlTransaction tran)
         {
             try
             {
@@ -164,15 +164,15 @@ namespace CapaNegocio.Factories
                 parametros.Add(BDUtilidades.crearParametro("@fecSistema", DbType.DateTime, banda.FecSistema));
                 parametros.Add(BDUtilidades.crearParametro("@video", DbType.String, banda.Video));
 
-                bool ok = BDUtilidades.ExecuteStoreProcedure("BandaInsertar", parametros, tran);
-                if (ok)
-                    return true;
+                int id = BDUtilidades.ExecuteStoreProcedureWithOutParameter("BandaInsertar", parametros);
+                if (id != 0)
+                    return id;
                 else
-                    return false;
+                    return 0;
             }
             catch (Exception ex)
             {
-                return false;
+                return 0;
             }
         }
         #endregion
