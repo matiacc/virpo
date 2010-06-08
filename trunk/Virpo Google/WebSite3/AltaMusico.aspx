@@ -179,7 +179,7 @@
         <tr>
             <td style="width: 295px">
                 <asp:Button ID="Button2" runat="server" CausesValidation="False" 
-                    CssClass="botones" onclick="Button2_Click" Text="Cancelar" />
+                    CssClass="botones" onclick="Button2_Click" Text="Volver" />
             </td>
             <td style="text-align: right">
                 <asp:Button ID="Button1" runat="server" Text="Registrar" 
