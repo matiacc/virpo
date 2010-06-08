@@ -44,7 +44,7 @@ namespace CapaNegocio.Factories
             if (!string.IsNullOrEmpty(restriccion))
                 query += restriccion;
 
-            query += " order by id desc";
+            query += " order by id";
 
             DataTable dt = BDUtilidades.EjecutarConsulta(query);
             if (dt != null)
