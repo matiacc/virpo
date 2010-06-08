@@ -296,9 +296,9 @@ namespace CapaNegocio.Factories
 
         public static int ActualizarVencidas(DateTime fecha)
         {
-            string FECHA = "'" + fecha.Year + "/" + fecha.Month + "/" + fecha.Day + "'";
-
-            string query = "UPDATE Publicidad SET idEstado = 3, consulta = 'Vencida sin Acuerdo' WHERE idEstado = 2 and fechaFin <= " + FECHA;
+           // string FECHA = "'" + fecha.Year + "/" + fecha.Month + "/" + fecha.Day + "'";
+            string FECHA = fecha.ToShortDateString();
+            string query = "UPDATE Publicidad SET idEstado = 3, consulta = 'Vencida sin Acuerdo' WHERE idEstado = 2 and fechaFin <= '" + FECHA + "'";
             return BDUtilidades.EjecutarNonQuery(query);
         }
         public static Publicidad DevolverAleatoria()
