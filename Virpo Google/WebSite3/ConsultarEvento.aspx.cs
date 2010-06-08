@@ -36,7 +36,10 @@ public partial class _Default : System.Web.UI.Page
         lblNombre.Text = evento.Nombre;
         lblLugar.Text = evento.Lugar;
         lblFecha.Text = Convert.ToString(evento.Fecha.Day)+"/"+Convert.ToString(evento.Fecha.Month)+"/"+Convert.ToString(evento.Fecha.Year);
-        lblHora.Text = Convert.ToString(evento.Hora.Hour) + ":" + Convert.ToString(evento.Hora.Minute);
+        string hora = Convert.ToString(evento.Hora.Minute);
+        if (hora.Length == 1)
+            hora = hora + "0";
+        lblHora.Text = Convert.ToString(evento.Hora.Hour) + ":" + hora;
         char[] delimiterChars = {','};
         string[] ub = evento.Ubicacion.Split(delimiterChars);
         lblPais.Text = ub[2];
