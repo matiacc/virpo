@@ -27,7 +27,10 @@ namespace CapaDatos
         //private static string cadena = @"Data Source=STOPNEGRO\STOPNEGRO;Initial Catalog=VirpoDB;User ID=sa;Password=-+0342590+-";
         //private static string cadena = @"Data Source=STOPNEGRO\STOPNEGRO;Initial Catalog=VirpoDB;Persist Security Info=True;User ID=sa;Password=-+0342590+-";
         //private static string cadena = @"Data Source=.\SQLEXPRESS;AttachDbFilename='C:\Documents and Settings\Mati\Escritorio\Virpo Google\CapaDatos\VirpoDB.mdf';Integrated Security=True;User Instance=True";
-        private static string cadena = @"Data Source=LUCHO_NB\STOPNEGRO;Initial Catalog=VirpoDB;Persist Security Info=True;User ID=sa;Password=-+0342590+-";
+ //Base de testeo
+        private static string cadena = @"Data Source=LUCHO_NB\STOPNEGRO;Initial Catalog=VirpoDB_old_2;Persist Security Info=True;User ID=sa;Password=-+0342590+-";
+ //Base de producción
+        //private static string cadena = @"Data Source=LUCHO_NB\STOPNEGRO;Initial Catalog=VirpoDB;Persist Security Info=True;User ID=sa;Password=-+0342590+-";
      
         public static string Cadena
         {
