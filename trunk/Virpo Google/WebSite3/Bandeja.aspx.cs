@@ -63,7 +63,7 @@ public partial class Bandeja : System.Web.UI.Page
             html += "<td align='center' colspan='2'>Tienes una invitación a una Banda.</td></tr>";
             html += @"<tr><td style='width: 210px'><div style='border: 3px solid rgb(192, 192, 192); position: relative; margin-top: 5px; margin-left: 5px; margin-right: 5px; "
                     + "margin-bottom: 5px; float: left;'><a class='blogHeadline' title='" + xbanda.Nombre
-                    + "' href='ConsultarBanda.aspx?C=" + xbanda.Id + "&P=1'><img src='./ImagenesBandas/" + xbanda.Imagen + "' style='width:200px; height:200px;'/></a>"
+                    + "' href='ConsultarBanda.aspx?C=" + xbanda.Id + "&P=1' target='_blank' type='application/atom+xml'><img src='./ImagenesBandas/" + xbanda.Imagen + "' style='width:200px; height:200px;'/></a>"
                     + "<h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; background-color: black; color: rgb(51, 51, 51);'"
                     + " class='transparent_60'>" + xbanda.Nombre + "</h2><h2 style='padding: 5px; margin-top: 0px; position: absolute; left: 0px; top: 0px; color: white;'"
                     + ">" + xbanda.Nombre + "</h2><div style='padding: 5px; margin-top: 0px; width: 190px; position: absolute; left: 0px; bottom: 0px; background-color: black; color: white;'"
