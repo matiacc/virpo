@@ -197,7 +197,13 @@
             <tr>
                 <td align="right" style="height: 53px">
                     <asp:Button ID="btPublicar" runat="server" CssClass="botones" 
-                        onclick="btPublicar_Click" Text="Publicar" />
+                        Width="95px" onclick="btPublicar_Click" Text="Publicar" />
+                        <br />
+                        <br />
+                        <br />
+                    <asp:Button ID="btnDenunciar" runat="server" CssClass="botones" Text="Denunciar"
+                    Width="95px" onclick="btnDenunciar_Click" />
+                        
                 </td>
             </tr>
         </ContentTemplate>

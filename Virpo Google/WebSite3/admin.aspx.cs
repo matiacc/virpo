@@ -23,7 +23,7 @@ public partial class _Default : System.Web.UI.Page
             {
                 if (Request.QueryString["e"].ToString() == "1") Login1.FailureText = "Debe ser Administrador o Periodista para poder ingresar.";
             }
-            else if (Session["UsuarioAdmin"] != null)
+            else if (Session["Usuario"] != null)
                 Response.Redirect("AdminHome.aspx");
         }
         
@@ -44,7 +44,7 @@ public partial class _Default : System.Web.UI.Page
         
         if ((roles == "Administrador" || roles == "Periodista") && existe != 0)
         {
-            Session["UsuarioAdmin"] = CapaNegocio.Factories.UsuarioFactory.Devolver(Login1.UserName);
+            Session["Usuario"] = CapaNegocio.Factories.UsuarioFactory.Devolver(Login1.UserName);
             e.Authenticated = true;
         }
         else if (roles == "Anónimo") Login1.FailureText = "Debe registrarse para poder ingresar.";
