@@ -22,11 +22,14 @@ public partial class _Default : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             if (Session["Usuario"] == null) Response.Redirect("ErrorAutentificacion.aspx");
+
+            DataTable dt = this.DatosArticulo();
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+            GridView1.Columns[0].Visible=false;
+
         }
 
-        DataTable dt = this.DatosArticulo();
-        GridView1.DataSource = dt;
-        GridView1.DataBind();
         
     }
 
