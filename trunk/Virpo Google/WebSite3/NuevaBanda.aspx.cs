@@ -107,10 +107,11 @@ public partial class _Default : System.Web.UI.Page
             banda.Descripcion = "";
             banda.FecSistema = fecSis;
             banda.Video = txtVideo.Text;
-            if (BandaFactory.Insertar(banda))
+            int id = BandaFactory.Insertar(banda);
+            if (id != 0)
             {
                 mxbanda.IdUsuario = usu.Id;
-                mxbanda.IdBanda = MusicoXBandaFactory.DevolverIdBandaCreada(fecSis);
+                mxbanda.IdBanda = id;
                 mxbanda.Creador = true;
                 mxbanda.FecAgregado = fecSis;
                 if (MusicoXBandaFactory.Insertar(mxbanda))
