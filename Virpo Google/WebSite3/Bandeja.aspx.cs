@@ -69,7 +69,7 @@ public partial class Bandeja : System.Web.UI.Page
                     + ">" + xbanda.Nombre + "</h2><div style='padding: 5px; margin-top: 0px; width: 190px; position: absolute; left: 0px; bottom: 0px; background-color: black; color: white;'"
                     + " class='transparent_60'><a style='text-decoration: none; color: rgb(160, 160, 160);' href='PerfilPublico.aspx?Id=" + bandejas[i].UsrRemitente + "'>Invitado por: " + usrRemitente.NombreUsuario + "</a><br>"
                     + "<b>" + xbanda.PaginaWeb + "</b></div></div>"
-                    + "</td><td style='width: 299px' align='left'>" + usrRemitente.Nombre + " " + usrRemitente.Apellido + " te ha invitado. <br /><br /><br /><br /><br /></td></tr><tr><td align='right' colspan='2'><input type='button' value='Aceptar' onclick='aceptar("
+                    + "</td><td style='width: 299px' align='left'>" + usrRemitente.Nombre + " " + usrRemitente.Apellido + " te ha invitado a formar parte de de la Banda " + xbanda.Nombre + ".<br /><br />Si quieres ser integrante de " + xbanda.Nombre + " hacer click en ''Aceptar'', de lo contrario click en ''Rechazar''.<br /><br /><br /></td></tr><tr><td align='right' colspan='2'><input type='button' value='Aceptar' onclick='aceptar("
                     + bandejas[i].Id + "," + bandejas[i].UsrDestinatario + "," + bandejas[i].IdBanda + ",1)'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<input type='button' value='Rechazar' onclick='rechazar(" + bandejas[i].Id + ",0)'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</td></tr>";
         }
         html += "</table>";
