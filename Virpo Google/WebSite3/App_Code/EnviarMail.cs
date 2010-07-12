@@ -55,7 +55,7 @@ public class EnviarMail
         smtpMail.Credentials = new System.Net.NetworkCredential("virpoweb", "grupotres");
         try
         {
-            smtpMail.Send(mail);
+           //smtpMail.Send(mail);
             return true;
         }
         catch (SmtpException ex)
