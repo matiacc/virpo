@@ -39,17 +39,29 @@
                 <asp:Label ID="lblTipo" runat="server" Font-Size="Medium" 
                     CssClass="estiloLabel"></asp:Label>
             </td>
-            <td>
-                &nbsp;</td>
+            <td rowspan="7" style="text-align: right">
+                            <asp:ImageButton ID="ImageButton1" runat="server" Height="130px" 
+                                onclick="ImageButton1_Click" Width="130px" />
+                            <br />
+               
+                
+            
+            
+        <asp:Label ID="Label8" runat="server" Text="Autor:"></asp:Label>
+               
+                
+            
+            
+                <asp:Label ID="lblAutor" runat="server"></asp:Label>
+                            <br />
+                            <br />
+            </td>
         </tr>
         <tr>
             <td style="width: 107px">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
-            <td style="text-align: right">
-        <asp:Label ID="Label8" runat="server" Text="Autor:"></asp:Label>
-            </td>
         </tr>
         <tr>
             <td style="width: 107px">
@@ -58,18 +70,6 @@
             <td>
                 <asp:Label ID="lblNombre" runat="server" Font-Size="Medium" 
                     CssClass="estiloLabel"></asp:Label>
-            </td>
-            <td rowspan="5" style="text-align: right">
-                            <asp:ImageButton ID="ImageButton1" runat="server" Height="90px" 
-                                onclick="ImageButton1_Click" Width="90px" />
-                            <br />
-               
-                
-            
-            
-                <asp:Label ID="lblAutor" runat="server"></asp:Label>
-                            <br />
-                            <br />
             </td>
         </tr>
         <tr>
@@ -153,8 +153,8 @@
             <td style="width: 107px">
                 &nbsp;</td>
             <td colspan="2" rowspan="3" style="text-align: right">
-                <asp:ImageButton ID="ImageButton2" runat="server" Height="90px" 
-                    ImageUrl="~/ImagenesSite/play.png" Width="90px" 
+                <asp:ImageButton ID="ImageButton2" runat="server" Height="80px" 
+                    ImageUrl="~/ImagenesSite/play.png" Width="80px" 
                     onclick="ImageButton2_Click" />
                 
         <asp:Panel ID="pnlReproductor" runat="server" Height="42px" Visible="False" Width="506px">
