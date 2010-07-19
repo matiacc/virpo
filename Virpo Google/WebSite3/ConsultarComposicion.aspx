@@ -36,7 +36,8 @@
                 <asp:Label ID="Label1" runat="server" Text="Tipo:"></asp:Label>
             </td>
             <td>
-                <asp:Label ID="lblTipo" runat="server" Font-Size="Medium"></asp:Label>
+                <asp:Label ID="lblTipo" runat="server" Font-Size="Medium" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
             <td>
                 &nbsp;</td>
@@ -55,11 +56,12 @@
                 <asp:Label ID="Label2" runat="server" Text="Nombre:"></asp:Label>
             </td>
             <td>
-                <asp:Label ID="lblNombre" runat="server" Font-Size="Medium"></asp:Label>
+                <asp:Label ID="lblNombre" runat="server" Font-Size="Medium" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
             <td rowspan="5" style="text-align: right">
-                            <asp:ImageButton ID="ImageButton1" runat="server" Height="54px" 
-                                onclick="ImageButton1_Click" Width="54px" />
+                            <asp:ImageButton ID="ImageButton1" runat="server" Height="90px" 
+                                onclick="ImageButton1_Click" Width="90px" />
                             <br />
                
                 
@@ -81,7 +83,8 @@
                 <asp:Label ID="Label3" runat="server" Text="Tempo:"></asp:Label>
             </td>
             <td>
-                <asp:Label ID="lblTempo" runat="server" Font-Size="Medium"></asp:Label>
+                <asp:Label ID="lblTempo" runat="server" Font-Size="Medium" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -95,7 +98,8 @@
                 <asp:Label ID="Label4" runat="server" Text="Tonalidad:"></asp:Label>
             </td>
             <td style="height: 23px">
-                <asp:Label ID="lblTonalidad" runat="server" Font-Size="Medium"></asp:Label>
+                <asp:Label ID="lblTonalidad" runat="server" Font-Size="Medium" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -109,13 +113,11 @@
                 <asp:Label ID="Label5" runat="server" Text="Instrumento:"></asp:Label>
             </td>
             <td>
-                <asp:Label ID="lblInstrumento" runat="server" Font-Size="Medium"></asp:Label>
+                <asp:Label ID="lblInstrumento" runat="server" Font-Size="Medium" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
             <td rowspan="5" style="text-align: right">
-                <asp:ImageButton ID="ImageButton2" runat="server" Height="74px" 
-                    ImageUrl="~/ImagenesSite/play.png" Width="79px" 
-                    onclick="ImageButton2_Click" />
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 107px">
@@ -128,7 +130,8 @@
                 <asp:Label ID="Label6" runat="server" Text="Descripción:"></asp:Label>
             </td>
             <td>
-                <asp:Label ID="lblDescripcion" runat="server" Font-Size="Medium"></asp:Label>
+                <asp:Label ID="lblDescripcion" runat="server" Font-Size="Medium" 
+                    CssClass="estiloLabel"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -149,19 +152,10 @@
         <tr>
             <td style="width: 107px">
                 &nbsp;</td>
-            <td colspan="2">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="width: 107px">
-                <a id="aVolver" runat="server">Volver</a></td>
-            <td colspan="2">
-                </td>
-        </tr>
-        <tr>
-            <td style="width: 107px">
-                &nbsp;</td>
-            <td colspan="2">
+            <td colspan="2" rowspan="3" style="text-align: right">
+                <asp:ImageButton ID="ImageButton2" runat="server" Height="90px" 
+                    ImageUrl="~/ImagenesSite/play.png" Width="90px" 
+                    onclick="ImageButton2_Click" />
                 
         <asp:Panel ID="pnlReproductor" runat="server" Height="42px" Visible="False" Width="506px">
                     <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
@@ -187,6 +181,14 @@
                 
                 
                 </td>
+        </tr>
+        <tr>
+            <td style="width: 107px">
+                <a id="aVolver" runat="server">Volver</a></td>
+        </tr>
+        <tr>
+            <td style="width: 107px">
+                &nbsp;</td>
         </tr>
         </table>
 </asp:Content>
