@@ -118,7 +118,7 @@
                     <center>
                         La invitación fue enviada con éxito.
                         <br />
-                        Desea enviar otra?</center>
+                        ¿Desea enviar otra?</center>
                     <br />
                     <br />
                     <center>
